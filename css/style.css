@@ -1,0 +1,593 @@
+@font-face {
+    font-family: 'PPNeueMontreal';
+    src: url('font/OTF/book/PPNeueMontreal-Book.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+/*
+@font-face {
+    font-family: 'PPNeueMontreal';
+    src: url('font/OTF/italic/PPNeueMontreal-Italic.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'BrHendrix';
+    src: url('/fonts/br-hendrix/BRHendrix-Regular-BF6556d1b5096f9.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*colors I like 
+color: rgb(161, 154, 152);
+color: rgb(90, 87, 87);
+
+em {
+    font-style: italic;  
+}*/
+
+body, HTML {
+    height: 100%; 
+    margin: 0;
+    padding: 0; 
+    background-color: rgb(237, 237, 237);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    font-family: 'BRHendrix', sans-serif; /* Removed '-Regular' */
+    font-size: .9rem;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: #11295c;
+    cursor:pointer;
+}
+
+
+/*
+#line {
+    position: fixed;
+    top: 10px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: rgba(133, 123, 116, 0.48);
+    z-index: 100000;
+}
+
+
+
+#custom-scrollbar {
+    position: fixed;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: rgba(86, 73, 63, 0.48);
+    z-index: 1001;
+}
+
+#scroll-indicator {
+    position: absolute;
+    top:5px;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(56, 24, 16, 0.917);
+    border-radius: 50%;
+    left: -4px;
+}
+*/
+#snowfall {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1000
+}
+
+.snowflake {
+    position: absolute;
+    top: -10px;
+    background-color: rgb(120, 120, 120);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+/*
+.cursor-circle {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(183, 167, 163, 0.644) 0%, rgba(255, 255, 255, 0) 20%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+*/
+
+#name {
+    z-index: 1000;
+    position: absolute;
+    top: 30px;
+    left: 50px;
+    font-size: 1.25rem;
+    color: black;
+    transition: color 1s ease;
+    pointer-events: all;
+   /* font-family: Georgia, 'Times New Roman', Times, serif;*/
+}
+
+
+#name:hover {
+    color: rgb(185, 185, 185);
+}
+
+nav {
+    z-index: 1000;
+    position: absolute;
+    top:22px;
+    left:50vw;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: row;
+    width:auto;
+}
+
+nav a {
+    color:black;
+    transition: color .2s ease;
+    margin: 2px 10px;
+}
+
+nav a:hover {
+    color: rgb(185, 185, 185);
+}
+
+nav a.active {
+    /*color: #969696;*/
+    color:rgb(185, 185, 185);
+}
+
+
+@media (max-width: 768px) { /* Target mobile devices */
+    nav {
+        position: fixed; /* Keep nav at the top */
+        top: 60px; /* Align nav with top */
+        max-height:40px;
+        left:40px;
+        width: 100%; /* Account for padding and space needed alongside #name */
+        padding:0 ; /* Padding to maintain height */
+        flex-direction: row; /* Align links horizontally */
+        justify-content: center; /* Ensure links align left, or use space-around/space-between if needed */
+        box-sizing: border-box;
+    }
+
+    nav a {
+        flex: none; /* Fix width to content */
+        margin: 0 0; /* Horizontal spacing between links */
+        padding: 10px 7px;
+        text-decoration: underline .25px;
+    }
+    #name{
+        left:25px;
+    }
+}
+
+section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    border-bottom: 1px dotted rgba(108, 99, 93, 0.17);
+    text-align: left;
+}
+
+
+h1 {
+    position: absolute;
+    top:2rem;
+    left:50vw;
+    cursor: default;
+    margin: 0;
+    padding: 0;
+    text-align:left;
+    width:100%;
+    font-weight: normal;
+    color:rgb(203, 203, 203);
+    transition: color .5s ease;
+}
+
+@media (max-width: 768px) {
+    section {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center contents horizontally */
+        padding-top: 20px; /* Adjust padding for spacing from the top */
+    }
+
+    h1 {
+        font-size: 1rem; /* Enhance font size for mobile readability */
+        margin: 0;
+        padding: 0;
+        top:2rem;
+        left:2rem;
+        color:rgb(203, 203, 203);
+        text-align: left; /* Ensure text alignment is centered */
+        width: 100%; /* Optional: Adjust width for better layout */
+    }
+}
+
+.content {
+    width:60%;
+    left:40vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+@media (max-width: 768px) {
+    .content{ 
+        padding: 0 1rem;
+        margin-bottom:8rem;
+    } 
+}
+ 
+.item {
+    padding: 10px;
+    max-width: 100%;
+    height: auto;
+}
+
+/*INTRODUCTION and CURRENT CONTENT*/
+
+.currentcontent{
+    width: 100%;
+    display:block;
+}
+
+.intro{
+   display:block;
+    width:100%;
+    top:60%;
+}
+.intro h3{
+    font-weight: normal;
+    font-size:2rem;
+}
+
+.currentGal{
+    margin-top:8rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width:100%;
+    justify-items: space-between;
+}
+.currentGal h2{
+    font-weight: normal;
+}
+
+.currentGalItem{
+    width:100px;
+    height:100px;
+    background-color:blue;
+}
+
+
+
+/*WORK*/
+
+/*
+#work{
+    background-color: black;
+}*/
+
+.workcontent {
+   /* background-color: black;*/
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem 1rem;
+}
+
+
+
+.projectgallery1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+   /* background-color: black;*/
+    width: 100%;
+    margin-top:4rem;
+}
+
+
+.projectgallery2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+   /* background-color: black;*/
+    width: 100%;
+    margin-top:2rem;
+}
+
+.projectType {
+    position: relative; /* Default position */
+    font-size: 1.25rem;
+    color: black;
+    text-align: right;
+    width: 100%;
+    transition: opacity 0.3s ease;
+    margin-top:5rem;
+    margin-bottom:0;
+    margin-right:2rem;
+    font-weight: normal;
+}
+
+.projectitem {
+    flex: 1 1 100px;
+    max-width: 100px;;
+    /*background-color: #ffffff;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    margin:3rem 1rem;
+    border:1px dashed rgba(255, 255, 255, 0.37);
+}
+
+img{
+    width:100%;
+    height:auto;
+}
+.workImg {
+    cursor: pointer;
+    flex: 0 0 90px; /* Ensures its height will be 150px */
+    padding: 3px;
+    /*background-color: black; /* Temporary background */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: calc(100% - 6px); /* Account for padding */
+    margin-bottom: .1rem;
+    margin-top: 0;
+    transition: filter .5s ease-in-out; /* Smooth transition for the blur effect */
+    filter: blur(0px); /* Adjust the blur amount as needed */
+    filter:saturate(.4);
+    filter:brightness(.9);
+}
+
+.workImg:hover{
+    cursor: pointer;
+    filter:saturate(.9);
+    filter:brightness(1);
+    
+}
+
+.workDescription {
+    padding: 0px; /* General padding for consistency */
+    line-height: 12px; /* Adjust line height for less spacing between lines */
+}
+
+.workDescription h3, .workDescription p .workDescrption h5 {
+    padding: 0; /* Reduce padding if necessary */
+    font-weight: normal;
+}
+.workDescription h3{
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.521);
+    transition: color .3s ease;
+}
+
+.workDescription h3:hover{
+    color: #b2b2b2;
+}
+
+.workDescription h5,.workDescription p {
+    color:#b2b2b2;
+    font-weight:normal
+}
+
+@media (max-width: 768px) {
+    
+    .workcontent{
+        padding: 5rem 1rem;
+        width: 100%;
+    }
+    .projectgallery {
+        margin-top:5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column; /* Ensures items stack vertically */
+    }
+
+    .projectitem {
+        flex: 1 1 400px; /* Allow auto-width based on available space */
+        width: auto; /* Occupy full width within the gallery */
+        height:500px;
+        max-width: none; /* Remove any max-width constraints */
+        margin: 0 0; /* Top and bottom margin for spacing */
+        padding: 0 0; /* Padding on the sides to avoid direct edge collision */
+        box-sizing: border-box; /* Ensure padding is included in the total width calculation */
+        justify-content: center;
+    }
+
+    .workImg {
+        width: 400px; /* Allow image to take full width of the container */
+        padding: 0; /* Margin can create unwanted layout issues */
+        flex: 0 0 400px; /* Ensures its height will be 150px */
+        margin-top:0;
+    }
+
+
+}
+
+/* Additional adjustments for tighter layout if needed */
+
+
+/*ABOUT*/
+
+.aboutcontent {
+   /* margin-left:5vw;
+    margin-right:2vw;*/
+    margin-top:5rem;
+    width:80%;
+    display: flex;
+    flex-direction: row;
+    align-items:flex-start;
+    justify-items:flex-start;
+    box-sizing: border-box;
+    line-height: 1.5rem;
+    font-size: .9rem;
+}
+
+.aboutpic {
+    width: 300px;
+    /* You might not need this, but it ensures no overflow */
+    margin-right:5rem;
+    margin-top:1.2rem;
+}
+
+
+.aboutpic img {
+    width: 250px; /* Fixed width */
+    height: auto; /* This maintains the aspect ratio */
+    display: block; /* Removes any extra space below the image */
+}
+
+
+
+@media (max-width: 768px) {
+    .aboutcontent {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: center; /* Center contents horizontally */
+        text-align: left; /* Center text within the container */
+        font-size: 1rem;
+    }
+
+    .aboutpic {
+        margin-top:6rem;
+        width: 100%;
+        margin-right: 0; /* Remove right margin when stacked vertically */
+        display: flex;
+        justify-content: center; /* Center the image inside */
+    }
+
+    .aboutpic img {
+        width: auto; /* Adjust width automatically based on the container */
+        max-width: 90%; /* Ensure it does not overflow container width */
+        height: auto; /* Maintain the aspect ratio */
+        margin-bottom: 2.5rem;
+    }
+}
+
+/*contact*/
+
+#contact{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left:10rem;
+    width:40%
+}
+
+.contactcontent{
+    margin-top:20rem;
+    display:flex;
+    flex-direction: row;
+}
+
+.contactcontent a{
+    color: rgb(0, 0, 0);
+    margin:1rem;
+    transition: color .6s ease;
+}
+
+.contactcontent a:hover{
+    color: rgb(195, 195, 195);
+}
+
+.contactcontent .based{
+    margin:4rem 4rem;
+}
+
+/*ON MY MIND PAGE*/
+
+.mindcontent{
+    width:60%;
+    left:40vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.inspo-list {
+    list-style: none;
+    padding: 0;
+}
+
+.inspo-list li {
+    position: relative;
+    margin: 5px 0;
+    cursor: default;
+   /* color:rgb(161, 154, 152);*/
+    color:rgb(90, 87, 87);
+    transition: color .3s ease;
+}
+.inspo-list li:hover{
+    color: rgb(0, 0, 0);
+}
+
+.tooltip {
+    visibility: hidden;
+    width: auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position above the list item */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip img {
+    max-width: 150px;
+    height: auto;
+}
+
+.inspo-list li:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+.inspo-list li{
+    margin:15px;
+}
