@@ -1,6 +1,13 @@
 @font-face {
-    font-family: 'PPNeueMontreal';
-    src: url('font/OTF/book/PPNeueMontreal-Book.otf') format('opentype');
+    font-family: 'PPNeueMontrealThin';
+    src: url('../font/OTF/PPNeueMontreal-Thin.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PPNeueMontrealBook';
+    src: url('../font/OTF/PPNeueMontreal-Book.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
@@ -34,9 +41,28 @@ body, HTML {
     background-color: rgb(237, 237, 237);
     overflow-y: scroll;
     overflow-x: hidden;
-    font-family: 'BRHendrix', sans-serif; /* Removed '-Regular' */
+    /*font-family: 'BRHendrix', sans-serif; */
+    font-family:'PPNeueMontrealThin', 'Times New Roman', Times, serif;
     font-size: .9rem;
     scroll-behavior: smooth;
+}
+
+#back {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:100%; /* Full viewport height, adjust as needed */
+    z-index: 1; /* Place behind all other content */
+    opacity: .9;
+}
+
+/* Ensure the image fills the container */
+#back img {
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* Ensures the image covers the area without distortion */
+    display: block; /* Removes extra space below the image */
 }
 
 a {
@@ -46,143 +72,86 @@ a {
 }
 
 
-/*
-#line {
-    position: fixed;
-    top: 10px;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background-color: rgba(133, 123, 116, 0.48);
-    z-index: 100000;
-}
-
-
-
-#custom-scrollbar {
-    position: fixed;
-    left: 10px;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background-color: rgba(86, 73, 63, 0.48);
-    z-index: 1001;
-}
-
-#scroll-indicator {
-    position: absolute;
-    top:5px;
-    width: 10px;
-    height: 10px;
-    background-color: rgba(56, 24, 16, 0.917);
-    border-radius: 50%;
-    left: -4px;
-}
-*/
-#snowfall {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 1000
-}
-
-.snowflake {
-    position: absolute;
-    top: -10px;
-    background-color: rgb(120, 120, 120);
-    border-radius: 50%;
-    pointer-events: none;
-}
-
-@keyframes fall {
-    to {
-        transform: translateY(100vh);
-        opacity: 0;
-    }
-}
-
-/*
-.cursor-circle {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(183, 167, 163, 0.644) 0%, rgba(255, 255, 255, 0) 20%);
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-}
-*/
 
 #name {
     z-index: 1000;
     position: absolute;
-    top: 30px;
-    left: 50px;
-    font-size: 1.25rem;
-    color: black;
+    top: 50px;
+    left: 6%;
+    font-size: 1.75rem;
+    font-family:'PPNeueMontrealThin', 'Times New Roman', Times, serif;
+   /* color: black;*/
+   color:rgb(112, 118, 85);
     transition: color 1s ease;
     pointer-events: all;
+   /* background-color:rgb(110, 110, 90);*/
+  /* background-color: #9c967dc8;*/
+    padding:.1rem;
+    border-radius: 2px;
    /* font-family: Georgia, 'Times New Roman', Times, serif;*/
 }
 
 
 #name:hover {
-    color: rgb(185, 185, 185);
+    color:rgb(164, 171, 128);
 }
 
 nav {
     z-index: 1000;
     position: absolute;
-    top:22px;
-    left:50vw;
-    padding: 10px 0;
+    top:50px;
+    left:40vw;
+    padding: 0 0;
     display: flex;
     flex-direction: row;
     width:auto;
 }
 
 nav a {
-    color:black;
-    transition: color .2s ease;
+    color: rgb(164, 164, 164);
+    text-decoration: none;
+    transition: all .5s ease;
     margin: 2px 10px;
+    padding:.25rem;
+    background-color:rgba(255, 255, 255, 0.683);
+    border-radius: 2px;
 }
 
 nav a:hover {
-    color: rgb(185, 185, 185);
+    color:rgb(83, 83, 83);
+    background-color:rgba(229, 229, 229, 0.663);
 }
 
 nav a.active {
     /*color: #969696;*/
-    color:rgb(185, 185, 185);
+    color:rgb(83, 83, 83);
+    background-color:rgba(229, 229, 229, 0.663);
+    
 }
 
 
 @media (max-width: 768px) { /* Target mobile devices */
     nav {
-        position: fixed; /* Keep nav at the top */
-        top: 60px; /* Align nav with top */
+        position: fixed; 
         max-height:40px;
-        left:40px;
-        width: 100%; /* Account for padding and space needed alongside #name */
-        padding:0 ; /* Padding to maintain height */
-        flex-direction: row; /* Align links horizontally */
-        justify-content: center; /* Ensure links align left, or use space-around/space-between if needed */
+        left:80vw;
+        top:10vh;
+        margin: 0;
+        flex-direction: column; 
+        justify-content: center; 
         box-sizing: border-box;
     }
-
-    nav a {
-        flex: none; /* Fix width to content */
-        margin: 0 0; /* Horizontal spacing between links */
-        padding: 10px 7px;
-        text-decoration: underline .25px;
+    nav a{
+        margin: 10px 5px;
+        background-color:rgba(255, 255, 255, 0.869);
+    }
+    nav a.active {
+        background-color:rgba(229, 229, 229, 0.933);
+        
     }
     #name{
         left:25px;
+        top:30px;
     }
 }
 
@@ -234,21 +203,6 @@ h1 {
         width: 100%; /* Optional: Adjust width for better layout */
     }
 }
-
-.content {
-    width:60%;
-    left:40vw;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-@media (max-width: 768px) {
-    .content{ 
-        padding: 0 1rem;
-        margin-bottom:8rem;
-    } 
-}
  
 .item {
     padding: 10px;
@@ -257,40 +211,30 @@ h1 {
 }
 
 /*INTRODUCTION and CURRENT CONTENT*/
-
-.currentcontent{
-    width: 100%;
-    display:block;
-}
-
 .intro{
-   display:block;
-    width:100%;
-    top:60%;
+    z-index:2;
+    width: 700px;
+    left:2rem;
+    margin-top:10rem;
 }
+
 .intro h3{
     font-weight: normal;
-    font-size:2rem;
+    font-size:1.5rem;
+    /*color:rgb(115, 115, 115);*/
+    color:rgb(39, 39, 39);
 }
 
-.currentGal{
-    margin-top:8rem;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width:100%;
-    justify-items: space-between;
-}
-.currentGal h2{
-    font-weight: normal;
-}
 
-.currentGalItem{
-    width:100px;
-    height:100px;
-    background-color:blue;
-}
+@media (max-width: 768px) {
+    .intro{
+        width:90%;
+    }
 
+    .intro h3{
+       font-size:1.25rem;
+    }
+}
 
 
 /*WORK*/
@@ -309,16 +253,16 @@ h1 {
     padding: 1rem 1rem;
 }
 
-
-
+  
+ 
 .projectgallery1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 1rem 2rem;
    /* background-color: black;*/
     width: 100%;
-    margin-top:4rem;
+    margin-top:2rem;
 }
 
 
@@ -335,7 +279,7 @@ h1 {
 .projectType {
     position: relative; /* Default position */
     font-size: 1.25rem;
-    color: black;
+    color:rgb(151, 151, 151);
     text-align: right;
     width: 100%;
     transition: opacity 0.3s ease;
@@ -387,7 +331,7 @@ img{
 
 .workDescription {
     padding: 0px; /* General padding for consistency */
-    line-height: 12px; /* Adjust line height for less spacing between lines */
+    line-height: 18px; /* Adjust line height for less spacing between lines */
 }
 
 .workDescription h3, .workDescription p .workDescrption h5 {
@@ -412,11 +356,11 @@ img{
 @media (max-width: 768px) {
     
     .workcontent{
-        padding: 5rem 1rem;
+        padding: 0rem 1rem;
         width: 100%;
     }
     .projectgallery {
-        margin-top:5rem;
+        margin-top:0rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -441,6 +385,19 @@ img{
         margin-top:0;
     }
 
+    .projectType{
+        position: relative; /* Default position */
+    font-size: 1.25rem;
+    color:rgb(151, 151, 151);
+    text-align: center;
+    width: 100%;
+    margin-top:10rem;
+    margin-bottom:0;
+    margin-right:0;
+    font-weight: normal;
+
+    }
+
 
 }
 
@@ -453,14 +410,14 @@ img{
    /* margin-left:5vw;
     margin-right:2vw;*/
     margin-top:5rem;
-    width:80%;
+    width:60%;
     display: flex;
     flex-direction: row;
     align-items:flex-start;
     justify-items:flex-start;
     box-sizing: border-box;
     line-height: 1.5rem;
-    font-size: .9rem;
+    font-size: 1rem;
 }
 
 .aboutpic {
@@ -520,74 +477,111 @@ img{
     margin-top:20rem;
     display:flex;
     flex-direction: row;
+    width:100%;
 }
 
 .contactcontent a{
-    color: rgb(0, 0, 0);
+    color:rgb(84, 94, 31);
     margin:1rem;
     transition: color .6s ease;
+    text-decoration: .5px underline;
 }
 
 .contactcontent a:hover{
-    color: rgb(195, 195, 195);
+    color:rgb(164, 171, 128);
 }
 
 .contactcontent .based{
     margin:4rem 4rem;
 }
 
-/*ON MY MIND PAGE*/
-
-.mindcontent{
-    width:60%;
-    left:40vw;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+@media (max-width: 768px) {
+    .contactcontent{
+        margin-top:5rem;
+        display:flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width:100%;
+    }
+    #contact{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left:2rem;
+        width:40%
+    }
 }
 
-.inspo-list {
-    list-style: none;
-    padding: 0;
+/*Project Modal */
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.681);
+    z-index: 2000;
 }
 
-.inspo-list li {
-    position: relative;
-    margin: 5px 0;
-    cursor: default;
-   /* color:rgb(161, 154, 152);*/
-    color:rgb(90, 87, 87);
-    transition: color .3s ease;
-}
-.inspo-list li:hover{
-    color: rgb(0, 0, 0);
-}
-
-.tooltip {
-    visibility: hidden;
-    width: auto;
+.modal-content {
+    position: relative; /* Works with GSAP's y transform */
     background-color: #fff;
-    border: 1px solid #ccc;
-    text-align: center;
-    padding: 5px;
+    margin: 5% auto;
+    padding: 20px;
+    width: 60%;
+    max-width: 1000px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-body {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.close {
     position: absolute;
-    z-index: 1;
-    bottom: 125%; /* Position above the list item */
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    transition: opacity 0.3s;
+    top: 10px;
+    right: 20px;
+    font-size: 2rem;
+    color: #696969;
+    cursor: pointer;
+    transition: color 0.3s ease;
 }
 
-.tooltip img {
-    max-width: 150px;
-    height: auto;
+.close:hover {
+    color: #963737; /* Red on hover for visibility */
 }
 
-.inspo-list li:hover .tooltip {
-    visibility: visible;
-    opacity: 1;
+/* Optional: Style the project content inside the modal */
+#project-content h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: rgb(39, 39, 39);
 }
-.inspo-list li{
-    margin:15px;
+
+#project-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    color: rgb(39, 39, 39);
 }
+
+
+/*FOOTER*/
+/* FOOTER */
+footer {
+    font-size: 1rem;
+    width: 100%;
+    display: flex;
+    height:8rem;
+    flex-direction: column; /* Fixed typo: "column" not "colu,m" */
+    align-items: center; /* Centers children (e.g., text) horizontally in column mode */
+    justify-content: center; /* Centers children vertically in column mode */
+    background: #e8e8e8; /* Optional: from your earlier example */
+    padding: 1rem; /* Optional: adds some breathing room */
+  }

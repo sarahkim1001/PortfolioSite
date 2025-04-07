@@ -8,61 +8,44 @@
 </head>
 <body>
 <!--HTML-->
-
-<a id="name" href="#intro">Seiyeun Kim</a>
 <!--
-<div id="line"></div>
- 
-<div id="custom-scrollbar">
-    <div id="scroll-indicator"></div>
+<div id="back">
+    <img src="./img/back3.png">
 </div>-->
 
-<div id="snowfall"></div>
+<a id="name" href="#intro">Sarah S. Kim</a>
 
 <nav>
-      <!-- <a href="#intro" class="nav-link">Intro</a>-->
     <a href="#current" class="nav-link">Current</a>
     <a href="#work" class="nav-link">Archive</a>
     <a href="#about" class="nav-link">Biography</a>
     <a href="#contact" class="nav-link">Contact</a>
-  <!--  <a href="#mind" class="nav-link">Reading</a>-->
 </nav>
 
-<section id="current"> 
-   <!-- <h1>at a glance</h1>-->
-    <div class="currentcontent">
-        <div class="intro">
-            <h3 >
-                    Seiyeun Kim is an experiential designer, media artist, and humanitarian shaping the aesthetics of human-technology interaction. She explores human consciousness through works that experiment with the body and mind through sound, sight, and movement. She is currently pursuing a B.S. In Integrated Design in Media with a minor in Media, Culture, and Communication at New York University. 
-             </h3>
-         </div>
-        <div class="currentGal ">
-             <h2>
-                    Current
-            </h2>
-            <div class="currentGalItem">
-                <p>bob</p>
-            </div>
-
-            <div class="currentGalItem">
-                <p>bob</p>
-            </div>
-
-            <div class="currentGalItem">
-                <p>bob</p>
-            </div>
+<!-- Modal Structure -->
+<div id="project-modal" class="modal">
+    <div class="modal-content">
+        <span id="modal-close" class="close">&times;</span>
+        <div id="modal-body" class="modal-body">
+            <!-- Empty div for dynamic content -->
+            <div id="project-content"></div>
         </div>
+    </div>
+</div> 
+
+<section id="current"> 
+    <div class="intro">
+        <h3>
+            Sarah Seiyuen Kim is an experience designer and multimedia artist shaping the aesthetics of human-machine interaction. Through new media technologies and critical research methods, she explores time, memory, and cultural identity from perspectives of the current civilizational moment. Pursuing a B.S. in Integrated Design and Media at NYU Tandon (May 2025), she blends sound, image, touch, and computation to craft sensory narratives. Her work, rooted in storytelling, reimagines collective presence and challenges colonial legacies. Inspired by phantasmagoria and natural patterns, she is also a cellist, composer, writer, and visionary enchanted by existence. 
+         </h3>
     </div>
 </section>
 
-
 <section id="work">
-   <!--  <h1>finding form</h1>-->
     <div class="workcontent">
-        
         <div class="projectgallery1">
             <h2 class="projectType">Projects</h2>
-            <div class="projectitem" onclick="redirectToProject('./projects/heart/index.html')">
+            <div class="projectitem" onclick="showProjectModal('inBetween')">
                 <div class="workImg">
                     <img src="./img/veins.jpg"> 
                 </div>
@@ -72,8 +55,19 @@
                     <h5>December 19th, 2024</h5>
                 </div>
             </div>
+
+            <div class="projectitem" onclick="showProjectModal('stillLife')">
+                <div class="workImg">
+                    <img src="./img/me.jpg"> 
+                </div>
+                <div class="workDescription">
+                    <h3>Still Life</h3>
+                    <p>Sound Circuit </p>
+                    <h5>December 05th, 2024</h5>
+                </div>
+            </div>
            
-            <div class="projectitem" onclick="redirectToProject('./projects/heart/index.html')">
+            <div class="projectitem" onclick="showProjectModal('theVeil')">
                 <div class="workImg">
                     <img src="./img/me.jpg"> 
                 </div>
@@ -84,8 +78,7 @@
                 </div>
             </div>
 
-
-            <div class="projectitem" onclick="redirectToProject('./projects/heart/index.html')">
+            <div class="projectitem" onclick="showProjectModal('omnipresentHeart')">
                 <div class="workImg">
                     <img src="./img/steth_live_sig.png"> 
                 </div>
@@ -96,360 +89,161 @@
                 </div>
             </div>
 
-            <div class="projectitem" onclick="redirectToProject('./projects/heart/index.html')">
+            <!-- Add more projects as needed with unique IDs -->
+        </div>
+
+        <div class="projectgallery2">
+            <h2 class="projectType">Series</h2>
+            <div class="projectitem" onclick="showProjectModal('materialSignatures')">
                 <div class="workImg">
-                    <img src="./img/plated.jpg"> 
+                    <img src="./img/unfree.jpg"> 
                 </div>
                 <div class="workDescription">
-                    <h3>Still Life</h3>
-                    <p>Material resonance, feedbacking</p>
-                    <h5>December 9th, 2024</h5>
+                    <h3>Material Signatures</h3>
+                    <p>Time</p>
                 </div>
             </div>
-
-            <div class="projectitem" onclick="redirectToProject('./projects/heart/index.html')">
-                <div class="workImg">
-                    <img src="./img/spooky.png"> 
-                </div>
-                <div class="workDescription">
-                    <h3>Coney Island Psychoculture</h3>
-                    <p>Historical, handcrafted zine</p>
-                    <h5>July 20th, 2024</h5>
-                </div>
-            </div>
-
-            <div class="projectitem" onclick="redirectToProject('./projects/heart/index.html')">
-                <div class="workImg">
-                    <img src="./img/propaganda_flip.png"> 
-                </div>
-                <div class="workDescription">
-                    <h3>A Propaganda Project</h3>
-                    <p>Web Development</p>
-                    <h5>May 4th 2024</h5>
-                </div>
-            </div>
-
-            <div class="projectitem" onclick="redirectToProject('./projects/heart/index.html')">
-                <div class="workImg">
-                    <img src="./img/metamorph.png"> 
-                </div>
-                <div class="workDescription">
-                    <h3>Metamorph</h3>
-                    <p>Text-based game in Twine</p>
-                    <h5>May 2nd 2024</h5>
-                </div>
-            </div>
-
-            <div class="projectitem" onclick="redirectToProject('./projects/heart/index.html')">
-                <div class="workImg">
-                    <img src="./img/gaudi/treeDark.png"> 
-                </div>
-                <div class="workDescription">
-                    <h3>My Vanity Tree</h3>
-                    <p>Functional sculpture</p>
-                    <h5>March 19th, 2023</h5>
-                </div>
-            </div>
-
-            <div class="projectitem" onclick="redirectToProject('./projects/heart/index.html')">
-                <div class="workImg">
-                    <img src=""> 
-                </div>
-                <div class="workDescription">
-                    <h3>Walls Evolve</h3>
-                    <p>Documenting my room's walls</p>
-                    <h5>December 19th, 2024</h5>
-                </div>
-            </div>
-
-
-            <div class="projectitem" onclick="redirectToProject('./projects/heart/index.html')">
-                <div class="workImg">
-                    <img src="./img/dualities.png"> 
-                </div>
-                <div class="workDescription">
-                    <h3>Split</h3>
-                    <p>Interactive P5.js Sketch.</p>
-                    <h5>December 19th, 2024</h5>
-                </div>
-            </div>
-
-    </div>
-
-
-
-
-
-            <div class="projectgallery2">
-                <h2 class="projectType">Series</h2>
-                
-                <div class="projectitem" onclick="redirectToProject('./projects/heart/index.html')">
-                    <div class="workImg">
-                        <img src="./img/unfree.jpg"> 
-                    </div>
-                    <div class="workDescription">
-                        <h3>Material Signatures</h3>
-                        <p>Time</p>
-                    </div>
-                </div>
-
-                <div class="projectitem" onclick="redirectToProject('./projects/heart/index.html')">
-                    <div class="workImg">
-                        <img src="./img/criatura.jpg"> 
-                    </div>
-                    <div class="workDescription">
-                        <h3>whispers of the wind</h3>
-                        <p>Sound</p>
-                    </div>
-                </div>
-
-                <div class="projectitem" onclick="redirectToProject('./projects/heart/index.html')">
-                    <div class="workImg">
-                        <img src="./img/copperInverted.png"> 
-                    </div>
-                    <div class="workDescription">
-                        <h3>The Rythm of Noise</h3>
-                        <p>Sound</p>
-                    </div>
-                </div>
-
-               
-                <div class="projectitem" onclick="redirectToProject('./projects/heart/index.html')">
-                    <div class="workImg">
-                        <img src="./img/unfree.jpg"> 
-                    </div>
-                    <div class="workDescription">
-                        <h3>negative space</h3>
-                        <p>MultiMedia</p>
-                    </div>
-                </div>
-
-                <div class="projectitem" onclick="redirectToProject('./projects/heart/index.html')">
-                    <div class="workImg">
-                        <img src="./img/invert.png"> 
-                    </div>
-                    <div class="workDescription">
-                        <h3>self portraits</h3>
-                        <p>Mixed media</p>
-                    </div>
-                </div>
-
-                <div class="projectitem" onclick="redirectToProject('./projects/heart/index.html')">
-                    <div class="workImg">
-                        <img src="./img/maxime.jpg"> 
-                    </div>
-                    <div class="workDescription">
-                        <h3>People I Love</h3>
-                        <p>Photography</p>
-                    </div>
-                </div>
-
-
-                <div class="projectitem" onclick="redirectToProject('./projects/heart/index.html')">
-                    <div class="workImg">
-                        <img src="./img/rabbits.JPG"> 
-                    </div>
-                    <div class="workDescription">
-                        <h3>Channel Me</h3>
-                        <p>Photography</p>
-                    </div>
-                </div>
-
-                <div class="projectitem" onclick="redirectToProject('./projects/heart/index.html')">
-                    <div class="workImg">
-                        <img src="./img/florence.jpg"> 
-                    </div>
-                    <div class="workDescription">
-                        <h3>True Illusion</h3>
-                        <p>Documenting Visitations</p>
-                    </div>
-                </div>
-
-                <div class="projectitem" onclick="redirectToProject('./projects/heart/index.html')">
-                    <div class="workImg">
-                        <img src="./img/lovers.jpg"> 
-                    </div>
-                    <div class="workDescription">
-                        <h3>Deadly Lovers</h3>
-                        <p>Photography</p>
-                    </div>
-                </div>
-
-                <div class="projectitem" onclick="redirectToProject('./projects/heart/index.html')">
-                    <div class="workImg">
-                        <img src="./img/v.jpg"> 
-                    </div>
-                    <div class="workDescription">
-                        <h3>Passengers</h3>
-                        <p>Photography</p>
-                    </div>
-                </div>
-
-            </div>
-
-            
+            <!-- Add more series as needed -->
+        </div>
     </div>
 </section>
 
 <section id="about">
-    <!-- <h1>: origin</h1>-->
     <div class="aboutcontent">
         <div class="aboutpic">
             <img src="./img/selfie2.png">
         </div>
         <div class="aboutwords">
             <p> 
-                Sarah Kim is an experiential designer and multimedia artist shaping the aesthetics of human-machine interaction. Through technical mediums, her work investigates time, memory, and cultural identity from the perspective of the contemporary civilizational moment.
+                Sarah Seiyuen Kim is an experience designer and multimedia artist shaping the aesthetics of human-machine interaction. Through new media technologies and critical research methods, her work investigates time, memory, and cultural identity from perspectives of the contemporary cultural moment. 
             </p>
-            <p>She will complete a B.S. in Integrated Design and Media at NYU Tandon School of Engineering in Spring 2025, with a minor in Media, Culture, and Communication. Her design experience spans multimedia projection and installation, graphic and sound design, film production, experience and interaction design, and front-end web development.
+            <p>She will complete a B.S. in Integrated Design and Media at NYU Tandon School of Engineering in May 2025, with a minor in Media, Culture, and Communication. She is currently exploring how computation transforms human emotion, thought, and behavior, through algorithmic art and examinations of the human psyche within social, environmental, and conceptual ecologies.
             </p>
-          <p>Sarah questions the boundaries of perceived reality, exploring how technology and media shape our understanding of self and the world. Her works intentionally engage the senses in altered states to emphasize their malleability and to challenge participants' perceptions of time, space, and identity. Through this exploration, she connects to the broader themes of her practice, examining how technological advancement influences cultural narratives and personal agency. As society becomes increasingly entwined with digital networks and media manipulation, Sarah’s work serves as both a critique and reflection on the contemporary civilizational moment, urging us to reconsider the forces that shape our collective consciousness. </p>
-          <p>At the heart of Sarah’s practice is the tradition of storytelling– she believes in the power of stories to connect us across generations and cultures. Stories remind us of our origin from the Earth and of the forces that interconnect us all. Sarah creates spaces that resonate with the complexities of the present through emerging technologies, nourishing collective memory and the human spirit. </p>
+          <p>Her technical practice is grounded in a formal education in design fundamentals. She is experienced in graphic design, sound design, live signal processing, film production, projection and installation design, interaction design, front- and back-end development, circuit design, and more. Working on individual and collaborative projects, she has developed a dynamic process that understands both personal and shared visions. </p>
+         <p>
+            At the heart of her practice is the age-old tradition of storytelling. Stories connect us across generations and cultures, both reminding and reimagining collective presences. She constructs meaningful narratives by designing sensory experiences inspired to nourish cultural memory, spirit, and functioning. Her senior thesis, an interactive sound installation, explores sound, indeterminacy, and consciousness, reimagining identities beyond colonial frameworks.
+         </p>
           <p>Among other things, Sarah is an impressionist artist, experimental and classically trained cellist, writer, composer, and learner of new languages. She is inspired by phantasmagoria, natural patterns, and vanishing points. She is curious about semantics, cybernetics, natural patterns and is endlessly enchanted by the mysteries of life~
         </p>
-    </div>
-</section> 
-
+            <!-- Rest of about content -->
+        </div>
+    </section> 
 
 <section id="contact">
-     <!--  <h1>Find Me.</h1>-->
     <div class="contactcontent">
-        <p> <a href="mailto:example@example.com">Sarahkim1001@gmail.com</a></p>
+        <p> <a href="mailto:sarahkim1001@gmail.com">sarahkim1001@gmail.com</a></p>
         <p> <a href="https://www.linkedin.com/in/sarah-s-kim-03047020a/" target="_blank">LinkedIn</a></p>
         <p> <a href="https://www.instagram.com/s4rahkim/" target="_blank">Resume</a></p>
         <p> <a href="https://www.instagram.com/s4rahkim/" target="_blank">Instagram</a></p>
-       <div class="based">
+        <div class="based">
             <p>Based in New York City. </p>
-       </div> 
-    </div>
- 
-</section>
-
-
-
-<!--
-<section id="mind">
-
-    <div class="mindcontent">
-        <div class="item">
-            <ul class="inspo-list">
-                <li>
-                    1931, Franz Kafka's <i>The Burrow</i> & 2011 Madlen Dolar's <i>The Burrow of Sound</i>
-                    <span class="tooltip">
-                        <img src="" alt="The Burrow" />
-                    </span>
-                </li>
-                <li>
-                    1938, Johan Huizinga's <i>Homo Ludens</i>
-                    <span class="tooltip">
-                        <img src="" alt="Homo Ludens" />
-                    </span>
-                </li>
-                <li>
-                    1950, Norbert Wiener's <em>The Human Use of Human Beings</em>
-                    <span class="tooltip">
-                        <img src="" alt="The Human Use of Human Beings" />
-                    </span>
-                </li>
-                <li>
-                    1958, Hannah Arendt's <i>The Human Condition</i>
-                    <span class="tooltip">
-                        <img src="" alt="The Human Condition" />
-                    </span>
-                </li>
-                <li>
-                    1961, John Cage's <i>Silence</i>
-                    <span class="tooltip">
-                        <img src="" alt="Silence" />
-                    </span>
-                </li>
-                <li>
-                    1964, Carl Jung's <i>Man and His Symbols</i>
-                    <span class="tooltip">
-                        <img src="" alt="Man and His Symbols" />
-                    </span>
-                </li>
-                <li>
-                    1967, Guy Debord's <i>Society of the Spectacle</i>
-                    <span class="tooltip">
-                        <img src="" alt="Society of the Spectacle" />
-                    </span>
-                </li>
-                <li>
-                    1968, Stanley Kubrick's <em>2001: A Space Odyssey</em>
-                    <span class="tooltip">
-                        <img src="" alt="2001: A Space Odyssey" />
-                    </span>
-                </li>
-                <li>
-                    1974, Thomas Nagel's <i>What Is It Like to Be a Bat?</i>
-                    <span class="tooltip">
-                        <img src="" alt="What Is It Like to Be a Bat?" />
-                    </span>
-                </li>
-                <li>
-                    1982, Ridley Scott's <em>Blade Runner</em>
-                    <span class="tooltip">
-                        <img src="" alt="Blade Runner" />
-                    </span>
-                </li>
-                <li>
-                    1984, Barry Truax's <i>Acoustic Communication</i>
-                    <span class="tooltip">
-                        <img src="" alt="Acoustic Communication" />
-                    </span>
-                </li>
-                
-                <li>
-                    1985, Donna Haraway's <em>A Cyborg Manifesto</em>
-                    <span class="tooltip">
-                        <img src="" alt="A Cyborg Manifesto" />
-                    </span>
-                </li>
-                <li>
-                    1986, Michel Foucault's <i>Of Other Spaces</i>
-                    <span class="tooltip">
-                        <img src="" alt="Of Other Spaces" />
-                    </span>
-                </li>
-                <li>
-                    1989, Clarissa Pinkola Estés' <i>Women Who Run With the Wolves</i>
-                    <span class="tooltip">
-                        <img src="" alt="Women Who Run With the Wolves" />
-                    </span>
-                </li>
-                <li>
-                    1999, Lana Wachowski & Lilly Wachowski's <em>The Matrix</em>
-                    <span class="tooltip">
-                        <img src="" alt="The Matrix" />
-                    </span>
-                </li>
-                <li>
-                    2002, Jean-Luc Nancy's <i>Listening</i>
-                    <span class="tooltip">
-                        <img src="" alt="Listening" />
-                    </span>
-                </li>
-            </ul>            
-        </div>
+        </div> 
     </div>
 </section>
--->
 
+<footer>
+    <p>© 2025 Sarah Kim</p>
+</footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js"></script>
 <script>
+    // Project data (expand with your content)
+    const projects = {
+        inBetween: {
+            title: "In Between, 2025",
+            description: `
+                <p>In Between is a short documentary film that grasps at the unknown pulsing through each moment. Filmed within moving vehicles—cars, buses, subways—it captures the fleetingness of truth and understanding, a sensation of losing what we once held as certain. Kim renders the perpetual death and rebirth of living experience: shedding preconceived notions to weave new ones, only to be swallowed again by the vast unknown where connections form and dissolve.</p>
 
-    function redirectToProject(page) {
-    window.location.href = page; // Navigate to the specified page
+                <p>The film questions the malleability of self. If identity emerges from environment and others’ perceptions, what remains true when all we’ve known fractures? Through a first-person lens, In Between suspends viewers at the crossroads of dreaming and waking, stitching together moments Kim documented across New York City. In transit—alienated yet entwined with the world—she observes reality’s uncertainty unfold, perception bending through senses, bodies, and emotions.</p>
+
+                <p>When did you realize all you knew was but a shard of truth? This work surrenders to that question, embracing the ambiguity—a paradoxical dance of comfort and unsettlement. How does one move forward, purposeful, in perpetual flux? In Between offers no answers, only the space to linger in the unfathomed. </p>
+
+            `
+        },
+        stillLife: {
+            title: "Still Life, 2024",
+            description: `
+                <p>Still Life is an audio installation that unveils the resonant interplay between everyday objects and our sensory world, tuning into their hidden sonic life. Inspired by the urban hum of machinery, Sarah Seiyuen Kim amplifies the overlooked acoustics of household items—objects that, though still, hum with energy, threading sound waves into our primal core. The piece beckons listeners to reconsider their bond with the material realm. </p>
+
+                <p>At its core lies a handcrafted audio system: a piezo contact microphone, an amplifier, and a transducer speaker, fused by a soldered circuit. Placed on a shared surface, this setup births a feedback loop—listening to itself as it magnifies the material’s natural pulse. The result is a living chorus of resonance, a soundscape that questions perception and stirs reflection on the vibrant stillness around us.</p>
+            `
+        },
+       
+        theVeil: {
+            title: "The Veil, 2024",
+            description: `
+                <p>A performance piece with projection and AV elements. This project dives into...</p>
+            `
+        },
+        omnipresentHeart: {
+            title: "Omnipresent Heart, 2024",
+            description: `
+                <p>E-stethoscope explorations capturing the rhythm of life...</p>
+            `
+        },
+        materialSignatures: {
+            title: "Material Signatures",
+            description: `
+                <p>A series exploring time through material interactions...</p>
+            `
+        }
+    };
+
+    // Function to show the modal with slide-in animation
+   // Function to show the modal with fade-in animation
+function showProjectModal(projectId) {
+    const modal = document.getElementById('project-modal');
+    const modalContent = document.querySelector('.modal-content');
+    const contentDiv = document.getElementById('project-content');
+    const project = projects[projectId];
+
+    if (project) {
+        contentDiv.innerHTML = `
+            <h2>${project.title}</h2>
+            ${project.description}
+        `;
+        modal.style.display = 'block'; // Make modal visible
+        // Fade in animation
+        gsap.fromTo(modal, 
+            { opacity: 0 }, // Start fully transparent
+            { opacity: 1, duration: 3, ease: "power2.out" } // Fade to fully opaque
+        );
     }
+}
 
+// Function to close the modal with fade-out animation
+function closeProjectModal() {
+    const modal = document.getElementById('project-modal');
+    
+    gsap.to(modal, {
+        opacity: 0, // Fade to fully transparent
+        duration: 1.2,
+        ease: "power2.in",
+        onComplete: () => {
+            modal.style.display = 'none'; // Hide after animation
+        }
+    });
+}
 
+    // Close modal when clicking the 'x'
+    document.getElementById('modal-close').addEventListener('click', function() {
+        closeProjectModal();
+    });
+
+    // Close modal when clicking outside the content
+    window.addEventListener('click', function(event) {
+        const modal = document.getElementById('project-modal');
+        if (event.target === modal) {
+            closeProjectModal();
+        }
+    });
+
+    // Existing GSAP and ScrollTrigger code
     document.addEventListener('DOMContentLoaded', function() {
         gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-        gsap.set("nav", { opacity: 0 });
+        gsap.set("nav", { duration: 1, opacity: 0 });
         gsap.to("nav", { duration: 1, opacity: 1, ease: "ease" });
 
         document.querySelectorAll('.nav-link').forEach(link => {
@@ -472,45 +266,7 @@
                 onLeaveBack: () => link.classList.remove('active')
             });
         });
-
-        const circle = document.createElement('div');
-        circle.classList.add('cursor-circle');
-        document.body.appendChild(circle);
-
-        document.addEventListener('mousemove', (event) => {
-            const x = event.clientX;
-            const y = event.clientY;
-            circle.style.left = `${x}px`;
-            circle.style.top = `${y}px`;
-        });
-
-
-        function createSnowflake() {
-            const snowflake = document.createElement('div');
-            snowflake.className = 'snowflake';
-
-            const size = Math.random() * 5 + 0.5 + 'px';
-            snowflake.style.width = size;
-            snowflake.style.height = size;
-            snowflake.style.left = Math.random() * window.innerWidth + 'px';
-
-            document.getElementById('snowfall').appendChild(snowflake);
-
-            const animationDuration = Math.random() * 3 + 2 + 's';
-            snowflake.style.animationDuration = animationDuration;
-            snowflake.style.animationName = 'fall';
-
-            setTimeout(() => {
-                snowflake.remove();
-            }, parseFloat(animationDuration) * 2000);
-        }
-
-        function makeItSnow() {
-            setInterval(createSnowflake, 600);
-        }
-
-      
     });
-    </script>
+</script>
 </body>
 </html>
