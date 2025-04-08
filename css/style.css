@@ -47,6 +47,36 @@ body, HTML {
     scroll-behavior: smooth;
 }
 
+#random-lines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0; /* Behind other content */
+}
+
+/* Style for each random line */
+.random-line {
+    position: absolute;
+    opacity: 1; /* Fully visible, animation handles appearance */
+}
+
+/* Vertical lines */
+.random-line.vertical {
+    border-left: 1px dashed rgb(255, 255, 255); /* Matches .next-btn */
+    height: 0; /* Start at 0 height for vertical stitching */
+    width: .5px; /* Fixed width for vertical lines */
+}
+
+/* Horizontal lines */
+.random-line.horizontal {
+    border-top: .5px dashed rgb(255, 255, 255); /* Matches .next-btn */
+    width: 0; /* Start at 0 width for horizontal stitching */
+    height: 1px; /* Fixed height for horizontal lines */
+}
+
 #back {
     position: relative;
     top: 0;
@@ -74,6 +104,7 @@ a {
 
 
 #name {
+   /* border:1px dashed rgb(255, 255, 255); */
     z-index: 1000;
     position: absolute;
     top: 50px;
@@ -86,7 +117,7 @@ a {
     pointer-events: all;
    /* background-color:rgb(110, 110, 90);*/
   /* background-color: #9c967dc8;*/
-    padding:.1rem;
+    padding:2px;
     border-radius: 2px;
    /* font-family: Georgia, 'Times New Roman', Times, serif;*/
 }
@@ -108,6 +139,7 @@ nav {
 }
 
 nav a {
+    
     color: rgb(164, 164, 164);
     text-decoration: none;
     transition: all .5s ease;
@@ -164,7 +196,7 @@ section {
     align-items: center;
     padding: 20px;
     box-sizing: border-box;
-    border-bottom: 1px dotted rgba(108, 99, 93, 0.17);
+    border-bottom: 1px dashed rgb(255, 255, 255);
     text-align: left;
 }
 
@@ -210,17 +242,19 @@ h1 {
     height: auto;
 }
 
+
 /*INTRODUCTION and CURRENT CONTENT*/
 .intro{
     z-index:2;
-    width: 700px;
-    left:2rem;
+    width: 60%;
     margin-top:10rem;
+   /* border:1px dashed rgb(255, 255, 255);*/
+    padding:0px 20px;
 }
 
 .intro h3{
     font-weight: normal;
-    font-size:1.5rem;
+    font-size:1.25rem;
     /*color:rgb(115, 115, 115);*/
     color:rgb(39, 39, 39);
 }
@@ -250,7 +284,7 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 1rem 1rem;
+    
 }
 
   
@@ -262,7 +296,8 @@ h1 {
     gap: 1rem 2rem;
    /* background-color: black;*/
     width: 100%;
-    margin-top:2rem;
+    margin-top:1rem;
+    
 }
 
 
@@ -274,6 +309,7 @@ h1 {
    /* background-color: black;*/
     width: 100%;
     margin-top:2rem;
+   
 }
 
 .projectType {
@@ -285,8 +321,8 @@ h1 {
     transition: opacity 0.3s ease;
     margin-top:5rem;
     margin-bottom:0;
-    margin-right:2rem;
     font-weight: normal;
+    
 }
 
 .projectitem {
@@ -297,8 +333,9 @@ h1 {
     flex-direction: column;
     justify-content: flex-end;
     overflow: hidden;
-    margin:3rem 1rem;
-    border:1px dashed rgba(255, 255, 255, 0.37);
+    margin:2rem 1rem;
+    padding:2px;
+   /* border:1px dashed rgb(255, 255, 255);*/
 }
 
 img{
@@ -365,6 +402,7 @@ img{
         justify-content: center;
         align-items: center;
         flex-direction: column; /* Ensures items stack vertically */
+        border:none;
     }
 
     .projectitem {
@@ -376,6 +414,7 @@ img{
         padding: 0 0; /* Padding on the sides to avoid direct edge collision */
         box-sizing: border-box; /* Ensure padding is included in the total width calculation */
         justify-content: center;
+        border:none;
     }
 
     .workImg {
@@ -418,6 +457,7 @@ img{
     box-sizing: border-box;
     line-height: 1.5rem;
     font-size: 1rem;
+    
 }
 
 .aboutpic {
@@ -427,8 +467,15 @@ img{
     margin-top:1.2rem;
 }
 
+.aboutwords{
+    /*border:1px dashed rgb(255, 255, 255);*/
+    padding:0 20px;
+}
+
 
 .aboutpic img {
+    border:1px dashed rgb(255, 255, 255);
+    padding:10px;
     width: 250px; /* Fixed width */
     height: auto; /* This maintains the aspect ratio */
     display: block; /* Removes any extra space below the image */
@@ -485,6 +532,8 @@ img{
     margin:1rem;
     transition: color .6s ease;
     text-decoration: .5px underline;
+    /*border:1px dashed rgb(255, 255, 255);*/
+    padding:30px;
 }
 
 .contactcontent a:hover{
@@ -493,6 +542,7 @@ img{
 
 .contactcontent .based{
     margin:4rem 4rem;
+    padding:5px;
 }
 
 @media (max-width: 768px) {
@@ -502,6 +552,7 @@ img{
         flex-direction: column;
         align-items: flex-start;
         width:100%;
+        
     }
     #contact{
         display: flex;
@@ -510,10 +561,20 @@ img{
         margin-left:2rem;
         width:40%
     }
+
+    .contactcontent a{
+        
+        padding:5px;
+    }
+    
+
 }
 
 /*Project Modal */
 
+/* Modal Styles */
+/* Modal Styles */
+/* Modal Styles */
 /* Modal Styles */
 .modal {
     display: none;
@@ -527,27 +588,35 @@ img{
 }
 
 .modal-content {
-    position: relative; /* Works with GSAP's y transform */
+    position: relative; /* Works with GSAP's animations */
     background-color: #fff;
-    margin: 5% auto;
-    padding: 20px;
-    width: 60%;
+    margin: 5px auto;
+    padding: 25px;
+    width: 90%;
+    height:100%;
     max-width: 1000px;
-    border-radius: 5px;
+    border-radius: 2px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .modal-body {
-    max-height: 70vh;
-    overflow-y: auto;
+    max-height: 90vh;
+    overflow-y: auto; /* Keeps scrolling functionality */
     padding: 10px;
+    -ms-overflow-style: none; /* Hide scrollbar in Internet Explorer and Edge */
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
 }
 
+.modal-body::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in Chrome, Safari, and other Webkit browsers */
+}
+
+/* Close Button Styles */
 .close {
     position: absolute;
-    top: 10px;
+    top: 10px; /* Top-right corner */
     right: 20px;
-    font-size: 2rem;
+    font-size: 1.25rem;
     color: #696969;
     cursor: pointer;
     transition: color 0.3s ease;
@@ -557,20 +626,88 @@ img{
     color: #963737; /* Red on hover for visibility */
 }
 
-/* Optional: Style the project content inside the modal */
-#project-content h2 {
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
-    color: rgb(39, 39, 39);
+/* Next Button Styles */
+.next-btn {
+    display: block; /* Takes its own line */
+    margin: 20px 0 0 auto; /* Pushes it to the right with spacing above */
+    padding: 1px 15px;
+    font-family: 'PPNeueMontrealThin', 'Times New Roman', Times, serif;
+    font-size: .75rem;
+    color: rgb(84, 94, 31);
+    background-color: rgba(255, 255, 255, 0.9);
+    border: .5px solid rgba(84, 94, 31, 0.337);
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-#project-content p {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-    color: rgb(39, 39, 39);
+.next-btn:hover {
+    background-color: rgb(164, 171, 128);
+    color: rgb(255, 255, 255);
 }
 
+/* Project Media Container */
+.project-media {
+    width: 100%; /* Full width as per your latest update */
+    margin: 10px auto 60px auto; /* Center with spacing below */
+    overflow: hidden; /* Ensures content doesn’t spill */
+}
+
+.project-media img,
+.project-media video {
+    width: 100%; /* Full width of container */
+    height: auto; /* Auto height to maintain aspect ratio */
+    display: block; /* Removes extra space below */
+    border-radius: 2px; /* Matches your latest update */
+}
+
+
+/*resume*/
+/* Resume Modal Styles */
+#resume-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.897);
+    z-index: 2000;
+}
+
+#resume-modal .modal-content {
+    position: relative;
+    margin: 0 auto; /* Centers vertically and horizontally */
+    width: 50vw; /* Let the image dictate width */
+    max-width: 90%; /* Limit to 90% of viewport width */
+    max-height: 100%; /* Limit to 90% of viewport height */
+    background-color: transparent; /* No background, just the image */
+    padding: 0; /* No padding */
+    box-shadow: none; /* No shadow */
+}
+
+#resume-modal img {
+    width: 100%; /* Full width of container */
+    height: 100%;; /* Maintain aspect ratio */
+    max-height: 100%; /* Ensure it fits vertically */
+    display: block;
+    border-radius: 0px;
+}
+
+/* Close button (reused from project modal) */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.25rem;
+    color: #696969;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #963737;
+}
 
 /*FOOTER*/
 /* FOOTER */

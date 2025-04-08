@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="./css/style.css" />
 </head>
 <body>
+
+    <div id="random-lines"></div>
 <!--HTML-->
 <!--
 <div id="back">
@@ -25,18 +27,29 @@
 <!-- Modal Structure -->
 <div id="project-modal" class="modal">
     <div class="modal-content">
-        <span id="modal-close" class="close">&times;</span>
+        <span id="modal-close" class="close">×</span>
         <div id="modal-body" class="modal-body">
-            <!-- Empty div for dynamic content -->
+            <!-- Media Container -->
+            <div id="project-media" class="project-media"></div>
+            <!-- Dynamic Text Content -->
             <div id="project-content"></div>
+            <!-- Next Button -->
+            <button id="next-project-btn" class="next-btn">Next Project</button>
         </div>
     </div>
-</div> 
+</div>
+
+<div id="resume-modal" class="modal">
+    <div class="modal-content">
+        <span id="resume-close" class="close">×</span>
+        <img id="resume-image" src="./img/resume.png" alt="Sarah Kim Resume" /> <!-- Replace with your PNG path -->
+    </div>
+</div>
 
 <section id="current"> 
     <div class="intro">
         <h3>
-            Sarah Seiyuen Kim is an experience designer and multimedia artist shaping the aesthetics of human-machine interaction. Through new media technologies and critical research methods, she explores time, memory, and cultural identity from perspectives of the current civilizational moment. Pursuing a B.S. in Integrated Design and Media at NYU Tandon (May 2025), she blends sound, image, touch, and computation to craft sensory narratives. Her work, rooted in storytelling, reimagines collective presence and challenges colonial legacies. Inspired by phantasmagoria and natural patterns, she is also a cellist, composer, writer, and visionary enchanted by existence. 
+            Sarah Seiyuen Kim is an experiential designer and multimedia artist shaping the aesthetics of human-machine interaction. Through new media technologies and critical research methods, she explores time, memory, and cultural identity from perspectives of the current civilizational moment. Pursuing a B.S. in Integrated Design and Media at NYU Tandon (May 2025), she blends sound, image, touch, and computation to craft sensory narratives. Her work, rooted in storytelling, reimagines collective presence and challenges colonial legacies. Inspired by phantasmagoria and natural patterns, she is also a cellist, composer, writer, and visionary enchanted by existence. 
          </h3>
     </div>
 </section>
@@ -45,6 +58,18 @@
     <div class="workcontent">
         <div class="projectgallery1">
             <h2 class="projectType">Projects</h2>
+
+            <div class="projectitem" onclick="showProjectModal('Ouroboros')">
+                <div class="workImg">
+                    <img src="./img/Ouroboros.jpg"> 
+                </div>
+                <div class="workDescription">
+                    <h3>Ouroboros</h3>
+                    <p>Senior Thesis Project</p>
+                    <h5>Ongoing</h5>
+                </div>
+            </div>
+
             <div class="projectitem" onclick="showProjectModal('inBetween')">
                 <div class="workImg">
                     <img src="./img/veins.jpg"> 
@@ -58,11 +83,11 @@
 
             <div class="projectitem" onclick="showProjectModal('stillLife')">
                 <div class="workImg">
-                    <img src="./img/me.jpg"> 
+                    <img src="./img/plated.jpg"> 
                 </div>
                 <div class="workDescription">
                     <h3>Still Life</h3>
-                    <p>Sound Circuit </p>
+                    <p>Sound Circuit, Feedback Loops, Material Resonance </p>
                     <h5>December 05th, 2024</h5>
                 </div>
             </div>
@@ -89,20 +114,76 @@
                 </div>
             </div>
 
+    
+
+            <div class="projectitem" onclick="showProjectModal('coneyIslandPsych')">
+                <div class="workImg">
+                    <img src="./img/spooky.png"> 
+                </div>
+                <div class="workDescription">
+                    <h3>Coney Island Psychoculture</h3>
+                    <p>Handcrafted Zine</p>
+                    <h5>July 20th, 2024</h5>
+                </div>
+            </div>
+
+            <div class="projectitem" onclick="showProjectModal('split')">
+                <div class="workImg">
+                    <img src="./img/dualities.png"> 
+                </div>
+                <div class="workDescription">
+                    <h3>Split</h3>
+                    <p>Interactive p5 sketch</p>
+                    <h5>December 19th, 2023</h5>
+                </div>
+            </div>
+
+            <div class="projectitem" onclick="showProjectModal('myvanitytree')">
+                <div class="workImg">
+                    <img src="./img/treeDark.png"> 
+                </div>
+                <div class="workDescription">
+                    <h3>My Vanity Tree</h3>
+                    <p>Functional Sculpture</p>
+                    <h5>March 19th, 2023</h5>
+                </div>
+            </div>
             <!-- Add more projects as needed with unique IDs -->
         </div>
 
         <div class="projectgallery2">
             <h2 class="projectType">Series</h2>
+
             <div class="projectitem" onclick="showProjectModal('materialSignatures')">
                 <div class="workImg">
                     <img src="./img/unfree.jpg"> 
                 </div>
                 <div class="workDescription">
                     <h3>Material Signatures</h3>
-                    <p>Time</p>
+                    <p>Documenting Time?</p>
                 </div>
             </div>
+
+            <div class="projectitem" onclick="showProjectModal('Phase')">
+                <div class="workImg">
+                    <img src="./img/rats.JPG"> 
+                </div>
+                <div class="workDescription">
+                    <h3>Phase</h3>
+                    <p>Photographic</p>
+                </div>
+            </div>
+
+            <div class="projectitem" onclick="showProjectModal('Selfie')">
+                <div class="workImg">
+                    <img src="./img/collage.jpg"> 
+                </div>
+                <div class="workDescription">
+                    <h3>Self Portraiture</h3>
+                    <p>Photographic</p>
+                </div>
+            </div>
+            
             <!-- Add more series as needed -->
         </div>
     </div>
@@ -133,7 +214,7 @@
     <div class="contactcontent">
         <p> <a href="mailto:sarahkim1001@gmail.com">sarahkim1001@gmail.com</a></p>
         <p> <a href="https://www.linkedin.com/in/sarah-s-kim-03047020a/" target="_blank">LinkedIn</a></p>
-        <p> <a href="https://www.instagram.com/s4rahkim/" target="_blank">Resume</a></p>
+        <p><a href="#" id="resume-link">Resume</a></p> <!-- Updated to trigger modal -->
         <p> <a href="https://www.instagram.com/s4rahkim/" target="_blank">Instagram</a></p>
         <div class="based">
             <p>Based in New York City. </p>
@@ -149,96 +230,324 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js"></script>
 <script>
-    // Project data (expand with your content)
+    function generateRandomLines() {
+    const container = document.getElementById('random-lines');
+    const numLines = 15; // Increased to 15 for more lines
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    const marginSize = 0.2; // 20% of width/height for margins
+
+    for (let i = 0; i < numLines; i++) {
+        const line = document.createElement('div');
+        line.className = 'random-line';
+
+        // Randomly choose vertical or horizontal (50% chance each)
+        const isVertical = Math.random() < 0.5;
+        if (isVertical) {
+            line.classList.add('vertical');
+            // Random height between 100px and 400px
+            const finalHeight = Math.floor(Math.random() * 800) + 600;
+            line.style.height = '0px'; // Start at 0 for animation
+
+            // Favor left and right margins (80% chance in margins, 20% elsewhere)
+            let xPos;
+            const inMargin = Math.random() < 0.8; // 80% chance in margins
+            if (inMargin) {
+                const leftMargin = Math.random() < 0.5; // 50% left, 50% right
+                if (leftMargin) {
+                    xPos = Math.floor(Math.random() * (viewportWidth * marginSize));
+                } else {
+                    xPos = Math.floor(viewportWidth * (1 - marginSize) + Math.random() * (viewportWidth * marginSize));
+                }
+            } else {
+                xPos = Math.floor(Math.random() * viewportWidth); // Anywhere
+            }
+            line.style.left = `${xPos}px`;
+
+            // Random direction (50% up, 50% down)
+            const growUp = Math.random() < 0.5;
+            let yPos;
+            if (growUp) {
+                yPos = Math.floor(Math.random() * (viewportHeight - finalHeight));
+                line.style.bottom = `${yPos}px`;
+                line.style.top = 'auto';
+            } else {
+                yPos = Math.floor(Math.random() * (viewportHeight - finalHeight));
+                line.style.top = `${yPos}px`;
+                line.style.bottom = 'auto';
+            }
+
+            // Stitching animation for vertical lines
+            gsap.fromTo(line, 
+                { height: 0 }, 
+                { height: finalHeight, duration: 4, ease: "power2.inOut", delay: Math.random() * 0.5 }
+            );
+        } else {
+            line.classList.add('horizontal');
+            // Random width between 100px and 400px
+            const finalWidth = Math.floor(Math.random() * 800) + 800;
+            line.style.width = '0px'; // Start at 0 for animation
+
+            // Favor top and bottom margins (80% chance in margins, 20% elsewhere)
+            let yPos;
+            const inMargin = Math.random() < 0.8; // 80% chance in margins
+            if (inMargin) {
+                const topMargin = Math.random() < 0.5; // 50% top, 50% bottom
+                if (topMargin) {
+                    yPos = Math.floor(Math.random() * (viewportHeight * marginSize));
+                } else {
+                    yPos = Math.floor(viewportHeight * (1 - marginSize) + Math.random() * (viewportHeight * marginSize));
+                }
+            } else {
+                yPos = Math.floor(Math.random() * viewportHeight); // Anywhere
+            }
+            line.style.top = `${yPos}px`;
+
+            // Random direction (50% left-to-right, 50% right-to-left)
+            const growRight = Math.random() < 0.5;
+            let xPos;
+            if (growRight) {
+                xPos = Math.floor(Math.random() * (viewportWidth - finalWidth));
+                line.style.left = `${xPos}px`;
+                line.style.right = 'auto';
+            } else {
+                xPos = Math.floor(Math.random() * (viewportWidth - finalWidth));
+                line.style.right = `${xPos}px`;
+                line.style.left = 'auto';
+            }
+
+            // Stitching animation for horizontal lines
+            gsap.fromTo(line, 
+                { width: 0 }, 
+                { width: finalWidth, duration: 6, ease: "power2.inOut", delay: Math.random() * 0.5 }
+            );
+        }
+
+        // Add to container
+        container.appendChild(line);
+    }
+}
+// Run on page load
+document.addEventListener('DOMContentLoaded', function() {
+    generateRandomLines();
+    // Your existing GSAP and ScrollTrigger code follows here
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+    gsap.set("nav", { duration: 1, opacity: 0 });
+    gsap.to("nav", { duration: 1, opacity: 1, ease: "ease" });
+    // ... rest of your existing code ...
+});
+    // Project data with media (unchanged)
     const projects = {
+        Ouroboros: {
+            title: "Ouroboros, 2025",
+            media: '<img src="./img/Ouroboros.jpg" alt="Senior Thesis">',
+            description: `
+                <p>Senior Thesis project</p>
+            `
+        },
         inBetween: {
             title: "In Between, 2025",
+            media: '<video src="./img/InBetweenFinalCut.mp4" controls autoplay muted loop></video>',
             description: `
                 <p>In Between is a short documentary film that grasps at the unknown pulsing through each moment. Filmed within moving vehicles—cars, buses, subways—it captures the fleetingness of truth and understanding, a sensation of losing what we once held as certain. Kim renders the perpetual death and rebirth of living experience: shedding preconceived notions to weave new ones, only to be swallowed again by the vast unknown where connections form and dissolve.</p>
-
                 <p>The film questions the malleability of self. If identity emerges from environment and others’ perceptions, what remains true when all we’ve known fractures? Through a first-person lens, In Between suspends viewers at the crossroads of dreaming and waking, stitching together moments Kim documented across New York City. In transit—alienated yet entwined with the world—she observes reality’s uncertainty unfold, perception bending through senses, bodies, and emotions.</p>
-
-                <p>When did you realize all you knew was but a shard of truth? This work surrenders to that question, embracing the ambiguity—a paradoxical dance of comfort and unsettlement. How does one move forward, purposeful, in perpetual flux? In Between offers no answers, only the space to linger in the unfathomed. </p>
-
+                <p>When did you realize all you knew was but a shard of truth? This work surrenders to that question, embracing the ambiguity—a paradoxical dance of comfort and unsettlement. How does one move forward, purposeful, in perpetual flux? In Between offers no answers, only the space to linger in the unfathomed.</p>
             `
         },
         stillLife: {
             title: "Still Life, 2024",
+            media: '<img src="./img/plated.jpg" alt="Still Life">',
             description: `
-                <p>Still Life is an audio installation that unveils the resonant interplay between everyday objects and our sensory world, tuning into their hidden sonic life. Inspired by the urban hum of machinery, Sarah Seiyuen Kim amplifies the overlooked acoustics of household items—objects that, though still, hum with energy, threading sound waves into our primal core. The piece beckons listeners to reconsider their bond with the material realm. </p>
-
+                <p>Still Life is an audio installation that unveils the resonant interplay between everyday objects and our sensory world, tuning into their hidden sonic life. Inspired by the urban hum of machinery, Sarah Seiyuen Kim amplifies the overlooked acoustics of household items—objects that, though still, hum with energy, threading sound waves into our primal core. The piece beckons listeners to reconsider their bond with the material realm.</p>
                 <p>At its core lies a handcrafted audio system: a piezo contact microphone, an amplifier, and a transducer speaker, fused by a soldered circuit. Placed on a shared surface, this setup births a feedback loop—listening to itself as it magnifies the material’s natural pulse. The result is a living chorus of resonance, a soundscape that questions perception and stirs reflection on the vibrant stillness around us.</p>
             `
         },
-       
         theVeil: {
             title: "The Veil, 2024",
+            media: '<video src="./video/theveil.mp4" controls autoplay muted loop></video>',
             description: `
-                <p>A performance piece with projection and AV elements. This project dives into...</p>
+                <p>The Veil reinterprets the Sumerian myth Descent of Inanna, probing dichotomies—descent/ascent, death/rebirth—and their cyclical patterns in shaping perception. This multimedia installation investigates how oppositions fragment holistic understanding, exposing the unknown beyond abstractions. Its audio, crafted in MAX/MSP, manipulates a heartbeat from clear to obscured, embodying sensemaking and mythic transition. The visual element, edited in Premiere Pro, blends looping video collages of varying lengths with a distortion lens, evoking ambiguity and déjà vu. A veiled figure at the center symbolizes life as undefined, shifting focus to anonymity and mystery. Together, these components forge a space that questions conventional thought and embraces uncertainty.</p>
             `
         },
         omnipresentHeart: {
             title: "Omnipresent Heart, 2024",
+            media: '<img src="./img/steth_live_sig.png" alt="Omnipresent Heart">',
             description: `
-                <p>E-stethoscope explorations capturing the rhythm of life...</p>
+                <p>Omnipresent Hearts examines consciousness and time perception through an audiovisual installation. It uses live heartbeats, clock ticks, and chimes—sonic elements that cycle and overlap—to explore life’s rhythms and temporal ambiguity. The heartbeat represents internal bodily experience, clock ticks symbolize measured time, and chimes suggest a meditative state, together challenging standardized temporal constructs. The piece runs continuously from patch initialization, emphasizing cyclical persistence over linear progression. A visual component integrates collaged video and live webcam capture, with delay effects synchronized to the heartbeat, linking audio and visual perception. This work posits living as an unrecognized hypnotic state, persistent and undefined.</p>
+            `
+        },
+        coneyIslandPsych: {
+            title: "Coney Island Psychoculture, 2024",
+            media: '<img src="./img/spooky.png" alt="Coney Island Zine">',
+            description: `
+                <p>A handcrafted zine on the history of Coney Island thorugh a cultural psychological lens</p>
+            `
+        },
+        split: {
+            title: "Split, 2023",
+            media: '<img src="./img/dualities.png" alt="Split">',
+            description: `
+                <p>An interactive p5.js sketch.</p>
+            `
+        },
+        myvanitytree: {
+            title: "My Vanity Tree, 2023",
+            media: '<img src="./img/treeDark.png" alt="My Vanity Tree">',
+            description: `
+                <p>A functional sculpture, jewelry holder</p>
             `
         },
         materialSignatures: {
             title: "Material Signatures",
+            media: '<img src="./img/unfree.jpg" alt="Material Signatures">',
             description: `
                 <p>A series exploring time through material interactions...</p>
+            `
+        },
+        Phase: {
+            title: "Phase",
+            media: '<img src="./img/rats.JPG" alt="Phase">',
+            description: `
+                <p>A series exploring the concept of the multiplicity of perspectives through photo edits</p>
+            `
+        },
+        Selfie: {
+            title: "Selfie",
+            media: '<img src="./img/collage.jpg" alt="Self Portraiture>',
+            description: `
+                <p>Series of self portraits through the years</p>
             `
         }
     };
 
-    // Function to show the modal with slide-in animation
-   // Function to show the modal with fade-in animation
-function showProjectModal(projectId) {
-    const modal = document.getElementById('project-modal');
-    const modalContent = document.querySelector('.modal-content');
-    const contentDiv = document.getElementById('project-content');
-    const project = projects[projectId];
+    // Array of project keys for cycling
+    const projectKeys = Object.keys(projects);
+    let currentProjectIndex = 0;
 
-    if (project) {
-        contentDiv.innerHTML = `
-            <h2>${project.title}</h2>
-            ${project.description}
-        `;
-        modal.style.display = 'block'; // Make modal visible
-        // Fade in animation
-        gsap.fromTo(modal, 
-            { opacity: 0 }, // Start fully transparent
-            { opacity: 1, duration: 3, ease: "power2.out" } // Fade to fully opaque
-        );
-    }
-}
+    // Function to show the modal with fade-in animation
+    function showProjectModal(projectId) {
+        const modal = document.getElementById('project-modal');
+        const mediaDiv = document.getElementById('project-media');
+        const contentDiv = document.getElementById('project-content');
+        currentProjectIndex = projectKeys.indexOf(projectId);
+        const project = projects[projectId];
 
-// Function to close the modal with fade-out animation
-function closeProjectModal() {
-    const modal = document.getElementById('project-modal');
-    
-    gsap.to(modal, {
-        opacity: 0, // Fade to fully transparent
-        duration: 1.2,
-        ease: "power2.in",
-        onComplete: () => {
-            modal.style.display = 'none'; // Hide after animation
+        if (project) {
+            mediaDiv.innerHTML = project.media;
+            contentDiv.innerHTML = `
+                <h2>${project.title}</h2>
+                ${project.description}
+            `;
+            modal.style.display = 'block';
+            gsap.fromTo(modal, 
+                { opacity: 0 }, 
+                { opacity: 1, duration: 1, ease: "power2.out" }
+            );
+            // Reset scroll position to top when opening a new modal
+            document.getElementById('modal-body').scrollTop = 0;
         }
-    });
-}
+    }
 
-    // Close modal when clicking the 'x'
+    // Function to show the next project
+    function showNextProject() {
+        currentProjectIndex = (currentProjectIndex + 1) % projectKeys.length;
+        const nextProjectId = projectKeys[currentProjectIndex];
+        const mediaDiv = document.getElementById('project-media');
+        const contentDiv = document.getElementById('project-content');
+        const modalBody = document.getElementById('modal-body');
+        const nextProject = projects[nextProjectId];
+
+        if (nextProject) {
+            gsap.to([mediaDiv, contentDiv], {
+                opacity: 0,
+                duration: 0.5,
+                ease: "power2.in",
+                onComplete: () => {
+                    mediaDiv.innerHTML = nextProject.media;
+                    contentDiv.innerHTML = `
+                        <h2>${nextProject.title}</h2>
+                        ${nextProject.description}
+                    `;
+                    modalBody.scrollTop = 0; // Reset scroll position to top
+                    gsap.fromTo([mediaDiv, contentDiv], 
+                        { opacity: 0 }, 
+                        { opacity: 1, duration: 0.5, ease: "power2.out" }
+                    );
+                }
+            });
+        }
+    }
+
+    // Function to close the modal with fade-out animation
+    function closeProjectModal() {
+        const modal = document.getElementById('project-modal');
+        
+        gsap.to(modal, {
+            opacity: 0,
+            duration: .5,
+            ease: "power2.in",
+            onComplete: () => {
+                modal.style.display = 'none';
+            }
+        });
+    }
+
+
+
+    // Event listeners
     document.getElementById('modal-close').addEventListener('click', function() {
         closeProjectModal();
     });
 
-    // Close modal when clicking outside the content
     window.addEventListener('click', function(event) {
         const modal = document.getElementById('project-modal');
         if (event.target === modal) {
             closeProjectModal();
         }
     });
+
+    document.getElementById('next-project-btn').addEventListener('click', function() {
+        showNextProject();
+    });
+
+    function showResumeModal() {
+    const modal = document.getElementById('resume-modal');
+    modal.style.display = 'block';
+    gsap.fromTo(modal, { opacity: 0 }, { opacity: 1, duration: 2, ease: "power2.out" });
+}
+
+function closeResumeModal() {
+    const modal = document.getElementById('resume-modal');
+    gsap.to(modal, { opacity: 0, duration: 1, ease: "power2.in", onComplete: () => { modal.style.display = 'none'; } });
+}
+
+// Event listeners
+document.getElementById('modal-close').addEventListener('click', function() {
+    closeProjectModal();
+});
+
+window.addEventListener('click', function(event) {
+    const projectModal = document.getElementById('project-modal');
+    const resumeModal = document.getElementById('resume-modal');
+    if (event.target === projectModal) {
+        closeProjectModal();
+    } else if (event.target === resumeModal) {
+        closeResumeModal();
+    }
+});
+
+document.getElementById('next-project-btn').addEventListener('click', function() {
+    showNextProject();
+});
+
+document.getElementById('resume-link').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent default link behavior
+    showResumeModal();
+});
+
+document.getElementById('resume-close').addEventListener('click', function() {
+    closeResumeModal();
+});
 
     // Existing GSAP and ScrollTrigger code
     document.addEventListener('DOMContentLoaded', function() {
@@ -267,6 +576,9 @@ function closeProjectModal() {
             });
         });
     });
+
+    
+
 </script>
 </body>
 </html>
