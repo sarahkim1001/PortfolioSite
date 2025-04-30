@@ -6,7 +6,7 @@
     <title>Home</title>
     <link rel="stylesheet" href="./css/style.css" />
 </head>
-<body>
+<body> 
 
     <div id="random-lines"></div>
 <!--HTML-->
@@ -24,51 +24,74 @@
     <a href="#contact" class="nav-link">Contact</a>
 </nav>
 
-<!-- Modal Structure -->
-<div id="project-modal" class="modal">
-    <div class="modal-content">
-        <span id="modal-close" class="close">×</span>
-        <div id="modal-body" class="modal-body">
-            <!-- Media Container -->
-            <div id="project-media" class="project-media"></div>
-            <!-- Dynamic Text Content -->
-            <div id="project-content"></div>
-            <!-- Next Button -->
-            <button id="next-project-btn" class="next-btn">Next Project</button>
+<section id="home">
+    <div id="media-carousel">
+        <div class="media-frame">
+            <video class="media-video" autoplay loop muted playsinline poster="./img/fallback.jpg">
+                <source src="" type="video/mp4">
+                <img src="./img/crip.png" alt="Fallback for video frame 1">
+            </video>
         </div>
+        <div class="media-frame">
+            <video class="media-video" autoplay loop muted playsinline poster="./img/fallback.jpg">
+                <source src="" type="video/mp4">
+                <img src="./img/crip.png" alt="Fallback for video frame 2">
+            </video>
+        </div>
+        <div class="media-frame">
+            <video class="media-video" autoplay loop muted playsinline poster="./img/fallback.jpg">
+                <source src="" type="video/mp4">
+                <img src="./img/crip.png" alt="Fallback for video frame 3">
+            </video>
+        </div>
+       <!-- <div class="carousel-des">
+            <h3>generative collage</h2>
+        </div>-->
     </div>
-</div>
 
-<div id="resume-modal" class="modal">
-    <div class="modal-content">
-        <span id="resume-close" class="close">×</span>
-        <img id="resume-image" src="./img/resume.png" alt="Sarah Kim Resume" /> <!-- Replace with your PNG path -->
-    </div>
-</div>
+</section>
+
 
 <section id="current"> 
     <div class="intro">
         <h3>
-            Sarah Seiyuen Kim is an experiential designer and multimedia artist shaping the aesthetics of human-machine interaction. Through new media technologies and critical research methods, she explores time, memory, and cultural identity from perspectives of the current civilizational moment. Pursuing a B.S. in Integrated Design and Media at NYU Tandon (May 2025), she blends sound, image, touch, and computation to craft sensory narratives. Her work, rooted in storytelling, reimagines collective presence and challenges colonial legacies. Inspired by phantasmagoria and natural patterns, she is also a cellist, composer, writer, and visionary enchanted by existence. 
+            Sarah Seiyuen Kim is an experiential designer and multimedia artist shaping the aesthetics of human-machine interaction. Through new media technologies and critical research methods, she explores time, memory, and cultural identity from perspectives of the current civilizational moment. Pursuing a B.S. in Integrated Design and Media at NYU Tandon School of Engineering (May 2025), she blends sound, image, touch, and computation to craft provacational sensory experiences. Her work, rooted in storytelling, reimagines collective presence and challenges entrenched structures of colonial legacies. Inspired by phantasmagoria and natural patterns, she is also a cellist, composer, writer, and visionary enchanted by existence. 
          </h3>
     </div>
+    <div class="current-content">
+        <h2 class="projectTypeOG">Current Projects</h2>
+        <div class="projectgallery">
+          <!-- Project 1 -->
+          <div class="projectitem" onclick="showProjectModal('Ouroboros')">
+            <div class="workImg">
+                <img src="./img/oroCapt.png"> 
+            </div>
+            <div class="workDescription">
+                <h3>Ouroboros</h3>
+                <p>Senior Thesis Project</p>
+                <h5>Jan 2025- Present</h5>
+            </div>
+        </div>
+
+          <!-- Project 2: Live Performance Group Project -->
+          <div class="projectitem" onclick="showProjectModal('livePerformance')">
+            <div class="workImg">
+                <img src="./img/live_performance.jpg"> 
+            </div>
+            <div class="workDescription">
+                <h3>Live Performance Group Project</h3>
+                <p>Collaborative Multimedia Performance</p>
+                <h5>Jan 2025 - Present</h5>
+            </div>
+        </div>
+        </div>
+      </div>
 </section>
 
 <section id="work">
     <div class="workcontent">
         <div class="projectgallery1">
-            <h2 class="projectType">Projects</h2>
-
-            <div class="projectitem" onclick="showProjectModal('Ouroboros')">
-                <div class="workImg">
-                    <img src="./img/Ouroboros.jpg"> 
-                </div>
-                <div class="workDescription">
-                    <h3>Ouroboros</h3>
-                    <p>Senior Thesis Project</p>
-                    <h5>Ongoing</h5>
-                </div>
-            </div>
+            <h2 class="projectType">Past Projects</h2>
 
             <div class="projectitem" onclick="showProjectModal('inBetween')">
                 <div class="workImg">
@@ -114,11 +137,9 @@
                 </div>
             </div>
 
-    
-
             <div class="projectitem" onclick="showProjectModal('coneyIslandPsych')">
                 <div class="workImg">
-                    <img src="./img/spooky.png"> 
+                    <img src="./img/zine/1.png"> 
                 </div>
                 <div class="workDescription">
                     <h3>Coney Island Psychoculture</h3>
@@ -148,21 +169,12 @@
                     <h5>March 19th, 2023</h5>
                 </div>
             </div>
-            <!-- Add more projects as needed with unique IDs -->
         </div>
 
         <div class="projectgallery2">
             <h2 class="projectType">Series</h2>
 
-            <div class="projectitem" onclick="showProjectModal('materialSignatures')">
-                <div class="workImg">
-                    <img src="./img/unfree.jpg"> 
-                </div>
-                <div class="workDescription">
-                    <h3>Material Signatures</h3>
-                    <p>Documenting Time?</p>
-                </div>
-            </div>
+            
 
             <div class="projectitem" onclick="showProjectModal('Phase')">
                 <div class="workImg">
@@ -183,11 +195,29 @@
                     <p>Photographic</p>
                 </div>
             </div>
-            
-            <!-- Add more series as needed -->
         </div>
     </div>
 </section>
+
+ 
+<!-- Modal Structure -->
+<div id="project-modal" class="modal">
+    <div class="modal-content">
+        <span id="modal-close" class="close">×</span>
+        <div id="modal-body" class="modal-body">
+            <!-- Title Container -->
+            <div id="project-title"></div>
+            <!-- Media Container -->
+            <div id="project-media" class="project-media"></div>
+            <!-- Description Container -->
+            <div id="project-content"></div>
+            <!-- Next Button -->
+            <button id="next-project-btn" class="next-btn">Next</button>
+            <button id="prev-project-btn" class="prev-btn">Previous</button>
+        </div>
+    </div>
+</div>
+
 
 <section id="about">
     <div class="aboutcontent">
@@ -200,13 +230,12 @@
             </p>
             <p>She will complete a B.S. in Integrated Design and Media at NYU Tandon School of Engineering in May 2025, with a minor in Media, Culture, and Communication. She is currently exploring how computation transforms human emotion, thought, and behavior, through algorithmic art and examinations of the human psyche within social, environmental, and conceptual ecologies.
             </p>
-          <p>Her technical practice is grounded in a formal education in design fundamentals. She is experienced in graphic design, sound design, live signal processing, film production, projection and installation design, interaction design, front- and back-end development, circuit design, and more. Working on individual and collaborative projects, she has developed a dynamic process that understands both personal and shared visions. </p>
+          <p>Her craft is founded on an interdisciplinary design education focusing across several core areas: visual and sound arts, interactivity, emerging technologies, and humanities. She is experienced in graphic design, sound design, live signal processing, film production, projection and installation design, interaction design, front- and back-end development, circuit design, and more. Working on individual and collaborative projects, she has developed a dynamic process that understands both personal and shared visions. </p>
          <p>
             At the heart of her practice is the age-old tradition of storytelling. Stories connect us across generations and cultures, both reminding and reimagining collective presences. She constructs meaningful narratives by designing sensory experiences inspired to nourish cultural memory, spirit, and functioning. Her senior thesis, an interactive sound installation, explores sound, indeterminacy, and consciousness, reimagining identities beyond colonial frameworks.
          </p>
-          <p>Among other things, Sarah is an impressionist artist, experimental and classically trained cellist, writer, composer, and learner of new languages. She is inspired by phantasmagoria, natural patterns, and vanishing points. She is curious about semantics, cybernetics, natural patterns and is endlessly enchanted by the mysteries of life~
+          <p>Among other things, Sarah is an impressionist artist, experimental and classically trained cellist, writer, composer, and learner of new languages. She is inspired by phantasmagoria, natural patterns, and vanishing points. She is curious about semantics, cybernetics, and is endlessly enchanted by the mysteries of being~
         </p>
-            <!-- Rest of about content -->
         </div>
     </section> 
 
@@ -214,13 +243,20 @@
     <div class="contactcontent">
         <p> <a href="mailto:sarahkim1001@gmail.com">sarahkim1001@gmail.com</a></p>
         <p> <a href="https://www.linkedin.com/in/sarah-s-kim-03047020a/" target="_blank">LinkedIn</a></p>
-        <p><a href="#" id="resume-link">Resume</a></p> <!-- Updated to trigger modal -->
+        <p><a href="#" id="resume-link">Resume</a></p>
         <p> <a href="https://www.instagram.com/s4rahkim/" target="_blank">Instagram</a></p>
         <div class="based">
             <p>Based in New York City. </p>
         </div> 
     </div>
 </section>
+
+<div id="resume-modal" class="modal">
+    <div class="modal-content">
+        <span id="resume-close" class="close">×</span>
+        <img id="resume-image" src="./img/resume.png" alt="Sarah Kim Resume" />
+    </div>
+</div>
 
 <footer>
     <p>© 2025 Sarah Kim</p>
@@ -232,39 +268,35 @@
 <script>
     function generateRandomLines() {
     const container = document.getElementById('random-lines');
-    const numLines = 15; // Increased to 15 for more lines
+    const numLines = 15;
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
-    const marginSize = 0.2; // 20% of width/height for margins
+    const marginSize = 0.2;
 
     for (let i = 0; i < numLines; i++) {
         const line = document.createElement('div');
         line.className = 'random-line';
 
-        // Randomly choose vertical or horizontal (50% chance each)
         const isVertical = Math.random() < 0.5;
         if (isVertical) {
             line.classList.add('vertical');
-            // Random height between 100px and 400px
             const finalHeight = Math.floor(Math.random() * 800) + 600;
-            line.style.height = '0px'; // Start at 0 for animation
+            line.style.height = '0px';
 
-            // Favor left and right margins (80% chance in margins, 20% elsewhere)
             let xPos;
-            const inMargin = Math.random() < 0.8; // 80% chance in margins
+            const inMargin = Math.random() < 0.8;
             if (inMargin) {
-                const leftMargin = Math.random() < 0.5; // 50% left, 50% right
+                const leftMargin = Math.random() < 0.5;
                 if (leftMargin) {
                     xPos = Math.floor(Math.random() * (viewportWidth * marginSize));
                 } else {
                     xPos = Math.floor(viewportWidth * (1 - marginSize) + Math.random() * (viewportWidth * marginSize));
                 }
             } else {
-                xPos = Math.floor(Math.random() * viewportWidth); // Anywhere
+                xPos = Math.floor(Math.random() * viewportWidth);
             }
             line.style.left = `${xPos}px`;
 
-            // Random direction (50% up, 50% down)
             const growUp = Math.random() < 0.5;
             let yPos;
             if (growUp) {
@@ -277,33 +309,29 @@
                 line.style.bottom = 'auto';
             }
 
-            // Stitching animation for vertical lines
             gsap.fromTo(line, 
                 { height: 0 }, 
                 { height: finalHeight, duration: 4, ease: "power2.inOut", delay: Math.random() * 0.5 }
             );
         } else {
             line.classList.add('horizontal');
-            // Random width between 100px and 400px
             const finalWidth = Math.floor(Math.random() * 800) + 800;
-            line.style.width = '0px'; // Start at 0 for animation
+            line.style.width = '0px';
 
-            // Favor top and bottom margins (80% chance in margins, 20% elsewhere)
             let yPos;
-            const inMargin = Math.random() < 0.8; // 80% chance in margins
+            const inMargin = Math.random() < 0.8;
             if (inMargin) {
-                const topMargin = Math.random() < 0.5; // 50% top, 50% bottom
+                const topMargin = Math.random() < 0.5;
                 if (topMargin) {
                     yPos = Math.floor(Math.random() * (viewportHeight * marginSize));
                 } else {
                     yPos = Math.floor(viewportHeight * (1 - marginSize) + Math.random() * (viewportHeight * marginSize));
                 }
             } else {
-                yPos = Math.floor(Math.random() * viewportHeight); // Anywhere
+                yPos = Math.floor(Math.random() * viewportHeight);
             }
             line.style.top = `${yPos}px`;
 
-            // Random direction (50% left-to-right, 50% right-to-left)
             const growRight = Math.random() < 0.5;
             let xPos;
             if (growRight) {
@@ -316,201 +344,384 @@
                 line.style.left = 'auto';
             }
 
-            // Stitching animation for horizontal lines
             gsap.fromTo(line, 
                 { width: 0 }, 
                 { width: finalWidth, duration: 6, ease: "power2.inOut", delay: Math.random() * 0.5 }
             );
         }
 
-        // Add to container
         container.appendChild(line);
     }
 }
-// Run on page load
+
+document.addEventListener('DOMContentLoaded', () => {
+    const videoLists = {
+        frame1: [
+            "./vid/beautBrain.mov",
+            "./vid/oroProject.mov",
+            "./vid/shpin.mov"
+        ],
+        frame2: [
+            "./vid/bornOver.mov",
+            "./vid/memoryV1.mov",
+            "./vid/slippingV1.mov"
+        ],
+        frame3: [
+            "./vid/tree.mov",
+            "./vid/tree.mov",
+            "./vid/tree.mov"
+        ]
+    };
+
+    const shuffleArray = (array) => {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    };
+
+    const getRandomInterval = () => {
+    return Math.floor(Math.random() * (15000 - 11000 + 1)) + 7000; // Random 7000–11000ms
+};
+
+    const videoFrames = document.querySelectorAll('.media-frame video');
+    console.log('Found video elements:', videoFrames.length);
+
+    if (videoFrames.length === 0) {
+        console.error('No video elements found. Check .media-frame video selector.');
+        return;
+    }
+
+    videoFrames.forEach((video, index) => {
+        const frameKey = `frame${index + 1}`;
+        const shuffledVideos = shuffleArray([...videoLists[frameKey]]);
+        let currentVideoIndex = 0;
+        let intervalId = null;
+
+        const setVideoSource = () => {
+            if (intervalId) clearInterval(intervalId);
+
+            // Trigger fade-out by setting opacity to 0
+            video.style.opacity = 0;
+
+            const source = video.querySelector('source');
+            const videoUrl = shuffledVideos[currentVideoIndex];
+            console.log(`Setting video ${index + 1} to: ${videoUrl}`);
+            source.src = videoUrl;
+            video.load();
+
+            const onCanPlay = () => {
+                // Fade-in after video is ready
+                video.style.opacity = 1;
+                video.play().catch(error => {
+                    console.error(`Error playing video ${index + 1} (${videoUrl}):`, error);
+                    switchVideo();
+                });
+                video.removeEventListener('canplay', onCanPlay);
+            };
+
+            video.addEventListener('canplay', onCanPlay);
+
+            video.addEventListener('error', () => {
+                console.error(`Failed to load video ${index + 1}: ${videoUrl}`);
+                switchVideo();
+            }, { once: true });
+
+            // Set new random interval for next switch
+            intervalId = setInterval(switchVideo, getRandomInterval());
+        };
+
+        const switchVideo = () => {
+            currentVideoIndex = (currentVideoIndex + 1) % shuffledVideos.length;
+            setVideoSource();
+        };
+
+        // Initial load with slight delay
+        setTimeout(() => {
+            setVideoSource();
+        }, 100 * (index + 1));
+
+        video.addEventListener('loadeddata', () => {
+            console.log(`Video ${index + 1} loaded: ${shuffledVideos[currentVideoIndex]}`);
+        });
+    });
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     generateRandomLines();
-    // Your existing GSAP and ScrollTrigger code follows here
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
     gsap.set("nav", { duration: 1, opacity: 0 });
     gsap.to("nav", { duration: 1, opacity: 1, ease: "ease" });
-    // ... rest of your existing code ...
 });
-    // Project data with media (unchanged)
-    const projects = {
-        Ouroboros: {
-            title: "Ouroboros, 2025",
-            media: '<img src="./img/Ouroboros.jpg" alt="Senior Thesis">',
-            description: `
-                <p>Senior Thesis project</p>
-            `
-        },
-        inBetween: {
-            title: "In Between, 2025",
-            media: '<video src="./img/InBetweenFinalCut.mp4" controls autoplay muted loop></video>',
-            description: `
-                <p>In Between is a short documentary film that grasps at the unknown pulsing through each moment. Filmed within moving vehicles—cars, buses, subways—it captures the fleetingness of truth and understanding, a sensation of losing what we once held as certain. Kim renders the perpetual death and rebirth of living experience: shedding preconceived notions to weave new ones, only to be swallowed again by the vast unknown where connections form and dissolve.</p>
-                <p>The film questions the malleability of self. If identity emerges from environment and others’ perceptions, what remains true when all we’ve known fractures? Through a first-person lens, In Between suspends viewers at the crossroads of dreaming and waking, stitching together moments Kim documented across New York City. In transit—alienated yet entwined with the world—she observes reality’s uncertainty unfold, perception bending through senses, bodies, and emotions.</p>
-                <p>When did you realize all you knew was but a shard of truth? This work surrenders to that question, embracing the ambiguity—a paradoxical dance of comfort and unsettlement. How does one move forward, purposeful, in perpetual flux? In Between offers no answers, only the space to linger in the unfathomed.</p>
-            `
-        },
-        stillLife: {
-            title: "Still Life, 2024",
-            media: '<img src="./img/plated.jpg" alt="Still Life">',
-            description: `
-                <p>Still Life is an audio installation that unveils the resonant interplay between everyday objects and our sensory world, tuning into their hidden sonic life. Inspired by the urban hum of machinery, Sarah Seiyuen Kim amplifies the overlooked acoustics of household items—objects that, though still, hum with energy, threading sound waves into our primal core. The piece beckons listeners to reconsider their bond with the material realm.</p>
-                <p>At its core lies a handcrafted audio system: a piezo contact microphone, an amplifier, and a transducer speaker, fused by a soldered circuit. Placed on a shared surface, this setup births a feedback loop—listening to itself as it magnifies the material’s natural pulse. The result is a living chorus of resonance, a soundscape that questions perception and stirs reflection on the vibrant stillness around us.</p>
-            `
-        },
-        theVeil: {
-            title: "The Veil, 2024",
-            media: '<video src="./video/theveil.mp4" controls autoplay muted loop></video>',
-            description: `
-                <p>The Veil reinterprets the Sumerian myth Descent of Inanna, probing dichotomies—descent/ascent, death/rebirth—and their cyclical patterns in shaping perception. This multimedia installation investigates how oppositions fragment holistic understanding, exposing the unknown beyond abstractions. Its audio, crafted in MAX/MSP, manipulates a heartbeat from clear to obscured, embodying sensemaking and mythic transition. The visual element, edited in Premiere Pro, blends looping video collages of varying lengths with a distortion lens, evoking ambiguity and déjà vu. A veiled figure at the center symbolizes life as undefined, shifting focus to anonymity and mystery. Together, these components forge a space that questions conventional thought and embraces uncertainty.</p>
-            `
-        },
-        omnipresentHeart: {
-            title: "Omnipresent Heart, 2024",
-            media: '<img src="./img/steth_live_sig.png" alt="Omnipresent Heart">',
-            description: `
-                <p>Omnipresent Hearts examines consciousness and time perception through an audiovisual installation. It uses live heartbeats, clock ticks, and chimes—sonic elements that cycle and overlap—to explore life’s rhythms and temporal ambiguity. The heartbeat represents internal bodily experience, clock ticks symbolize measured time, and chimes suggest a meditative state, together challenging standardized temporal constructs. The piece runs continuously from patch initialization, emphasizing cyclical persistence over linear progression. A visual component integrates collaged video and live webcam capture, with delay effects synchronized to the heartbeat, linking audio and visual perception. This work posits living as an unrecognized hypnotic state, persistent and undefined.</p>
-            `
-        },
-        coneyIslandPsych: {
-            title: "Coney Island Psychoculture, 2024",
-            media: '<img src="./img/spooky.png" alt="Coney Island Zine">',
-            description: `
-                <p>A handcrafted zine on the history of Coney Island thorugh a cultural psychological lens</p>
-            `
-        },
-        split: {
-            title: "Split, 2023",
-            media: '<img src="./img/dualities.png" alt="Split">',
-            description: `
-                <p>An interactive p5.js sketch.</p>
-            `
-        },
-        myvanitytree: {
-            title: "My Vanity Tree, 2023",
-            media: '<img src="./img/treeDark.png" alt="My Vanity Tree">',
-            description: `
-                <p>A functional sculpture, jewelry holder</p>
-            `
-        },
-        materialSignatures: {
-            title: "Material Signatures",
-            media: '<img src="./img/unfree.jpg" alt="Material Signatures">',
-            description: `
-                <p>A series exploring time through material interactions...</p>
-            `
-        },
-        Phase: {
-            title: "Phase",
-            media: '<img src="./img/rats.JPG" alt="Phase">',
-            description: `
-                <p>A series exploring the concept of the multiplicity of perspectives through photo edits</p>
-            `
-        },
-        Selfie: {
-            title: "Selfie",
-            media: '<img src="./img/collage.jpg" alt="Self Portraiture>',
-            description: `
-                <p>Series of self portraits through the years</p>
-            `
-        }
-    };
 
-    // Array of project keys for cycling
-    const projectKeys = Object.keys(projects);
-    let currentProjectIndex = 0;
+const projects = {
+    Ouroboros: {
+        title: "Ouroboros, 2025",
+        media: '<video src="./vid/oroProject.mov" alt="Senior Thesis">',
+        description: `
+            <p>Ouroboros is an immersive audio-visual installation that invites participants to crawl through a circular play tunnel while listening to a sound composition through wireless headphones, breaking away from habitual movements to heighten bodily awareness and presence. I am exploring how memory is stored in the body, particularly how certain movements can incite reflection on past experiences and trauma. Crawling in the tunnel may remind us that we are the children we once were. I’ve created an acoustic environment that layers my voice onto an ever-changing soundscape of sonic fragments, based on information collected from surveying what sounds people associate with various emotions and time periods. Inspired by the structural approach of process music and the processing of raw environmental sound of musique concrète, I am also investigating the unpredictability of generative systems and live sound in MAX/MSP. Ouroboros opens up a liminal space that is meant to be confrontational and transformative, bringing together unconscious and conscious aspects of ourselves, referencing Carl Jung’s Theory of Wholeness. The name of my work, Ouroboros, refers to the ancient symbol of a snake consuming its tail, often representing cycles of destruction and creation and the continuous flow of the universe, also interpreted as an archetype for the cyclical nature of psychic growth. I believe throughout our lives we can die many times metaphorically, as we live, we reorganize and reinterpret information, shedding our skin, continually transforming. The looping tunnel of Ouroboros literalizes this cycle through sound and physicality. My work primarily focuses on the potential of sound to mediate states of consciousness, questioning how particular sounds can affect emotion, identity, and behavior. As a researcher, Ouroboros has been an experiment to explore how immersive spaces can function to promote collective healing, ultimately to inspire changes in how we raise future generations. In this age where living experience becomes increasingly virtualized and sedentary, it is important to establish the difference between wisdom gained through embodied experience and information received passively. Through creating experiences that require active engagement of body and mind, I hope to empower people in reclaiming agency over their perception.</p>
+        `
+    }, 
+    livePerformance: {
+        title: "Live Performance Group Project, 2025",
+        media: '<img src="./img/live_performance.jpg" alt="Live Performance">',
+        description: `
+            <p>Metamorphosis is a reflective multimedia performance following the life cycle of a butterfly, weaving together live dance, video projection, and poetic storytelling. By tracing the butterfly's journey from birth to death and beyond, we explore life's transformative cycles and challenge traditional ideas of beginnings and endings. Key themes include change, evolution, and growth, highlighting how different environments influence development.</p>
+        <p>The visual experience combines footage of nature and generative graphics using TouchDesigner, sequenced in Isadora to allow real-time interaction and manipulation. Our dancer embodies the butterfly through thoughtful projection and costume design, using silk chiffon techniques inspired by Isadora Duncan and Loïe Fuller to capture the essence of flight. </p>
+        <p>The soundscape sets the emotional and environmental stage for the narrative, while a spoken word poem adds metaphorical insight into the butterfly’s life cycle.</p>
 
-    // Function to show the modal with fade-in animation
-    function showProjectModal(projectId) {
-        const modal = document.getElementById('project-modal');
-        const mediaDiv = document.getElementById('project-media');
-        const contentDiv = document.getElementById('project-content');
-        currentProjectIndex = projectKeys.indexOf(projectId);
-        const project = projects[projectId];
-
-        if (project) {
-            mediaDiv.innerHTML = project.media;
-            contentDiv.innerHTML = `
-                <h2>${project.title}</h2>
-                ${project.description}
-            `;
-            modal.style.display = 'block';
-            gsap.fromTo(modal, 
-                { opacity: 0 }, 
-                { opacity: 1, duration: 1, ease: "power2.out" }
-            );
-            // Reset scroll position to top when opening a new modal
-            document.getElementById('modal-body').scrollTop = 0;
-        }
+    <p>In this collaborative project, my role, Sarah Kim, involves sound design. I'm creating a generative soundscape in MAX/MSP and performing a live poem that narrates the choreography and video projections. The soundscape aligns with the five scenes of the Isadora project, each with distinct ambience. I work with scriptwriter Adeline Ferolo to craft a narrative poem that meshes seamlessly with the story. During the performance, I'll read the poem on stage, with my voice integrated into the sound environment through MAX/MSP.</p>
+        `
+    },
+    inBetween: {
+    title: "In Between, 2025",
+    media: '<video src="./vid/InBetween.mp4" controls autoplay muted loop playsinline poster="./img/fallback.jpg">' +
+           '<img src="./vid/willow.MOV" alt="Fallback for In Between video"></video>',
+    description: `
+        <p>In Between is an experimental short documentary film that grasps at the unknown behind every moment. Taking segments of New York City's streets and cityways through vehicles of transportation, the film captures the fleetingness of truth and understanding, a sensation of losing what we once held as certain. Kim renders the perpetual death and rebirth of living experience: shedding preconceived notions to weave new ones, only to be swallowed again by the vast unknown where connections form and dissolve.</p>
+        <p>The film questions the malleability of self. If identity emerges from environment and others’ perceptions, what remains true when all we’ve known fractures? Through a first-person lens, In Between suspends viewers at the crossroads of dreaming and waking, stitching together moments Kim documented across New York City. In transit—alienated yet entwined with the world—she observes reality’s uncertainty unfold, perception bending through senses, bodies, and emotions.</p>
+        <p>When did you realize all you knew was but a shard of truth? This work surrenders to that question, embracing the ambiguity—a paradoxical dance of comfort and unsettlement. How does one move forward, purposeful, in perpetual flux? In Between offers no answers, only the space to linger in the unfathomed.</p>
+    `
+},
+    stillLife: {
+        title: "Still Life, 2024",
+        media: '<img src="./img/plated.jpg" alt="Still Life">',
+        description: `
+            <p>Still Life is an audio installation that unveils the resonant interplay between everyday objects and our sensory world, tuning into their hidden sonic life. Inspired by the urban hum of machinery, Sarah Seiyuen Kim amplifies the overlooked acoustics of household items—objects that, though still, hum with energy, threading sound waves into our primal core. The piece beckons listeners to reconsider their bond with the material realm.</p>
+            <p>At its core lies a handcrafted audio system: a piezo contact microphone, an amplifier, and a transducer speaker, fused by a soldered circuit. Placed on a shared surface, this setup births a feedback loop—listening to itself as it magnifies the material’s natural pulse. The result is a living chorus of resonance, a soundscape that questions perception and stirs reflection on the vibrant stillness around us.</p>
+        `
+    },
+    theVeil: {
+        title: "The Veil, 2024",
+        media: '<video src="./vid/internal.mp4" controls autoplay muted loop></video>',
+        description: `
+            <p>The Veil reinterprets the Sumerian myth Descent of Inanna, probing dichotomies—descent/ascent, death/rebirth—and their cyclical patterns in shaping perception. This generative multimedia installation uses selections of footage taken from documentary In Between to investigate how fragments of memory are complexly woven together in forming understanding. The idea of déjà vu grounds the piece in its use of repetitive yet ever-shifting juxtapositions. Its audio, crafted in MAX/MSP, manipulates a heartbeat from clear to obscured, embodying sensemaking and mythic transition. The distortion lens is edited in Premiere Pro to layer in the sense of ambiguity of subjective experience. A veiled figure at the center symbolizes life as undefined, shifting focus to anonymity and mystery. Together, these components forge a space that questions conventional thought and embraces uncertainty.</p>
+        `
+    },
+    omnipresentHeart: {
+        title: "Omnipresent Heart, 2024",
+        media: '<img src="./img/steth_live_sig.png" alt="Omnipresent Heart">',
+        description: `
+            <p>Omnipresent Hearts examines consciousness and time perception through an audiovisual installation. It uses live heartbeats, clock ticks, and chimes—sonic elements that cycle and overlap—to explore life’s rhythms and temporal ambiguity. The heartbeat represents internal bodily experience, clock ticks symbolize measured time, and chimes suggest a meditative state, together challenging standardized temporal constructs. The piece runs continuously from patch initialization, emphasizing cyclical persistence over linear progression. A visual component integrates collaged video and live webcam capture, with delay effects synchronized to the heartbeat, linking audio and visual perception. This work posits living as an unrecognized hypnotic state, persistent and undefined.</p>
+        `
+    },
+    coneyIslandPsych: {
+                title: "Coney Island Psychoculture, 2024",
+                media: `
+                    <div class="zine-carousel">
+                        <!-- Images will be dynamically loaded -->
+                        <div class="carousel-arrow left-arrow" onclick="changeZineSlide(-1)">‹</div>
+                        <div class="carousel-arrow right-arrow" onclick="changeZineSlide(1)">›</div>
+                    </div>
+                `,
+                description: `
+                    <p>This handcrafted zine explores the history of Luna Park in Coney Island as a lens to examine the evolving cultural and social landscape of New York City at the turn of the 20th century. The project investigates how technological advancements and social changes brought about by rapid industrialization and urbanization influenced the cultural dynamics and psychological states of urban inhabitants.</p>
+                    <p>The primary objective of this zine is to explore the history of Luna Park in the context of New York City's transformation at the turn of the 20th century, focusing on the interplay between technological advancements, social changes, and cultural evolution. By examining Luna Park, the project seeks to understand the impact of rapid industrialization, urbanization, and population growth on the cultural dynamics and psychological states of urban inhabitants. The zine aims to analyze the neurological conception of modernity, reflecting new sensations, fears, and anxieties that arose from these societal transformations. It also investigates the role of media during this period as both a reflection and contributor to these changes, illustrating how Luna Park mirrored the thrilling and bizarre experiences indicative of the era. Ultimately, this project seeks to express the cyclical relationship between media, technology, and societal transformation, emphasizing New York City's global cultural influence.</p>
+                    <p>The zine draws inspiration from numerous sources that address various facets of the historical and cultural landscape of early 20th-century New York City. The project is informed by works such as Donna Haraway's Cyborg Manifesto, Georg Simmel's The Metropolis and Mental Life, and Guy Debord's Society of the Spectacle, which offer insights into the urban experience and the role of sensational media. Additionally, it considers Marxist critiques, such as Karl Marx's Capital, to contextualize the economic underpinnings of these transformations. The project looks at media evolution through sources like the works of Leo Charney and Vanessa R. Schwartz on cinema and visual journalism, and Tom Gunning's exploration of early film aesthetics. With a comprehensive array of sources, the zine aspires to paint a vivid picture of how Luna Park and Coney Island as a whole became icons of modernity intertwined with the burgeoning metropolis of New York City.</p>
+                `
+            },
+    split: {
+        title: "Split, 2023",
+        media: '<img src="./img/dualities.png" alt="Split">',
+        description: `
+            <p>An interactive p5.js sketch.</p>
+        `
+    },
+    myvanitytree: {
+        title: "My Vanity Tree, 2023",
+        media: '<video src="./vid/tree.mov" alt="My Vanity Tree" loop>',
+        description: `
+            <p>A functional sculpture, jewelry holder</p>
+        `
+    },
+    Phase: {
+        title: "Phase",
+        media: '<img src="./img/rats.JPG" alt="Phase">',
+        description: `
+            <p>A series exploring the concept of the multiplicity of perspectives through photo edits</p>
+        `
+    },
+    Selfie: {
+        title: "Self Portrait",
+        media: '<img src="./img/collage.jpg" alt="Self Portraiture">',
+        description: `
+            <p>Series of self portraits through the years</p>
+        `
     }
+};
 
-    // Function to show the next project
-    function showNextProject() {
-        currentProjectIndex = (currentProjectIndex + 1) % projectKeys.length;
-        const nextProjectId = projectKeys[currentProjectIndex];
-        const mediaDiv = document.getElementById('project-media');
-        const contentDiv = document.getElementById('project-content');
-        const modalBody = document.getElementById('modal-body');
-        const nextProject = projects[nextProjectId];
+const projectKeys = Object.keys(projects);
+let currentProjectIndex = 0;
 
-        if (nextProject) {
-            gsap.to([mediaDiv, contentDiv], {
-                opacity: 0,
-                duration: 0.5,
-                ease: "power2.in",
-                onComplete: () => {
-                    mediaDiv.innerHTML = nextProject.media;
-                    contentDiv.innerHTML = `
-                        <h2>${nextProject.title}</h2>
-                        ${nextProject.description}
-                    `;
-                    modalBody.scrollTop = 0; // Reset scroll position to top
-                    gsap.fromTo([mediaDiv, contentDiv], 
-                        { opacity: 0 }, 
-                        { opacity: 1, duration: 0.5, ease: "power2.out" }
-                    );
-                }
+
+
+function showProjectModal(projectId) {
+    const modal = document.getElementById('project-modal');
+    const titleDiv = document.getElementById('project-title');
+    const mediaDiv = document.getElementById('project-media');
+    const contentDiv = document.getElementById('project-content');
+    const prevBtn = document.getElementById('prev-project-btn');
+    const nextBtn = document.getElementById('next-project-btn');
+    currentProjectIndex = projectKeys.indexOf(projectId);
+    const project = projects[projectId];
+
+    if (project) {
+        titleDiv.innerHTML = `<h2>${project.title}</h2>`;
+        mediaDiv.innerHTML = project.media;
+        contentDiv.innerHTML = project.description;
+        modal.style.display = 'block';
+
+        // Show/hide navigation buttons based on project index
+        prevBtn.style.display = currentProjectIndex === 0 ? 'none' : 'block';
+        nextBtn.style.display = currentProjectIndex === projectKeys.length - 1 ? 'none' : 'block';
+
+        // Ensure video playback
+        const video = mediaDiv.querySelector('video');
+        if (video) {
+            video.load();
+            video.play().catch(error => {
+                console.error(`Error playing modal video (${projectId}):`, error);
             });
+            video.addEventListener('error', () => {
+                console.error(`Failed to load modal video: ${video.src}`);
+            }, { once: true });
+            video.addEventListener('loadeddata', () => {
+                console.log(`Modal video loaded: ${video.src}`);
+            }, { once: true });
         }
-    }
 
-    // Function to close the modal with fade-out animation
-    function closeProjectModal() {
-        const modal = document.getElementById('project-modal');
-        
-        gsap.to(modal, {
+        gsap.fromTo(modal, 
+            { opacity: 0 }, 
+            { opacity: 1, duration: 1, ease: "power2.out" }
+        );
+        document.getElementById('modal-body').scrollTop = 0;
+    }
+}
+
+function showPreviousProject() {
+    currentProjectIndex = (currentProjectIndex - 1 + projectKeys.length) % projectKeys.length;
+    const prevProjectId = projectKeys[currentProjectIndex];
+    const titleDiv = document.getElementById('project-title');
+    const mediaDiv = document.getElementById('project-media');
+    const contentDiv = document.getElementById('project-content');
+    const modalBody = document.getElementById('modal-body');
+    const prevBtn = document.getElementById('prev-project-btn');
+    const nextBtn = document.getElementById('next-project-btn');
+    const prevProject = projects[prevProjectId];
+
+    if (prevProject) {
+        gsap.to([titleDiv, mediaDiv, contentDiv], {
             opacity: 0,
-            duration: .5,
+            duration: 0.5,
             ease: "power2.in",
             onComplete: () => {
-                modal.style.display = 'none';
+                titleDiv.innerHTML = `<h2>${prevProject.title}</h2>`;
+                mediaDiv.innerHTML = prevProject.media;
+                contentDiv.innerHTML = prevProject.description;
+                modalBody.scrollTop = 0;
+
+                // Show/hide navigation buttons
+                prevBtn.style.display = currentProjectIndex === 0 ? 'none' : 'block';
+                nextBtn.style.display = currentProjectIndex === projectKeys.length - 1 ? 'none' : 'block';
+
+                gsap.fromTo([titleDiv, mediaDiv, contentDiv], 
+                    { opacity: 0 }, 
+                    { opacity: 1, duration: 0.5, ease: "power2.out" }
+                );
+
+                // Ensure video playback
+                const video = mediaDiv.querySelector('video');
+                if (video) {
+                    video.load();
+                    video.play().catch(error => {
+                        console.error(`Error playing modal video (${prevProjectId}):`, error);
+                    });
+                    video.addEventListener('error', () => {
+                        console.error(`Failed to load modal video: ${video.src}`);
+                    }, { once: true });
+                    video.addEventListener('loadeddata', () => {
+                        console.log(`Modal video loaded: ${video.src}`);
+                    }, { once: true });
+                }
             }
         });
     }
+}
+
+function showNextProject() {
+    currentProjectIndex = (currentProjectIndex + 1) % projectKeys.length;
+    const nextProjectId = projectKeys[currentProjectIndex];
+    const titleDiv = document.getElementById('project-title');
+    const mediaDiv = document.getElementById('project-media');
+    const contentDiv = document.getElementById('project-content');
+    const modalBody = document.getElementById('modal-body');
+    const prevBtn = document.getElementById('prev-project-btn');
+    const nextBtn = document.getElementById('next-project-btn');
+    const nextProject = projects[nextProjectId];
+
+    if (nextProject) {
+        gsap.to([titleDiv, mediaDiv, contentDiv], {
+            opacity: 0,
+            duration: 0.5,
+            ease: "power2.in",
+            onComplete: () => {
+                titleDiv.innerHTML = `<h2>${nextProject.title}</h2>`;
+                mediaDiv.innerHTML = nextProject.media;
+                contentDiv.innerHTML = nextProject.description;
+                modalBody.scrollTop = 0;
+
+                // Show/hide navigation buttons
+                prevBtn.style.display = currentProjectIndex === 0 ? 'none' : 'block';
+                nextBtn.style.display = currentProjectIndex === projectKeys.length - 1 ? 'none' : 'block';
+
+                gsap.fromTo([titleDiv, mediaDiv, contentDiv], 
+                    { opacity: 0 }, 
+                    { opacity: 1, duration: 0.5, ease: "power2.out" }
+                );
+
+                // Ensure video playback
+                const video = mediaDiv.querySelector('video');
+                if (video) {
+                    video.load();
+                    video.play().catch(error => {
+                        console.error(`Error playing modal video (${nextProjectId}):`, error);
+                    });
+                    video.addEventListener('error', () => {
+                        console.error(`Failed to load modal video: ${video.src}`);
+                    }, { once: true });
+                    video.addEventListener('loadeddata', () => {
+                        console.log(`Modal video loaded: ${video.src}`);
+                    }, { once: true });
+                }
+            }
+        });
+    }
+}
+
+// Add event listeners for navigation buttons
+document.getElementById('prev-project-btn').addEventListener('click', function() {
+    showPreviousProject();
+});
+
+document.getElementById('next-project-btn').addEventListener('click', function() {
+    showNextProject();
+});
 
 
-
-    // Event listeners
-    document.getElementById('modal-close').addEventListener('click', function() {
-        closeProjectModal();
-    });
-
-    window.addEventListener('click', function(event) {
-        const modal = document.getElementById('project-modal');
-        if (event.target === modal) {
-            closeProjectModal();
+function closeProjectModal() {
+    const modal = document.getElementById('project-modal');
+    gsap.to(modal, {
+        opacity: 0,
+        duration: .5,
+        ease: "power2.in",
+        onComplete: () => {
+            modal.style.display = 'none';
         }
     });
+}
 
-    document.getElementById('next-project-btn').addEventListener('click', function() {
-        showNextProject();
-    });
-
-    function showResumeModal() {
+function showResumeModal() {
     const modal = document.getElementById('resume-modal');
     modal.style.display = 'block';
     gsap.fromTo(modal, { opacity: 0 }, { opacity: 1, duration: 2, ease: "power2.out" });
@@ -521,7 +732,6 @@ function closeResumeModal() {
     gsap.to(modal, { opacity: 0, duration: 1, ease: "power2.in", onComplete: () => { modal.style.display = 'none'; } });
 }
 
-// Event listeners
 document.getElementById('modal-close').addEventListener('click', function() {
     closeProjectModal();
 });
@@ -536,12 +746,10 @@ window.addEventListener('click', function(event) {
     }
 });
 
-document.getElementById('next-project-btn').addEventListener('click', function() {
-    showNextProject();
-});
+
 
 document.getElementById('resume-link').addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent default link behavior
+    event.preventDefault();
     showResumeModal();
 });
 
@@ -549,36 +757,158 @@ document.getElementById('resume-close').addEventListener('click', function() {
     closeResumeModal();
 });
 
-    // Existing GSAP and ScrollTrigger code
-    document.addEventListener('DOMContentLoaded', function() {
-        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-        gsap.set("nav", { duration: 1, opacity: 0 });
-        gsap.to("nav", { duration: 1, opacity: 1, ease: "ease" });
+document.addEventListener('DOMContentLoaded', function() {
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+    gsap.set("nav", { duration: 1, opacity: 0 });
+    gsap.to("nav", { duration: 1, opacity: 1, ease: "ease" });
 
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function(event) {
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function(event) {
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
 
-                if (targetElement) {
-                    gsap.to(window, { duration: 1, scrollTo: targetElement });
-                }
-            });
+            if (targetElement) {
+                gsap.to(window, { duration: 1, scrollTo: targetElement });
+            }
+        });
 
-            ScrollTrigger.create({
-                trigger: link.getAttribute('href'),
-                start: "top center",
-                end: "bottom center",
-                onEnter: () => link.classList.add('active'),
-                onLeave: () => link.classList.remove('active'),
-                onEnterBack: () => link.classList.add('active'),
-                onLeaveBack: () => link.classList.remove('active')
-            });
+        ScrollTrigger.create({
+            trigger: link.getAttribute('href'),
+            start: "top center",
+            end: "bottom center",
+            onEnter: () => link.classList.add('active'),
+            onLeave: () => link.classList.remove('active'),
+            onEnterBack: () => link.classList.add('active'),
+            onLeaveBack: () => link.classList.remove('active')
         });
     });
 
-    
+    const projectKeys = Object.keys(projects);
+        let currentProjectIndex = 0;
+        let currentZineSlide = 0;
+        const zineImages = [
+            './img/unfree.jpg',
+            './img/zine/2.png',
+            './img/zine/3.png'
+            // Add more zine image paths as needed
+        ];
 
+        function loadZineCarousel() {
+    const carousel = document.querySelector('.zine-carousel');
+    if (!carousel) {
+        console.error('Zine carousel div not found');
+        return;
+    }
+    // Clear existing images to prevent duplication
+    carousel.querySelectorAll('img').forEach(img => img.remove());
+    
+    zineImages.forEach((src, index) => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = `Zine page ${index + 1}`;
+        img.classList.add('zine-img'); // Add class for styling
+        if (index === 0) img.classList.add('active');
+        carousel.appendChild(img);
+        
+        // Log image loading
+        img.addEventListener('load', () => {
+            console.log(`Zine image loaded: ${src}`);
+        });
+        img.addEventListener('error', () => {
+            console.error(`Failed to load zine image: ${src}`);
+        });
+    });
+    console.log('Zine carousel images appended:', zineImages);
+}
+
+function changeZineSlide(direction) {
+    const images = document.querySelectorAll('.zine-carousel img');
+    if (!images.length) {
+        console.error('No images found in zine carousel');
+        return;
+    }
+    images[currentZineSlide].classList.remove('active');
+    currentZineSlide = (currentZineSlide + direction + images.length) % images.length;
+    images[currentZineSlide].classList.add('active');
+    console.log(`Changed to zine slide: ${currentZineSlide + 1}`);
+}
+
+        function showProjectModal(projectId) {
+            const modal = document.getElementById('project-modal');
+            const titleDiv = document.getElementById('project-title');
+            const mediaDiv = document.getElementById('project-media');
+            const contentDiv = document.getElementById('project-content');
+            const prevBtn = document.getElementById('prev-project-btn');
+            const nextBtn = document.getElementById('next-project-btn');
+            currentProjectIndex = projectKeys.indexOf(projectId);
+            const project = projects[projectId];
+
+            if (project) {
+                titleDiv.innerHTML = `<h2>${project.title}</h2>`;
+                mediaDiv.innerHTML = project.media;
+                contentDiv.innerHTML = project.description;
+                modal.style.display = 'block';
+
+                // Reset zine carousel if coneyIslandPsych
+                if (projectId === 'coneyIslandPsych') {
+                    currentZineSlide = 0;
+                    loadZineCarousel();
+                }
+
+                // Show/hide navigation buttons
+                prevBtn.style.display = currentProjectIndex === 0 ? 'none' : 'block';
+                nextBtn.style.display = currentProjectIndex === projectKeys.length - 1 ? 'none' : 'block';
+
+                // Handle video playback for other projects
+                const video = mediaDiv.querySelector('video');
+                if (video) {
+                    video.load();
+                    video.play().catch(error => {
+                        console.error(`Error playing modal video (${projectId}):`, error);
+                    });
+                    video.addEventListener('error', () => {
+                        console.error(`Failed to load modal video: ${video.src}`);
+                    }, { once: true });
+                    video.addEventListener('loadeddata', () => {
+                        console.log(`Modal video loaded: ${video.src}`);
+                    }, { once: true });
+                }
+
+                gsap.fromTo(modal, 
+                    { opacity: 0 }, 
+                    { opacity: 1, duration: 1, ease: "power2.out" }
+                );
+                document.getElementById('modal-body').scrollTop = 0;
+            }
+        }
+
+        function closeProjectModal() {
+            const modal = document.getElementById('project-modal');
+            gsap.to(modal, {
+                opacity: 0,
+                duration: 0.5,
+                ease: "power2.in",
+                onComplete: () => {
+                    modal.style.display = 'none';
+                    // Clear zine carousel images to prevent duplication
+                    const carousel = document.querySelector('.zine-carousel');
+                    if (carousel) {
+                        carousel.querySelectorAll('img').forEach(img => img.remove());
+                    }
+                }
+            });
+        }
+
+        // Keyboard navigation for zine carousel
+        document.addEventListener('keydown', (e) => {
+            const modal = document.getElementById('project-modal');
+            if (modal.style.display === 'block' && projectKeys[currentProjectIndex] === 'coneyIslandPsych') {
+                if (e.key === 'ArrowLeft') changeZineSlide(-1);
+                if (e.key === 'ArrowRight') changeZineSlide(1);
+            }
+            if (e.key === 'Escape') closeProjectModal();
+        });
+});
 </script>
 </body>
 </html>
