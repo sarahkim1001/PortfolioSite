@@ -133,12 +133,12 @@ nav {
 }
 
 nav a {
-    color: rgb(102, 102, 102);
+    color: rgb(72, 72, 72);
     text-decoration: none;
     transition: all .5s ease;
     margin: 2px 10px;
     padding:.25rem;
-    background-color:rgba(255, 255, 255, 0.516);
+    background-color:rgba(255, 255, 255, 0.704);
     border-radius: 2px;
 }
 
