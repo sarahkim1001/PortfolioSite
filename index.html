@@ -139,7 +139,7 @@
 
             <div class="projectitem" onclick="showProjectModal('coneyIslandPsych')">
                 <div class="workImg">
-                    <img src="./img/zine/1.png"> 
+                    <img src="./compressed-zine/1.png"> 
                 </div>
                 <div class="workDescription">
                     <h3>Coney Island Psychoculture</h3>
@@ -356,22 +356,22 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const videoLists = {
-        frame1: [
-            "./vid/beautBrain.mov",
-            "./vid/oroProject.mov",
-            "./vid/shpin.mov"
-        ],
-        frame2: [
-            "./vid/bornOver.mov",
-            "./vid/memoryV1.mov",
-            "./vid/slippingV1.mov"
-        ],
-        frame3: [
-            "./vid/tree.mov",
-            "./vid/tree.mov",
-            "./vid/tree.mov"
-        ]
-    };
+    frame1: [
+        "./compressed-vid/beautBrain.mov",
+        "./compressed-vid/oroProject.mov",
+        "./compressed-vid/shpin.mov"
+    ],
+    frame2: [
+        "./compressed-vid/bornOver.mov",
+        "./compressed-vid/memoryV1.mov",
+        "./compressed-vid/slippingV1.mov"
+    ],
+    frame3: [
+        "./compressed-vid/tree.mov",
+        "./compressed-vid/tree.mov",
+        "./compressed-vid/tree.mov"
+    ]
+};
 
     const shuffleArray = (array) => {
         for (let i = array.length - 1; i > 0; i--) {
@@ -458,7 +458,7 @@ document.addEventListener('DOMContentLoaded', function() {
 const projects = {
     Ouroboros: {
         title: "Ouroboros, 2025",
-        media: '<video src="./vid/oroProject.mov" alt="Senior Thesis">',
+        media: '<video src="./compressed-vid/oroProject.mov" alt="Senior Thesis">',
         description: `
             <p>Ouroboros is an immersive audio-visual installation that invites participants to crawl through a circular play tunnel while listening to a sound composition through wireless headphones, breaking away from habitual movements to heighten bodily awareness and presence. I am exploring how memory is stored in the body, particularly how certain movements can incite reflection on past experiences and trauma. Crawling in the tunnel may remind us that we are the children we once were. I’ve created an acoustic environment that layers my voice onto an ever-changing soundscape of sonic fragments, based on information collected from surveying what sounds people associate with various emotions and time periods. Inspired by the structural approach of process music and the processing of raw environmental sound of musique concrète, I am also investigating the unpredictability of generative systems and live sound in MAX/MSP. Ouroboros opens up a liminal space that is meant to be confrontational and transformative, bringing together unconscious and conscious aspects of ourselves, referencing Carl Jung’s Theory of Wholeness. The name of my work, Ouroboros, refers to the ancient symbol of a snake consuming its tail, often representing cycles of destruction and creation and the continuous flow of the universe, also interpreted as an archetype for the cyclical nature of psychic growth. I believe throughout our lives we can die many times metaphorically, as we live, we reorganize and reinterpret information, shedding our skin, continually transforming. The looping tunnel of Ouroboros literalizes this cycle through sound and physicality. My work primarily focuses on the potential of sound to mediate states of consciousness, questioning how particular sounds can affect emotion, identity, and behavior. As a researcher, Ouroboros has been an experiment to explore how immersive spaces can function to promote collective healing, ultimately to inspire changes in how we raise future generations. In this age where living experience becomes increasingly virtualized and sedentary, it is important to establish the difference between wisdom gained through embodied experience and information received passively. Through creating experiences that require active engagement of body and mind, I hope to empower people in reclaiming agency over their perception.</p>
         `
@@ -476,7 +476,7 @@ const projects = {
     },
     inBetween: {
     title: "In Between, 2025",
-    media: '<video src="./vid/InBetween.mp4" controls autoplay muted loop playsinline poster="./img/fallback.jpg">' +
+    media: '<video src="./compressed-vidd/InBetween.mp4" controls autoplay muted loop playsinline poster="./img/fallback.jpg">' +
            '<img src="./vid/willow.MOV" alt="Fallback for In Between video"></video>',
     description: `
         <p>In Between is an experimental short documentary film that grasps at the unknown behind every moment. Taking segments of New York City's streets and cityways through vehicles of transportation, the film captures the fleetingness of truth and understanding, a sensation of losing what we once held as certain. Kim renders the perpetual death and rebirth of living experience: shedding preconceived notions to weave new ones, only to be swallowed again by the vast unknown where connections form and dissolve.</p>
@@ -494,7 +494,7 @@ const projects = {
     },
     theVeil: {
         title: "The Veil, 2024",
-        media: '<video src="./vid/internal.mp4" controls autoplay muted loop></video>',
+        media: '<video src="./compressed-vid/internal.mp4" controls autoplay muted loop></video>',
         description: `
             <p>The Veil reinterprets the Sumerian myth Descent of Inanna, probing dichotomies—descent/ascent, death/rebirth—and their cyclical patterns in shaping perception. This generative multimedia installation uses selections of footage taken from documentary In Between to investigate how fragments of memory are complexly woven together in forming understanding. The idea of déjà vu grounds the piece in its use of repetitive yet ever-shifting juxtapositions. Its audio, crafted in MAX/MSP, manipulates a heartbeat from clear to obscured, embodying sensemaking and mythic transition. The distortion lens is edited in Premiere Pro to layer in the sense of ambiguity of subjective experience. A veiled figure at the center symbolizes life as undefined, shifting focus to anonymity and mystery. Together, these components forge a space that questions conventional thought and embraces uncertainty.</p>
         `
@@ -530,7 +530,7 @@ const projects = {
     },
     myvanitytree: {
         title: "My Vanity Tree, 2023",
-        media: '<video src="./vid/tree.mov" alt="My Vanity Tree" loop>',
+        media: '<video src="./compressed-vid/tree.mov" alt="My Vanity Tree" loop>',
         description: `
             <p>A functional sculpture, jewelry holder</p>
         `
