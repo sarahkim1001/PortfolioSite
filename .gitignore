@@ -3,3 +3,21 @@
 compressed-vid/
 vid/
 
+# macOS system files
+.DS_Store
+
+# Video folder
+vid/
+
+# Video files
+*.mp4
+*.mov
+*.avi
+*.mkv
+
+# Image directories
+img/zine/
+
+# Other large files
+*.zip
+*.tar.gz
