@@ -14,14 +14,19 @@
 <div id="back">
     <img src="./img/back3.png">
 </div>-->
+<!--
+<a id="name" href="#intro">SARAH S. KIM</a>
+-->
+<div id="name1">
+    <img src="./img/name.png" >
+</div>
 
-<a id="name" href="#intro">Sarah S. Kim</a>
 
 <nav>
-    <a href="#current" class="nav-link">Current</a>
-    <a href="#work" class="nav-link">Archive</a>
-    <a href="#about" class="nav-link">Biography</a>
-    <a href="#contact" class="nav-link">Contact</a>
+    <a href="#current" class="nav-link">CURRENT</a>
+    <a href="#work" class="nav-link">ARCHIVE</a>
+    <a href="#about" class="nav-link">ABOUT</a>
+    <a href="#contact" class="nav-link">CONTACT</a>
 </nav>
 
 <section id="home">
@@ -55,7 +60,7 @@
 <section id="current"> 
     <div class="intro">
         <h3>
-            Sarah Seiyuen Kim is an experiential designer and multimedia artist shaping the aesthetics of human-machine interaction. Through new media technologies and critical research methods, she explores time, memory, and cultural identity from perspectives of the current civilizational moment. Pursuing a B.S. in Integrated Design and Media at NYU Tandon School of Engineering (May 2025), she blends sound, image, touch, and computation to craft provacational sensory experiences. Her work, rooted in storytelling, reimagines collective presence and challenges entrenched structures of colonial legacies. Inspired by phantasmagoria and natural patterns, she is also a cellist, composer, writer, and visionary enchanted by existence. 
+            Sarah Seiyuen Kim is an interdisciplinary designer and multimedia artist shaping the aesthetics of human-machine interaction. Through new media technologies and critical research methods, she explores time, memory, and cultural identity from perspectives of the current civilizational moment. Pursuing a B.S. in Integrated Design and Media at NYU Tandon School of Engineering (May 2025), she blends sound, image, touch, and computation to interrogative spaces. Her work, rooted in storytelling, reimagines collective presence and challenges entrenched structures of colonial legacies. Inspired by phantasmagoria and natural patterns, she is also a cellist, composer, writer, and visionary enchanted by existence. 
          </h3>
     </div>
     <div class="current-content">
@@ -76,7 +81,7 @@
           <!-- Project 2: Live Performance Group Project -->
           <div class="projectitem" onclick="showProjectModal('livePerformance')">
             <div class="workImg">
-                <img src="./img/forrest2.png"> 
+                <img src="./img/webbed.png"> 
             </div>
             <div class="workDescription">
                 <h3>Live Performance Group Project</h3>
@@ -139,7 +144,7 @@
 
             <div class="projectitem" onclick="showProjectModal('coneyIslandPsych')">
                 <div class="workImg">
-                    <img src="./compressed-zine/1.png"> 
+                    <img src="./img/zine/1.png"> 
                 </div>
                 <div class="workDescription">
                     <h3>Coney Island Psychoculture</h3>
@@ -178,7 +183,7 @@
 
             <div class="projectitem" onclick="showProjectModal('Phase')">
                 <div class="workImg">
-                    <img src="./img/rats.JPG"> 
+                    <img src="./img/unknown.png"> 
                 </div>
                 <div class="workDescription">
                     <h3>Phase</h3>
@@ -222,11 +227,11 @@
 <section id="about">
     <div class="aboutcontent">
         <div class="aboutpic">
-            <img src="./img/selfie2.png">
+            <img src="./img/mirrorselfie.JPG">
         </div>
         <div class="aboutwords">
             <p> 
-                Sarah Seiyuen Kim is an experience designer and multimedia artist shaping the aesthetics of human-machine interaction. Through new media technologies and critical research methods, her work investigates time, memory, and cultural identity from perspectives of the contemporary cultural moment. 
+                Sarah Seiyuen Kim is an interdisciplinary designer and multimedia artist shaping the aesthetics of human-machine interaction. Through new media technologies and critical research methods, her work investigates time, memory, and cultural identity from perspectives of the contemporary cultural moment. 
             </p>
             <p>She will complete a B.S. in Integrated Design and Media at NYU Tandon School of Engineering in May 2025, with a minor in Media, Culture, and Communication. She is currently exploring how computation transforms human emotion, thought, and behavior, through algorithmic art and examinations of the human psyche within social, environmental, and conceptual ecologies.
             </p>
@@ -241,7 +246,7 @@
 
 <section id="contact">
     <div class="contactcontent">
-        <p> <a href="mailto:sarahkim1001@gmail.com">sarahkim1001@gmail.com</a></p>
+        <p> <a href="mailto:sarahkim1001@gmail.com">SarahKim1001@gmail.com</a></p>
         <p> <a href="https://www.linkedin.com/in/sarah-s-kim-03047020a/" target="_blank">LinkedIn</a></p>
         <p><a href="#" id="resume-link">Resume</a></p>
         <p> <a href="https://www.instagram.com/s4rahkim/" target="_blank">Instagram</a></p>
@@ -357,19 +362,14 @@
 document.addEventListener('DOMContentLoaded', () => {
     const videoLists = {
     frame1: [
-        "./compressed-vid/beautBrain.mov",
-        "./compressed-vid/oroProject.mov",
-        "./compressed-vid/shpin.mov"
+    "./vid/tree.mp4"
     ],
     frame2: [
-        "./compressed-vid/bornOver.mov",
-        "./compressed-vid/memoryV1.mov",
-        "./compressed-vid/slippingV1.mov"
+    "./vid/woah.mp4"
     ],
     frame3: [
-        "./compressed-vid/tree.mov",
-        "./compressed-vid/tree.mov",
-        "./compressed-vid/tree.mov"
+    
+    "./vid/memoryV1.mp4"
     ]
 };
 
@@ -382,7 +382,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const getRandomInterval = () => {
-    return Math.floor(Math.random() * (15000 - 11000 + 1)) + 7000; // Random 7000–11000ms
+    return Math.floor(Math.random() * (15000 - 11000 + 1)) + 10000; // Random 7000–11000ms
 };
 
     const videoFrames = document.querySelectorAll('.media-frame video');
@@ -476,10 +476,10 @@ const projects = {
     },
     inBetween: {
     title: "In Between, 2025",
-    media: '<video src="./compressed-vidd/InBetween.mp4" controls autoplay muted loop playsinline poster="./img/fallback.jpg">' +
+    media: '<video src="./vid/InBetweenFinalCut.mp4" controls autoplay muted loop playsinline poster="./img/fallback.jpg">' +
            '<img src="./vid/willow.MOV" alt="Fallback for In Between video"></video>',
     description: `
-        <p>In Between is an experimental short documentary film that grasps at the unknown behind every moment. Taking segments of New York City's streets and cityways through vehicles of transportation, the film captures the fleetingness of truth and understanding, a sensation of losing what we once held as certain. Kim renders the perpetual death and rebirth of living experience: shedding preconceived notions to weave new ones, only to be swallowed again by the vast unknown where connections form and dissolve.</p>
+        <p>In Between is an experimental short documentary film situated at the threshold of the known and unknown. Taking segments of New York City's streets and cityways through vehicles of transportation, the film captures the fleetingness of truth and understanding, a sensation of losing what we once held as certain. Kim renders the perpetual death and rebirth of living experience: shedding preconceived notions to weave new ones, only to be swallowed again by the vast unknown where connections form and dissolve.</p>
         <p>The film questions the malleability of self. If identity emerges from environment and others’ perceptions, what remains true when all we’ve known fractures? Through a first-person lens, In Between suspends viewers at the crossroads of dreaming and waking, stitching together moments Kim documented across New York City. In transit—alienated yet entwined with the world—she observes reality’s uncertainty unfold, perception bending through senses, bodies, and emotions.</p>
         <p>When did you realize all you knew was but a shard of truth? This work surrenders to that question, embracing the ambiguity—a paradoxical dance of comfort and unsettlement. How does one move forward, purposeful, in perpetual flux? In Between offers no answers, only the space to linger in the unfathomed.</p>
     `
@@ -537,7 +537,7 @@ const projects = {
     },
     Phase: {
         title: "Phase",
-        media: '<img src="./img/rats.JPG" alt="Phase">',
+        media: '<img src="./img/webbed.png" alt="Phase">',
         description: `
             <p>A series exploring the concept of the multiplicity of perspectives through photo edits</p>
         `
@@ -550,7 +550,7 @@ const projects = {
         `
     }
 };
-
+ 
 const projectKeys = Object.keys(projects);
 let currentProjectIndex = 0;
 
