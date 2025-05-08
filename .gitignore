@@ -1,17 +1,15 @@
 .DS_Store
 *.icloud
-compressed-vid/
-vid/
+
 
 # macOS system files
 .DS_Store
 
 # Video folder
-vid/
-
+#
 # Video files
-*.mp4
-*.mov
+#*.mp4
+#*.mov
 *.avi
 *.mkv
 
