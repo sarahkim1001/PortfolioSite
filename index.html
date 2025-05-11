@@ -21,7 +21,6 @@
     <img src="./img/name.png" >
 </div>
 
-
 <nav>
     <a href="#current" class="nav-link">CURRENT</a>
     <a href="#work" class="nav-link">ARCHIVE</a>
@@ -32,44 +31,32 @@
 <section id="home">
     <div id="media-carousel">
         <div class="media-frame">
-            <video class="media-video" autoplay loop muted playsinline poster="./img/fallback.jpg">
-                <source src="" type="video/mp4">
-                <img src="./img/crip.png" alt="Fallback for video frame 1">
-            </video>
+            <img class="media-gif" src="" alt="Animated GIF frame 1">
         </div>
         <div class="media-frame">
-            <video class="media-video" autoplay loop muted playsinline poster="./img/fallback.jpg">
-                <source src="" type="video/mp4">
-                <img src="./img/crip.png" alt="Fallback for video frame 2">
-            </video>
+            <img class="media-gif" src="" alt="Animated GIF frame 2">
         </div>
-        <div class="media-frame">
-            <video class="media-video" autoplay loop muted playsinline poster="./img/fallback.jpg">
-                <source src="" type="video/mp4">
-                <img src="./img/crip.png" alt="Fallback for video frame 3">
-            </video>
-        </div>
-       <!-- <div class="carousel-des">
-            <h3>generative collage</h2>
-        </div>-->
+       
+        <!-- <div class="carousel-des">
+            <h3>generative collage</h3>
+        </div> -->
     </div>
-
 </section>
-
 
 <section id="current"> 
     <div class="intro">
         <h3>
-            Sarah Seiyuen Kim is an interdisciplinary designer and multimedia artist shaping the aesthetics of human-machine interaction. Through new media technologies and critical research methods, she explores time, memory, and cultural identity from perspectives of the current civilizational moment. Pursuing a B.S. in Integrated Design and Media at NYU Tandon School of Engineering (May 2025), she blends sound, image, touch, and computation to interrogative spaces. Her work, rooted in storytelling, reimagines collective presence and challenges entrenched structures of colonial legacies. Inspired by phantasmagoria and natural patterns, she is also a cellist, composer, writer, and visionary enchanted by existence. 
+            Sarah Seiyuen Kim is an interdisciplinary designer and multimedia artist shaping the aesthetics of human-machine interaction. She is Pursuing a B.S. in Integrated Design and Media at NYU Tandon School of Engineering with a minor in Media, Culture, and Communication at Steinhardt School of Culture, Education, and Human Development (May 2025). Her creative practice draws from various disciplines and approaches; from emerging technologies, critical research, to natural observation, she has crafted multimedia projects that center on empowering individuals, deepening relationships, and creating spaces reflective of the human experience. With a background in multimedia integration, digital composition, creative coding, interactive audio in MAX/MSP, projection design and mapping, and physical fabrication, Sarah creates immersive spaces and live experiences that alter states of consciousness through emotional and physiological resonance, blending sensory stimuli to evoke transformative responses in participants. 
+                Inspired by phantasmagoria and natural patterns, she is also a cellist, writer, and an ecological visionary enchanted by existence.
          </h3>
     </div>
     <div class="current-content">
-        <h2 class="projectTypeOG">Current Projects</h2>
         <div class="projectgallery">
+            <h2 class="projectTypeOG">CURRENT PROJECTS:</h2>
           <!-- Project 1 -->
           <div class="projectitem" onclick="showProjectModal('Ouroboros')">
             <div class="workImg">
-                <img src="./img/oroCapt.png"> 
+                <img src="./gif/lyingJerry_1.gif"> 
             </div>
             <div class="workDescription">
                 <h3>Ouroboros</h3>
@@ -81,10 +68,10 @@
           <!-- Project 2: Live Performance Group Project -->
           <div class="projectitem" onclick="showProjectModal('livePerformance')">
             <div class="workImg">
-                <img src="./img/webbed.png"> 
+                <img src="./gif/meta.gif"> 
             </div>
             <div class="workDescription">
-                <h3>Live Performance Group Project</h3>
+                <h3>Metamorphosis</h3>
                 <p>Collaborative Multimedia Performance</p>
                 <h5>Jan 2025 - Present</h5>
             </div>
@@ -96,11 +83,11 @@
 <section id="work">
     <div class="workcontent">
         <div class="projectgallery1">
-            <h2 class="projectType">Past Projects</h2>
+            <h2 class="projectType">PAST PROJECTS:</h2>
 
             <div class="projectitem" onclick="showProjectModal('inBetween')">
                 <div class="workImg">
-                    <img src="./img/veins.jpg"> 
+                    <img src="./gif/branch.gif"> 
                 </div>
                 <div class="workDescription">
                     <h3>In Between</h3>
@@ -111,7 +98,7 @@
 
             <div class="projectitem" onclick="showProjectModal('stillLife')">
                 <div class="workImg">
-                    <img src="./img/plated.jpg"> 
+                    <img src="./gif/plate.gif"> 
                 </div>
                 <div class="workDescription">
                     <h3>Still Life</h3>
@@ -122,7 +109,7 @@
            
             <div class="projectitem" onclick="showProjectModal('theVeil')">
                 <div class="workImg">
-                    <img src="./img/me.jpg"> 
+                    <img src="./gif/veil.gif"> 
                 </div>
                 <div class="workDescription">
                     <h3>The Veil</h3>
@@ -155,7 +142,7 @@
 
             <div class="projectitem" onclick="showProjectModal('split')">
                 <div class="workImg">
-                    <img src="./img/dualities.png"> 
+                    <img src="./gif/dichot.gif"> 
                 </div>
                 <div class="workDescription">
                     <h3>Split</h3>
@@ -177,16 +164,14 @@
         </div>
 
         <div class="projectgallery2">
-            <h2 class="projectType">Series</h2>
-
-            
+            <h2 class="projectType">SERIES:</h2>
 
             <div class="projectitem" onclick="showProjectModal('Phase')">
                 <div class="workImg">
                     <img src="./img/unknown.png"> 
                 </div>
                 <div class="workDescription">
-                    <h3>Phase</h3>
+                    <h3>Passage</h3>
                     <p>Photographic</p>
                 </div>
             </div>
@@ -204,7 +189,6 @@
     </div>
 </section>
 
- 
 <!-- Modal Structure -->
 <div id="project-modal" class="modal">
     <div class="modal-content">
@@ -223,11 +207,10 @@
     </div>
 </div>
 
-
 <section id="about">
     <div class="aboutcontent">
         <div class="aboutpic">
-            <img src="./img/mirrorselfie.JPG">
+            <img src="./img/vamped.jpg">
         </div>
         <div class="aboutwords">
             <p> 
@@ -237,7 +220,7 @@
             </p>
           <p>Her craft is founded on an interdisciplinary design education focusing across several core areas: visual and sound arts, interactivity, emerging technologies, and humanities. She is experienced in graphic design, sound design, live signal processing, film production, projection and installation design, interaction design, front- and back-end development, circuit design, and more. Working on individual and collaborative projects, she has developed a dynamic process that understands both personal and shared visions. </p>
          <p>
-            At the heart of her practice is the age-old tradition of storytelling. Stories connect us across generations and cultures, both reminding and reimagining collective presences. She constructs meaningful narratives by designing sensory experiences inspired to nourish cultural memory, spirit, and functioning. Her senior thesis, an interactive sound installation, explores sound, indeterminacy, and consciousness, reimagining identities beyond colonial frameworks.
+            At the heart of her practice is the age-old tradition of storytelling. Stories connect us across generations and cultures, both reminding and reimagining collective presences. She constructs meaningful narratives by designing sensory experiences inspired to nourish cultural memory, spirit, and functioning. Her senior thesis, an immersive installation, explores sound, physicality, indeterminacy, and consciousness, reimagining identities beyond colonial frameworks.
          </p>
           <p>Among other things, Sarah is an impressionist artist, experimental and classically trained cellist, writer, composer, and learner of new languages. She is inspired by phantasmagoria, natural patterns, and vanishing points. She is curious about semantics, cybernetics, and is endlessly enchanted by the mysteries of being~
         </p>
@@ -246,11 +229,11 @@
 
 <section id="contact">
     <div class="contactcontent">
-        <p> <a href="mailto:sarahkim1001@gmail.com">SarahKim1001@gmail.com</a></p>
+        <p> <a href="mailto:sarahkim1001@gmail.com">Sarahkim1001@gmail.com</a></p>
         <p> <a href="https://www.linkedin.com/in/sarah-s-kim-03047020a/" target="_blank">LinkedIn</a></p>
         <p><a href="#" id="resume-link">Resume</a></p>
         <p> <a href="https://www.instagram.com/s4rahkim/" target="_blank">Instagram</a></p>
-        <div class="based">
+        <div class="based"> 
             <p>Based in New York City. </p>
         </div> 
     </div>
@@ -264,7 +247,7 @@
 </div>
 
 <footer>
-    <p>© 2025 Sarah Kim</p>
+    <p>© 2025 SARAH SEIYEUN KIM</p>
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
@@ -360,18 +343,11 @@
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const videoLists = {
-    frame1: [
-    "./vid/tree.mp4"
-    ],
-    frame2: [
-    "./vid/woah.mp4"
-    ],
-    frame3: [
-    
-    "./vid/memoryV1.mp4"
-    ]
-};
+    const gifLists = {
+        frame1: ["./gif/tree.gif", "./gif/tree.gif", "./gif/tree.gif"],  // Replace with your GIF paths
+        frame2: ["./gif/knitted.gif", "./gif/knitted.gif", "./gif/knitted.gif"] // Replace with your GIF paths
+        
+    };
 
     const shuffleArray = (array) => {
         for (let i = array.length - 1; i > 0; i--) {
@@ -381,70 +357,40 @@ document.addEventListener('DOMContentLoaded', () => {
         return array;
     };
 
-    const getRandomInterval = () => {
-    return Math.floor(Math.random() * (15000 - 11000 + 1)) + 10000; // Random 7000–11000ms
-};
+    const gifFrames = document.querySelectorAll('.media-frame .media-gif');
+    console.log('Found GIF elements:', gifFrames.length);
 
-    const videoFrames = document.querySelectorAll('.media-frame video');
-    console.log('Found video elements:', videoFrames.length);
-
-    if (videoFrames.length === 0) {
-        console.error('No video elements found. Check .media-frame video selector.');
+    if (gifFrames.length === 0) {
+        console.error('No GIF elements found. Check .media-frame .media-gif selector.');
         return;
     }
 
-    videoFrames.forEach((video, index) => {
+    gifFrames.forEach((gif, index) => {
         const frameKey = `frame${index + 1}`;
-        const shuffledVideos = shuffleArray([...videoLists[frameKey]]);
-        let currentVideoIndex = 0;
-        let intervalId = null;
+        const shuffledGifs = shuffleArray([...gifLists[frameKey]]);
+        const randomGif = shuffledGifs[0]; // Select first GIF from shuffled array
 
-        const setVideoSource = () => {
-            if (intervalId) clearInterval(intervalId);
+        console.log(`Setting GIF ${index + 1} to: ${randomGif}`);
+        gif.src = randomGif;
 
-            // Trigger fade-out by setting opacity to 0
-            video.style.opacity = 0;
-
-            const source = video.querySelector('source');
-            const videoUrl = shuffledVideos[currentVideoIndex];
-            console.log(`Setting video ${index + 1} to: ${videoUrl}`);
-            source.src = videoUrl;
-            video.load();
-
-            const onCanPlay = () => {
-                // Fade-in after video is ready
-                video.style.opacity = 1;
-                video.play().catch(error => {
-                    console.error(`Error playing video ${index + 1} (${videoUrl}):`, error);
-                    switchVideo();
-                });
-                video.removeEventListener('canplay', onCanPlay);
-            };
-
-            video.addEventListener('canplay', onCanPlay);
-
-            video.addEventListener('error', () => {
-                console.error(`Failed to load video ${index + 1}: ${videoUrl}`);
-                switchVideo();
-            }, { once: true });
-
-            // Set new random interval for next switch
-            intervalId = setInterval(switchVideo, getRandomInterval());
-        };
-
-        const switchVideo = () => {
-            currentVideoIndex = (currentVideoIndex + 1) % shuffledVideos.length;
-            setVideoSource();
-        };
-
-        // Initial load with slight delay
-        setTimeout(() => {
-            setVideoSource();
-        }, 100 * (index + 1));
-
-        video.addEventListener('loadeddata', () => {
-            console.log(`Video ${index + 1} loaded: ${shuffledVideos[currentVideoIndex]}`);
+        // Fade-in effect
+        gif.style.opacity = 0;
+        gsap.to(gif, {
+            opacity: 1,
+            duration: 1,
+            ease: "power2.out",
+            delay: 0.1 * (index + 1)
         });
+
+        // Handle load and error events
+        gif.addEventListener('load', () => {
+            console.log(`GIF ${index + 1} loaded: ${randomGif}`);
+        }, { once: true });
+
+        gif.addEventListener('error', () => {
+            console.error(`Failed to load GIF ${index + 1}: ${randomGif}`);
+            gif.src = './img/fallback.jpg';
+        }, { once: true });
     });
 });
 
@@ -458,7 +404,7 @@ document.addEventListener('DOMContentLoaded', function() {
 const projects = {
     Ouroboros: {
         title: "Ouroboros, 2025",
-        media: '<video src="./compressed-vid/oroProject.mov" alt="Senior Thesis">',
+        media: '<img src="./gif/lyingJerry.gif"  alt="Senior Thesis">',
         description: `
             <p>Ouroboros is an immersive audio-visual installation that invites participants to crawl through a circular play tunnel while listening to a sound composition through wireless headphones, breaking away from habitual movements to heighten bodily awareness and presence. I am exploring how memory is stored in the body, particularly how certain movements can incite reflection on past experiences and trauma. Crawling in the tunnel may remind us that we are the children we once were. I’ve created an acoustic environment that layers my voice onto an ever-changing soundscape of sonic fragments, based on information collected from surveying what sounds people associate with various emotions and time periods. Inspired by the structural approach of process music and the processing of raw environmental sound of musique concrète, I am also investigating the unpredictability of generative systems and live sound in MAX/MSP. Ouroboros opens up a liminal space that is meant to be confrontational and transformative, bringing together unconscious and conscious aspects of ourselves, referencing Carl Jung’s Theory of Wholeness. The name of my work, Ouroboros, refers to the ancient symbol of a snake consuming its tail, often representing cycles of destruction and creation and the continuous flow of the universe, also interpreted as an archetype for the cyclical nature of psychic growth. I believe throughout our lives we can die many times metaphorically, as we live, we reorganize and reinterpret information, shedding our skin, continually transforming. The looping tunnel of Ouroboros literalizes this cycle through sound and physicality. My work primarily focuses on the potential of sound to mediate states of consciousness, questioning how particular sounds can affect emotion, identity, and behavior. As a researcher, Ouroboros has been an experiment to explore how immersive spaces can function to promote collective healing, ultimately to inspire changes in how we raise future generations. In this age where living experience becomes increasingly virtualized and sedentary, it is important to establish the difference between wisdom gained through embodied experience and information received passively. Through creating experiences that require active engagement of body and mind, I hope to empower people in reclaiming agency over their perception.</p>
         `
@@ -470,7 +416,6 @@ const projects = {
             <p>Metamorphosis is a reflective multimedia performance following the life cycle of a butterfly, weaving together live dance, video projection, and poetic storytelling. By tracing the butterfly's journey from birth to death and beyond, we explore life's transformative cycles and challenge traditional ideas of beginnings and endings. Key themes include change, evolution, and growth, highlighting how different environments influence development.</p>
         <p>The visual experience combines footage of nature and generative graphics using TouchDesigner, sequenced in Isadora to allow real-time interaction and manipulation. Our dancer embodies the butterfly through thoughtful projection and costume design, using silk chiffon techniques inspired by Isadora Duncan and Loïe Fuller to capture the essence of flight. </p>
         <p>The soundscape sets the emotional and environmental stage for the narrative, while a spoken word poem adds metaphorical insight into the butterfly’s life cycle.</p>
-
     <p>In this collaborative project, my role, Sarah Kim, involves sound design. I'm creating a generative soundscape in MAX/MSP and performing a live poem that narrates the choreography and video projections. The soundscape aligns with the five scenes of the Isadora project, each with distinct ambience. I work with scriptwriter Adeline Ferolo to craft a narrative poem that meshes seamlessly with the story. During the performance, I'll read the poem on stage, with my voice integrated into the sound environment through MAX/MSP.</p>
         `
     },
@@ -489,7 +434,7 @@ const projects = {
         media: '<img src="./img/plated.jpg" alt="Still Life">',
         description: `
             <p>Still Life is an audio installation that unveils the resonant interplay between everyday objects and our sensory world, tuning into their hidden sonic life. Inspired by the urban hum of machinery, Sarah Seiyuen Kim amplifies the overlooked acoustics of household items—objects that, though still, hum with energy, threading sound waves into our primal core. The piece beckons listeners to reconsider their bond with the material realm.</p>
-            <p>At its core lies a handcrafted audio system: a piezo contact microphone, an amplifier, and a transducer speaker, fused by a soldered circuit. Placed on a shared surface, this setup births a feedback loop—listening to itself as it magnifies the material’s natural pulse. The result is a living chorus of resonance, a soundscape that questions perception and stirs reflection on the vibrant stillness around us.</p>
+            <p>At its core lies a handcrafted audio system: a piezo contact microphone, an amplifier, and a transducer speaker, fused by a soldered circuit. Placed on a shared surface, this setup births a feedback loop—listening to itself as it magnifies the material’s natural pulse. The result is a living chorus of resonance, a soundscape that questions perception and stirs reflection on интернирующий reflection on the vibrant stillness around us.</p>
         `
     },
     theVeil: {
@@ -507,20 +452,20 @@ const projects = {
         `
     },
     coneyIslandPsych: {
-                title: "Coney Island Psychoculture, 2024",
-                media: `
-                    <div class="zine-carousel">
-                        <!-- Images will be dynamically loaded -->
-                        <div class="carousel-arrow left-arrow" onclick="changeZineSlide(-1)">‹</div>
-                        <div class="carousel-arrow right-arrow" onclick="changeZineSlide(1)">›</div>
-                    </div>
-                `,
-                description: `
-                    <p>This handcrafted zine explores the history of Luna Park in Coney Island as a lens to examine the evolving cultural and social landscape of New York City at the turn of the 20th century. The project investigates how technological advancements and social changes brought about by rapid industrialization and urbanization influenced the cultural dynamics and psychological states of urban inhabitants.</p>
-                    <p>The primary objective of this zine is to explore the history of Luna Park in the context of New York City's transformation at the turn of the 20th century, focusing on the interplay between technological advancements, social changes, and cultural evolution. By examining Luna Park, the project seeks to understand the impact of rapid industrialization, urbanization, and population growth on the cultural dynamics and psychological states of urban inhabitants. The zine aims to analyze the neurological conception of modernity, reflecting new sensations, fears, and anxieties that arose from these societal transformations. It also investigates the role of media during this period as both a reflection and contributor to these changes, illustrating how Luna Park mirrored the thrilling and bizarre experiences indicative of the era. Ultimately, this project seeks to express the cyclical relationship between media, technology, and societal transformation, emphasizing New York City's global cultural influence.</p>
-                    <p>The zine draws inspiration from numerous sources that address various facets of the historical and cultural landscape of early 20th-century New York City. The project is informed by works such as Donna Haraway's Cyborg Manifesto, Georg Simmel's The Metropolis and Mental Life, and Guy Debord's Society of the Spectacle, which offer insights into the urban experience and the role of sensational media. Additionally, it considers Marxist critiques, such as Karl Marx's Capital, to contextualize the economic underpinnings of these transformations. The project looks at media evolution through sources like the works of Leo Charney and Vanessa R. Schwartz on cinema and visual journalism, and Tom Gunning's exploration of early film aesthetics. With a comprehensive array of sources, the zine aspires to paint a vivid picture of how Luna Park and Coney Island as a whole became icons of modernity intertwined with the burgeoning metropolis of New York City.</p>
-                `
-            },
+        title: "Coney Island Psychoculture, 2024",
+        media: `
+            <div class="zine-carousel">
+                <!-- Images will be dynamically loaded -->
+                <div class="carousel-arrow left-arrow" onclick="changeZineSlide(-1)">‹</div>
+                <div class="carousel-arrow right-arrow" onclick="changeZineSlide(1)">›</div>
+            </div>
+        `,
+        description: `
+            <p>This handcrafted zine explores the history of Luna Park in Coney Island as a lens to examine the evolving cultural and social landscape of New York City at the turn of the 20th century. The project investigates how technological advancements and social changes brought about by rapid industrialization and urbanization influenced the cultural dynamics and psychological states of urban inhabitants.</p>
+            <p>The primary objective of this zine is to explore the history of Luna Park in the context of New York City's transformation at the turn of the 20th century, focusing on the interplay between technological advancements, social changes, and cultural evolution. By examining Luna Park, the project seeks to understand the impact of rapid industrialization, urbanization, and population growth on the cultural dynamics and psychological states of urban inhabitants. The zine aims to analyze the neurological conception of modernity, reflecting new sensations, fears, and anxieties that arose from these societal transformations. It also investigates the role of media during this period as both a reflection and contributor to these changes, illustrating how Luna Park mirrored the thrilling and bizarre experiences indicative of the era. Ultimately, this project seeks to express the cyclical relationship between media, technology, and societal transformation, emphasizing New York City's global cultural influence.</p>
+            <p>The zine draws inspiration from numerous sources that address various facets of the historical and cultural landscape of early 20th-century New York City. The project is informed by works such as Donna Haraway's Cyborg Manifesto, Georg Simmel's The Metropolis and Mental Life, and Guy Debord's Society of the Spectacle, which offer insights into the urban experience and the role of sensational media. Additionally, it considers Marxist critiques, such as Karl Marx's Capital, to contextualize the economic underpinnings of these transformations. The project looks at media evolution through sources like the works of Leo Charney and Vanessa R. Schwartz on cinema and visual journalism, and Tom Gunning's exploration of early film aesthetics. With a comprehensive array of sources, the zine aspires to paint a vivid picture of how Luna Park and Coney Island as a whole became icons of modernity intertwined with the burgeoning metropolis of New York City.</p>
+        `
+    },
     split: {
         title: "Split, 2023",
         media: '<img src="./img/dualities.png" alt="Split">',
@@ -550,7 +495,7 @@ const projects = {
         `
     }
 };
- 
+
 const projectKeys = Object.keys(projects);
 let currentProjectIndex = 0;
 
@@ -746,8 +691,6 @@ window.addEventListener('click', function(event) {
     }
 });
 
-
-
 document.getElementById('resume-link').addEventListener('click', function(event) {
     event.preventDefault();
     showResumeModal();
@@ -784,149 +727,149 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     const projectKeys = Object.keys(projects);
-        let currentProjectIndex = 0;
-        let currentZineSlide = 0;
-        const zineImages = [
-    'img/zine/1.png',
-    'img/zine/2.png',
-    'img/zine/3.png',
-    'img/zine/4.png',
-    'img/zine/5.png',
-    'img/zine/6.png',
-    'img/zine/7.png',
-    'img/zine/8.png',
-    'img/zine/9.png',
-    'img/zine/10.png',
-    'img/zine/11.png',
-    'img/zine/12.png',
-    'img/zine/13.png',
-    'img/zine/14.png',
-    'img/zine/15.png',
-    'img/zine/16.png',
-    'img/zine/17.png',
-    'img/zine/18.png',
-    'img/zine/19.png',
-    'img/zine/20.png',
-    'img/zine/21.png',
-    'img/zine/22.png',
-    'img/zine/23.png'
-];
+    let currentProjectIndex = 0;
+    let currentZineSlide = 0;
+    const zineImages = [
+        'img/zine/1.png',
+        'img/zine/2.png',
+        'img/zine/3.png',
+        'img/zine/4.png',
+        'img/zine/5.png',
+        'img/zine/6.png',
+        'img/zine/7.png',
+        'img/zine/8.png',
+        'img/zine/9.png',
+        'img/zine/10.png',
+        'img/zine/11.png',
+        'img/zine/12.png',
+        'img/zine/13.png',
+        'img/zine/14.png',
+        'img/zine/15.png',
+        'img/zine/16.png',
+        'img/zine/17.png',
+        'img/zine/18.png',
+        'img/zine/19.png',
+        'img/zine/20.png',
+        'img/zine/21.png',
+        'img/zine/22.png',
+        'img/zine/23.png'
+    ];
 
-        function loadZineCarousel() {
-    const carousel = document.querySelector('.zine-carousel');
-    if (!carousel) {
-        console.error('Zine carousel div not found');
-        return;
-    }
-    // Clear existing images to prevent duplication
-    carousel.querySelectorAll('img').forEach(img => img.remove());
-    
-    zineImages.forEach((src, index) => {
-        const img = document.createElement('img');
-        img.src = src;
-        img.alt = `Zine page ${index + 1}`;
-        img.classList.add('zine-img'); // Add class for styling
-        if (index === 0) img.classList.add('active');
-        carousel.appendChild(img);
+    function loadZineCarousel() {
+        const carousel = document.querySelector('.zine-carousel');
+        if (!carousel) {
+            console.error('Zine carousel div not found');
+            return;
+        }
+        // Clear existing images to prevent duplication
+        carousel.querySelectorAll('img').forEach(img => img.remove());
         
-        // Log image loading
-        img.addEventListener('load', () => {
-            console.log(`Zine image loaded: ${src}`);
-        });
-        img.addEventListener('error', () => {
-            console.error(`Failed to load zine image: ${src}`);
-        });
-    });
-    console.log('Zine carousel images appended:', zineImages);
-}
-
-function changeZineSlide(direction) {
-    const images = document.querySelectorAll('.zine-carousel img');
-    if (!images.length) {
-        console.error('No images found in zine carousel');
-        return;
-    }
-    images[currentZineSlide].classList.remove('active');
-    currentZineSlide = (currentZineSlide + direction + images.length) % images.length;
-    images[currentZineSlide].classList.add('active');
-    console.log(`Changed to zine slide: ${currentZineSlide + 1}`);
-}
-
-        function showProjectModal(projectId) {
-            const modal = document.getElementById('project-modal');
-            const titleDiv = document.getElementById('project-title');
-            const mediaDiv = document.getElementById('project-media');
-            const contentDiv = document.getElementById('project-content');
-            const prevBtn = document.getElementById('prev-project-btn');
-            const nextBtn = document.getElementById('next-project-btn');
-            currentProjectIndex = projectKeys.indexOf(projectId);
-            const project = projects[projectId];
-
-            if (project) {
-                titleDiv.innerHTML = `<h2>${project.title}</h2>`;
-                mediaDiv.innerHTML = project.media;
-                contentDiv.innerHTML = project.description;
-                modal.style.display = 'block';
-
-                // Reset zine carousel if coneyIslandPsych
-                if (projectId === 'coneyIslandPsych') {
-                    currentZineSlide = 0;
-                    loadZineCarousel();
-                }
-
-                // Show/hide navigation buttons
-                prevBtn.style.display = currentProjectIndex === 0 ? 'none' : 'block';
-                nextBtn.style.display = currentProjectIndex === projectKeys.length - 1 ? 'none' : 'block';
-
-                // Handle video playback for other projects
-                const video = mediaDiv.querySelector('video');
-                if (video) {
-                    video.load();
-                    video.play().catch(error => {
-                        console.error(`Error playing modal video (${projectId}):`, error);
-                    });
-                    video.addEventListener('error', () => {
-                        console.error(`Failed to load modal video: ${video.src}`);
-                    }, { once: true });
-                    video.addEventListener('loadeddata', () => {
-                        console.log(`Modal video loaded: ${video.src}`);
-                    }, { once: true });
-                }
-
-                gsap.fromTo(modal, 
-                    { opacity: 0 }, 
-                    { opacity: 1, duration: 1, ease: "power2.out" }
-                );
-                document.getElementById('modal-body').scrollTop = 0;
-            }
-        }
-
-        function closeProjectModal() {
-            const modal = document.getElementById('project-modal');
-            gsap.to(modal, {
-                opacity: 0,
-                duration: 0.5,
-                ease: "power2.in",
-                onComplete: () => {
-                    modal.style.display = 'none';
-                    // Clear zine carousel images to prevent duplication
-                    const carousel = document.querySelector('.zine-carousel');
-                    if (carousel) {
-                        carousel.querySelectorAll('img').forEach(img => img.remove());
-                    }
-                }
+        zineImages.forEach((src, index) => {
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = `Zine page ${index + 1}`;
+            img.classList.add('zine-img'); // Add class for styling
+            if (index === 0) img.classList.add('active');
+            carousel.appendChild(img);
+            
+            // Log image loading
+            img.addEventListener('load', () => {
+                console.log(`Zine image loaded: ${src}`);
             });
-        }
-
-        // Keyboard navigation for zine carousel
-        document.addEventListener('keydown', (e) => {
-            const modal = document.getElementById('project-modal');
-            if (modal.style.display === 'block' && projectKeys[currentProjectIndex] === 'coneyIslandPsych') {
-                if (e.key === 'ArrowLeft') changeZineSlide(-1);
-                if (e.key === 'ArrowRight') changeZineSlide(1);
-            }
-            if (e.key === 'Escape') closeProjectModal();
+            img.addEventListener('error', () => {
+                console.error(`Failed to load zine image: ${src}`);
+            });
         });
+        console.log('Zine carousel images appended:', zineImages);
+    }
+
+    function changeZineSlide(direction) {
+        const images = document.querySelectorAll('.zine-carousel img');
+        if (!images.length) {
+            console.error('No images found in zine carousel');
+            return;
+        }
+        images[currentZineSlide].classList.remove('active');
+        currentZineSlide = (currentZineSlide + direction + images.length) % images.length;
+        images[currentZineSlide].classList.add('active');
+        console.log(`Changed to zine slide: ${currentZineSlide + 1}`);
+    }
+
+    function showProjectModal(projectId) {
+        const modal = document.getElementById('project-modal');
+        const titleDiv = document.getElementById('project-title');
+        const mediaDiv = document.getElementById('project-media');
+        const contentDiv = document.getElementById('project-content');
+        const prevBtn = document.getElementById('prev-project-btn');
+        const nextBtn = document.getElementById('next-project-btn');
+        currentProjectIndex = projectKeys.indexOf(projectId);
+        const project = projects[projectId];
+
+        if (project) {
+            titleDiv.innerHTML = `<h2>${project.title}</h2>`;
+            mediaDiv.innerHTML = project.media;
+            contentDiv.innerHTML = project.description;
+            modal.style.display = 'block';
+
+            // Reset zine carousel if coneyIslandPsych
+            if (projectId === 'coneyIslandPsych') {
+                currentZineSlide = 0;
+                loadZineCarousel();
+            } 
+
+            // Show/hide navigation buttons
+            prevBtn.style.display = currentProjectIndex === 0 ? 'none' : 'block';
+            nextBtn.style.display = currentProjectIndex === projectKeys.length - 1 ? 'none' : 'block';
+
+            // Handle video playback for other projects
+            const video = mediaDiv.querySelector('video');
+            if (video) {
+                video.load();
+                video.play().catch(error => {
+                    console.error(`Error playing modal video (${projectId}):`, error);
+                });
+                video.addEventListener('error', () => {
+                    console.error(`Failed to load modal video: ${video.src}`);
+                }, { once: true });
+                video.addEventListener('loadeddata', () => {
+                    console.log(`Modal video loaded: ${video.src}`);
+                }, { once: true });
+            }
+
+            gsap.fromTo(modal, 
+                { opacity: 0 }, 
+                { opacity: 1, duration: 1, ease: "power2.out" }
+            );
+            document.getElementById('modal-body').scrollTop = 0;
+        }
+    }
+
+    function closeProjectModal() {
+        const modal = document.getElementById('project-modal');
+        gsap.to(modal, {
+            opacity: 0,
+            duration: 0.5,
+            ease: "power2.in",
+            onComplete: () => {
+                modal.style.display = 'none';
+                // Clear zine carousel images to prevent duplication
+                const carousel = document.querySelector('.zine-carousel');
+                if (carousel) {
+                    carousel.querySelectorAll('img').forEach(img => img.remove());
+                }
+            }
+        });
+    }
+
+    // Keyboard navigation for zine carousel
+    document.addEventListener('keydown', (e) => {
+        const modal = document.getElementById('project-modal');
+        if (modal.style.display === 'block' && projectKeys[currentProjectIndex] === 'coneyIslandPsych') {
+            if (e.key === 'ArrowLeft') changeZineSlide(-1);
+            if (e.key === 'ArrowRight') changeZineSlide(1);
+        }
+        if (e.key === 'Escape') closeProjectModal();
+    });
 });
 </script>
 </body>
