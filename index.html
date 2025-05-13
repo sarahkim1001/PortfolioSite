@@ -21,6 +21,9 @@
     <img src="./img/name.png" >
 </div>
 
+<div class="top-band"></div>
+<div class="bottom-band"></div>
+
 <nav>
     <a href="#current" class="nav-link">CURRENT</a>
     <a href="#work" class="nav-link">ARCHIVE</a>
@@ -36,23 +39,18 @@
         <div class="media-frame">
             <img class="media-gif" src="" alt="Animated GIF frame 2">
         </div>
-       
-        <!-- <div class="carousel-des">
-            <h3>generative collage</h3>
-        </div> -->
     </div>
 </section>
 
 <section id="current"> 
     <div class="intro">
         <h3>
-            Sarah Seiyuen Kim is an interdisciplinary designer and multimedia artist shaping the aesthetics of human-machine interaction. She is Pursuing a B.S. in Integrated Design and Media at NYU Tandon School of Engineering with a minor in Media, Culture, and Communication at Steinhardt School of Culture, Education, and Human Development (May 2025). Her creative practice draws from various disciplines and approaches; from emerging technologies, critical research, to natural observation, she has crafted multimedia projects that center on empowering individuals, deepening relationships, and creating spaces reflective of the human experience. With a background in multimedia integration, digital composition, creative coding, interactive audio in MAX/MSP, projection design and mapping, and physical fabrication, Sarah creates immersive spaces and live experiences that alter states of consciousness through emotional and physiological resonance, blending sensory stimuli to evoke transformative responses in participants. 
-                Inspired by phantasmagoria and natural patterns, she is also a cellist, writer, and an ecological visionary enchanted by existence.
+            Sarah Seiyuen Kim is an interdisciplinary designer and multimedia artist shaping the aesthetics of human-machine interaction. Pursuing a B.S. in Integrated Design and Media at NYU Tandon School of Engineering, with a minor in Media, Culture, and Communication (May 2025), her work is crafted with emerging technologies and critical research methods, driven by nature, science, and the humanities. Her diverse skills in multimedia integration, visual and sound design, live performance, and interactive installations blend to create immersive experiences that provoke transformative responses, promoting deeper understanding and connection in contemporary cultural contexts.
          </h3>
     </div>
     <div class="current-content">
         <div class="projectgallery">
-            <h2 class="projectTypeOG">CURRENT PROJECTS:</h2>
+            <h2 class="projectTypeOG">CURRENT PROJECTS</h2>
           <!-- Project 1 -->
           <div class="projectitem" onclick="showProjectModal('Ouroboros')">
             <div class="workImg">
@@ -60,7 +58,7 @@
             </div>
             <div class="workDescription">
                 <h3>Ouroboros</h3>
-                <p>Senior Thesis Project</p>
+                <p>IDM Senior Thesis Project</p>
                 <h5>Jan 2025- Present</h5>
             </div>
         </div>
@@ -83,7 +81,7 @@
 <section id="work">
     <div class="workcontent">
         <div class="projectgallery1">
-            <h2 class="projectType">PAST PROJECTS:</h2>
+            <h2 class="projectType">PAST PROJECTS</h2>
 
             <div class="projectitem" onclick="showProjectModal('inBetween')">
                 <div class="workImg">
@@ -140,16 +138,16 @@
                 </div>
             </div>
 
-            <div class="projectitem" onclick="showProjectModal('split')">
+            <!--<div class="projectitem" onclick="showProjectModal('split')">
                 <div class="workImg">
-                    <img src="./gif/dichot.gif"> 
+                    <img src="./gif/dual.gif"> 
                 </div>
                 <div class="workDescription">
                     <h3>Split</h3>
                     <p>Interactive p5 sketch</p>
                     <h5>December 19th, 2023</h5>
                 </div>
-            </div>
+            </div>-->
 
             <div class="projectitem" onclick="showProjectModal('myvanitytree')">
                 <div class="workImg">
@@ -164,9 +162,9 @@
         </div>
 
         <div class="projectgallery2">
-            <h2 class="projectType">SERIES:</h2>
+            <h2 class="projectType">SERIES</h2>
 
-            <div class="projectitem" onclick="showProjectModal('Phase')">
+            <div class="projectitem" onclick="showProjectModal('Passage')">
                 <div class="workImg">
                     <img src="./img/unknown.png"> 
                 </div>
@@ -200,39 +198,47 @@
             <div id="project-media" class="project-media"></div>
             <!-- Description Container -->
             <div id="project-content"></div>
-            <!-- Next Button -->
-            <button id="next-project-btn" class="next-btn">Next</button>
-            <button id="prev-project-btn" class="prev-btn">Previous</button>
+            <!-- Navigation Buttons Container -->
+            <div class="modal-bottom">
+                <button id="prev-project-btn" class="prev-btn">&lt;</button>
+                <button id="next-project-btn" class="next-btn">&gt;</button>
+            </div>
         </div>
     </div>
 </div>
 
 <section id="about">
     <div class="aboutcontent">
-        <div class="aboutpic">
-            <img src="./img/vamped.jpg">
+        <div class="leftColumn">
+            <div class="aboutpic">
+                <img src="./img/vamped.jpg">
+            </div>
+           <!-- <div class="personalGallery">
+                <div class="personalItem">
+                    <img src="./gif/biking.gif" alt="Personal Gallery Image 1">
+                </div>
+            </div>-->
         </div>
         <div class="aboutwords">
             <p> 
-                Sarah Seiyuen Kim is an interdisciplinary designer and multimedia artist shaping the aesthetics of human-machine interaction. Through new media technologies and critical research methods, her work investigates time, memory, and cultural identity from perspectives of the contemporary cultural moment. 
+                Sarah Seiyuen Kim is an interdisciplinary designer and multimedia artist shaping the aesthetics of human-machine interaction. With an integrative approach, she creates transformative sensory experiences that resonate emotionally and physiologically. 
             </p>
-            <p>She will complete a B.S. in Integrated Design and Media at NYU Tandon School of Engineering in May 2025, with a minor in Media, Culture, and Communication. She is currently exploring how computation transforms human emotion, thought, and behavior, through algorithmic art and examinations of the human psyche within social, environmental, and conceptual ecologies.
-            </p>
-          <p>Her craft is founded on an interdisciplinary design education focusing across several core areas: visual and sound arts, interactivity, emerging technologies, and humanities. She is experienced in graphic design, sound design, live signal processing, film production, projection and installation design, interaction design, front- and back-end development, circuit design, and more. Working on individual and collaborative projects, she has developed a dynamic process that understands both personal and shared visions. </p>
-         <p>
-            At the heart of her practice is the age-old tradition of storytelling. Stories connect us across generations and cultures, both reminding and reimagining collective presences. She constructs meaningful narratives by designing sensory experiences inspired to nourish cultural memory, spirit, and functioning. Her senior thesis, an immersive installation, explores sound, physicality, indeterminacy, and consciousness, reimagining identities beyond colonial frameworks.
-         </p>
-          <p>Among other things, Sarah is an impressionist artist, experimental and classically trained cellist, writer, composer, and learner of new languages. She is inspired by phantasmagoria, natural patterns, and vanishing points. She is curious about semantics, cybernetics, and is endlessly enchanted by the mysteries of being~
-        </p>
+            <p>Her work leverages her academic background in integrated design, digital media, and cultural studies to examine and redefine human interactions and identities. By engaging critical research, emerging technologies, and natural observation, Sarah crafts immersive narratives that invite reflection on the complexities of contemporary existence.</p>
+            <p>
+                She has crafted multimedia projects that center on empowering individuals, deepening relationships, and shifting social fabrics, blending examinations of the human psyche within social, environmental, and conceptual ecologies.
+                Her ideas have taken shape in various forms, utilizing her comprehensive background in multimedia integration, digital composition, interactive audio in MAX/MSP, creative coding, projection design and mapping, film development and photography, graphic design, web development, electronics, and physical fabrication.
+                </p>
+            <p>Among other things, Sarah is an impressionist artist, experimental and classically trained cellist, writer, composer, and learner of new languages. She is inspired by phantasmagoria, natural patterns, and vanishing points. She is curious about semantics, cybernetics, and is endlessly enchanted by the mysteries of being~</p>
         </div>
-    </section> 
+    </div>
+</section>
 
 <section id="contact">
     <div class="contactcontent">
-        <p> <a href="mailto:sarahkim1001@gmail.com">Sarahkim1001@gmail.com</a></p>
-        <p> <a href="https://www.linkedin.com/in/sarah-s-kim-03047020a/" target="_blank">LinkedIn</a></p>
-        <p><a href="#" id="resume-link">Resume</a></p>
-        <p> <a href="https://www.instagram.com/s4rahkim/" target="_blank">Instagram</a></p>
+        <p> <a href="mailto:sarahkim1001@gmail.com">* Sarahkim1001@gmail.com</a></p>
+        <p> <a href="https://www.linkedin.com/in/sarah-s-kim-03047020a/" target="_blank">* LinkedIn</a></p>
+        <p><a href="#" id="resume-link">* Resume</a></p>
+        <p> <a href="https://www.instagram.com/s4rahkim/" target="_blank">* Instagram</a></p>
         <div class="based"> 
             <p>Based in New York City. </p>
         </div> 
@@ -241,8 +247,8 @@
 
 <div id="resume-modal" class="modal">
     <div class="modal-content">
-        <span id="resume-close" class="close">×</span>
-        <img id="resume-image" src="./img/resume.png" alt="Sarah Kim Resume" />
+        <span id="resume-close" class="close">x</span>
+        <img id="resume-image" src="./img/resumeBeta.png" alt="Sarah Kim Resume" />
     </div>
 </div>
 
@@ -344,8 +350,8 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const gifLists = {
-        frame1: ["./gif/tree.gif", "./gif/tree.gif", "./gif/tree.gif"],  // Replace with your GIF paths
-        frame2: ["./gif/knitted.gif", "./gif/knitted.gif", "./gif/knitted.gif"] // Replace with your GIF paths
+        frame1: ["./gif/lyingJerry_1.gif", "./gif/lyingJerry_1.gif"], // Replace with your GIF paths
+        frame2: ["./gif/tree.gif", "./gif/tree.gif"],  // Replace with your GIF paths
         
     };
 
@@ -404,14 +410,20 @@ document.addEventListener('DOMContentLoaded', function() {
 const projects = {
     Ouroboros: {
         title: "Ouroboros, 2025",
-        media: '<img src="./gif/lyingJerry.gif"  alt="Senior Thesis">',
+        media: '<img src="./gif/lyingJerry_1.gif"  alt="Project Documentation Video Coming Soon">' ,
         description: `
-            <p>Ouroboros is an immersive audio-visual installation that invites participants to crawl through a circular play tunnel while listening to a sound composition through wireless headphones, breaking away from habitual movements to heighten bodily awareness and presence. I am exploring how memory is stored in the body, particularly how certain movements can incite reflection on past experiences and trauma. Crawling in the tunnel may remind us that we are the children we once were. I’ve created an acoustic environment that layers my voice onto an ever-changing soundscape of sonic fragments, based on information collected from surveying what sounds people associate with various emotions and time periods. Inspired by the structural approach of process music and the processing of raw environmental sound of musique concrète, I am also investigating the unpredictability of generative systems and live sound in MAX/MSP. Ouroboros opens up a liminal space that is meant to be confrontational and transformative, bringing together unconscious and conscious aspects of ourselves, referencing Carl Jung’s Theory of Wholeness. The name of my work, Ouroboros, refers to the ancient symbol of a snake consuming its tail, often representing cycles of destruction and creation and the continuous flow of the universe, also interpreted as an archetype for the cyclical nature of psychic growth. I believe throughout our lives we can die many times metaphorically, as we live, we reorganize and reinterpret information, shedding our skin, continually transforming. The looping tunnel of Ouroboros literalizes this cycle through sound and physicality. My work primarily focuses on the potential of sound to mediate states of consciousness, questioning how particular sounds can affect emotion, identity, and behavior. As a researcher, Ouroboros has been an experiment to explore how immersive spaces can function to promote collective healing, ultimately to inspire changes in how we raise future generations. In this age where living experience becomes increasingly virtualized and sedentary, it is important to establish the difference between wisdom gained through embodied experience and information received passively. Through creating experiences that require active engagement of body and mind, I hope to empower people in reclaiming agency over their perception.</p>
+        <p>[Project Documentation Video Coming Soon]<p>
+            <p>Ouroboros is an immersive installation inviting participants to pause, reflect, and face the complexities of memory, dreams, and mediated realities. As participants crawl into a play tunnel lined with artificial grass and bubble wrap, they enter a private burrow separated from the surrounding physical space through sound, projection, and architecture. 
+Given bluetooth headphones, participants are enveloped in a shifting soundscape that transcends the immediate environment. This auditory design, featuring a blend of weather sounds, urban textures, digital glitches, noises and echos anchored by distortions of Claude Debussy’s Clair de Lune, acts as a gateway to introspection. Sound shapes consciousness, altering states of mind and positioning participants in a space of saturated awareness, challenging them to navigate their internal landscapes amidst external stimuli. Inspired by Pauline Oliveros’ sonic meditations, the audio design confronts participants: what thoughts arise and pass? Where is one's place within their psyche? 
+Encircling the entire tunnel, drifting cloud projections evoke nostalgia for a simpler past, perhaps childhood, inspiring participants to reconnect with moments of innocence and wonder. This comforting yet confining tactile environment—a passage that feels infinite yet limited—awakens the inner child, providing solace amidst the work-driven stress and anxiety that fray modern psyches.
+Ouroboros is a memory palace where dreams confront an uncertain reality, Ouroboros challenges the passivity of digital consumption, where identities are molded by capitalist agendas. It questions: What is real? Who controls one's calm? The installation invites participants to navigate a mediated world, reflecting on how escapism demonstrated by headphone culture can be transformed into thoughtful introspection to empower individuals. 
+As participants linger in Ouroboros, they are empowered to resurface suppressed noise, nostalgia, and forgotten dreams. It encourages self-discovery amidst unpredictability, finding the constant sky beyond passing chaos, and reclaiming inner peace in a world where reality and representation blur. By offering a space to pause, play, and find stillness, Ouroboros challenges the very essence of control and authenticity, restoring the power of introspection to the people. 
+</p>
         `
     }, 
     livePerformance: {
         title: "Live Performance Group Project, 2025",
-        media: '<img src="./img/forrest2.png" alt="Live Performance">',
+        media: '<img src="./gif/meta.gif" alt="Live Performance">',
         description: `
             <p>Metamorphosis is a reflective multimedia performance following the life cycle of a butterfly, weaving together live dance, video projection, and poetic storytelling. By tracing the butterfly's journey from birth to death and beyond, we explore life's transformative cycles and challenge traditional ideas of beginnings and endings. Key themes include change, evolution, and growth, highlighting how different environments influence development.</p>
         <p>The visual experience combines footage of nature and generative graphics using TouchDesigner, sequenced in Isadora to allow real-time interaction and manipulation. Our dancer embodies the butterfly through thoughtful projection and costume design, using silk chiffon techniques inspired by Isadora Duncan and Loïe Fuller to capture the essence of flight. </p>
@@ -421,7 +433,7 @@ const projects = {
     },
     inBetween: {
     title: "In Between, 2025",
-    media: '<video src="./vid/InBetweenFinalCut.mp4" controls autoplay muted loop playsinline poster="./img/fallback.jpg">' +
+    media: '<video src="./gif/branch.gif" controls autoplay muted loop playsinline poster="./img/fallback.jpg">' +
            '<img src="./vid/willow.MOV" alt="Fallback for In Between video"></video>',
     description: `
         <p>In Between is an experimental short documentary film situated at the threshold of the known and unknown. Taking segments of New York City's streets and cityways through vehicles of transportation, the film captures the fleetingness of truth and understanding, a sensation of losing what we once held as certain. Kim renders the perpetual death and rebirth of living experience: shedding preconceived notions to weave new ones, only to be swallowed again by the vast unknown where connections form and dissolve.</p>
@@ -431,7 +443,7 @@ const projects = {
 },
     stillLife: {
         title: "Still Life, 2024",
-        media: '<img src="./img/plated.jpg" alt="Still Life">',
+        media: '<img src="./gif/plate.gif"">',
         description: `
             <p>Still Life is an audio installation that unveils the resonant interplay between everyday objects and our sensory world, tuning into their hidden sonic life. Inspired by the urban hum of machinery, Sarah Seiyuen Kim amplifies the overlooked acoustics of household items—objects that, though still, hum with energy, threading sound waves into our primal core. The piece beckons listeners to reconsider their bond with the material realm.</p>
             <p>At its core lies a handcrafted audio system: a piezo contact microphone, an amplifier, and a transducer speaker, fused by a soldered circuit. Placed on a shared surface, this setup births a feedback loop—listening to itself as it magnifies the material’s natural pulse. The result is a living chorus of resonance, a soundscape that questions perception and stirs reflection on интернирующий reflection on the vibrant stillness around us.</p>
@@ -439,9 +451,9 @@ const projects = {
     },
     theVeil: {
         title: "The Veil, 2024",
-        media: '<video src="./compressed-vid/internal.mp4" controls autoplay muted loop></video>',
+        media: '<img src="./gif/veil.gif">',
         description: `
-            <p>The Veil reinterprets the Sumerian myth Descent of Inanna, probing dichotomies—descent/ascent, death/rebirth—and their cyclical patterns in shaping perception. This generative multimedia installation uses selections of footage taken from documentary In Between to investigate how fragments of memory are complexly woven together in forming understanding. The idea of déjà vu grounds the piece in its use of repetitive yet ever-shifting juxtapositions. Its audio, crafted in MAX/MSP, manipulates a heartbeat from clear to obscured, embodying sensemaking and mythic transition. The distortion lens is edited in Premiere Pro to layer in the sense of ambiguity of subjective experience. A veiled figure at the center symbolizes life as undefined, shifting focus to anonymity and mystery. Together, these components forge a space that questions conventional thought and embraces uncertainty.</p>
+            <p>The Veil reinterprets the Sumerian myth Descent of Inanna, probing dichotomies—descent/ascent, death/rebirth—and their cyclical patterns in shaping perception. This generative multimedia installation uses selections of footage taken from documentary In Between to investigate how fragments of memory are complexly woven together in forming understanding through the living experience. The idea of déjà vu grounds the piece in its use of repetitive yet ever-shifting juxtapositions. Its audio, crafted in MAX/MSP, manipulates a heartbeat from clear to obscured, embodying sensemaking and mythic transition. The distortion lens is edited in Premiere Pro to layer in the sense of ambiguity of subjective experience. A veiled figure at the center symbolizes the undefined and uncommunicable, shifting focus to anonymity and mystery. Together, these components forge a space that questions identity, communication, and sense-making.</p>
         `
     },
     omnipresentHeart: {
@@ -461,30 +473,43 @@ const projects = {
             </div>
         `,
         description: `
-            <p>This handcrafted zine explores the history of Luna Park in Coney Island as a lens to examine the evolving cultural and social landscape of New York City at the turn of the 20th century. The project investigates how technological advancements and social changes brought about by rapid industrialization and urbanization influenced the cultural dynamics and psychological states of urban inhabitants.</p>
-            <p>The primary objective of this zine is to explore the history of Luna Park in the context of New York City's transformation at the turn of the 20th century, focusing on the interplay between technological advancements, social changes, and cultural evolution. By examining Luna Park, the project seeks to understand the impact of rapid industrialization, urbanization, and population growth on the cultural dynamics and psychological states of urban inhabitants. The zine aims to analyze the neurological conception of modernity, reflecting new sensations, fears, and anxieties that arose from these societal transformations. It also investigates the role of media during this period as both a reflection and contributor to these changes, illustrating how Luna Park mirrored the thrilling and bizarre experiences indicative of the era. Ultimately, this project seeks to express the cyclical relationship between media, technology, and societal transformation, emphasizing New York City's global cultural influence.</p>
-            <p>The zine draws inspiration from numerous sources that address various facets of the historical and cultural landscape of early 20th-century New York City. The project is informed by works such as Donna Haraway's Cyborg Manifesto, Georg Simmel's The Metropolis and Mental Life, and Guy Debord's Society of the Spectacle, which offer insights into the urban experience and the role of sensational media. Additionally, it considers Marxist critiques, such as Karl Marx's Capital, to contextualize the economic underpinnings of these transformations. The project looks at media evolution through sources like the works of Leo Charney and Vanessa R. Schwartz on cinema and visual journalism, and Tom Gunning's exploration of early film aesthetics. With a comprehensive array of sources, the zine aspires to paint a vivid picture of how Luna Park and Coney Island as a whole became icons of modernity intertwined with the burgeoning metropolis of New York City.</p>
+            <p>This handcrafted zine explores the history of Coney Island amusement parks as a lens to examine the evolving cultural and social landscape of New York City at the turn of the 20th century. The project investigates how technological advancements and social changes brought about by rapid industrialization and urbanization influenced the cultural dynamics and psychological states of urban inhabitants.</p>
+            <p>The primary objective of this zine is to explore the history of amusement parks and the rise of popular sensationalism in the context of New York City's transformation at the turn of the 20th century, focusing on the interplay between technological advancements, social changes, and cultural evolution. By examining Luna Park, DreamLand, and Steeplechase the project seeks to understand the impact of rapid industrialization, urbanization, and population growth on the cultural dynamics and psychological states of urban inhabitants. The zine aims to analyze the neurological conception of modernity, reflecting new sensations, fears, and anxieties that arose from these societal transformations. It also investigates the role of media during this period as both a reflection and contributor to these changes, illustrating how the attraction of amusement parks mirrored the thrilling and bizarre experiences indicative of the era. Ultimately, this project seeks to express the cyclical relationship between media, technology, and societal transformation, emphasizing New York City's global cultural influence.</p>
+            <p>The zine draws inspiration from numerous sources that address various facets of the historical and cultural landscape of early 20th-century New York City. The project is informed by works such as Donna Haraway's Cyborg Manifesto, Georg Simmel's The Metropolis and Mental Life, and Guy Debord's Society of the Spectacle, which offer insights into the urban experience and the role of sensational media. Additionally, it considers Marxist critiques, such as Karl Marx's Capital, to contextualize the economic underpinnings of these transformations. The project looks at media evolution through sources like the works of Leo Charney and Vanessa R. Schwartz on cinema and visual journalism, and Tom Gunning's exploration of early film aesthetics. With a comprehensive array of sources, the zine aspires to paint a vivid picture of how Coney Island as a whole became icons of modernity intertwined with the burgeoning metropolis of New York City.</p>
         `
-    },
+    },/*
     split: {
         title: "Split, 2023",
-        media: '<img src="./img/dualities.png" alt="Split">',
+        media: '<img src="./gif/dual.gif" alt="Split">',
         description: `
             <p>An interactive p5.js sketch.</p>
         `
-    },
+    },*/
     myvanitytree: {
         title: "My Vanity Tree, 2023",
-        media: '<video src="./compressed-vid/tree.mov" alt="My Vanity Tree" loop>',
+        media: '<img src="./img/treeDark.png">',
         description: `
-            <p>A functional sculpture, jewelry holder</p>
+            <h5>Research and Methods Statement: Functional Tree Sculpture</h5>
+                <h5>Introduction</h5>
+            <p>This project presents a hand-carved, clay sculpture designed as a functional jewelry holder, inspired by the organic and philosophical architectural principles of Antoni Gaudí. The sculpture, with its croqueseque, skeletal tree-like form and bone-white finish, serves as both an aesthetic elevation of space and a critique of human material culture. It evokes a sense of nature’s beauty and degradation, using jewelry as a symbol of consumptive habits to highlight the grotesque undercurrents of societal materialism.</p>
+            <h5>Research: Gaudí’s Influence</h5>
+            <p>Antoni Gaudí’s architectural legacy, as explored in <i>Gaudí His Life, His Theories, His Work</i> (Martinell, 1975), <i>Gaudí the Complete Works</i> (Zerbst, 2020), and the official websites for Casa Batlló and La Pedrera, profoundly shapes this sculpture’s conceptual and aesthetic framework. Gaudí’s childhood immersion in nature, due to his health conditions, fostered a deep connection to organic forms, evident in the fluid, biomorphic structures of Casa Batlló (<i>Antoni Gaudí Biography | Casa Batlló</i>). His philosophy, as Martinell notes, integrated art, engineering, and functionality, creating spaces that were both utilitarian and culturally significant. For instance, La Pedrera’s multifaceted use—residential, commercial, and cultural—demon TEAMstrates Gaudí’s commitment to holistic design (<i>Gaudí, the Work</i>). Zerbst emphasizes Gaudí’s attention to aesthetic and functional considerations, balancing context, significance, and visual impact in works like La Sagrreports Gaudí’s ability to evoke emotional and philosophical responses, repurposed here to critique the environmental and cultural toll of human consumption.</p>
+            <h5>Methods: Construction Process</h5>
+            <p>The sculpture was hand-crafted from clay, chosen for its malleability and organic texture, which aligns with Gaudí’s tactile, nature-inspired processes. The construction involved the following steps:</p>
+            <p>1. <b>Form Development</b>: The tree-like structure was sketched to resemble gnarled, skeletal branches, evoking both natural growth and decay. This croqueseque form was inspired by Gaudí’s organic, flowing  flowing designs, reimagined with a darker, skeletal aesthetic.</p>
+            <p>2. <b>Hand-Carving</b>: The clay was molded and carved by hand to create intricate, uneven surfaces that mimic bone texture. This labor-intensive process ensured a unique, artisanal quality, reflecting Gaudí’s emphasis on craftsmanship.</p>
+            <p>3. <b>Finishing</b>: A white glaze, reminiscent of bleached bones or ancient artifacts, was applied to enhance the grotesque yet elegant aesthetic. The finish underscores the sculpture’s commentary on decay and preservation.</p>
+            <p>4. <b>Functional Integration</b>: Branches were shaped to hold jewelry, ensuring the piece serves as a practical holder while maintaining its artistic integrity. This mirrors Gaudí’s seamless integration of form and function in his architectural works.</p>
+            <p>The resulting sculpture is both a visual statement and a functional object, designed to elevate the space it occupies while provoking reflection on its deeper themes.</p>
+            <h5>Conclusion</h5>
+            <p>This functional tree sculpture, inspired by Gaudí’s nature-centric philosophy and holistic design principles, merges aesthetic innovation with social commentary. Its hand-carved, bone-white form and croqueseque structure evoke the beauty and degradation of nature, while its role as a jewelry holder critiques the perverse materialism of human culture. By blending functionality, artistry, and critique, the sculpture honors Gaudí’s legacy while offering a contemporary reflection on consumption and environmental loss.</p>
         `
     },
-    Phase: {
-        title: "Phase",
-        media: '<img src="./img/webbed.png" alt="Phase">',
+    Passage: {
+        title: "Passage",
+        media: '<img src="./img/webbed.png" alt="Passage">',
         description: `
-            <p>A series exploring the concept of the multiplicity of perspectives through photo edits</p>
+            <p>A series of passages through my lens</p>
         `
     },
     Selfie: {
