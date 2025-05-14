@@ -286,8 +286,10 @@ nav a.active {
     }
 
     #name {
-        left: 25px;
-        top: 30px;
+        left:2vw;
+        top: 5px;
+        color:white;
+        z-index:3000;
     }
 }
 
