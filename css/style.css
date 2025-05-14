@@ -37,7 +37,7 @@ body, HTML {
     height: 100%; 
     margin: 0;
     padding: 0; 
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(235, 235, 235);
     overflow-y: scroll;
     overflow-x: hidden;
     /*font-family: 'BRHendrix', sans-serif; */
@@ -147,7 +147,7 @@ a {
 /* Responsive adjustments for mobile */
 @media (max-width: 768px) {
     #name1 {
-        left:20px;
+        left:35vw;
         top: 50px;
     }
     #name1 img {
@@ -155,26 +155,49 @@ a {
     }
 }
 
+.lens {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(
+      circle at center,
+      transparent 0%, /* Fully transparent at the center */
+      rgba(0, 0, 0, 0.0) 70%, /* Subtle opacity at 70% of the radius */
+      rgba(0, 0, 0, 0.15) 100% /* More opaque at the edges */
+    );
+    z-index: 9999; /* Ensure it’s above all content */
+    pointer-events: none; /* Allow clicks to pass through */
+  }
+
 .top-band {
-    display: block; /* Show on mobile */
+    display: none; /* Show on mobile */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 30px; /* Match the height of the nav */
-    background-color: #0c0c0c; /* Same dark background */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle bottom border to match nav */
+    height: 50px; /* Match the height of the nav */
+    background: linear-gradient(
+        to bottom,
+        #00000048 0%,    /* Dark at the top edge */
+        transparent 100%  /* Fully transparent at the bottom of the band */
+    );
     z-index: 1000; /* Ensure it stays above content */
 }
+
 .bottom-band {
-    display: block; /* Show on mobile */
+    display: none; /* Show on mobile */
     position: fixed;
     bottom:0;
     left: 0;
     width: 100%;
-    height: 30px; /* Match the height of the nav */
-    background-color: #0c0c0c; /* Same dark background */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle bottom border to match nav */
+    height: 50px; /* Match the height of the nav */
+    background: linear-gradient(
+        to top,
+        #00000048 0%,    /* Dark at the bottom edge */
+        transparent 100%  /* Fully transparent at the top of the band */
+    );
     z-index: 1; /* Ensure it stays above content */
 }
 
@@ -331,7 +354,7 @@ h1 {
     width: 60%; /* Matches .intro width on desktop */
     max-width: 500px; /* Prevent excessive width */
     margin: 0 auto; /* Center with spacing */
-    margin-top: 2rem;
+    margin-top: 0rem;
     padding: 10px; /* Inner spacing */
     border-radius: 500px;
     /*background-color: rgba(64, 38, 38, 0.063);*/
@@ -644,7 +667,8 @@ img{
     line-height: 1.5rem;
     font-size: 1rem;
     padding: 0rem;
-    background-color: #080808f4;
+  /*  background-color: #fffffff4;*/
+    border-radius: 0px;
 }
 
 .leftColumn {
@@ -667,14 +691,15 @@ img{
 .aboutpic img {
     border-radius: 200px;
     padding: 2px;
-    width: 200px;
+    width: 220px;
     height: auto;
     display: block;
+    filter: contrast(1.1) brightness(1.2) ;
 }
 
 .aboutwords {
     padding: 0 20px;
-    color: rgb(193, 193, 193);
+    color:black;
     border-radius: 50px;
     padding: 2rem;
     font-size: 1rem;
@@ -797,12 +822,12 @@ img{
 #contact{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     width:100%
 }
 
 .contactcontent{
-   
+   margin-top:11rem;
     display:flex;
     flex-direction: row;
     width:60%; 
@@ -867,6 +892,7 @@ img{
     height: 100%;
     background-color: rgba(0, 0, 0, 0.871);
     z-index: 2000;
+
 }
 
 .modal-content {
@@ -877,7 +903,7 @@ img{
     width: 90%;
     height: 100%;
     max-width: 1000px;
-    border-radius: 50px;
+    border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     color: rgba(255, 255, 255, 0.756);
 }
@@ -957,7 +983,7 @@ img{
     margin: 20px auto 60px auto;
     margin-top: 40px;
     overflow: hidden;
-    border-radius: 100px;
+    border-radius: 10px;
 }
 
 .project-media video,
@@ -966,7 +992,7 @@ img{
     height: auto;
     max-height: 60vh;
     display: block;
-    border-radius: 100px;
+    border-radius: 10px;
     object-fit: cover;
 }
 
@@ -1097,17 +1123,18 @@ img{
 /* Mobile devices (up to 600px) */
 @media screen and (max-width: 600px) {
     #resume-modal .modal-content {
-        max-width: 75vw;
+        margin-top:6rem;
+        max-width: 100vw;
         padding: 10px;
         font-size: 1.25rem;
     }
     #resume-image {
-        max-height: 75vh;
+       
     }
     .close {
         font-size: 3rem;
         top: 10px;
-        right: 30px;
+        right: 10px;
     }
     .modal-body{
         margin: 5px 0;
