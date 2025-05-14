@@ -108,7 +108,7 @@ a {
     left: 6%;
     font-size: 1.5rem;
     font-family:'Cutive Mono', monospace, 'Times New Roman', Times, serif;
-    font-weight: bold;
+    font-weight: 700;
     color:rgb(0, 0, 0);
     transition: color 1s ease;
     pointer-events: all;
