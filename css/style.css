@@ -37,7 +37,7 @@ body, HTML {
     height: 100%; 
     margin: 0;
     padding: 0; 
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(238, 239, 240);
     overflow-y: scroll;
     overflow-x: hidden;
     /*font-family: 'BRHendrix', sans-serif; */
@@ -100,16 +100,16 @@ a {
     cursor:pointer;
 }
 
-/*
+
 #name {
     z-index: 1000;
     position: absolute;
     top: 50px;
     left: 6%;
     font-size: 1.5rem;
-    font-family:'PPNeueMontrealBook', 'Times New Roman', Times, serif;
+    font-family:'Cutive Mono', monospace, 'Times New Roman', Times, serif;
     font-weight: bold;
-    color:rgb(81, 11, 11);
+    color:rgb(0, 0, 0);
     transition: color 1s ease;
     pointer-events: all;
     padding:2px;
@@ -118,7 +118,7 @@ a {
 
 #name:hover {
     color:rgba(128, 128, 128, 0.293);
-}*/
+}
 
 
 #name1 {
@@ -220,6 +220,7 @@ nav a {
     padding: .25rem;
     border-radius: 2px;
     font-size: 1rem;
+    font-weight: bold;
 }
 
 nav a:hover {
@@ -345,10 +346,11 @@ h1 {
 }
 
 
-/* Media Frames (replacing carousel) */
-.carousel-des{
-    color:grey;
+/* Existing styles unchanged, only adding new styles for the title */
+.carousel-des {
+    color: grey;
 }
+
 /* Media Frames */
 #media-carousel {
     width: 60%; /* Matches .intro width on desktop */
@@ -363,7 +365,6 @@ h1 {
     display: flex;
     flex-direction: column; /* Stack frames vertically */
     gap: 1rem; /* Space between frames */
-    
 }
 
 .media-frame {
@@ -373,6 +374,7 @@ h1 {
     border-radius: 500px;
     overflow: hidden;
     background-color: #000; /* Fallback black background for empty frames */
+    position: relative; /* Required to position the title absolutely within the frame */
 }
 
 .media-frame .media-gif {
@@ -386,6 +388,25 @@ h1 {
     opacity: 1; /* Default opacity */
 }
 
+/* New styles for the title */
+.media-title {
+    position: absolute;
+    top: 92%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the title */
+    color: rgba(255, 255, 255, 0.65); /* White text for visibility */
+    font-size: 1rem; /* Adjust size as needed */
+    text-align: center;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 1s ease-in-out; /* Same timing as image for consistency */
+    pointer-events: none; /* Prevents title from intercepting hover events */
+}
+
+/* Hover effect: fade in title when hovering over the media frame */
+.media-frame:hover .media-title {
+    opacity: 1; /* Visible on hover */
+}
+
 /* Mobile adjustments */
 @media (max-width: 768px) {
     #media-carousel {
@@ -396,6 +417,9 @@ h1 {
     }
     .media-frame .media-gif {
         max-height: 30vh;
+    }
+    .media-title {
+        font-size: 1.2rem; /* Smaller font for mobile */
     }
 }
 
@@ -413,6 +437,9 @@ h1 {
     }
     .media-frame .media-gif {
         max-height: 45vh;
+    }
+    .media-title {
+        font-size: 1.4rem; /* Slightly larger for tablets */
     }
 }
 
@@ -507,8 +534,8 @@ h1 {
     }
 
 .projectitem {
-    flex: 1 1 290px;
-    max-width: 290px;
+    flex: 1 1 250px;
+    max-width: 250px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -838,13 +865,16 @@ img{
     text-align:left;
 }
 
+.contactcontent a{
+    text-decoration: none;
+   
+}
 
 .contactcontent a, .based{
     color:black;
-    margin:1rem;
     transition: color .6s ease;
     text-decoration: none;
-    padding:0rem 10px;
+    padding:0rem 50px;
     font-size:1rem;
 }
 
@@ -872,13 +902,20 @@ img{
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin-left:2rem;
-        width:60%
+
     }
 
     .contactcontent a{
         padding:5px;
+        text-decoration: underline;
     }
+
+
+    .contactcontent a, .based{
+        padding:0rem 0px;
+        font-size:1rem;
+        text-decoration: none;
+        }
 }
 
 
