@@ -25,25 +25,28 @@
     font-family: "Syne Mono", monospace;
     font-weight: 400;
     font-style: normal;
-  }
-  .cutive-mono-regular {
+}
+.cutive-mono-regular {
     font-family: "Cutive Mono", monospace;
     font-weight: 400;
     font-style: normal;
-  }
-  
+}
 
-body, HTML {
+body, html {
     height: 100%; 
     margin: 0;
     padding: 0; 
     background-color: rgb(238, 239, 240);
     overflow-y: scroll;
     overflow-x: hidden;
-    /*font-family: 'BRHendrix', sans-serif; */
-    font-family:'Cutive Mono', monospace, 'Times New Roman', Times, serif;
+    font-family: 'Cutive Mono', monospace, 'Times New Roman', Times, serif;
     font-size: .9rem;
     scroll-behavior: smooth;
+}
+
+/* Set default font size for <p> tags on laptops (>768px) */
+p {
+    font-size: 1rem; /* Default for laptops */
 }
 
 #random-lines {
@@ -53,7 +56,7 @@ body, HTML {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 0; /* Behind other content */
+    z-index: 1; /* Behind other content */
 }
 
 /* Style for each random line */
@@ -81,7 +84,7 @@ body, HTML {
     top: 0;
     left: 0;
     width: 100%;
-    height:100%; /* Full viewport height, adjust as needed */
+    height: 100%; /* Full viewport height, adjust as needed */
     z-index: 1; /* Place behind all other content */
     opacity: .9;
 }
@@ -97,9 +100,8 @@ body, HTML {
 a {
     text-decoration: none;
     color: black;
-    cursor:pointer;
+    cursor: pointer;
 }
-
 
 #name {
     z-index: 1000;
@@ -107,47 +109,58 @@ a {
     top: 50px;
     left: 6%;
     font-size: 1.5rem;
-    font-family:'Cutive Mono', monospace, 'Times New Roman', Times, serif;
+    font-family: 'Cutive Mono', monospace, 'Times New Roman', Times, serif;
     font-weight: 700;
-    color:rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
     transition: color 1s ease;
     pointer-events: all;
-    padding:2px;
+    padding: 2px;
     border-radius: 2px;
 }
 
 #name:hover {
-    color:rgba(128, 128, 128, 0.293);
+    color: rgba(128, 128, 128, 0.293);
 }
 
-
+/*
 #name1 {
     z-index: 1000;
     position: absolute;
     top: 50px;
-    left:30px;
+    left: 30px;
     pointer-events: all;
 }
 
 #name1 img {
-    width: 210px; /* Adjust this value based on your image's natural size */
-    height: auto; /* Maintains aspect ratio */
-    display: block; /* Removes extra space below the image */
-    transition: filter 3s ease; /* Smooth transition for hover effect */
+    width: 210px; 
+    height: auto; 
+    display: block; 
+    transition: filter 3s ease; 
     filter: hue-rotate(20deg);
     filter: contrast(20);
     border-radius: 0px;
 }
 
 #name1:hover img {
-    filter: hue-rotate(10deg); /* Mimics color change to rgb(161, 1, 1) */
+    filter: hue-rotate(10deg);
     filter: contrast(8);
 }
+*/
 
 /* Responsive adjustments for mobile */
 @media (max-width: 768px) {
+    #name {
+        left: 2vw;
+        top: 5px;
+        color: white;
+        z-index: 3000;
+        font-weight:400;
+        font-size:1rem;
+    }
+
+
     #name1 {
-        left:35vw;
+        left: 35vw;
         top: 50px;
     }
     #name1 img {
@@ -169,7 +182,7 @@ a {
     );
     z-index: 9999; /* Ensure it’s above all content */
     pointer-events: none; /* Allow clicks to pass through */
-  }
+}
 
 .top-band {
     display: none; /* Show on mobile */
@@ -189,7 +202,7 @@ a {
 .bottom-band {
     display: none; /* Show on mobile */
     position: fixed;
-    bottom:0;
+    bottom: 0;
     left: 0;
     width: 100%;
     height: 50px; /* Match the height of the nav */
@@ -252,7 +265,8 @@ nav a.active {
     }
 
     nav a {
-        font-size: 1.25rem;
+        font-size: 1rem;
+        font-weight: normal;
         color: rgba(255, 255, 255, 0.756); /* Match modal text color */
         background-color: transparent; /* Remove white background */
         margin: 0; /* Remove margin to let justify-content handle spacing */
@@ -275,21 +289,14 @@ nav a.active {
         top: 0;
         left: 0;
         width: 100%;
-        height: 40px; /* Match the height of the nav */
+        height: 30px; /* Match the height of the nav */
         background-color: #0c0c0c; /* Same dark background */
         border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle bottom border to match nav */
         z-index: 1000; /* Ensure it stays above content */
     }
 
-    .bottom-band{
-        display:none;
-    }
-
-    #name {
-        left:2vw;
-        top: 5px;
-        color:white;
-        z-index:3000;
+    .bottom-band {
+        display: none;
     }
 }
 
@@ -302,21 +309,20 @@ section {
     align-items: center;
     padding: 20px;
     box-sizing: border-box;
-   /* border-bottom: 1px dashed rgba(68, 28, 28, 0.177);*/
     text-align: left;
 }
 
 h1 {
     position: absolute;
-    top:2rem;
-    left:50vw;
+    top: 2rem;
+    left: 50vw;
     cursor: default;
     margin: 0;
     padding: 0;
-    text-align:left;
-    width:100%;
+    text-align: left;
+    width: 100%;
     font-weight: normal;
-    color:rgb(203, 203, 203);
+    color: rgb(203, 203, 203);
     transition: color .5s ease;
 }
 
@@ -333,9 +339,9 @@ h1 {
         font-size: 1rem;
         margin: 0;
         padding: 0;
-        top:2rem;
-        left:2rem;
-        color:rgb(203, 203, 203);
+        top: 2rem;
+        left: 2rem;
+        color: rgb(203, 203, 203);
         text-align: left;
         width: 100%;
     }
@@ -347,12 +353,14 @@ h1 {
     height: auto;
 }
 
-
 /* Existing styles unchanged, only adding new styles for the title */
 .carousel-des {
     color: grey;
 }
-
+#home {
+    background-color: #fff;
+    z-index: 0;
+}
 /* Media Frames */
 #media-carousel {
     width: 60%; /* Matches .intro width on desktop */
@@ -361,7 +369,6 @@ h1 {
     margin-top: 0rem;
     padding: 10px; /* Inner spacing */
     border-radius: 500px;
-    /*background-color: rgba(64, 38, 38, 0.063);*/
     box-sizing: border-box;
     z-index: 2; /* Above background, below nav */
     display: flex;
@@ -411,8 +418,11 @@ h1 {
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
+    #home {
+        background-color: black;
+    }
     #media-carousel {
-        width: 100%; /* Matches .intro mobile width */
+        width: 60%; /* Matches .intro mobile width */
     }
     .media-frame {
         max-height: 30vh; /* Smaller for mobile */
@@ -421,7 +431,7 @@ h1 {
         max-height: 30vh;
     }
     .media-title {
-        font-size: 1.2rem; /* Smaller font for mobile */
+        font-size: .75rem; /* Smaller font for mobile */
     }
 }
 
@@ -447,44 +457,40 @@ h1 {
 
 /*end Carosole*/
 
-
 /*INTRODUCTION and CURRENT CONTENT*/
-.intro{
-    z-index:2;
+.intro {
+    z-index: 2;
     width: 60%;
-    margin-top:0;
-    line-height:1.75rem;
-    margin-bottom:0rem;
-   /* border: .5px dashed rgba(168, 102, 102, 0.456);*/
-   border-radius: 50px;
-    /*background-color: rgba(64, 38, 38, 0.063);*/
+    margin-top: 0;
+    line-height: 1.75rem;
+    margin-bottom: 0rem;
+    border-radius: 50px;
 }
 
-.intro h3{
+.intro h3 {
     font-weight: normal;
-    font-size:1rem;
-    color:black;
-    padding:20px;
+    font-size: 1rem;
+    color: black;
+    padding: 20px;
 }
 
 @media (max-width: 768px) {
     #media-carousel {
-        margin-top:4rem;
+        margin-top: 4rem;
         padding: 8px;
         gap: 0.75rem;
     }
-    .intro{
-        width:100%;
-        margin-top:6rem;
-        margin-bottom:2rem;
+    .intro {
+        width: 100%;
+        margin-top: 6rem;
+        margin-bottom: 2rem;
     }
-    .intro h3{
+    .intro h3 {
         font-weight: normal;
-        font-size:1rem;
-        color:black;
-        padding:10px;
+        font-size: .75rem;
+        color: black;
+        padding: 5px;
     }
-
 }
 
 /*WORK*/
@@ -496,7 +502,6 @@ h1 {
     justify-content: center;  
 }
 
-
 .current-content {
     width: 60%;
     display: flex;
@@ -504,36 +509,30 @@ h1 {
     justify-content: center;
 }
 
-
-
 .projectgallery1, .projectgallery, .projectgallery2 {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     gap: 2rem 2rem;
     width: 100%;
-   /* border: 0.5px dashed rgb(255, 255, 255); /* Matches site aesthetic */
     border-radius: 50px;
-    /*background-color: rgba(64, 38, 38, 0.063); /* Subtle backdrop */
-    padding:20px 20px;
-    padding-bottom:10px;
+    padding: 20px 20px;
+    padding-bottom: 10px;
 }
 
-.projectgallery{
+.projectgallery {
     margin-top: 0;
 }
 
-
-
 .projectType, .projectTypeOG {
-        font-size: 1.25rem;
-        color:black;
-        text-align: center;
-        width: 100%;
-        margin-top: 2rem; /* Reduced for mobile */
-        margin-bottom: 0rem;
-        font-weight: normal;
-    }
+    font-size: 1.25rem;
+    color: black;
+    text-align: center;
+    width: 100%;
+    margin-top: 2rem; /* Reduced for mobile */
+    margin-bottom: 0rem;
+    font-weight: normal;
+}
 
 .projectitem {
     flex: 1 1 250px;
@@ -546,12 +545,11 @@ h1 {
     padding: 2px;
 }
 
-img{
-    width:100%;
-    height:auto;
+img {
+    width: 100%;
+    height: auto;
     border-radius: 200px;
 }
-
 
 .workImg {
     cursor: pointer;
@@ -570,17 +568,16 @@ img{
     object-fit: cover;
 }
 
-
-.workImg:hover{
+.workImg:hover {
     cursor: pointer;
-    filter:saturate(.9);
-    filter:brightness(1);
+    filter: saturate(.9);
+    filter: brightness(1);
 }
 
 .workDescription {
     padding: 0px;
     line-height: 18px;
-    margin-bottom:2rem;
+    margin-bottom: 2rem;
 }
 
 .workDescription h3, .workDescription p, .workDescription h5 {
@@ -588,20 +585,20 @@ img{
     font-weight: normal;
 }
 
-.workDescription h3{
+.workDescription h3 {
     cursor: pointer;
-    color:black;
+    color: black;
     transition: all .3s ease;
-    text-decoration:none;
+    text-decoration: none;
 }
 
-.workDescription h3:hover{
+.workDescription h3:hover {
     text-decoration: .75 underline;
 }
 
 .workDescription h5, .workDescription p {
-    color:black;
-    font-weight:normal;
+    color: black;
+    font-weight: normal;
 }
 
 @media (max-width: 768px) {
@@ -612,7 +609,6 @@ img{
         gap: 1rem;
         width: 100%;
         max-width: 100%; /* Prevent overflow */
-      /*  border: 0.5px dashed rgb(255, 255, 255);*/
         padding: 0 20px;
         padding-bottom: 2rem; /* Reduced for better spacing */
         box-sizing: border-box;
@@ -625,9 +621,22 @@ img{
         gap: 1rem;
         width: 100%;
         max-width: 100%; /* Prevent overflow */
-      /*  border: 0.5px dashed rgb(255, 255, 255);*/
         padding: 0 20px;
         padding-bottom: 2rem; /* Reduced for better spacing */
+        box-sizing: border-box;
+    }
+
+    .projectgallery1,
+    .projectgallery2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center; /* Add this to center items horizontally */
+        gap: 1rem;
+        width: 100%;
+        max-width: 100%;
+        padding: 0 20px;
+        padding-bottom: 2rem;
         box-sizing: border-box;
     }
 
@@ -636,7 +645,7 @@ img{
         width: 100%;
         max-width: 100%;
         text-align: center;
-        margin-top:8rem;
+        margin-top: 1rem;
     }
 
     .current-content {
@@ -647,8 +656,8 @@ img{
     }
 
     .projectitem {
-        flex: 1 1 auto; /* Allow natural sizing based on content */
-        max-width: 100%; /* Prevent overflow */
+        flex: 1 1 auto;
+        max-width: 200px;
         width: 100%; /* Ensure full width */
         margin: 1rem 0; /* Reduced for mobile */
         padding: 0;
@@ -674,18 +683,25 @@ img{
         display: block; /* Prevent extra space */
         object-fit: cover; /* Crop if needed */
         filter: blur(0px);
-        filter:saturate(.8);
-        filter:brightness(.6);
+        filter: saturate(.8);
+        filter: brightness(.6);
+    }
+
+    .workImg:hover {
+        cursor: pointer;
+        filter: saturate(.9);
+        filter: brightness(1);
+    }
+
+    /* Adjust font size for <p> tags on mobile */
+    p {
+        font-size: 0.75rem; /* Set all <p> tags to 0.75rem on mobile */
+    }
 }
 
-.workImg:hover{
-    cursor: pointer;
-    filter:saturate(.9);
-    filter:brightness(1);
+#about {
+    background-color: black;
 }
- }
-
-
 /*ABOUT*/
 .aboutcontent {
     width: 60%;
@@ -696,7 +712,6 @@ img{
     line-height: 1.5rem;
     font-size: 1rem;
     padding: 0rem;
-  /*  background-color: #fffffff4;*/
     border-radius: 0px;
 }
 
@@ -714,7 +729,6 @@ img{
     margin-top: 1.2rem;
     border-radius: 100px;
     padding: 1rem;
-    /*filter: contrast(2) saturate(0.4) brightness(0.9);*/
 }
 
 .aboutpic img {
@@ -723,12 +737,12 @@ img{
     width: 220px;
     height: auto;
     display: block;
-    filter: contrast(1.1) brightness(1.2) ;
+    filter: contrast(1.1) brightness(1.2);
 }
 
 .aboutwords {
     padding: 0 20px;
-    color:black;
+    color: rgb(255, 255, 255);
     border-radius: 50px;
     padding: 2rem;
     font-size: 1rem;
@@ -763,8 +777,7 @@ img{
     filter: contrast(1.5) saturate(0.5) brightness(0.8);
 }
 
-
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .aboutcontent {
         margin-left: auto;
         margin-right: auto;
@@ -772,7 +785,6 @@ img{
         flex-direction: column;
         align-items: center;
         text-align: left;
-        font-size: 1rem;
         background-color: transparent;
     }
 
@@ -792,20 +804,21 @@ img{
 
     .aboutpic img {
         width: auto;
-        max-width: 60%;
+        max-width: 50%;
         height: auto;
     }
 
     .aboutwords {
-        padding: 10px;
-        color: black;
+        padding: 5px;
+        color: rgb(255, 255, 255);
+        font-size: .75rem;
     }
 
     .personalGallery {
         flex-direction: column;
         align-items: center;
         gap: 1.5rem;
-        margin-top:0;
+        margin-top: 0;
     }
 
     .personalItem {
@@ -837,7 +850,7 @@ img{
     .personalGallery {
         flex-direction: row;
         flex-wrap: wrap;
-        margin-top:0;
+        margin-top: 0;
     }
 
     .personalItem {
@@ -845,81 +858,71 @@ img{
     }
 }
 
-/*
 /*CONTACT*/
 
-#contact{
+#contact {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    width:100%
+    width: 100%;
 }
 
-.contactcontent{
-   margin-top:11rem;
-    display:flex;
+.contactcontent {
+    margin-top: 11rem;
+    display: flex;
     flex-direction: row;
-    width:60%; 
-    /*border: 0.5px dashed rgb(255, 255, 255); /* Matches site aesthetic */
+    width: 60%; 
     border-radius: 50px;
-    /*background-color: rgba(64, 38, 38, 0.063);*/
-    padding:20px 10px;
-    text-align:left;
+    padding: 20px 10px;
+    text-align: left;
 }
 
-.contactcontent a{
+.contactcontent a {
     text-decoration: none;
-   
 }
 
-.contactcontent a, .based{
-    color:black;
+.contactcontent a, .contactcontent .based {
+    color: black;
     transition: color .6s ease;
     text-decoration: none;
-    padding:0rem 50px;
-    font-size:1rem;
+    padding: 0rem 50px;
+    font-size: 1rem;
 }
 
-.contactcontent .based{
+.contactcontent .based {
     text-decoration: .5px none;
 }
 
-
-.contactcontent a:hover{
+.contactcontent a:hover {
     text-decoration: .75px underline;
 }
 
-
-
 @media (max-width: 768px) {
-    .contactcontent{
-        margin-top:0rem;
-        display:flex;
+    .contactcontent {
+        margin-top: 0rem;
+        display: flex;
         flex-direction: column;
         align-items: flex-start;
-        width:100%;
-        font-size:1.25rem;
+        width: 100%;
+        font-size: 1.25rem;
     }
-    #contact{
+    #contact {
         display: flex;
         flex-direction: column;
         justify-content: center;
-
     }
 
-    .contactcontent a{
-        padding:5px;
+    .contactcontent a {
+        padding: 5px;
         text-decoration: underline;
     }
 
-
-    .contactcontent a, .based{
-        padding:0rem 0px;
-        font-size:1rem;
+    .contactcontent a, .contactcontent .based {
+        padding: 0rem 0px;
+        font-size: 1rem;
         text-decoration: none;
-        }
+    }
 }
-
 
 /*PROJECT MODAL*/
 .modal {
@@ -931,7 +934,6 @@ img{
     height: 100%;
     background-color: rgba(0, 0, 0, 0.871);
     z-index: 2000;
-
 }
 
 .modal-content {
@@ -990,7 +992,6 @@ img{
 
 .next-btn:hover,
 .prev-btn:hover {
-    /*background-color: rgb(0, 0, 0);*/
     color: rgb(255, 255, 255);
 }
 
@@ -1134,6 +1135,10 @@ img{
     box-sizing: border-box;
 }
 
+.modal-body h3 {
+    font-size: 1rem; /* Smaller title for desktop */
+}
+
 #resume-image {
     display: block;
     max-width: 100%;
@@ -1162,24 +1167,22 @@ img{
 /* Mobile devices (up to 600px) */
 @media screen and (max-width: 600px) {
     #resume-modal .modal-content {
-        margin-top:6rem;
+        margin-top: 6rem;
         max-width: 100vw;
         padding: 10px;
         font-size: 1.25rem;
     }
     #resume-image {
-       
     }
     .close {
         font-size: 3rem;
         top: 10px;
         right: 10px;
     }
-    .modal-body{
+    .modal-body {
         margin: 5px 0;
-        font-size:1.25rem;
+        font-size: 1.25rem;
     }
-
 }
 
 /* Tablets (601px to 1024px) */
@@ -1205,19 +1208,17 @@ img{
     }
 }
 
-
-
 /*FOOTER*/
 
 footer {
     font-size: 1rem;
     width: 100%;
     display: flex;
-    height:8rem;
+    height: 8rem;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: #080808f4;
     padding: 1rem;
-    color:rgb(200, 200, 200);
+    color: rgb(200, 200, 200);
 }
