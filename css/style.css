@@ -3,7 +3,7 @@
     src: url('../font/OTF/PPNeueMontreal-Thin.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
-} 
+}  
   
 @font-face { 
     font-family: 'PPNeueMontrealBook';
@@ -973,6 +973,22 @@ img {
     margin-top: 2rem;
     width: 100%;
 }
+
+.modal-body a {
+    color: rgba(255, 255, 255, 0.756); /* Matches modal text color */
+    text-decoration: underline; /* No underline by default */
+    font-family: 'Cutive Mono', monospace; /* Matches site font */
+    font-size: 1.25rem; /* Matches modal body text */
+    transition: all 0.3s ease; /* Smooth hover effect */
+    display: inline-block; /* Ensures proper rendering */
+    padding: 2px 4px; /* Slight padding for click area */
+}
+
+.modal-body a:hover {
+    text-decoration: underline; /* Underline on hover, matches nav links */
+    color: #fff; /* Brighter white on hover */
+}
+
 
 .next-btn,
 .prev-btn {

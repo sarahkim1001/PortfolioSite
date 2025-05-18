@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ouroboros Process Posts</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" />
+    <style>
+        @font-face {
+            font-family: 'PPNeueMontrealThin';
+            src: url('../font/OTF/PPNeueMontreal-Thin.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }  
+        @font-face { 
+            font-family: 'PPNeueMontrealBook';
+            src: url('../font/OTF/PPNeueMontreal-Book.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'PPNeueMontrealMedium';
+            src: url('../font/OTF/PPNeueMontreal-Medium.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(238, 239, 240);
+            overflow-y: scroll;
+            overflow-x: hidden;
+            font-family: 'Cutive Mono', monospace, 'Times New Roman', Times, serif;
+            font-size: .9rem;
+            scroll-behavior: smooth;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
+        }
+        #name {
+            z-index: 1000;
+            position: absolute;
+            top: 50px;
+            left: 6%;
+            font-size: 1.5rem;
+            font-family: 'Cutive Mono', monospace;
+            font-weight: 700;
+            color: rgb(0, 0, 0);
+            transition: color 1s ease;
+            padding: 2px;
+            border-radius: 2px;
+        }
+        #name:hover {
+            color: rgba(128, 128, 128, 0.293);
+        }
+        .lens {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(
+                circle at center,
+                transparent 0%,
+                rgba(0, 0, 0, 0.0) 70%,
+                rgba(0, 0, 0, 0.15) 100%
+            );
+            z-index: 9999;
+            pointer-events: none;
+        }
+        #random-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .random-line {
+            position: absolute;
+            opacity: 1;
+        }
+        .random-line.vertical {
+            border-left: .5px dashed rgba(53, 15, 13, 0.248);
+            height: 0;
+            width: .5px;
+        }
+        .random-line.horizontal {
+            border-top: .5px dashed rgba(53, 15, 13, 0.248);
+            width: 0;
+            height: 1px;
+        }
+        section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: left;
+        }
+        .process-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            gap: 2rem;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .process-title {
+            font-size: 1.25rem;
+            color: black;
+            text-align: center;
+            width: 100%;
+            margin: 2rem 0;
+            font-weight: normal;
+        }
+        .process-item {
+            flex: 1 1 calc(33.33% - 2rem);
+            max-width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            overflow: hidden;
+            margin: 1rem;
+            padding: 2px;
+            cursor: pointer;
+            max-height: 200px;
+        }
+        .process-img {
+            width: 100%;
+            height: auto;
+            border-radius: 200px;
+            padding: 3px;
+            transition: filter .5s ease-in-out;
+            filter: blur(0px) saturate(.4) brightness(.6);
+            object-fit: cover;
+            aspect-ratio: 1/1;
+        }
+        .process-img:hover {
+            filter: saturate(.9) brightness(1);
+        }
+        .process-description {
+            padding: 0;
+            line-height: 18px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .process-description h3, .process-description p, .process-description h5 {
+            padding: 0;
+            font-weight: normal;
+            color: black;
+        }
+        .process-description h3 {
+            transition: all .3s ease;
+        }
+        .process-description h3:hover {
+            text-decoration: .75px underline;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.871);
+            z-index: 2000;
+        }
+        .modal-content {
+            position: relative;
+            background-color: #0c0c0c;
+            margin: auto;
+            padding: 25px;
+            width: 90%;
+            max-width: 1000px;
+            height: 100%;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: rgba(255, 255, 255, 0.756);
+            box-sizing: border-box;
+        }
+        .modal-body {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 10px;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .modal-body::-webkit-scrollbar {
+            display: none;
+        }
+        .modal-bottom {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            width: 100%;
+        }
+        .next-btn, .prev-btn {
+            padding: 1px 15px;
+            font-family: 'PPNeueMontrealThin', 'Times New Roman', Times, serif;
+            font-size: 2rem;
+            color: rgb(255, 255, 255);
+            background-color: transparent;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+        }
+        .next-btn:hover, .prev-btn:hover {
+            color: rgb(255, 255, 255);
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: #a9a9a9;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            padding: 5px;
+            background-color: rgba(12, 12, 12, 0.8);
+            border-radius: 25%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .close:hover {
+            color: #963737;
+        }
+        .process-media {
+            width: 100%;
+            margin: 20px auto 60px auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .process-media img, .process-media video {
+            width: 100%;
+            height: auto;
+            max-height: 60vh;
+            display: block;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        @media (max-width: 1024px) {
+            .process-item {
+                flex: 1 1 calc(50% - 2rem);
+                max-width: 250px;
+            }
+        }
+        @media (max-width: 768px) {
+            #name {
+                left: 2vw;
+                top: 5px;
+                color: white;
+                z-index: 3000;
+                font-weight: 400;
+                font-size: 1rem;
+            }
+            .process-gallery {
+                width: 100%;
+                padding: 0 10px;
+                gap: 1rem;
+            }
+            .process-item {
+                flex: 1 1 calc(50% - 1rem);
+                max-width: 200px;
+                margin: 0.5rem;
+            }
+            .modal-content {
+                width: 95%;
+                height: 90%;
+                padding: 15px;
+                margin: 5% auto;
+            }
+            .close {
+                top: 10px;
+                right: 10px;
+                font-size: 3rem;
+                width: 50px;
+                height: 50px;
+            }
+        }
+        @media (max-width: 480px) {
+            .process-item {
+                flex: 1 1 100%;
+                max-width: 300px;
+            }
+            .process-gallery {
+                padding: 0 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="lens" class="lens"></div>
+    <div id="random-lines"></div>
+    <a id="name" href="./index.html">SARAH S. KIM</a>
+    <section id="process-posts">
+        <div class="process-gallery">
+            <h2 class="process-title">OUROBOROS WEEKLY PROCESS POSTS</h2>
+            <div class="process-item" onclick="showProcessModal('documentationPlan')">
+                <div class="process-img">
+                    <img src="" alt="Documentation Plan">
+                </div>
+                <div class="process-description">
+                    <h3>Documentation Plan</h3>
+                    <p>April 21, 2025</p>
+                </div>
+            </div>
+            <div class="process-item" onclick="showProcessModal('week15')">
+                <div class="process-img">
+                    <img src="" alt="Week 15 Process">
+                </div>
+                <div class="process-description">
+                    <h3>Week 15: Final Showcase</h3>
+                    <p>April 14, 2025</p>
+                </div>
+            </div>
+            <div class="process-item" onclick="showProcessModal('week14')">
+                <div class="process-img">
+                    <img src="" alt="Week 14 Process">
+                </div>
+                <div class="process-description">
+                    <h3>Week 14: Final Adjustments</h3>
+                    <p>April 7, 2025</p>
+                </div>
+            </div>
+            <div class="process-item" onclick="showProcessModal('week13')">
+                <div class="process-img">
+                    <img src="" alt="Week 13 Process">
+                </div>
+                <div class="process-description">
+                    <h3>Week 13: Projection Construction</h3>
+                    <p>March 31, 2025</p>
+                </div>
+            </div>
+            <div class="process-item" onclick="showProcessModal('week12')">
+                <div class="process-img">
+                    <img src="" alt="Week 12 Process">
+                </div>
+                <div class="process-description">
+                    <h3>Week 12: Installation Aesthetics</h3>
+                    <p>March 24, 2025</p>
+                </div>
+            </div>
+            <div class="process-item" onclick="showProcessModal('week11')">
+                <div class="process-img">
+                    <img src="" alt="Week 11 Process">
+                </div>
+                <div class="process-description">
+                    <h3>Week 11: Midterm Reflection</h3>
+                    <p>March 17, 2025</p>
+                </div>
+            </div>
+            <div class="process-item" onclick="showProcessModal('week10')">
+                <div class="process-img">
+                    <img src="" alt="Week 10 Process">
+                </div>
+                <div class="process-description">
+                    <h3>Week 10: Sound Research</h3>
+                    <p>March 10, 2025</p>
+                </div>
+            </div>
+            <div class="process-item" onclick="showProcessModal('week9')">
+                <div class="process-img">
+                    <img src="" alt="Week 9 Process">
+                </div>
+                <div class="process-description">
+                    <h3>Week 9: Audio Enhancement</h3>
+                    <p>March 3, 2025</p>
+                </div>
+            </div>
+            <div class="process-item" onclick="showProcessModal('week8')">
+                <div class="process-img">
+                    <img src="" alt="Week 8 Process">
+                </div>
+                <div class="process-description">
+                    <h3>Week 8: Cultural Research</h3>
+                    <p>February 24, 2025</p>
+                </div>
+            </div>
+            <div class="process-item" onclick="showProcessModal('week7')">
+                <div class="process-img">
+                    <img src="" alt="Week 7 Process">
+                </div>
+                <div class="process-description">
+                    <h3>Week 7: Sound Design</h3>
+                    <p>February 17, 2025</p>
+                </div>
+            </div>
+            <div class="process-item" onclick="showProcessModal('week6')">
+                <div class="process-img">
+                    <img src="" alt="Week 6 Process">
+                </div>
+                <div class="process-description">
+                    <h3>Week 6: Gathering Materials</h3>
+                    <p>February 10, 2025</p>
+                </div>
+            </div>
+            <div class="process-item" onclick="showProcessModal('week5')">
+                <div class="process-img">
+                    <img src="" alt="Week 5 Process">
+                </div>
+                <div class="process-description">
+                    <h3>Week 5: Research for Aesthetics</h3>
+                    <p>February 3, 2025</p>
+                </div>
+            </div>
+            <div class="process-item" onclick="showProcessModal('week4')">
+                <div class="process-img">
+                    <img src="" alt="Week 4 Process">
+                </div>
+                <div class="process-description">
+                    <h3>Week 4: Project Evolution</h3>
+                    <p>January 27, 2025</p>
+                </div>
+            </div>
+            <div class="process-item" onclick="showProcessModal('week3')">
+                <div class="process-img">
+                    <img src="" alt="Week 3 Process">
+                </div>
+                <div class="process-description">
+                    <h3>Week 3: Concept Development</h3>
+                    <p>January 20, 2025</p>
+                </div>
+            </div>
+            <div class="process-item" onclick="showProcessModal('week2')">
+                <div class="process-img">
+                    <img src="" alt="Week 2 Process">
+                </div>
+                <div class="process-description">
+                    <h3>Week 2: Material Exploration</h3>
+                    <p>January 13, 2025</p>
+                </div>
+            </div>
+            <div class="process-item" onclick="showProcessModal('week1')">
+                <div class="process-img">
+                    <img src="" alt="Week 1 Process">
+                </div>
+                <div class="process-description">
+                    <h3>Week 1: Concept Development</h3>
+                    <p>January 6, 2025</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="process-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeProcessModal()">×</span>
+            <div id="modal-body" class="modal-body">
+                <h2 id="process-title"></h2>
+                <div id="process-media" class="process-media"></div>
+                <div id="process-content"></div>
+            </div>
+            <div class="modal-bottom">
+                <button id="prev-process-btn" class="prev-btn" onclick="showPreviousProcess()">❮</button>
+                <button id="next-process-btn" class="next-btn" onclick="showNextProcess()">❯</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script>
+        const processPosts = {
+            week1: {
+                title: "Week 1: Concept Development and Project Research",
+                media: '<img src="" alt="Week 1 Process">',
+                description: `
+                    <p>This week I started gathering information about how I could put my ideas into form. The ideas of reflection, perception and cognition, memory, and collective consciousness have been occupying my mind– I knew from the start that these were themes I wanted to work with in my project. To connect these ideas into a comprehensible form, I thought that it would be best to get some insight from experts in the fields. I spent hours and hours in the library, mostly in the arts and culture floor and the psychology department selecting works from notable authors and also letting my intuition find the “right” books that spoke to me. 
+
+I found some works by Carl Gustav Jung and came across his concept of the shadow self and the unconscious mind, which made me visualize the image of shadow. Since a child, I have felt strongly compelled by shadows, by my own and those of the surroundings, it reminds me that there is a world beyond what is visible in light.
+
+Before starting the ideation process, I knew that I wanted to incorporate human engagement and interaction. I wanted the meaning of my project to be created through the experience that the viewer creates upon interacting with my project: I want my project to speak to the souls of the viewer. 
+
+After reading Jung on shadows, I imagine capturing and representing the shadow of the viewer as the core of my project. I am drawn towards the concept of and the sense surrounding ambiguity and I think that taking the shadow as a symbolized metaphor, which can be manipulated through digital editing processes, can be fruitful in demonstrating the complexities of the self. Knowing that I will use the real time image/ figure of the viewer, I performed more research on how this could be possible with the softwares and techniques I am familiar with. I would like to use an integration of Isadora, MAX/MSP/Jitter, and Processing to capture real-time data from cameras, microphones, and sensors– and for them to communicate with each other via Open Sound Control.
+
+I have also given some thought into the form of presentation my project will embody. The other day I went into a photo booth to get a headshot for my linkedin profile. The booth was set in a public space, and within that public space I felt to express myself in a different way than when I entered the privacy of the confined booth. The changing of identity between spaces, based on perceived conception of the environment, interested me.
+
+In my project I want my audience to feel this sense when interacting with my project– the feeling of entering another world separate/ personal/ internally and detached from public spaces where they are concerned with how others will perceive them. I want the audience to be fully engaged with a dialogue within themselves. I began sketching my ideas and came up with the idea of creating a “shadow booth,” where viewers can enter a booth (in the corner of the room) and interact with a projection of themselves.
+
+To emphasize the separation of spaces, between inside and outside the booth, I have thought of using sound design – specifically played through headphones, so that the user will not hear or be aware of the activity happening throughout the rest of the presentation space. The thought of using headphones to disconnect the viewer from the environment was inspired by contemporary headphone culture, especially here in the city with all the noise.
+
+I have noticed more and more the disconnect between people and the physical environment when listening to music through their headphones. The use of headphones is interesting to me– it makes me wonder where we are: what realities/dreams we are constructing through the specific selection of music, narration, sounds? What would happen if we would all tune into the noise of the current moment? I want my project to lean into the idea of the dreamworld in how we each experience the world through our imagination, circling back to Jung’s works on dreams and the unconscious mind.
+
+Links I clicked on:
+
+https://dam.org/museum/
+
+https://www.lozano-hemmer.com/
+
+ </p>
+                `
+            },
+            week2: {
+                title: "Week 2: Material Exploration",
+                media: '<img src="" alt="Week 2 Process">',
+                description: `
+                    <p>Building on my ideas from last week, I have been thinking about creating a private space that evokes active imagination in the participant viewer. According to Carl Jung, the concept of active imagination involves a process of self reflection and inner dialogue that has the power to uncover and reimagine the repressed parts of the self. Jung uses the symbol and concept of the shadow to encapsulate parts of the self that are repressed. He believed that oppositions can exist within the individual psyche, a conflicting state that can cause tension and fragmentation within the individual. Through active imagination and building consciousness Jung believed that the forces of the unconscious can be balanced into a psychic wholeness. 
+
+ 
+
+During the week, I began thinking with more specificity about how I can guide the viewers to achieve the intended state of introspection through design decisions, especially considering that the work will be situated in a public space with other works. I also realized that I needed to think more intently on what I exactly mean by internal dialogue– what do I want the participant viewers to be actively thinking about? What is the focal point and how will the detail support this topic? Working with my vision to create a completely enclosed and confined space, I started thinking about the flow of viewers from outside to inside and back out of the box and I asked myself: how do I want the viewers to feel at each step of the process? How do I want them to feel once they leave: what is the impact of my work on the viewer: what is the purpose? Asking these questions prompted me to think about the content of the audio visual component, what materials do I want to use and how will they be presented? 
+
+ 
+
+Holding onto my inspiration of using the participant viewer’s shadow, I speculated on how I could go about capturing the viewer’s “shadow.” When I say shadow I do not necessarily mean their literal shadow– instead I am interested in capturing an impression, expression, or a representation of the participant viewer, which can take many forms. I do want to have the selected mode of representing the viewer be meaningful and dive into the dark deep depths of their soul. Two ideas that initially came to mind were 1. using a camera to capture a live video stream of the viewer’s figure (think mirror– visual representation) and 2. using a contact microphone to capture a live audio signal of their heartbeat (think stethoscope– audible representation). The live inputs can be captured and processed on a variety of softwares, such as Isadora, MAX/MSP/ Processing/ etc, but will vary based on what processing I want to perform. I also thought of ways in which I could capture specific attributes of the incoming signals and process them through another level of abstraction. I am still forming ideas here.  I understand that what I decide to do with these materials will tremendously impact the emotional and logical response of the viewer, so, I will perform more research in this area. 
+
+I have also identified certain areas of expertise that I will want to gather more information– to name a few: psychology/ multi-sensory feedback loops, media/ communication systems, experimental documentary, digital live performance and installation, myth and storytelling, user experience design, archetypical psychology, and ecological systems/ interconnectivity. I have constructed a list of people that I will reach out to discuss my questions and develop wisdoms in constructing a curated experience that will enable me to effectively deliver the intended message of my project. 
+
+Drawing upon the exercise from class I realized the importance of pinning down a focal point to drive the development of my project to act as the center of gravity. Currently I consider the general idea of the self and identity as the center. I have several ideas that I want to embed through the journey of the viewer in reflecting on their senses of self. For instance, I am interested in how digital media technologies mediate our individual and collective experiences. I want an aspect of my work, which will use emerging digital technologies, to emphasize its digital constructive process and frameworks. The idea of reflexivity is a concept I first encountered in my documentary film class, known as the reflexive mode of documentary filmmaking where the work reveals its constructed nature allowing the user to examine another layer of “truth.” Pairing these ideas together, I will explore the interface between forming identity and digital technologies. 
+
+ 
+
+Because I am inspired to create something engaging for the participant viewer, I am thinking of how I can design levels of interactivity. I want them to feel as though their presence alters the space. I want to create a responsive environment that allows the viewers to open up a playful imaginative nature. I remember from my experience at Mercer Labs that the installations that invoked the most interest and engagement were ones that required a level of physical interaction, using their hands to create something that sourced from their imagination. This concept circles back to Carl Jung’s interpretation of the mandala and its psychotherapist uses, which I looked for thoroughly into. 
+
+ 
+
+The mandala is a graphical representation of the center, often noted throughout various cultures as the sacred circle, and Jung views the mandala as a symbol of the self. He was interested in how the image of the mandala can be employed as a powerful meditative tool that can be internalized through mental absorption: the image is believed to organize inner energies and forces in relation with the ego-consciousness of the person– returning to the concept of dualities within the individual psyche. In application through Jungian therapy, patients are instructed to draw a spontaneous mandala: the process of drawing the mandala is explained to be an externalization of the inner image created through active imagination. Each stroke, pattern, engravement is believed to be an outer expression of the inner world. I want to incorporate the concept of allowing the participant viewer to embody their inner selves through an external and physical act of expression. It is through such action and subsequent reflection that can unleash new ways of thinking and feeling about the self. I am currently thinking about what form this “mandala creating” act can take– how and what will participants create? What will be the response to their creation/ engagement, and how will they feel? 
+
+ 
+
+I am interested in transformation. I am curious about how entering certain psychological and physical states can alter our perception about ourselves and the world around us. I want my work to feel like a space that evokes such processes within the viewer. I want the viewer to take the experience out to their lives. I want to create an impactful experience that empowers the individual to be curious, expressive, authentic, and engaged throughout their day to day living. 
+
+Links:
+
+https://scottjeffrey.com/active-imagination/#What_is_Active_Imagination
+
+ https://www.youtube.com/watch?v=upM61BPJ99Q
+
+https://ars.electronica.art/news/en/
+
+https://eyebeam.org/program/the-democracy-machine/</p>
+                `
+            },
+            week3: {
+                title: "Week 3: Concept Development, Envisioning Blended Spaces",
+                media: '<img src="" alt="Week 3 Process">',
+                description: `
+                    <pThis week I made significant progress on the concept development and refinement of my site. I have taken my work in an alternative direction. My idea has transformed from working to create an enclosed space for individual viewers to an open spatial installation that takes up an entire room. Last week I did not have a central focus subject that would drive my project, though I did have a general idea to integrate live motion capture/ video feed of the viewer into the installation (the idea of the shadow I discussed in the previous journal entry), which remains in my current project plan. Holding onto the concept of the self, I explored
+
+various contexts/ areas of study that are involved with the construction of identity. As a student also studying Media, Culture, and Communication at Steinhardt, I want my work to also investigate relevant discussions in media theory, particularly in how current technologies are affecting the experience of being. I first examined identity in respect to the context of surveillance capitalism and how manipulative tactics of shaping consumer identity and behavior is employed through digital media. My interest moved from surveillance capitalism to a general curiosity in the effect of consuming digital representations of physical phenomena– asking the question: how does digital reproduction influence the way we view their “real” subjects? I became interested in the obscurity of what is real– in how boundaries are becoming increasingly blurred arising from the degradation of borders that distinguish virtual and physical reality. These questions are central to several studies explored by a handful of media theorists including but not limited to Donna Haraway in “A Cyborg Manifesto,” Guy Debord’s “Society of the Spectacle,” Steve Dixon’s “Digital Performance,” etc (these are titles that are most relevant to my work as of present). </p>
+                `
+            },
+            week4: {
+                title: "Week 4: Project Evolution- Finding Form as a Play Tunnel",
+                media: '<img src="" alt="Week 4 Process">',
+                description: `
+                    <p>This week marked a significant shift in my project direction and development, bringing me closer to the core themes initially envisioned for Ouroboros. Originally, my project involved projecting viewers onto a series of surfaces to illustrate multiplicity and liminality through varied projections. While this setup aimed to express themes of illusion and mediations, I realized that this approached lacked the embodied, immersive environment necessary to evoke the introspective experience I intended. The new direction focuses on creating an enclosed, immersive space, utilizing a torus-shaped tunnel symbolizing cycles and transformation.
+
+Returning to my initial inspiration, this form enables participants to physically engage with the installation, evoking a more profound sense of primality and curiosity. This tactile engagement challenges perceptions of reality and self, aligning more closely with my intentions to explore sensory manipulation and societal constructs’ illusory nature. By juxtaposing primal movement with responsive audiovisual elements, the project encourages participants to question their perceptions and confront consumer-driven narratives in today’s digital age.
+
+Previous iterations attempted to engage with formulating identity through digital representations, but the physical architecture didn’t support these themes effectively. By reorienting towards an enclosed form, I emphasize the participant’s journey through a cyclical space, reinforcing psychological engagement with themes of rebirth and self-exploration. This shift echoes my long-standing fascination with Jungian concepts and mythic themes, offering a more cohesive environment that integrates these potent symbols.
+
+While the earlier idea incorporated physical screens and digital overlays, it failed to encapsulate the participants within a transformative experience. The current direction’s immersive enclosure allows for a more intimate and reflective confrontation with digital media’s influence on consciousness. It invites participants to delve deeper into self-perception and societal constructs, enhancing the project’s thematic depth.
+
+This transformation wasn’t just about physical form but also represents a return to an internal vision I felt disconnected from in prior designs. I realized the importance of aligning form with function, allowing structure to act as an embodied metaphor for the concepts at hand. Sondering through introspective reflection and considering feedback allowed me to refocus on the elements that convey the project’s essence authentically.
+
+From a process perspective, this change allowed me to integrate technology more seamlessly into the installation. Utilizing audio-visual reactive processing, MAX/MSP, and JITTER, the project can now effectively manipulate sensory inputs, heightening the intended states of irritation, overload, and spatial disorientation. This approach aligns with themes of space-time distortion and the subjectivity of perception, areas that have continuously inspired my artistic exploration.
+
+While maintaining some earlier elements, such as existential questioning through digital media interactions, the new direction strengthens the thematic cohesion and experiential quality. It offers a more refined critique of digital capitalism by immersing participants in an environment that reflects the cyclical consumption and transformation indicative of our media-saturated society.
+
+This transformation aligns with the timeless archetype of the Ouroboros, symbolizing continuity and renewal, and leverages art and technology synergies. By inviting participants to actively engage with the space, the installation underscores the reflexive nature of our mediated experiences, prompting self-reflection on our role within the technologically driven environment.
+
+Simultaneously, I am addressing practical challenges, such as sensory integration and user engagement through iterative testing and prototyping. Conversations with advisors will refine the use of alternative sensory pickups, projection mapping, and user interface considerations, ensuring the installation’s successful realization.
+
+This directional change was not merely a pivot in form but a return to foundational insights and visions that resonate deeply within me. While drawing from my initial inspirations, I’m integrating contemporary considerations of digital representation and sensory exploration to create a complex, reflective environment. The continuous juxtaposition of physical movement with digital stimuli will challenge participants to reconsider familiar narratives and delve into the underlying psychological and philosophical dimensions of their experience.
+
+Ultimately, by synthesizing elements from prior iterations with renewed focus and clarity, Ouroboros seeks to transcend simple representation and engage deeply with the human psyche and societal constructs. It underscores the transformative potential of immersive art, urging participants to navigate the layers of perception, identity, and consciousness in a world increasingly mediated by technology. This project’s evolution underscores the power of introspection in guiding artistic direction, anchoring the work in a more authentic and impactful exploration of technology’s pervasive influence on modern life.</p>
+                `
+            },
+            week5: {
+                title: "Week 5: Research for Aesthetics of Interaction and Project Significance",
+                media: '<img src="" alt="Week 5 Process">',
+                description: `
+                    <p>This week, my Ouroboros project advanced significantly, refining its conceptual foundation and aligning it more closely with my initial interest in the mind-body connection. Last week’s transition from projecting viewer representations onto surfaces to designing a torus-shaped tunnel marked a shift toward an embodied, immersive experience. Following my in-class presentation and subsequent research, I have clarified how this physical form supports an exploration of states of being through sound and conscious movement, drawing on Pauline Oliveros’s Deep Listening, somatic practices, and neuroscience to ground the work in both theory and experience.
+
+My prior iteration emphasized digital mediation and multiplicity, but its lack of physical engagement limited its introspective potential. The current tunnel structure—a cyclical, enclosed space—requires participants to crawl, fostering a direct, bodily interaction that better reflects my aim to examine presence and self-awareness. Neuroscience provides a foundation for this approach, demonstrating that the brain processes bodily signals—such as muscle tension or breath—through the sensory cortex and insula, influencing emotions and cognition (Damasio, 1999). These interactions define one’s state of being, or presence, which shapes how individuals engage with themselves and their environment. Somatic practices leverage this understanding, using movement and breath to alter neurochemistry, reduce stress responses, and enhance consciousness through intentional awareness of internal sensations.
+
+Deep Listening, as developed by Pauline Oliveros in response to the socio-political unrest of the late 1960s, has emerged as a central framework. Her Sonic Meditations, rooted in healing and activism, employ sound and movement to heighten sensitivity to bodily responses and external stimuli. In Ouroboros, headphone narration—transitioning from breaths to echoes and urban noise—functions similarly, engaging participants in an active listening process that transcends auditory perception alone. Sound, as vibrational energy transmitted through acoustic waves, is processed by the brain as electrical impulses, offering a tangible link to the present moment. This aligns with my motivation to address the contemporary disconnection from physical reality, driven by pervasive digital and virtual experiences that diminish bodily awareness.
+
+The project’s intent is to counteract this detachment, encouraging participants to attend to their senses, emotions, and their interconnectedness. Neuroscience supports this aim: interoceptive awareness—attending to bodily states—activates the prefrontal cortex, modulating emotional responses and fostering presence (Craig, 2009). By pausing to observe these internal signals, individuals can intentionally shape their state of consciousness, a principle mirrored in Oliveros’s exercises and somatic techniques like Kinetic Awareness. In my presentation, peers participated in Oliveros’s “Earpiece” exercise, responding silently to prompts such as “Are you listening now?” Their feedback—indicating a slowing of pace and heightened bodily sensation—underscored the potential of sound and reflection to shift awareness, a process I aim to amplify through the tunnel’s physical demands.
+
+Ouroboros thus evolves as an experimental space where guided narration and crawling converge to evoke specific states of being—presence, reflection, and potential transformation. The tunnel, inspired by childhood play structures, serves as a personal, transitory enclosure that prompts participants to reconnect with their embodied experience. Peer insights from the demo, including associations with “tight spaces” and “muffled sounds,” have informed potential narration elements—such as heartbeats or distant voices—enhancing the sensory journey. Unlike last week’s digitally-focused concept, this iteration prioritizes the immediacy of physical engagement over representational abstraction, aligning with my goal to demonstrate how attention and intention can alter personal realities.</p>
+                `
+            },
+            week6: {
+                title: "Week 6: Gathering Physical Materials and Framing for User Testing",
+                media: '<img src="" alt="Week 6 Process">',
+                description: `
+                    <p>Last week I ordered a large play tunnel from amazon that I will be using through my project. On Friday it arrived. It is a bit shorter in length than I imagined it would be, which makes it difficult to turn it into a circular loop– so I am considering purchasing another identical one soon. Nevertheless, I thought it would be important to test out how it feels crawling through the tunnel so this is what I did over the weekend. I layed out the tunnel in my kitchen space and practiced slowly crawling through, noting closely the sensation and thoughts that arose while I was going through. I noticed the pressure on the knees and hands on the hard flooring. I noticed that there is a metal frame for the tunnel which I could imagine would hurt if one were to press their weight through their knee onto it. I want to gather research on what thoughts or feelings would naturally occur if one were moving through the tunnel in order to create a sound component/ narrative that would feel intuitive. I could imagine the sound component would focus on drawing out and questioning the sensations that were being experienced. In order for my sound design to speak to a broad audience I think it is important that I gather more information on how other people respond to the environment. This week I would like to have some friends test the tunnel and ask them to respond with their experience of crawling through the tunnel. I also want to see how long it would take for them to go through, or consider how they think they should crawl through the tunnel (speed) so it would be useful to time their journeys. Some prompts and questions that would be useful in guiding research could include 1. Crawl through the tunnel at your own pace 2. Be sensitive to the enclosure of the space, how does it make you feel? 3. What thoughts and emotions arise as you are crawling? 4. How does your body feel? Where do you feel pressure/ tension? 5. Where or how do you feel released? 6. 
+
+Based on their responses I would craft a draft of the narration. The second round of user testing would require their crawling through the tunnel listening to the narration. I would ask them the same questions as the initial soundless runthrough and could ask how each experience compared to each other. What has changed? What has remained the same? 
+
+I want to create an experience that allows users to experience their natural thoughts and emotions fluidly and somewhat freely so I do not want the sound component to overpower the entire experience. I would consider asking the right questions that would prompt the user to reflect on each their subjective experiences and perspectives.</p>
+                `
+            },
+            week7: {
+                title: "Week 7: Sound Design Ideation and Experimentation",
+                media: '<img src="" alt="Week 7 Process">',
+                description: `
+                    <p>This week I spent time on thinking about the content for narration. Having done the cultural environment research paper I am inspired to create a project that addresses a more focused/ relevant issue to today’s contemporary society. 
+
+ 
+
+I would like for the project to address consciousness/experience in relation to a current issue in order to make a statement about its influence on the condition of the experience of being. The sound design will primarily focus on the digital computational technologies of the present moment and how we humans take the position of the counterpart of the instrument. 
+
+ 
+
+Initially, I was thinking of asking very broad questions that will prompt participants to reflect on how their body feels/ their internal state. Rather than just asking broad questions, I want to make this project more political/ activist/ reflective on the social techno cultural political spheres of contemporary society. I want to bring in these ideas/ themes into the narration in order to emphasize how these “external” states are embedded to the “internal state” 
+
+ 
+
+I will raise several issues in relation to this topic:
+
+How work has become much more mental and stationary
+Decrease of physical work/ effort 
+Decrease of physical activity/ movement/ awareness  
+How through digital technologies are technologies/ vehicles of transportation (virtual/mental) – ex image, video, text, etc 
+We are alluded to having more experience through the information we receive through media technologies/ social network/ the internet 
+Information overload, data, learning, perception & cognition, sensory overload
+– mental stimulation, affect on mental wellness and bodily wellness 
+
+ 
+
+A disconnect between body and mind (TYPES OF LEARNING) 
+
+We think we experience, we learn (learning Shallow depth learning) 
+Vs knowledge and embodiment of wisdom through experience – time process based learning 
+ 
+
+Thematic Interests Exploration/ Research:
+
+ 
+
+Modern life, work, and technology 
+
+ 
+
+Work from Physical to Mental and Stationary
+Not universal but culturally, with acceleration of automation and AI, tasks have become more focused on programming, designing, managing
+
+– analytical and abstract efforts 
+
+ </p>
+                `
+            },
+            week8: {
+                title: "Week 8: Cultural Environment Research",
+                media: '<img src="" alt="Week 8 Process">',
+                description: `
+                    <p>Cultural Environment Research Paper 
+
+ 
+
+Exploring the Intersection of Interactive Media and Activism
+
+ 
+
+In the rapidly evolving landscape of technology and creativity, the field of Interactive Media and Immersive Technology, combined with Creative Technology for Activism, offers unique opportunities for individuals passionate about cultural and social issues, holistic health, and the intersection of technology with the environment. My exploration of this field centers on how technology can be harnessed to create art that challenges and redirects contemporary narratives, influences societal structures, and fosters connections between individuals and the world around them.
+
+ 
+
+Dissolving the Boundaries: Technology–Nature Fluidity 
+
+ 
+
+Technology’s influence extends far beyond mere functional use; it intertwines with natural phenomena, impacting human culture, ecological systems, and societal organization. The technology we often take for granted possesses immense, often invisible power to shape the world and our interactions within it. Through computational methods, these processes—though initially intangible—can be rendered visible, enabling critical reflection on their implications.
+
+ 
+
+Technology does not exist in isolation; it is a socially constructed entity whose culture and practices shape and are shaped by society. Identifying ways to make these underlying processes visible will amplify the dialogues around their effects, advocating for a shift towards more equitable and sustainable practices.
+
+ 
+
+Historical and Cultural Contexts
+
+ 
+
+Historically, activist art has played a pivotal role in movements from civil rights to global human rights, evolving into digital tools for advocacy. The present day sees artists and designers employing augmented reality, virtual reality, and generative art to create deeply engaging and empathetic experiences. These mediums are utilized for cause-based storytelling, aiming to increase empathy and awareness of social issues.
+
+ 
+
+As we look to the future, predictions suggest an increased integration of biometric and personalized data in creating reactive, emotionally impactful experiences. The fusion of spatial computing with augmented reality opens new realms for immersive storytelling and data visualization. However, the trajectory of this technology demands a critical lens to ensure ethical conscious design and maintain a balance between innovation and humanistic values.
+
+ 
+
+Personal Experience and Technology 
+
+My relationship with technology is deeply influenced by my upbringing in Silicon Valley, a place often seen as the epicenter of technological innovation. Born to two software engineers who worked for large corporations, I was exposed to the pervasive presence of technology from a young age. This constant exposure shaped my early beliefs about technology: I viewed it as a tool primarily for building and progressing forward with an innovation-centric mindset.
+
+However, the interpersonal dynamics within my family revealed the double-edged nature of technological integration in personal spaces. My parents’ constant engagement with their computers often left little room for present-moment interactions. Dinner conversations frequently competed with the allure of digital devices, shaping a family dynamic that mirrored broader societal trends of technological immersion over human connection. These experiences made me acutely aware of the tension between technological advancement and the erosion of physical and emotional connectivity.
+
+These early experiences instilled in me a suspicion toward digital technologies and a longing for more tangible, nature-connected experiences. Initially, this led me to view technology and nature as dichotomous. However, as I encountered the possibilities of combining art with technology, I began to appreciate how technology can also serve as a powerful medium to critique the very systems I was wary of and to foster deeper connections with the world around us.
+
+This personal narrative is not unique; it echoes contemporary issues surrounding technology’s impact on social structures, interpersonal relationships, and individual well-being. The encroachment of technology into intimate spaces raises questions about privacy, mental health, and the sublimation of genuine human experiences—a microcosm of broader societal conflicts between progress and preservation.
+
+Tega Brain: An Inspiring Individual 
+
+ 
+
+Tega Brain is a prominent figure in the field, whose work intersects art, technology, and environmental issues. Her journey is an inspiration for those interested in leveraging technology for activism and cultural critique.
+
+Educational Background and Career Path
+
+ 
+
+Tega Brain earned a Bachelor of Environmental Engineering and a Bachelor of Arts from the University of New South Wales in 2006. With a subsequent Master of Art from Queensland University of Technology in 2012 and a PhD in New Media Arts and Technology, Brain has effectively combined her technical and artistic backgrounds.
+
+ 
+
+Professional Experience
+
+Her roles have ranged from serving on the board of the School for Poetic Computation to being an Industry Associate Professor at NYU. She has also engaged in various residencies and innovative projects that combine her engineering background with her artistic pursuits.
+
+ 
+
+Practice and Issues Addressed
+
+ 
+
+At the core of Brain’s practice are issues revolving around how technology intersects with ecological systems and societal structures. Her work frequently critiques the status quo, explores environmental sustainability, and addresses the ecological impact of human and technological activities. She challenges existing paradigms by integrating ecological thinking into technological systems, aiming to create harmony between human actions and environmental processes.
+
+ 
+
+These issues resonate deeply with my interests in using technology both as a medium of critique and as a platform for envisioning alternative futures. Her focus on environmental and technological systems encourages a reimagining of how technology can enhance, rather than detract from, ecological sustainability—a priority I share in my desire to blend art and activism.
+
+ 
+
+Awards and Recognition
+
+ 
+
+Brain received the Creative Capital Award in 2023, supported by grants from Pioneer Works and the Rockefeller Foundation. These recognitions underscore her groundbreaking approach to intertwining environmental and technological themes within her art.
+
+ 
+
+Published Works and Collaborations
+
+ 
+
+Brain co-authored “Code as Creative Medium” with Golan Levin, published by MIT Press, and her collaborative work with artist Sam Lavigne explores data, surveillance, and environmental issues. This partnership is a testament to the power of interdisciplinary approaches in their art-tech ecosystem.
+
+ 
+
+Network and Influence
+
+ 
+
+Her work has been showcased at venues like Ars Electronica, SFMOMA, and the New Museum, illustrating her strong network within the art-tech community. Additionally, her impact is highlighted in publications like The New York Times and NPR.
+
+ 
+
+Reflections on Personal and Professional Growth
+
+ 
+
+Through studying practitioners like Brain, I have experienced a shift regarding the potential of technology. My upbringing in Silicon Valley conditioned me to perceive technology as predominantly utilitarian. However, as I immerse myself in the intersection of art, technology, and activism, I realize the transformative power technology can have when wielded with intention and consciousness. 
+
+ 
+
+This awareness drives my ambition to develop artistic designs that critique systemic issues, promote cultural accountability, and foster sustainable interactions between technology, nature, and humanity. By integrating diverse perspectives, including Indigenous wisdom and alternative thought processes, I aim to challenge the dominant frameworks of thought and design and contribute to a more harmonious future present. 
+
+ 
+
+Opportunities Post Graduation
+
+ 
+
+MFA Program in Design and Technology ay Parson School of Design
+
+Program: MFA Design and Technology– TRANSDISCIPLINARY DESIGN– program focuses on using technology creatively to address complex problems.
+Objective: Explore the intersection of design, technology, and critical theory, with an emphasis on experimental approaches and critical design.
+Integrating social science theories and art and design methodologies in STEM-designated program designed to address philosophical, social ,economic, political, and environmental issues 
+Conduct research and develop action-oriented approaches aimed at proposition and aesthetic exploration
+Gain practice experience working with community activists, creative practitioners, industry and government leaders 
+Developing projects that approach to challenge exploitative models
+Preparation: Strengthen your application with projects that illustrate your ability to merge technology with cultural critique and ecological thinking. Research more about interests. Find specific issues/ develop a portfolio around issues concerned with. 
+ 
+
+Interactive Media Master’s Program at NYU
+
+Program: Interactive Telecommunications Program (ITP) at NYU Tisch School of the Arts.
+Objective: Deepen your understanding of how digital media can be used for storytelling, activism, and artistic expression.
+Preparation: Compile a portfolio of interactive projects that demonstrate your skills in technology and art integration. Focus on how your work advocates for societal issues, reflecting a blend of activism and innovation.
+ 
+
+The New Museum’s NEW INC Residency 
+
+Program: An incubator program for art, design, and technology at the New Museum in New York.
+Objective: Participate in a collaborative environment that encourages innovation in art-tech practices.
+Preparation: Prepare a dossier explaining how your work contributes to or benefits from cutting-edge technology and critical cultural discourse.
+In conclusion, Tega Brain’s career path illustrates the power of interdisciplinary approaches and strategic networking. Her work inspires me to pursue opportunities where art and technology intersect, offering a platform for critical reflection and cultural transformation. This focused alignment of my interests with targeted opportunities provides a promising trajectory following graduation.</p>
+                `
+            },
+            week9: {
+                title: "Week 9: Audio Enhancement, Experimenting with Generative Narrative Environments",
+                media: '<img src="" alt="Week 9 Process">',
+                description: `
+                    <p>This Week I decided to think about the form of my sound design differently. In a conversation I had during the week, Gary Hustwit’s documentary on Brain Eno’s was brought up. The film is a generated documentary on the life and work of Brian Eno, which is unique each time it is screened– processed through a computer program that selects footage and edits the film. I remember learning about this film in the Contemporary Techniques in Sound Art Class I took that focused around MAX/MSP/ Jitter. During that class I primarily worked with the indeterminacy of sample playback, live signal processing, audio-visual reactivity, and systemic organization of sound to create dynamic and unique sound experiences. I was very interested in the idea and practice of phase shifting in its repetition and gradual changes of sonic layers– origins in minimalism and process music– and its effect in producing morphing textures, sensations, and ideas. With MAX I was able to layer in randomness to this process using the random object which I used to control the order of sample playback/ timing of playback, etc. The achieved effect would be the creation of a sonic experience that would be different each time it played through– due to the random element of the order of samples. I have recently thought about this as the sonic version of the film technique of montage, the editing together of separate images to create a continuous sequence. The power in montage lies in its ability to form different meanings/ stories based on the ordering of the separate images. Applying this technique into my sound design would enable the creation of an experience that is unique to each participant’s journey through the structure. I believe this form is more suitable for my installation because the fluid intersections of subjective experience, environment, order and randomness, natural forces (thinking about Jung’s Process of Individuation, Pauline Oliveros’ Deep Listening, etc refer to previous process posts) has been an inspiration for this project since the beginning. 
+
+I have been thinking about the structure/ form of the MAX/MSP I would like to create. Primarily the sound track would consist of two fundamental layers – 1. the ambient soundscape that would support the environmental context for the  2. Spoken word/ narration, which would act as the driving story element. I would like both of these components to incorporate randomness in their playback order. 
+
+Considering the span/ journey of the piece– I would like to employ a loose/ experimental interpretation of the 3-Act structure from film practice which divides a story into 3 parts: the setup (ACT 1), the confrontation (ACT 2), and Resolution (ACT 3). The 3-Act Structure offers a framework for building a compelling narrative in storytelling through a natural progression of events from the setup up, conflict and tension, and the closing resolution / takeaways. 
+
+For each ACT, and each for components (sound effects and narration), I will have a playlist of sounds: samples will be selected and played randomly so that there will always be 3 parts of the entire composition, but each playback will offer a different ordering/ selection of samples. 
+
+Each participant will embark on a unique journey through installation, they will experience and gather different interpretations: I am interested in how they will relate to each other in speaking or thinking about the experience after the experience. 
+
+Once the ACTS are all completed, there will be a closing section that will transition the story to a more ambiguous/ open soundscape. In this section users will navigate the maze in their own reflections/ sensations/ and thoughts. This outro/ closing section will decrescendo to silence. As the sound design diminishes, they will be slowly brought back to the landscape of the room. When they feel they are finished with their experience, they can exit. The beginning will also have a transitory section, though in reverse where the sound design fades in slowly leading up to story ACTs section (calling the participants attention from the room into the designed soundscape of the installation). 
+
+ 
+
+Through such a plan I hope to create a unique experience guided by sound and storytelling that physically takes place within a common space and emphasizes each their unique experiences within that shared space (through the designed indeterminacy of the installation that provides users a unique experience). Ideas that will naturally be explored are the subjective perception, conception, and understanding of a “single” event– conceptually I will explore the infinity within a given instance/ moment and how through observation, what is perceived to be real is constructed. 
+
+ 
+
+In order to support this 
+
+ 
+
+Projection mapping: generative visuals 
+
+– psychedelic visuals 
+
+Inspirations: a student group project in my live performance and installation class in which psychedelic visuals were juxtaposed with handheld camera footage, which produced a powerful effect. Sacred Geometry of life – bringing back to the idea of Jung and mandalas and complex intricate patterns– the idea of microcosms of life. 
+
+ 
+
+Dynamic psychedelic video sequences projected onto the structure – using an algorithm to generate the video. 
+
+Leaning into the idea of automation and exploring its integration into the human experience, from the individual perception and cognition and to the collective level in group participation. 
+
+ 
+
+This week I plan to record and collect sounds for each section. 
+
+I will go into the Synth Lab to experiment and record work done on the analog synthesizers.</p>
+                `
+            },
+            week10: {
+                title: "Week 10: Sound Research, Survery, User Feeback",
+                media: '<img src="" alt="Week 10 Process">',
+                description: `
+                    <p>This week, I focused on constructing the sound piece in MAX/MSP.
+
+First, I explored the idea of the affordance of sound in how it can produce emotional states and actions upon user interaction. Thinking about the ecological psychological component of designs, I approached the development of my installation by considering how the sound piece and narrative can open possibilities in states of consciousness and identity. I wonder how I could use certain sounds that are associated with certain memories in order to produce a sensation that embodies the state of being perceived to be associated with that particular temporal experience. I am interested in how sounds can bring us back emotionally to the moments of past experiences, exhibited states of being associated with the memory of the perceived experience. I was inspired by the power of listening to music and songs to invoke a memory of a past experience also associated with the sound. In my project, instead of songs, I am employing certain sonic motifs and fragments that are associated with childhood memories.
+
+Over the week, I gathered information and research through a social media poll in which I asked participants several questions to reflect on and respond to, including:
+What sounds do you associate your childhood with?
+What sounds are calming to you?
+What sounds cause stress and anxiety?
+What sounds are you hearing now?
+What sounds are your body producing?
+What is a sound you wish you heard more?
+What is your favorite sound?
+What sound could you live without?
+
+Based on these responses, I attempted to construct an idea of how I would use certain sounds to provoke a certain emotion and memory. For instance, many participants recalled that they associated their childhood with the mourning dove bird song, that city sounds (traffic, construction, subway tracks) induced anxiety, and that they wished they heard more laughter and vulnerable human communication. Many people claimed to be hearing sounds of generators, cars, and general weather sounds against the structures in which they were housed at their location of response. Based on the information provided through these responses, I was inspired to create a sonic experience that incorporated a textured synthesis of emotions, memories of past experiences, and an architectural soundscape that attempts to imagine and cultivate an interpretation of the complex landscape of the subconscious mind. I attempted to draw out the weight of childhood experiences, ones that are foundational to who they are today, by using sounds that were most associated with those experiences. I want participants to revisit these experiences so they can reflect on how those experiences affect the way they perceive themselves today. So, I thought it would be important to also create a guided narrative of questions that provides a guardrail in assessing how to think about those experiences.
+
+The questions I came up with were inspired by my research into typical questions that therapists and psychologists ask patients in regards to their childhood experiences, for instance:
+What’s one of your earliest memories growing up?
+How would you describe your relationship with your parents/caregivers?
+Did you feel understood or heard as a child?
+Were there times when you felt really scared or safe growing up?
+What were you like as a kid? How did you see yourself?
+
+I recorded myself asking these questions in separate samples to be used in my MAX patch.
+
+In terms of the sonic fragments/environmental ambient sounds that are used in my patch, I resourced them from freesound.org. My decision to use these samples involves my interest in the commonalities of human experience of how these sounds are perceived and recorded by people from all over the world with diverse backgrounds and perspectives, yet we share similarities in sensory experiences and how we respond to these environments. For instance, gathering research from participants in my survey revealed to me shared common human experiences and similarities in our emotional reactions to certain sounds—which entail a certain action/activity occurring in our environments. These insights inspired me to explore for future projects perhaps what it is about these sounds or activities that cause certain emotional states/fear/calmness/etc. (looking into acoustic ecology and psychoacoustics).</p>
+                `
+            },
+            week11: {
+                title: "Week 11: Midterm Reflection",
+                media: '<img src="" alt="Week 11 Process">',
+                description: `
+                    <p>For my midterm demonstration, I introduced my project with a brief presentation sharing some information about my project, including what ideas I was exploring through the technology I was employing and how participants would be situated within the context of the work. Here I have attached a link to the presentation: https://docs.google.com/presentation/d/1cB8nlwVc68aXJJgtmeH1yiEJW7CO_-ekoin4Ii-lc-w/edit?usp=sharing
+I then had critics listen to my sound piece created on MAX/MSP through wired Sony MDR headphones (the pair I am editing the sound piece with). For the formal presentation of the installation, I will instead provide Bluetooth noise-cancelling headphones so that users will be able to hear the sound piece conveniently throughout their journey within the tunnel. During the presentation, I realized the need to consider environmental factors of the presentation space, such as the noise levels and lighting. I did request the black box theatre in the senior project application form, which provides low light and a cushioned mat flooring, so hopefully this will work in my favor.
+One question I had in mind bringing to the midterm demo involved the user journey within the crawl tunnel. I knew that I wanted the tunnel to be arranged into a circle so that users would follow a cyclical path, and so I began speculating on the situation at the tunnel’s two ends: would they be closed, open, semi-closed?
+I am interested in the idea of our embodiment of cyclical processes and the idea of perpetuity/consumption/encapsulation, so I do want to produce a sense of continuity for the participant throughout the sound experience. This made me imagine orienting the two ends to meet each other, consequently sealing the ends and creating a circular shape. I had thought this would be the ideal way to convey the idea of perpetuity. Coming into the critique, I vaguely imagined having users enter one of the tunnel’s openings, and when they were fully inside, I would close the ends–when the sound piece was over, I would open the tunnel so that participants could crawl out. The enclosure of the space would allow for people to crawl at whatever speed and direction they felt comfortable–however, a concern that was brought up was the entrapment of the enclosure.
+In earlier stages of the project, I had spent time researching optical illusions and how the senses can be manipulated through design. I became interested in how, through design, illusive experiences could be created–for the purposes of my project, I am interested in producing the sense of nativity and a temporary suspension from the structures of everyday living: creating a liminal space that embraces new possibilities of experiential reality. However, this specific enclosed arrangement could produce fear and anxiety, putting the wellbeing of the participant at risk of panic attacks–which is not the emotion I want to produce. I want to produce the emotion, not of comfort or ease, but also not one that evokes the fight or flight response–I want to produce a slight tension that comes with the sense of curiosity, inspiration, and intuition. Recognizing people’s differences in responses/dispositions, I would need to design with the possibility of a variety of responses to the enclosed environment. Two of my critics offered me the idea to cut an opening in the side of the tunnel with a fabric flap as a door–giving participants the ability to enter and exit the tunnel with their own choice. This arrangement would support the illusion of the continuous circular loop while still having an opening. This could ensure an increased sense of security for the participant, knowing that they have the power to participate or not. This made me think of the existence and possibilities of power dynamics in media and art, especially in terms of immersive interactive installations, something that I hadn’t much thought about prior. I questioned how power dynamics could be deliberately embedded in the affordance/design of technologies and media that are not consciously rendered–what could be the extent of the effects? This discussion made me think about the hierarchy of space and how even architecture and city planning is influenced by entrenched colonial structures and histories. I wondered how I could blend these concepts into my creative practice in order to critique and reflect on them, rather than perpetuate their traditions and values. I would like to do more research in this domain and bring them with me as I move forward towards future projects and lines of work.
+Overall, the feedback I received from my critics provided me with valuable insights in how to move forward in developing the structural–spatial component of my piece. Moving forward, I will continue to test and iterate on the integration of the sonic experience with the movement-spatial experience: asking how the sound, crawling action, and architectural component synthesize into a unified experience. I also reflected on my approach throughout the project–up until this point, it had been more theory and concept based: I am now going to focus more on the applied use case and the complexities of participant interaction by setting up formal testing sessions to gather feedback for iterative processes. I will gather more information on how my project exists within the context of physical space and with physical bodies, versus the speculative ideas of them, which will happen through rounds of user testing.
+</p>
+                `
+            },
+            week12: {
+                title: "Week 12: Installation Aesthetics and Testing",
+                media: '<img src="" alt="Week 12 Process">',
+                description: `
+                    <p>This week, I focused on developing the environment for my installation. I met with my senior thesis advisor, who provided valuable feedback on moving forward. For example, I had been exploring the idea of using LED lights around the tunnel to react to sound, but due to time constraints and technical challenges, she suggested revisiting an earlier idea: using a projector. This would integrate more easily with the software I’m using (MAX/MSP) and available equipment. I plan to experiment with generative particle visuals from MAX’s Vizzie plugin (for dynamic graphics and effects) and develop a projection mapping plan for the structure. The audio-reactive visual will feature a black background with white particle lights or waveform patterns, designed with the installation space and presentation in mind.
+
+My advisor also reminded me to consider the specific exhibition space, prompting me to think about lighting and spatial organization. Since the space will be dark, illumination will shape the experience. I began reflecting on how I want people to approach my installation and what atmosphere I’d like to create. Key questions emerged: How can lighting capture attention? How will lighting choices affect participants’ approach and mood? I also considered the setup—where I’ll be positioned, how I’ll share information about the experience, and how I’ll manage the computer for sound playback. This led me to think about the spatial relationships between myself, the installation, and participants. What ideas do I want the layout to convey?
+
+My installation explores sound therapy and personalized experiences, so I want to position myself as a guide—less like a prescriptive Western doctor and more like a shepherd for participants. I’m considering giving participants a short form on construction paper to fill out, including their name, age, and a question about the experience they seek. Based on their response, I’ll select an appropriate MAX patch for them to hear. The form is for participants to keep, not for me to collect, encouraging reflection on their experience.
+
+Moving forward, I’m refining the question to prompt deep reflection, hoping to make the experience memorable and increase the likelihood that participants keep the form. The form must feel valuable, so I’m exploring high-quality paper and thoughtful design to make it worth holding onto.</p>
+                `
+            },
+            week13: {
+                title: "Week 13: Projection Construction and Implementation",
+                media: '<img src="" alt="Week 13 Process">',
+                description: `
+                    <p>This week, I worked on the visuals for my projection. I searched through my video library to find material that could integrate seamlessly into my project. Recently, I’ve been deeply inspired by the fluid movements of clouds and waves on water surfaces. In my physics class, where we’re studying waves, my mind has become attuned to the forces of natural phenomena. I contemplate how the patterns and textures of waves unfold instantaneously yet form part of an endless continuum. This perspective prompts me to rethink time, space, and the infinite—energy itself. Learning about physics, combined with heightened sensitivity to my bodily sensations and intuitions, has guided me to become more aware of the energy around me and how it transfers between mediums.
+
+With the themes of cycles and continuity grounding my project, Ouroboros, I aim to channel my perspective that space and time are not rigid constructs. Instead, we coexist within a shared energetic field on Earth—we are all connected. Air does not separate us; it is not “nothing.” Air is a medium we all share, just as water is for marine life. I found that the movements of waves or clouds—symbols of eternity and continuity—could represent this idea.
+
+In MAX, I selected a video clip of cloud movements and processed it through a series of Vizzie effects. Vizzie, a package of image-processing modules in MAX, enables exploration of video effects and interactive visuals. For example, I can use a sound parameter, such as amplitude, to influence the strength of a video effect.
+
+Given that the installation space will be dark, I want to avoid overly bright or colorful projections, which could feel overwhelming. Instead, I aim for visuals that integrate harmoniously with the environment. I chose a black-and-white color scheme to emphasize the clouds’ movement, aligning with the kinetic energy of my sound installation, as sound itself is the energy of movement.
+
+My vision for editing the cloud visuals draws inspiration from psychedelic imagery and the intricate geometric patterns found in plant life and ecosystems. I’m particularly fascinated by fractal patterns, which remind me of the mandalas I studied earlier in this project and their representation of microcosms.</p>
+                `
+            },
+            week14: {
+                title: "Week 14: Final Adjustments",
+                media: '<img src="" alt="Week 14 Process">',
+                description: `
+                    <p>This week I reflected on my entire project as a whole. In the process of making the documentation video, I reviewed and thought about the purpose, intent, process, and most important aspects of my project. I thought about what impact I wanted to create with the existence of my project. Becoming more specific and focused in my message helped not only with drafting a script for the video, but also in making final refinements/ changes in the audio visual presentation. Made final adjustments to the tunnel, audio, and visuals based on testing outcomes. Ensured all components were ready for public interaction. Conducted a dress rehearsal to verify the complete experience.
+                        </p>
+                `
+            },
+            documentationPlan: {
+                title: "Plan for Project Documentation/Research}",
+                media: '<img src="" alt="Documentation Plan">',
+                description: `
+                <p>Video Documentation of Janet Cardiff’s The Forty Part Motet
+(KQED Arts) https://www.youtube.com/watch?v=rZXBia5kuqY
+
+The video by KQED Arts documents Janet Cardiff’s The Forty Part Motet, an installation where 40 speakers fill a space, each channeling the unique voice of a choir singer. Although the video was not produced or released by the artist, I remembered it because it effectively captures the installation’s essence.
+
+As a sound installation, The Forty Part Motet naturally creates an emotional space. The video documentation seems to capture this emotional atmosphere well through its sound design. I noticed that in clips showing people interacting with the installation, the original choir recording is not used. Instead, sections of the sound piece are strategically edited and layered over the visuals. This creates an emotional arc and cohesion throughout the video, making it a representation of the experience of being in the installation’s atmosphere.
+
+The video begins with a montage of the artist within her work, accompanied by a literal description of the installation. Cardiff explains what the installation is and its affordances, including its technical components. She does not delve deeply into her conceptual perspective, which I find powerful because it allows viewers to form their own impressions. Later, montages show people intimately engaging with the work, capturing footage of them listening closely. Throughout the video, Cardiff’s descriptions and the choir music are layered over visuals of the installation.
+
+We also see Cardiff speaking in depth about her process and inspirations, including how she collected the choir sounds, the people involved, and a single detail that encapsulates her values as an artist. This section appears to be filmed in another room or her studio. She connects this piece to her other works, illustrating how it fits within the context of her broader practice, providing insight into her identity as an artist.
+
+Around the middle of the video, a critic or professional, likely a gallery curator, briefly discusses the installation, focusing on Cardiff’s approach and vision. This sheds light on how she and her work are received within the broader art community, adding credibility and context.
+
+Toward the end, Cardiff explains the purpose of the installation, how she hopes it will impact people, and an issue she aims to address through its existence, underscoring why the work matters.
+
+Spectral Subjects by Rafael Lozano-Hemmer
+(Portfolio site) https://www.lozano-hemmer.com/spectral_subjects.php
+
+The documentation of Rafael Lozano-Hemmer’s Spectral Subjects is presented on his website under the projects section. The page includes a text description, a five-minute video, and a collage of photos of the installation.
+
+The text begins with the work’s purpose and an overview of the technical mediums, technologies, and affordances of the installation. The next paragraph addresses the specific issue the work explores and the significance of the chosen mediums. Through this explanation, we learn about Lozano-Hemmer’s approach as an artist and his concerns about his environment. This section connects to themes in his other works, positioning Spectral Subjects as a specific study within his broader exploration of society, technology, and culture. It also conveys how he hopes the work will impact the community and why it is significant.
+
+The final paragraph provides an overview of Lozano-Hemmer as an artist and creative critical technologist, highlighting the issues he addresses in his practice. This offers readers insight into him as a person. It also references another artistic figure, illuminating his inspirations, information environment, and cultural background.
+
+The documentation video autoplays when the page loads. It has no voice narration; instead, it uses succinct text explanations on a black background with white text. A subtle rhythm or beat runs throughout, creating a tonal atmosphere that serves as the emotional foundation for the work. This made me imagine Lozano-Hemmer’s headspace—his seriousness, criticality, and approach to creating this piece. The video is subtle yet powerful, evoking the intended feeling of being within the installation space.
+
+Below the video, a library of photos showcases the installation’s changes, details, scope, variations, and textures at a glance.</p>
+                    <p>
+                        Documentation Plan:
+
+For my documentation video, I plan to include the following components, roughly in this order:
+
+Introduction (succinct, to the point): *What is this work technically, and how are people supposed to interact with it? *Installation affordances
+2. Process: *Delving into the production process (ideation, research, iteration, testing, survey gathering, and the flow and philosophy of my approach)
+
+3. Artist Statement: *Transitioning to a holistic view of my creative practice: what drives my process? * Connecting this project to a previous, similar project addressing a related issue *Articulating a clear mission statement/vision as a creative technologist/multimedia artist
+
+4. Cultural Environment: *Where does my work sit within the broader context of art, design, and tech? *Who or what works served as key inspirations for this project?
+
+5. Significance and Purpose: *What is the impact of my work—how will it affect culture and community? *What cultural issue does it address?
+*What future conversations or changes do I hope to shape?
+
+ 
+
+Throughout the video, I’ll weave in footage of the installation from the showcase day. In the introduction, I’ll feature shots of the design (e.g., the tunnel’s exterior and interior) to explain the technical and experiential aspects. I aim to capture the tension of entering the tunnel in person, using sound design (selected portions of the soundscape) to set the emotional tone. I’m considering a brief sequence of myself interacting with the piece (e.g., putting on headphones or crawling inside).
+
+In the process section, I’ll include footage of myself speaking about the project in a casual, studio-style interview setup to build connection with viewers. I’ll overlay my voiceover with visuals that support the discussion (e.g., footage of people interacting with the installation when describing intended interactions).
+
+For the artist statement and cultural environment sections, I’ll combine footage of myself speaking with simple reference visuals. Examples include a snippet of MAX/MSP software, cityscape shots, trains, rush hour, children playing in a playground, or daily life in my environment. I want my work to feel like a response to my surroundings.
+
+The significance and purpose section will highlight people’s interactions with the installation and the atmosphere of the space, emphasizing its human-centered, community- and culture-oriented design. I’ll include a brief clip of myself looking out a studio window, contemplative yet hopeful. The sound will shift from my narration to a soundscape that lightens the mood and instills hope.
+
+ 
+
+To execute this plan, I’ll follow these steps:
+
+Process: Gathering Footage
+Document the installation in the showroom:
+* After setup, before people arrive
+* Myself interacting with the installation
+* People interacting during the showcase
+* Myself consulting/talking with attendees about the installation
+
+Record myself discussing the project in a studio or my room
+* Write, rehearse, and record a script covering the introduction, process, artist statement, cultural environment, and significance
+* Capture a pensive shot of myself looking out a window
+
+Document my workflow:
+* Programming in MAX/MSP
+* Sketching in a notebook
+
+Collect fragments of city life (review existing material or shoot new):
+* Busy rush hour outside a subway
+* Traffic
+* Children in a playground (with parental permission)
+
+Editing: Putting the Pieces Together
+The video will be edited in Premiere Pro, with only my voice narration imported initially. Once the sequence is set, I’ll export it to REAPER for sound design to support the video’s tone. I’ll record and edit portions of the installation’s soundscape, focusing on emotional atmosphere and narrative arc. Additional ambient sounds will be processed to create a build-up, tension, and release.
+
+ 
+
+& Other Documentation…
+
+I’ll provide a text description of the installation, expanding on the video’s components with more detail and elaboration.
+
+                        </p>
+                `
+            },
+            week15: {
+                title: "Week 15: Final Refinments",
+                media: '<img src="" alt="Week 15 Process">',
+                description: `
+                    <p>In the past week I spent time in my installation space for the senior showcase, bringing the projection and sound together with the presence of the tunnel structure. I went through iterations of visuals, experimenting with dynamic visual sequences in Premiere Pro, then processing them in MAX/MSP to achieve dynamic and randomized visual effects. Having tested these in the structure, I felt as though there was an imbalance between sound, visuals, and the emotional/ physiological experience inside the tunnel– the rapidly changing images felt too chaotic– too much colors, textures, in-cohesion. I decided on sticking with my dynamic cloud visuals and attempted to create the experiential effect of being inside of a cloud. I wanted the tunnel to evoke a dream-like state, leveraging the symbolic relationship between dreams and clouds. I edited the video, warping pixelation intensity, interpolation, saturation, contrast, rotation, playback speed until the desired effect had been achieved. I wanted for the cycling and randomized graphics of the clouds to remind participants of change/ weather/ nature/ stillness amidst chaos. I wanted to create a calming and grounding experience for participants. The more I worked with the project, I drew farther away from mandating the crawling action, and leaned closer to creating an experience that fit the needs of the participant. I noticed by spending time in the tunnel and observing the appearance of the projection, that lying down face upwards was effective in achieving a meditative and calming effect. I did indeed feel like I had entered a dream-like space. Some aspects of the tunnels design, such as the plastic material, metal frame, and the instability (since the structure is a cylinder it moves around) opposed the calmness of the tunnel so I began thinking of ways to make the tunnel’s experience more comfortable and aesthetically aligned with my vision for the project. To compensate for the tunnels’ rigidity, I chose to layer the flooring of the tunnel with foam padding layered with artificial grass. I layered the interior and exterior of the structure with a bubble wrap encasing, which I spontaneously decided on during a home depot run. When seeing the bubble wrap, I remembered how as a child I was very fascinated by it and wanted to pop the bubbles. I wanted to add this texture to enhance the sense childhood nostalgia inherent to the project in itself. I also thought that the plastic bubble texture would reflect and interact with the projection lighting in interesting ways to create more dynamism. 
+
+Thinking about what sense and experience I wanted to provide for participants, and actually testing the tunnel in the space, I experienced changes in the direction of my sound design. I still wanted to include the generative aspects and random elements of sonic fragments, however, instead of narration, I chose to play a piece of music that I thought would emotionally move people to reflective and introspective states of mind. 
+
+Claire de Lune, one of my favorite pieces of music, one that reminds me of the passing of life, memories, and childhood experiences, is the piece I chose to play. I felt as though many people find solace and comfort in this piece so I thought it would be the most effective sound to use to appeal to a vast audience (from children to elderly). Instead of playing the song as is, I decided to distort the sound, playing with playback speed, reverb, and multiple sound objects playing at once, in order to create a space that felt more dream-like and fluid, rather than direct and structured. Layered with urban noise, I also wanted to raise attention to how these noises are deeply embedded within the body, psyche, and memory. 
+
+Testing the new sound in the structure with the clouds, I noticed that there was still a slight disconnect between what was being heard and seen. I needed to have sound that evoked the sense of being in a cloud, so I added a constant wind, weather, and wave sound that played throughout the entire soundscape. The foley sounds, weather sounds, grounded the experience of reflection (music and noise), to the physical space of the tunnels structure, which I wanted to evoke the sense of being in a cloud, a metaphorical cloud within the dreamscape of the participant. </p>
+                `
+            },
+            week16: {
+                title: "Week 15: Final Showcase ",
+                media: '<img src="" alt="Week 15 Process">',
+                description: `
+                    <p>In the past week I spent time in my installation space for the senior showcase, bringing the projection and sound together with the presence of the tunnel structure. I went through iterations of visuals, experimenting with dynamic visual sequences in Premiere Pro, then processing them in MAX/MSP to achieve dynamic and randomized visual effects. Having tested these in the structure, I felt as though there was an imbalance between sound, visuals, and the emotional/ physiological experience inside the tunnel– the rapidly changing images felt too chaotic– too much colors, textures, in-cohesion. I decided on sticking with my dynamic cloud visuals and attempted to create the experiential effect of being inside of a cloud. I wanted the tunnel to evoke a dream-like state, leveraging the symbolic relationship between dreams and clouds. I edited the video, warping pixelation intensity, interpolation, saturation, contrast, rotation, playback speed until the desired effect had been achieved. I wanted for the cycling and randomized graphics of the clouds to remind participants of change/ weather/ nature/ stillness amidst chaos. I wanted to create a calming and grounding experience for participants. The more I worked with the project, I drew farther away from mandating the crawling action, and leaned closer to creating an experience that fit the needs of the participant. I noticed by spending time in the tunnel and observing the appearance of the projection, that lying down face upwards was effective in achieving a meditative and calming effect. I did indeed feel like I had entered a dream-like space. Some aspects of the tunnels design, such as the plastic material, metal frame, and the instability (since the structure is a cylinder it moves around) opposed the calmness of the tunnel so I began thinking of ways to make the tunnel’s experience more comfortable and aesthetically aligned with my vision for the project. To compensate for the tunnels’ rigidity, I chose to layer the flooring of the tunnel with foam padding layered with artificial grass. I layered the interior and exterior of the structure with a bubble wrap encasing, which I spontaneously decided on during a home depot run. When seeing the bubble wrap, I remembered how as a child I was very fascinated by it and wanted to pop the bubbles. I wanted to add this texture to enhance the sense childhood nostalgia inherent to the project in itself. I also thought that the plastic bubble texture would reflect and interact with the projection lighting in interesting ways to create more dynamism. 
+
+Thinking about what sense and experience I wanted to provide for participants, and actually testing the tunnel in the space, I experienced changes in the direction of my sound design. I still wanted to include the generative aspects and random elements of sonic fragments, however, instead of narration, I chose to play a piece of music that I thought would emotionally move people to reflective and introspective states of mind. 
+
+Claire de Lune, one of my favorite pieces of music, one that reminds me of the passing of life, memories, and childhood experiences, is the piece I chose to play. I felt as though many people find solace and comfort in this piece so I thought it would be the most effective sound to use to appeal to a vast audience (from children to elderly). Instead of playing the song as is, I decided to distort the sound, playing with playback speed, reverb, and multiple sound objects playing at once, in order to create a space that felt more dream-like and fluid, rather than direct and structured. Layered with urban noise, I also wanted to raise attention to how these noises are deeply embedded within the body, psyche, and memory. 
+
+Testing the new sound in the structure with the clouds, I noticed that there was still a slight disconnect between what was being heard and seen. I needed to have sound that evoked the sense of being in a cloud, so I added a constant wind, weather, and wave sound that played throughout the entire soundscape. The foley sounds, weather sounds, grounded the experience of reflection (music and noise), to the physical space of the tunnels structure, which I wanted to evoke the sense of being in a cloud, a metaphorical cloud within the dreamscape of the participant. </p>
+                `
+            }
+        };
+
+        const processKeys = Object.keys(processPosts);
+        let currentProcessIndex = 0;
+
+        function showProcessModal(processId) {
+            const modal = document.getElementById('process-modal');
+            const titleDiv = document.getElementById('process-title');
+            const mediaDiv = document.getElementById('process-media');
+            const contentDiv = document.getElementById('process-content');
+            const prevBtn = document.getElementById('prev-process-btn');
+            const nextBtn = document.getElementById('next-process-btn');
+            currentProcessIndex = processKeys.indexOf(processId);
+            const process = processPosts[processId];
+
+            if (process) {
+                titleDiv.innerHTML = process.title;
+                mediaDiv.innerHTML = process.media;
+                contentDiv.innerHTML = process.description;
+                modal.style.display = 'block';
+
+                prevBtn.style.display = currentProcessIndex === 0 ? 'none' : 'block';
+                nextBtn.style.display = currentProcessIndex === processKeys.length - 1 ? 'none' : 'block';
+
+                gsap.fromTo(modal, 
+                    { opacity: 0 }, 
+                    { opacity: 1, duration: 1, ease: "power2.out" }
+                );
+                document.getElementById('modal-body').scrollTop = 0;
+            }
+        }
+
+        function showPreviousProcess() {
+            if (currentProcessIndex > 0) {
+                currentProcessIndex--;
+                const processId = processKeys[currentProcessIndex];
+                const titleDiv = document.getElementById('process-title');
+                const mediaDiv = document.getElementById('process-media');
+                const contentDiv = document.getElementById('process-content');
+                const prevBtn = document.getElementById('prev-process-btn');
+                const nextBtn = document.getElementById('next-process-btn');
+                const process = processPosts[processId];
+
+                gsap.to([titleDiv, mediaDiv, contentDiv], {
+                    opacity: 0,
+                    duration: 0.5,
+                    ease: "power2.in",
+                    onComplete: () => {
+                        titleDiv.innerHTML = process.title;
+                        mediaDiv.innerHTML = process.media;
+                        contentDiv.innerHTML = process.description;
+
+                        prevBtn.style.display = currentProcessIndex === 0 ? 'none' : 'block';
+                        nextBtn.style.display = currentProcessIndex === processKeys.length - 1 ? 'none' : 'block';
+
+                        gsap.fromTo([titleDiv, mediaDiv, contentDiv], 
+                            { opacity: 0 }, 
+                            { opacity: 1, duration: 0.5, ease: "power2.out" }
+                        );
+                    }
+                });
+            }
+        }
+
+        function showNextProcess() {
+            if (currentProcessIndex < processKeys.length - 1) {
+                currentProcessIndex++;
+                const processId = processKeys[currentProcessIndex];
+                const titleDiv = document.getElementById('process-title');
+                const mediaDiv = document.getElementById('process-media');
+                const contentDiv = document.getElementById('process-content');
+                const prevBtn = document.getElementById('prev-process-btn');
+                const nextBtn = document.getElementById('next-process-btn');
+                const process = processPosts[processId];
+
+                gsap.to([titleDiv, mediaDiv, contentDiv], {
+                    opacity: 0,
+                    duration: 0.5,
+                    ease: "power2.in",
+                    onComplete: () => {
+                        titleDiv.innerHTML = process.title;
+                        mediaDiv.innerHTML = process.media;
+                        contentDiv.innerHTML = process.description;
+
+                        prevBtn.style.display = currentProcessIndex === 0 ? 'none' : 'block';
+                        nextBtn.style.display = currentProcessIndex === processKeys.length - 1 ? 'none' : 'block';
+
+                        gsap.fromTo([titleDiv, mediaDiv, contentDiv], 
+                            { opacity: 0 }, 
+                            { opacity: 1, duration: 0.5, ease: "power2.out" }
+                        );
+                    }
+                });
+            }
+        }
+
+        function closeProcessModal() {
+            const modal = document.getElementById('process-modal');
+            gsap.to(modal, {
+                opacity: 0,
+                duration: 0.5,
+                ease: "power2.in",
+                onComplete: () => {
+                    modal.style.display = 'none';
+                }
+            });
+        }
+
+        document.getElementById('process-modal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeProcessModal();
+            }
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (document.getElementById('process-modal').style.display === 'block') {
+                if (event.key === 'ArrowLeft') showPreviousProcess();
+                if (event.key === 'ArrowRight') showNextProcess();
+                if (event.key === 'Escape') closeProcessModal();
+            }
+        });
+
+        function generateRandomLines() {
+            const container = document.getElementById('random-lines');
+            const numLines = 15;
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            const marginSize = 0.2;
+
+            for (let i = 0; i < numLines; i++) {
+                const line = document.createElement('div');
+                line.className = 'random-line';
+
+                const isVertical = Math.random() < 0.5;
+                if (isVertical) {
+                    line.classList.add('vertical');
+                    const finalHeight = Math.floor(Math.random() * 800) + 600;
+                    line.style.height = '0px';
+
+                    let xPos;
+                    const inMargin = Math.random() < 0.8;
+                    if (inMargin) {
+                        const leftMargin = Math.random() < 0.5;
+                        if (leftMargin) {
+                            xPos = Math.floor(Math.random() * (viewportWidth * marginSize));
+                        } else {
+                            xPos = Math.floor(viewportWidth * (1 - marginSize) + Math.random() * (viewportWidth * marginSize));
+                        }
+                    } else {
+                        xPos = Math.floor(Math.random() * viewportWidth);
+                    }
+                    line.style.left = `${xPos}px`;
+
+                    const growUp = Math.random() < 0.5;
+                    let yPos;
+                    if (growUp) {
+                        yPos = Math.floor(Math.random() * (viewportHeight - finalHeight));
+                        line.style.bottom = `${yPos}px`;
+                        line.style.top = 'auto';
+                    } else {
+                        yPos = Math.floor(Math.random() * (viewportHeight - finalHeight));
+                        line.style.top = `${yPos}px`;
+                        line.style.bottom = 'auto';
+                    }
+
+                    gsap.fromTo(line, 
+                        { height: 0 }, 
+                        { height: finalHeight, duration: 4, ease: "power2.inOut", delay: Math.random() * 0.5 }
+                    );
+                } else {
+                    line.classList.add('horizontal');
+                    const finalWidth = Math.floor(Math.random() * 800) + 800;
+                    line.style.width = '0px';
+
+                    let yPos;
+                    const inMargin = Math.random() < 0.8;
+                    if (inMargin) {
+                        const topMargin = Math.random() < 0.5;
+                        if (topMargin) {
+                            yPos = Math.floor(Math.random() * (viewportHeight * marginSize));
+                        } else {
+                            yPos = Math.floor(viewportHeight * (1 - marginSize) + Math.random() * (viewportHeight * marginSize));
+                        }
+                    } else {
+                        yPos = Math.floor(Math.random() * viewportHeight);
+                    }
+                    line.style.top = `${yPos}px`;
+
+                    const growRight = Math.random() < 0.5;
+                    let xPos;
+                    if (growRight) {
+                        xPos = Math.floor(Math.random() * (viewportWidth - finalWidth));
+                        line.style.left = `${xPos}px`;
+                        line.style.right = 'auto';
+                    } else {
+                        xPos = Math.floor(Math.random() * (viewportWidth - finalWidth));
+                        line.style.right = `${xPos}px`;
+                        line.style.left = 'auto';
+                    }
+
+                    gsap.fromTo(line, 
+                        { width: 0 }, 
+                        { width: finalWidth, duration: 6, ease: "power2.inOut", delay: Math.random() * 0.5 }
+                    );
+                }
+
+                container.appendChild(line);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            generateRandomLines();
+        });
+    </script>
+</body>
+</html>
