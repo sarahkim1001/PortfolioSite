@@ -913,15 +913,16 @@ img {
         justify-content: center;
     }
 
-    .contactcontent a {
-        padding: 5px;
-        text-decoration: underline;
-    }
 
     .contactcontent a, .contactcontent .based {
         padding: 0rem 0px;
         font-size: 1rem;
         text-decoration: none;
+    }
+
+    .contactcontent a {
+        padding: 5px;
+        text-decoration: underline;
     }
 }
 
