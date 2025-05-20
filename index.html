@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="./css/style.css" />
 </head>
 <body> 
+
+    <div id="lens" class="lens"></div>
+    <div id="random-lines"></div>
+    <a id="name" href="#home">SARAH S. KIM</a>
+    <button class="theme-toggle" aria-label="Switch to light mode">
+        <img class="theme-icon" src="./img/bright-sun.png" alt="Toggle theme icon">
+    </button>
+    
     <div id="lens" class="lens"> </div>
     <div id="random-lines"></div>
 <!--HTML-->
@@ -14,8 +22,8 @@
 <div id="back">
     <img src="./img/back3.png">
 </div>-->
-
-<a id="name" href="#home">SARAH S. KIM</a>
+<!--
+<a id="name" href="#home">SARAH S. KIM</a>-->
 
  <!--
 <div id="name1">
@@ -351,6 +359,30 @@
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    
+    const toggleButton = document.querySelector('.theme-toggle');
+    const themeIcon = document.querySelector('.theme-icon');
+    const body = document.body;
+
+    // Check for saved theme in localStorage
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    body.setAttribute('data-theme', savedTheme);
+    updateToggleButton(savedTheme);
+
+    toggleButton.addEventListener('click', () => {
+        const currentTheme = body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateToggleButton(newTheme);
+    });
+
+    function updateToggleButton(theme) {
+        themeIcon.src = theme === 'dark' ? './img/bright-sun.png' : './img/dark-moon.png';
+        themeIcon.alt = `Toggle to ${theme === 'dark' ? 'light' : 'dark'} mode`;
+        toggleButton.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+    }
+
     const gifLists = {
         frame1: ["./gif/lyingJerry_1.gif", "./gif/lyingJerry_1.gif"], // Replace with your GIF paths
         frame2: ["./gif/tree.gif", "./gif/tree.gif"],  // Replace with your GIF paths
@@ -399,7 +431,7 @@ document.addEventListener('DOMContentLoaded', () => {
             gif.src = './img/fallback.jpg';
         }, { once: true });
     });
-});
+}); 
 
 document.addEventListener('DOMContentLoaded', function() {
     generateRandomLines();
@@ -426,10 +458,10 @@ const projects = {
         title: "Live Performance Group Project, 2025",
         media: '<img src="./gif/meta.gif" alt="Live Performance">',
         description: `
-            <p>Metamorphosis is a reflective multimedia performance following the life cycle of a butterfly, weaving together live dance, video projection, and poetic storytelling. By tracing the butterfly's journey from birth to death and beyond, we explore life's transformative cycles and challenge traditional ideas of beginnings and endings. Key themes include change, evolution, and growth, highlighting how different environments influence development.</p>
-        <p>The visual experience combines footage of nature and generative graphics using TouchDesigner, sequenced in Isadora to allow real-time interaction and manipulation. Our dancer embodies the butterfly through thoughtful projection and costume design, using silk chiffon techniques inspired by Isadora Duncan and Loïe Fuller to capture the essence of flight. </p>
-        <p>The soundscape sets the emotional and environmental stage for the narrative, while a spoken word poem adds metaphorical insight into the butterfly’s life cycle.</p>
-    <p>In this collaborative project, my role, Sarah Kim, involves sound design. I'm creating a generative soundscape in MAX/MSP and performing a live poem that narrates the choreography and video projections. The soundscape aligns with the five scenes of the Isadora project, each with distinct ambience. I work with scriptwriter Adeline Ferolo to craft a narrative poem that meshes seamlessly with the story. During the performance, I'll read the poem on stage, with my voice integrated into the sound environment through MAX/MSP.</p>
+        <p>Metamorphosis is a reflective multimedia performance that traces the life cycle of a butterfly, intertwining live dance, video projection, and poetic storytelling. By following the butterfly's journey from birth to death and beyond, the performance explores life's transformative cycles and challenges conventional notions of beginnings and endings. Key themes include change, evolution, and growth, emphasizing how diverse environments shape development.</p>
+<p>The visual experience blends footage of nature with generative graphics created in TouchDesigner, sequenced in Isadora to enable real-time interaction and manipulation. The dancer embodies the butterfly through carefully designed projection and costume, employing silk chiffon techniques inspired by Isadora Duncan and Loïe Fuller to evoke the essence of flight.</p>
+<p>The soundscape establishes the emotional and environmental tone for the narrative, complemented by a spoken word poem that provides metaphorical insight into the butterfly’s life cycle.</p>
+<p>In this collaborative project, Sarah Kim’s role centers on sound design. She creates a generative soundscape using MAX/MSP and performs a live poem that narrates the choreography and video projections. Sarah’s soundscape aligns with the five scenes of the Isadora project, each featuring a distinct ambience. She collaborates with scriptwriter Adeline Ferolo to craft a narrative poem that integrates seamlessly with the story. During the performance, Sarah reads the poem on stage, with her voice woven into the sound environment through MAX/MSP.</p>
         `
     },
     inBetween: {
