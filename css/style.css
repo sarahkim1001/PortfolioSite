@@ -1334,6 +1334,7 @@ footer {
 
 /*Interstice Page Styling*/
 /* Define theme-based custom properties for modal colors */
+
 :root {
     --light-bg: #ffffff;
     --dark-bg: #1a1a1a;
@@ -1343,6 +1344,63 @@ footer {
     --dark-border: #444;
     --light-gradient: radial-gradient(circle, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 0) 100%);
     --dark-gradient: radial-gradient(circle, rgba(26, 26, 26, 1) 40%, rgba(26, 26, 26, 0) 100%);
+}
+
+
+.blog-content{
+    display: flex;
+    width:100%;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .blog-content{
+        display: flex;
+        flex-direction:column;
+        width:100%;
+        scale:.7;
+        justify-content: left;
+    }
+}
+
+/* Style for the blog header container */
+.blog-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 15vh; /* Moves it down the page */
+    text-align: left;
+    width: 100%;
+}
+
+/* Style for the INTERSTICE header */
+.blog-header h1 {
+    margin:0;
+    margin-top:5rem;
+    font-size: 4rem; /* Larger text size */
+    font-weight: 700; /* Bold for emphasis */
+    color: var(--light-text); /* Theme-aware text color */
+    line-height: 1.2; /* Adjust line height for readability */
+    text-transform: uppercase; /* Match the all-caps style */
+}
+
+/* Dark mode adjustment for the header text */
+[data-theme="dark"] .blog-header h1 {
+    color: var(--dark-text);
+}
+
+/* Style for the mission statement (optional adjustment) */
+.blog-header .mission-statement {
+    max-width: 800px; /* Limit width for readability */
+    padding: 1rem;
+    font-size: 1.1rem;
+    color: var(--light-text);
+    text-align: left;
+}
+
+[data-theme="dark"] .blog-header .mission-statement {
+    color: var(--dark-text);
 }
 
 /* Post list styling */
@@ -1393,6 +1451,28 @@ footer {
     text-overflow: ellipsis;
     white-space: nowrap;
     max-height: 1.2em;
+}
+
+.modal-body {
+    padding: 0;
+}
+
+#post-title {
+    font-size: 1.2rem; 
+    margin-bottom: 0.5rem;
+    color: inherit;
+}
+
+#post-content p {
+    margin: 0 0 1rem;
+    line-height: 1.5;
+    white-space: normal;
+    color: inherit;
+}
+
+.post-media {
+    margin-bottom: 1rem;
+    text-align: center;
 }
 
 /* Modal styling with theme adaptation 
