@@ -6,7 +6,7 @@
     <title>Home</title>
     <link rel="stylesheet" href="./css/style.css" />
 </head>
-<body> 
+<body>  
 
     <div id="lens" class="lens"></div>
     <div id="random-lines"></div>
@@ -43,8 +43,8 @@
 <section id="home">
     <div id="media-carousel">
         <div class="media-frame">
-            <img class="media-gif" src="" alt="Animated GIF frame 1">
-            <div class="media-title">Ouroboros, 2025</div>
+            <img class="media-gif" src="./gif/space.gif" alt="Animated GIF frame 1">
+            <div class="media-title">INTERSTICE, 2025</div>
         </div>
         <!-- <div class="media-frame">
             <img class="media-gif" src="" alt="Animated GIF frame 2">
@@ -60,8 +60,21 @@
     </div>
     <div class="current-content">
         <div class="projectgallery">
-            <h2 class="projectTypeOG">CURRENT PROJECTS</h2>
-          <!-- Project 1 -->
+            <h2 class="projectTypeOG">ONGOING PROJECTS</h2>
+          
+              <!-- Project Issues Blog -->
+
+              <div class="projectitem" onclick="showProjectModal('IssueBlog')">
+                <div class="workImg">
+                    <img src="./gif/space.gif"> 
+                </div>
+                <div class="workDescription">
+                    <h3>Interstice</h3>
+                    <p>Digtial Journal</p>
+                    <h5>Mar 2025 - Present</h5>
+                </div>
+            </div>
+
           <div class="projectitem" onclick="showProjectModal('Ouroboros')">
             <div class="workImg">
                 <img src="./gif/lyingJerry_1.gif"> 
@@ -69,21 +82,12 @@
             <div class="workDescription">
                 <h3>Ouroboros</h3>
                 <p>Senior Thesis Project, IDM Showcase Spring 2025</p>
-                <h5>Jan 2025- Present</h5>
-            </div>
-        </div>
-
-          <!-- Project 2: Live Performance Group Project -->
-          <div class="projectitem" onclick="showProjectModal('livePerformance')">
-            <div class="workImg">
-                <img src="./gif/meta.gif"> 
-            </div>
-            <div class="workDescription">
-                <h3>Metamorphosis</h3>
-                <p>Collaborative Multimedia Performance, Sound Designer</p>
                 <h5>Jan 2025 - Present</h5>
             </div>
         </div>
+
+          <!-- Project Issues Blog -->
+
         </div>
       </div>
 </section>
@@ -93,13 +97,24 @@
         <div class="projectgallery1">
             <h2 class="projectType">PAST PROJECTS</h2>
 
+            <div class="projectitem" onclick="showProjectModal('livePerformance')">
+                <div class="workImg">
+                    <img src="./gif/meta.gif"> 
+                </div>
+                <div class="workDescription">
+                    <h3>Metamorphosis</h3>
+                    <p>Collaborative Multimedia Performance, Sound Designer</p>
+                    <h5>Jan 2025 - May 2025</h5>
+                </div>
+            </div>
+
             <div class="projectitem" onclick="showProjectModal('inBetween')">
                 <div class="workImg">
                     <img src="./gif/branch.gif"> 
                 </div>
                 <div class="workDescription">
                     <h3>In Between</h3>
-                    <p>Experimental Reflexive Documentary Film</p>
+                    <p>Experimental Documentary Film</p>
                     <h5>December 19th, 2024</h5>
                 </div>
             </div>
@@ -383,7 +398,7 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleButton.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
     }
 
-    const gifLists = {
+    /*const gifLists = {
         frame1: ["./gif/lyingJerry_1.gif", "./gif/lyingJerry_1.gif"], // Replace with your GIF paths
         frame2: ["./gif/tree.gif", "./gif/tree.gif"],  // Replace with your GIF paths
         
@@ -430,7 +445,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error(`Failed to load GIF ${index + 1}: ${randomGif}`);
             gif.src = './img/fallback.jpg';
         }, { once: true });
-    });
+    });*/
 }); 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -441,6 +456,15 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 const projects = {
+    IssueBlog: {
+    title: "Interstice, 2025",
+    media: '<img src="./gif/space.gif" alt="Personal Blog Digital Image Cover">',
+    description: `
+        <p><a href="./Interstice.index.html">Interstice Digital Journal</a></p>
+        <p>INTERSTICE IS A DIGITAL JOURNAL DEDICATED TO EXPLORING CRITICAL SOCIAL ISSUES, AMPLIFYING MARGINALIZED VOICES, AND FOSTERING INCLUSIVE DIALOGUE. WE AIM TO CHALLENGE SYSTEMIC INEQUALITIES AND INSPIRE ACTION THROUGH THOUGHTFUL WRITING ON CAPITALISM, COLONIAL LEGACIES, ENVIRONMENTAL DEGRADATION, CULTURE, TECHNOLOGY, AND SOCIETY. WE INVITE ALL INDIVIDUALS CONCERNED WITH JUSTICE AND SYSTEMIC CHANGE, INTERSTICE SEEKS TO CREATE A VIBRANT SPACE FOR REFLECTION, DISCUSSION, AND ADVOCACY, BRIDGING IDEAS AND ACTION FOR A MORE EQUITABLE SHARED EXISTENCE. </p>
+    `
+}, 
+
     Ouroboros: {
     title: "Ouroboros, 2025",
     media: '<img src="./gif/lyingJerry_1.gif" alt="Project Documentation Video Coming Soon">',
@@ -496,6 +520,7 @@ const projects = {
             <p>Omnipresent Hearts examines consciousness and time perception through an audiovisual installation. It uses live heartbeats, clock ticks, and chimes—sonic elements that cycle and overlap—to explore life’s rhythms and temporal ambiguity. The heartbeat represents internal bodily experience, clock ticks symbolize measured time, and chimes suggest a meditative state, together challenging standardized temporal constructs. The piece runs continuously from patch initialization, emphasizing cyclical persistence over linear progression. A visual component integrates collaged video and live webcam capture, with delay effects synchronized to the heartbeat, linking audio and visual perception. This work posits living as an unrecognized hypnotic state, persistent and undefined.</p>
         `
     },
+    
     coneyIslandPsych: {
         title: "Coney Island Psychoculture, 2024",
         media: `<img src="./"> alt="Loading">','
@@ -540,10 +565,12 @@ const projects = {
     },
     Passage: {
         title: "Passage",
-        media: '<img src="./img/webbed.png" alt="Passage">',
+        media: '<img src="./img/webbed.png" alt="Passage">, <img src="./img/webbed.png" alt="Passage">, <img src="./img/webbed.png" alt="Passage">, <img src="./img/webbed.png" alt="Passage">', 
         description: `
-            <p>A series of passages through my lens</p>
+            <p>At every threshold lies a gateway—a portal to the infinite, inviting us to peer into the deep unknown. This enigmatic frontier is entwined with all else, whispering secrets to those who dare to listen. Beyond it, the rabbit hole beckons—a passage of curiosity and wonder, a chasm filled with questions that echo our deepest uncertainties. Do we choose to descend, or does the abyss choose us? Here, control becomes an illusion, a fleeting notion lost within the labyrinth of our own minds. As you stand at the brink, ready to unravel the mysteries that lie beyond, remember: the journey through these passages is as much about the discovery of the unknown as it is about the revelation of self. </p>
         `
+
+        
     }/*,
     Selfie: {
         title: "Self Portrait",

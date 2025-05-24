@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Interstice</title>
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+    <div id="lens" class="lens"></div>
+    <div id="random-lines"></div>
+    <a id="name" href="./index.html#home">SARAH S. KIM</a>
+    <button class="theme-toggle" aria-label="Switch to light mode">
+        <img class="theme-icon" src="./img/bright-sun.png" alt="Toggle theme icon">
+    </button>
+
+    <div class="top-band"></div>
+    <div class="bottom-band"></div>
+
+    <section id="interstice">
+        <div class="blog-header">
+            <h1>INTERSTICE</h1>
+            <div class="mission-statement">
+                <p>INTERSTICE IS A DIGITAL JOURNAL DEDICATED TO EXPLORING CRITICAL SOCIAL ISSUES, AMPLIFYING MARGINALIZED VOICES, AND FOSTERING INCLUSIVE DIALOGUE. WE AIM TO CHALLENGE SYSTEMIC INEQUALITIES AND INSPIRE ACTION THROUGH THOUGHTFUL WRITING ON CAPITALISM, COLONIAL LEGACIES, ENVIRONMENTAL DEGRADATION, CULTURE, TECHNOLOGY, AND SOCIETY. WE INVITE ALL INDIVIDUALS CONCERNED WITH JUSTICE AND SYSTEMIC CHANGE, INTERSTICE SEEKS TO CREATE A VIBRANT SPACE FOR REFLECTION, DISCUSSION, AND ADVOCACY, BRIDGING IDEAS AND ACTION FOR A MORE EQUITABLE SHARED EXISTENCE.</p>
+            </div>
+        </div>
+    
+        <div class="blog-content">
+            <div class="post-list">
+                <div class="post-item" onclick="showPostModal('post1')">
+                    <h3>Unveiling the Stranger</h3>
+                    <h5>MAY 24, 2025</h5>
+                    <p>EXPLORING THE ROLE OF INSURRECTIONARY SPACES AND COLONIAL LEGACIES OF CONTROL...</p>
+                </div>
+              <div class="post-item" onclick="showPostModal('post2')">
+                    <h3>FORGOTTEN SPACES, UNFORGOTTEN HISTORIES</h3>
+                    <h5>MARCH 16, 2025</h5>
+                    <p>FOLLOWING THE HISTORICAL SITE OF THE PLANTATION TO THE MODERN DAY PRISON SYSTEM.</p>
+                </div><!--
+                <div class="post-item" onclick="showPostModal('post3')">
+                    <h3>ENVIRONMENTAL DEGRADATION AND HOPE</h3>
+                    <h5>MAY 10, 2025</h5>
+                    <p>REFLECTING ON THE CLIMATE CRISIS AND THE ROLE OF...</p>
+                </div>-->
+            </div>
+        </div>
+    </section>
+
+    <!-- Post Modal Structure -->
+    <div id="post-modal" class="modal">
+        <div class="modal-content">
+            <span id="modal-close" class="close">×</span>
+            <div id="modal-body" class="modal-body">
+                <div id="post-title"></div>
+                <div id="post-media" class="post-media"></div>
+                <div id="post-content"></div>
+                <div class="modal-bottom">
+                    <button id="prev-post-btn" class="prev-btn"><</button>
+                    <button id="next-post-btn" class="next-btn">></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 SARAH SEIYEUN KIM</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js"></script>
+    <script>
+        // Random Lines Animation (Copied from index.html)
+        function generateRandomLines() {
+            const container = document.getElementById('random-lines');
+            const numLines = 15;
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            const marginSize = 0.2;
+
+            for (let i = 0; i < numLines; i++) {
+                const line = document.createElement('div');
+                line.className = 'random-line';
+                const isVertical = Math.random() < 0.5;
+                if (isVertical) {
+                    line.classList.add('vertical');
+                    const finalHeight = Math.floor(Math.random() * 800) + 600;
+                    line.style.height = '0px';
+                    let xPos;
+                    const inMargin = Math.random() < 0.8;
+                    if (inMargin) {
+                        const leftMargin = Math.random() < 0.5;
+                        if (leftMargin) {
+                            xPos = Math.floor(Math.random() * (viewportWidth * marginSize));
+                        } else {
+                            xPos = Math.floor(viewportWidth * (1 - marginSize) + Math.random() * (viewportWidth * marginSize));
+                        }
+                    } else {
+                        xPos = Math.floor(Math.random() * viewportWidth);
+                    }
+                    line.style.left = `${xPos}px`;
+                    const growUp = Math.random() < 0.5;
+                    let yPos;
+                    if (growUp) {
+                        yPos = Math.floor(Math.random() * (viewportHeight - finalHeight));
+                        line.style.bottom = `${yPos}px`;
+                        line.style.top = 'auto';
+                    } else {
+                        yPos = Math.floor(Math.random() * (viewportHeight - finalHeight));
+                        line.style.top = `${yPos}px`;
+                        line.style.bottom = 'auto';
+                    }
+                    gsap.fromTo(line, 
+                        { height: 0 }, 
+                        { height: finalHeight, duration: 4, ease: "power2.inOut", delay: Math.random() * 0.5 }
+                    );
+                } else {
+                    line.classList.add('horizontal');
+                    const finalWidth = Math.floor(Math.random() * 800) + 800;
+                    line.style.width = '0px';
+                    let yPos;
+                    const inMargin = Math.random() < 0.8;
+                    if (inMargin) {
+                        const topMargin = Math.random() < 0.5;
+                        if (topMargin) {
+                            yPos = Math.floor(Math.random() * (viewportHeight * marginSize));
+                        } else {
+                            yPos = Math.floor(viewportHeight * (1 - marginSize) + Math.random() * (viewportHeight * marginSize));
+                        }
+                    } else {
+                        yPos = Math.floor(Math.random() * viewportHeight);
+                    }
+                    line.style.top = `${yPos}px`;
+                    const growRight = Math.random() < 0.5;
+                    let xPos;
+                    if (growRight) {
+                        xPos = Math.floor(Math.random() * (viewportWidth - finalWidth));
+                        line.style.left = `${xPos}px`;
+                        line.style.right = 'auto';
+                    } else {
+                        xPos = Math.floor(Math.random() * (viewportWidth - finalWidth));
+                        line.style.right = `${xPos}px`;
+                        line.style.left = 'auto';
+                    }
+                    gsap.fromTo(line, 
+                        { width: 0 }, 
+                        { width: finalWidth, duration: 6, ease: "power2.inOut", delay: Math.random() * 0.5 }
+                    );
+                }
+                container.appendChild(line);
+            }
+        }
+
+        // Theme Toggle (Copied from index.html)
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleButton = document.querySelector('.theme-toggle');
+            const themeIcon = document.querySelector('.theme-icon');
+            const body = document.body;
+
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            body.setAttribute('data-theme', savedTheme);
+            updateToggleButton(savedTheme);
+
+            toggleButton.addEventListener('click', () => {
+                const currentTheme = body.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                body.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateToggleButton(newTheme);
+            });
+
+            function updateToggleButton(theme) {
+                themeIcon.src = theme === 'dark' ? './img/bright-sun.png' : './img/dark-moon.png';
+                themeIcon.alt = `Toggle to ${theme === 'dark' ? 'light' : 'dark'} mode`;
+                toggleButton.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+            }
+
+            generateRandomLines();
+            gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+            gsap.set(".blog-header", { duration: 1, opacity: 0 });
+            gsap.to(".blog-header", { duration: 1, opacity: 1, ease: "ease" });
+        });
+
+        // Blog Post Modal Logic
+       // Blog Post Modal Logic
+const posts = {
+    post1: {
+        title: "Unveiling the Stranger: Insurrectionary Spaces and Colonial Legacies of Control, 2025",
+        media: '<img src="./img/back3.jpg" alt="Capitalism Blog Post Image">',
+        description: `
+
+<h2>Introduction</h2>
+<p>This paper examines the role of insurrectionary spaces as sites of resistance, reclamation, and transformation by and for marginalized populations confronting both historical and contemporary colonial power structures. These spaces challenge entrenched social and political systems of dehumanization and exclusion of internal populations, recognizing the persistent injustices of the past and present moment. Through analyzing the Long Attica Revolt as a microcosm of anti-colonial resistance in <em>Tip of the Spear</em> (Chapters One and Three) and <em>Betrayal At Attica</em>, alongside local struggles in <em>The Square</em>, <em>Five Broken Cameras</em>, and <em>My Imaginary Country</em>, this study underscores how movements contest and expose uneven hierarchical power dynamics rooted in colonialism. An exploration of strategies resisting state control mechanisms, such as militaristic mobilization and media manipulation, highlights the ongoing fight to dismantle oppressive systems in contemporary global society. Drawing on Katherine McKittrick’s concept of spatialized memory and Hannah Arendt’s discussion of natality, we reveal how past and present injustices are entrenched in contemporary geographies and how collective action in these spaces creates new pathways toward social transformation.</p>
+
+<h2>Colonial Warfare, Control, and the Creation of the Stranger</h2>
+<p>Historically, colonial powers leveraged systematic dehumanization of indigenous and enslaved populations to claim ownership of colonized lands and bodies. This justified total domination by casting indigenous populations as strangers within their own lands. Zygmunt Bauman, in <em>The Making and Unmaking of the Stranger</em>, notes that “what the modern strangers did not fit was the vision of order” (Bauman, 2). By creating perceived threats and outsiders, colonial regimes justified controlling marginalized populations, embodying the logic of total domination inherent to colonial warfare. This marked a shift in war models, as discussed in class regarding Enzo Traverso’s <em>Fire and Blood: The European Civil War</em>, where traditional war between equal powers became obsolete, and colonized peoples were deemed non-human, justifying their exploitation.</p>
+<p>The documentary <em>Five Broken Cameras</em> illustrates this dehumanization in the contemporary Israeli colonial conquest of Palestinian territories. It highlights systemic marginalization of Palestinians, justifying invasion and dispossession through military mobilization and architectures of confinement, like the wall restricting Palestinian mobility. In a scene where documentarian Emad Burnat is arrested, military officers declare his home a “closed military zone,” aligning with Bauman’s analysis of the stranger as a threat and Traverso’s concept of blurred military-civilian spaces in colonization.</p>
+
+<h2>Spatialized Memory and Systemic Racism</h2>
+<p>Integrating Katherine McKittrick’s notion of spatialized memory from <em>Plantation Futures</em>, we see how past injustices are embedded in contemporary spatial and social realities. McKittrick emphasizes a temporal and spatial continuum, tracing the modern prison as a continuation of the colonial plantation (McKittrick, 2). Recognizing how colonial logic transforms through space and time reveals that producing and controlling the stranger shaped contemporary society, influencing militarization, surveillance, and marginalization practices. These dynamics are central to struggles for recognition as human beings.</p>
+
+<h2>Prisons as Modern Enclaves of Colonial Control: Attica as Microcosm</h2>
+<p>Recognizing prisons as modern plantations, the Long Attica Revolt symbolizes anti-colonial resistance, exposing global patterns of oppression. In <em>Tip of the Spear</em>, Orisanmi Burton describes prisons as “distillations of colonialisms’ living legacy” and a “microcosm of the broader world order” (Burton, 81). Prisons confine and control marginalized populations subjected to dehumanization, reflecting colonial exploitation. The Attica Revolt’s demands for higher wages, political freedom, and better conditions expose the absence of autonomy, illuminating the fight for recognition as human beings (Burton, 80).</p>
+<p>Bauman’s “war of attrition against strangers” (Bauman, 2) explains how prisons assimilate and isolate marginalized groups through anthropophagic (erasing identity) and anthropoemic (excluding and isolating) strategies. This aligns with Foucault’s <em>Madness and Civilization</em>, where spaces like 17th-century workhouses confined “abnormal” populations, exploiting them for labor, reflecting the prison industrial complex’s “profits from punishment” (<em>13th</em>). Contemporary examples, like Uyghur concentration camps, employ similar assimilation and exploitation tactics.</p>
+
+<h2>Militarization and Surveillance in Civilian Spaces</h2>
+<p>Prisons as microcosms of global order reveal how regimes use confinement, surveillance, and control to establish order. Traverso’s concept of blurred military-civilian spheres is evident in Palestine (<em>Five Broken Cameras</em>) and the French occupation of the Casbah in <em>Battle of Algiers</em>, where the built environment supports militaristic domination. Similarly, <em>Betrayal At Attica</em> describes Attica’s structure—forty-foot walls and fourteen gun towers—as an “enclosed world,” enabling surveillance and control, epitomizing uneven colonial geographies.</p>
+
+<h2>Media Manipulation and Maintaining Order</h2>
+<p>New York State’s response to the Attica Revolt showcases militarization and media manipulation to uphold systemic racism. <em>Betrayal At Attica</em> illustrates tactics to “criminalize black resistance” (Burton, 94), mirroring global practices where oppressive regimes justify violence through distorted narratives. <em>The Square</em> shows Egypt’s 2011 revolution, where military violence against nonviolent protesters was justified by criminalizing them, reflecting colonial tactics. Archival footage from Attica reveals premeditated massacres justified by lies, perpetuating myths of black criminality (<em>13th</em>).</p>
+
+<h2>Spaces of Insurrection: Spaces of Transformation</h2>
+<p>State efforts to control narratives, alienate through prison architecture, and punish resistance reveal fear of collective power. Hannah Arendt, in <em>The Human Condition</em>, argues that isolation renders individuals powerless, while collective action creates space for transformation (Arendt, 201-203). During the Long Attica Revolt, inmates formed “The Black Commune,” an autonomous site fostering revolutionary culture (Burton, 83). This collective action transformed spaces of dehumanization into sites of agency, exposing the fragility of oppressive systems (Burton, 86).</p>
+<p>Attica’s political order, with elected representatives and a security force, publicized shared grievances. Similarly, <em>The Square</em> and <em>My Imaginary Country</em> show collective action transforming repressed spaces into sites of political discourse, aligning with Arendt’s notion of plurality. These spaces of insurrection reclaim agency, challenging civic disability where marginalized populations are immobilized by legal and social structures.</p>
+
+<h2>Conclusion</h2>
+<p>Acts of unity and resistance reveal insurrectionary spaces’ potential to contest colonial legacies by redefining spaces of exclusion into empowerment. These movements embody Arendt’s idea that power emerges in collectivity. In the global struggle for justice, insurrectionary spaces confront historical grievances, transforming social and physical spaces. They remind us that collective action can reinterpret and reshape reality, dismantling entrenched oppressive systems.</p>
+
+<h2>Sources</h2>
+<ul>
+    <li>Burton, Orisanmi. <em>Tip of the Spear: Revolutionary Insurgency in the Long Attica Revolt</em>.</li>
+    <li>Bauman, Zygmunt. <em>The Making and Unmaking of Strangers</em>.</li>
+    <li>McKittrick, Katherine. <em>Plantation Futures</em>.</li>
+    <li>Foucault, Michel. <em>Madness and Civilization</em>.</li>
+    <li>Arendt, Hannah. <em>The Human Condition</em>.</li>
+    <li><em>Betrayal At Attica</em>.</li>
+    <li><em>The Square</em>.</li>
+    <li><em>Five Broken Cameras</em>.</li>
+    <li><em>My Imaginary Country</em>.</li>
+    <li><em>13th</em>.</li>
+    <li>Traverso, Enzo. <em>Fire and Blood: The European Civil War</em>.</li>
+</ul>
+        `
+    },
+    post2: {
+        title: "Forgotten Spaces, Unforgotten Histories: A Continuum from Plantation to Prison, 2025",
+        media: '<img src="./img/chained.jpg" alt="Colonial Legacies Blog Post Image">',
+        description: `
+
+<h2>Introduction: The Continuum of Racial Oppression</h2>
+<p>This paper examines the legacy of the plantation and its transformation into contemporary systems of racial and economic oppression through the works of Katherine McKittrick’s essay <em>Plantation Futures</em> and Ava DuVernay’s documentary <em>13th</em>. By exploring the spatial and temporal linkage between the historical plantation and modern-day mass incarceration, this analysis demonstrates how systemic racial hierarchies, rooted in the Eurocentric colonial gaze and logic, continue to shape contemporary society, particularly in the United States. Through this examination, we reflect on the continuum of space and time inherent in these structures, which perpetuate a form of sociocide—the systematic dismantling of the social and economic fabrics of marginalized communities, with particular emphasis on Black communities. Understanding these intertwined histories and spaces across past, present, and future systems reveals that enduring white-dominated power structures have persisted through the racial oppression of communities of color. By critically engaging with these narratives, we can foster the awareness necessary to dismantle these violent systems and envision a more equitable future.</p>
+
+<h2>Historical Context and Plantation Logic</h2>
+<p>McKittrick begins her essay by acknowledging the African Burial Grounds, emphasizing that the "legacy of slavery and the labor of the unfree both shape and are part of the environment we presently inhabit" (McKittrick, 2), specifically the urban built environment. This acknowledgment highlights the spatial continuity across time—"between the living and the dead"—demonstrating how space embodies the temporal experience (McKittrick, 2). By considering taphonomy, necrology, and diagenesis, we see how the materiality of the present is a direct remnant of the past, setting the stage for her concept of the Plantation Future as "a conceptualization of time-space that tracks the plantation toward the prison and the impoverished" (McKittrick, 2). The plantation, as McKittrick addresses, functioned as a confinement for the systemic oppression and exploitation of enslaved black people, exemplifying both racial and economic hierarchies. These plantations institutionalized racial inequality, embedding it within economic systems designed to maximize profit through exploitation and dehumanization of black and indigenous people. This oppression enforced rigid social orders and normalized racial hierarchies and its violent practices within particular spaces against particular races, informing the racial segregational operation of modern institutions and systemic inequities of today.</p>
+
+<p>Under the Eurocentric colonial gaze, the lands and peoples of the new worlds—specifically the Americas and Africa—were conceived as geographically and racially inferior. Indigenous cultures, labeled as barbaric and irrational, were deemed "unimaginable," while their lands, considered "uninhabitable," were transformed into "profitable colonial outposts and settlements" (McKittrick, 6). These past colonial encounters "created material and imaginative geographies that reified global segregations through 'damning' the spaces long occupied by Man’s human others" (McKittrick, 5), creating a "new symbolic construct of race" that emerged alongside post-1492 colonial arrangements (McKittrick, 6) and organized the modern world according to a racial logic established by colonial motives. Spaces were "carved up to distinguish between and regulate the relations of indigenous, non-indigenous, African, and colonial communities" (McKittrick, 6), creating "particular spaces of otherness—for purposes here, black geographies—that were designated as 'incongruous with humanness'" (McKittrick, 6). Measurements of human value were organized by "attaching different versions of the human to different places" (McKittrick, 7), effectively normalizing spaces of racial otherness.</p>
+
+<p>Referencing George Beckford’s Plantation Thesis, McKittrick emphasizes that the "plantations of transatlantic slavery underpinned a global economy; that this plantation history not only generated North Atlantic metropolitan wealth and exacerbated dispossession among the unfree and indentured, it also instated an incongruous racialized economy that lingered long after emancipation and independence movements" in the Americas (McKittrick, 3). This underscores that the racialized economic structure of the plantation is not confined to its origins but continues to shape modern economic structures and landscapes. The thesis also argues that the "protracted colonial logic of the plantation came to define many aspects of post-slave life," suggesting that the structures and ideologies established during colonization migrate across time and space to inform subsequent systematic developments. This plantation logic remains central to contemporary systematic frameworks, underpinning the social, cultural, political, and economic systems of the United States that perpetuate inequality, a theme explored further in the film <em>13th</em>.</p>
+
+<h2>Mass Incarceration and the 13th Amendment</h2>
+<p>In <em>13th</em>, this historical narrative extends into a contemporary analysis by examining how modern systems of mass incarceration reflect the legacies of plantation logic. The film begins with the stark statistic, "The United States is home to 5% of the world’s population but 25% of the world’s prisoners," where the likelihood of imprisonment throughout the lifetime is “1/17 for the white man” and “1/3 for the black man,” and where the black man makes up “6.5% of the US Population but 40.2% of the prison population” (DuVernay). Throughout the film, we learn that it is no coincidence that the disproportionate number of incarcerated black individuals resembles that of the historical control and containment of enslaved Africans established on plantations. These statistics highlight how racialized control continues to be an underpinning of the American socio-economic landscape, particularly through the prison industrial complex and system. Towards the beginning of the film, Kevin Gannon meditates on the continuity of spacetime in connection to the plantation system and logic that produced the foundations of American society as introduced by McKittrick: “we are products of the history that our ancestors chose if we are white. If we are black, we are products of a history that our ancestors did not choose” (DuVernay). Gannon’s reflection emphasizes the need to understand the continuity between history and the present to come to terms with past and present realities in order to move towards a future that has reflected on the systematically induced patterns of racial marginalization and violence in American society. Gannon expands on McKittrick’s insight of the plantation as a migratory concept that transforms through various technologies and contexts by illustrating how the 13th Amendment clause provided a legal loophole for racial control in the era of Abolitionism.</p>
+
+<p>The 13th Amendment of 1865 states that, “Neither slavery nor involuntary servitude, except as a punishment for crime whereof the party shall have been duly convicted, shall exist within the United States” (DuVernay). In disguise, this clause grants the legal continuation of slavery, allowing states to exploit incarcerated individuals through systems and sites of forced labor established in the plantation. The racial hierarchical model was extracted from one context, the plantation, and into another, convict leasing, which brings to light the concept of black criminality—a concept deeply rooted in the narrative fabric of American society that originates from the plantation. McKittrick in her essay mentions that “black people were ‘planted’ in the Americas—not as members of society but as commodities that would bolster crop economies” (McKittrick, 8), which underlines the dehumanization and the stripping of personal autonomy and personhood to each enslaved individual. Consequently, those who attempted to escape the plantation and system of slavery were seen as criminals who were essentially stealing themselves as commodities. With the 13th Amendment, the mythology of black criminality continues to be central in employing and justifying forced labor; by perpetuating stereotypes that portrayed Black individuals as inherently criminal, the legal system sustains a narrative that legitimizes the disproportionate targeting and conviction of black bodies into the penal system for labor.</p>
+
+<h2>Cultural Narrative and Systemic Racism</h2>
+<p>For instance, in <em>13th</em>, the film <em>The Birth of a Nation</em> is highlighted as a significant cultural event that reinforced and perpetuated the perception of black individuals as violent, criminal, animalistic, and cannibalistic. Its depiction of African Americans as violent predators served to harden the racist stereotypes in national consciousness and memory that persist today. As one of America's first feature-length films, it instigated enormous influence in the national psyche; for instance, it is mentioned to have revived the Ku Klux Klan, encouraging acts of public terrorism and lynching against black people with a rhetoric of justice and heroism. W.E.B. Du Bois mentions that <em>The Birth of a Nation</em> also “confirmed the story that many whites wanted to tell about the civil war and its aftermath—to erase defeat and to take out of it some kind of martyrdom” (DuVernay), which raises attention towards the tattered state of the Southern economy post-abolitionism. The Southern economy’s backbone had been agricultural, using plantations and slavery to produce wealth; the freeing of enslaved Africans led to a dire need for labor to reconstruct and sustain economic productivity, calling into use the loophole in the 13th Amendment to re-establish control over the forced labor of black people through legal pretenses. The cultural impact of <em>The Birth of a Nation</em> validated and supported the systematic criminalization of black existence, perpetuating a racial hierarchy rooted in economic exploitation, dehumanization, violence, and social racial domination.</p>
+
+<h2>Law and Order</h2>
+<p>The portrayal of Black people as perpetual threats became central to American politics that focused on Law and Order, which had been instigated by the Nixon Campaign in the post-World War II era, an era defined by mass incarceration responding to the various human rights movements that Nixon was described to fight against, such as the “black political movements, black power, black panther” (DuVernay). Nixon pushed his campaign centered around the War on Crime in a societal context where criminality was associated with the black figure. In the media, the image of the “super predator” was created, used, and circulated in newsreels, campaign advertisements, etc., effectively illustrating black youth as animalistic, carnal, and violent. Politicians such as Hillary Clinton utilized these stereotypes to paint the image of violence, chaos, and disorder inherent to black communities and urged that they need to be contained, ordered, and subject to control, regulation, and conviction. For instance, in her speech on super predators, she both justifies the dehumanization of Black people and cultivates fear and animosity towards Black people by implying that black youth “have no conscience” and “no empathy” (DuVernay), which creates a social environment ready to adopt policies and laws that are hungry to incarcerate economically or racially marginalized communities, including Mandatory Minimum sentencing, California’s Three-Strikes law, the plea system, bail, and the unequal policies created during the War on Drugs.</p>
+
+<h2>ALEC and the Economics of Incarceration</h2>
+<p>Organizations like the American Legislative Exchange Council (ALEC) influence these legislative frameworks that push policies to increase the number of people in prison; for instance, ALEC is responsible for the 3 strikes law and the mandatory minimum. ALEC, a powerful lobbying group that partners politicians (mostly Republican) and corporations so that the interests of the private corporations that rely seep into state legislation. ALEC “concerted effort to privatize almost every aspect of the government,” and aimed to privatize probation and parole corrections systems, through its partnership with the Correction Corporations of America (CCA) (DuVernay). CCA is one of the first private prison companies in the U.S. that relies on contracts that require the constant filling of prisons, which is a model that guarantees steady profits for its shareholders. Through ALEC, CCA has become a multibillion private prison industry that “profits from punishment.” By pushing policies that increase incarceration rates and lengthen prison sentences, ALEC has directly fueled mass incarceration, disproportionately impacting communities of color.</p>
+
+<p>Furthermore, ALEC demonstrates legislative influence that extends beyond traditional prison structures and policies into what is coined in <em>13th</em> as the "Crimmigration System”—the merging of immigration enforcement and law enforcement. ALEC has been instrumental in supporting laws like SB1070, which give police the authority to stop individuals who appear to be immigrants. This legislation has led to an influx of detainees in immigrant detention facilities, effectively serving as prisons and generating contracts for private prison companies. Through ALEC, it is evident that financial motivations are prioritized over the pursuit of justice, for policies are issued to benefit the shareholders at the expense of marginalized communities, such as immigrant and black communities. This underscores ALEC's role in perpetuating the systemic racial and economic exploitation that resembles plantation logic.</p>
+
+<h2>The War on Drugs and the War on Crime: Sociocide</h2>
+<p>The War on Drugs, iterated by Nixon and actualized through Reagan’s service, articulated that “public enemy number one in the United States is drug abuse,” and necessitated an “all-out offensive to defeat the enemy” (DuVernay). Drug abuse was issued as a crime rather than a health issue, causing hundreds of thousands of people to be sent to jail for low-level offenses—through policies that specifically targeted minority communities and communities of color. The War on Drugs of 1982 targeted users of crack cocaine, which was perverse in inner-city communities housed by black communities, while ignoring users of cocaine, which was described to be used by the white community and held a more “sophisticated” status. Congress established mandatory sentencing penalties for crack that were far harsher than cocaine: “the same time in prison for one ounce of crack cocaine that you get for one hundred ounces of powder cocaine” (DuVernay) emphasizes the disproportionate sentencing for essentially the same described offense—drug use.</p>
+
+<p>The War on Drugs and the War on Crime served as a veil of a campaign waging war on communities of color contributing to sociocide—where the core elements of a community’s social life are destroyed and rescripted. This intention is explicitly articulated by Nixon’s advisor, John Ehrlichman, who revealed: “by getting the public to associate the hippies with marijuana and blacks with heroin, and then criminalizing both heavily, we could disrupt those communities. We could arrest their leaders, raid their homes, break up their meetings, and vilify them night after night on the evening news. Did we know we were lying about the drugs? Of course we did” (DuVernay). Ehrlichman here underscores the deliberate strategy to manipulate the public’s perception and exploit drug policies to dismantle black communities, breaking families, stripping out generations of leadership, and weakening forces of defense and resistance, effectively maintaining racial hierarchies and systemic oppression under the guise of law and order. This technique of social destruction can be traced back to the plantation, where enslaved Africans were decultured and stripped of personhood—separated from their culture, wisdom, ancestry, and history through the violent tactics of dehumanization, separation, and abuse of slavery. Furthermore, the architectural structure and apparatus of the prison system also support the dehumanization and sensory deprivation of black persons imprisoned. For instance, the prison’s structure is described as a “warehouse” of “cages,” where humans are encaged, confined, and abused—which are conditions effective in destroying the morale and dignity of the prisoner rather than conditions of rehabilitation. <em>13th</em> demonstrates how prisons produce individuals dysfunctional to society through inflicting trauma and imposing legal collateral consequences of jail time that make it difficult to reenter society.</p>
+
+<h2>Kalief Browder: A Case Study in Systemic Injustice</h2>
+<p>For instance, Kalief Browder’s story is highlighted in <em>13th</em> to underscore the injustices perpetuated by the criminal justice system. Browder, innocent, spent three years in the prison Riker’s Island, including solitary confinement, without ever being tried in court. His refusal to accept a plea deal illustrates the coercive nature of the plea system that encourages innocent individuals to falsely confess in the threat of harsher penalties that come with trial. Browder was released and killed himself within months of his release. Browder’s story shows how the prison system destroys individuals, making reintegration back into society challenging and inflicting irreversible psychological trauma.</p>
+
+<h2>Conclusion</h2>
+<p>In tracing the continuum from historical plantations to modern-day mass incarceration, this analysis reveals how deeply embedded systems of racial and economic oppression persist in the shaping of society. Katherine McKittrick’s <em>Plantation Futures</em> and Ava DuVernay’s <em>13th</em> highlight the integration of racial hierarchies through legal, cultural, and economic dynamics and systems and reflect on a legacy of white-dominated control in the United States of America that calls forth critical examination. Recognizing these intertwined histories compels us to seek alternative perspectives and reforms to dismantle systemic injustices and racial struggles to recast a more equitable future for the marginalized communities.</p>
+
+<h2>Citations</h2>
+<p>McKittrick, Katherine. <em>Plantation Futures</em>. <em>Small Axe</em>, November 2013, pp. 1-15.</p>
+<p>DuVernay, Ava, director. <em>13th</em>. Netflix, 2016.</p>
+        `
+    }/*
+    post3: {
+        title: "ENVIRONMENTAL DEGRADATION AND HOPE, 2025",
+        media: '<img src="./gif/plate.gif" alt="Environmental Blog Post Image">',
+        description: `
+            <p>THIS POST REFLECTS ON THE CLIMATE CRISIS, EXPLORING THE INTERSECTION OF ENVIRONMENTAL DEGRADATION AND SOCIAL INJUSTICE. IT HIGHLIGHTS THE ROLE OF GRASSROOTS MOVEMENTS AND MARGINALIZED COMMUNITIES IN ADVOCATING FOR SUSTAINABLE FUTURES. THROUGH STORIES OF RESILIENCE AND INNOVATION, WE ENVISION A PATH TOWARD ENVIRONMENTAL JUSTICE AND COLLECTIVE ACTION.</p>
+        `
+    }*/
+};
+
+const postKeys = Object.keys(posts);
+let currentPostIndex = 0;
+
+function showPostModal(postId) {
+    const modal = document.getElementById('post-modal');
+    const titleDiv = document.getElementById('post-title');
+    const mediaDiv = document.getElementById('post-media');
+    const contentDiv = document.getElementById('post-content');
+    currentPostIndex = postKeys.indexOf(postId);
+    const post = posts[postId];
+
+    if (post) {
+        titleDiv.innerHTML = `<h2>${post.title}</h2>`;
+        mediaDiv.innerHTML = post.media;
+        contentDiv.innerHTML = post.description;
+        modal.style.display = 'block';
+
+        const prevBtn = document.getElementById('prev-post-btn');
+        const nextBtn = document.getElementById('next-post-btn');
+        prevBtn.style.display = currentPostIndex === 0 ? 'none' : 'block';
+        nextBtn.style.display = currentPostIndex === postKeys.length - 1 ? 'none' : 'block';
+
+        gsap.fromTo(modal, 
+            { opacity: 0 }, 
+            { opacity: 1, duration: 1, ease: "power2.out" }
+        );
+        document.getElementById('modal-body').scrollTop = 0;
+    }
+}
+
+function showPreviousPost() {
+    currentPostIndex = (currentPostIndex - 1 + postKeys.length) % postKeys.length;
+    showPostModal(postKeys[currentPostIndex]);
+}
+
+function showNextPost() {
+    currentPostIndex = (currentPostIndex + 1) % postKeys.length;
+    showPostModal(postKeys[currentPostIndex]);
+}
+
+document.getElementById('prev-post-btn').addEventListener('click', showPreviousPost);
+document.getElementById('next-post-btn').addEventListener('click', showNextPost);
+
+document.getElementById('modal-close').addEventListener('click', function() {
+    const modal = document.getElementById('post-modal');
+    gsap.to(modal, {
+        opacity: 0,
+        duration: 0.5,
+        ease: "power2.in",
+        onComplete: () => {
+            modal.style.display = 'none';
+        }
+    });
+});
+
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('post-modal');
+    if (event.target === modal) {
+        gsap.to(modal, {
+            opacity: 0,
+            duration: 0.5,
+            ease: "power2.in",
+            onComplete: () => {
+                modal.style.display = 'none';
+            }
+        });
+    }
+});
+
+document.addEventListener('keydown', (e) => {
+    const modal = document.getElementById('post-modal');
+    if (modal.style.display === 'block') {
+        if (e.key === 'ArrowLeft') showPreviousPost();
+        if (e.key === 'ArrowRight') showNextPost();
+        if (e.key === 'Escape') {
+            gsap.to(modal, {
+                opacity: 0,
+                duration: 0.5,
+                ease: "power2.in",
+                onComplete: () => {
+                    modal.style.display = 'none';
+                }
+            });
+        }
+    }
+});
+    </script>
+</body>
+</html>
