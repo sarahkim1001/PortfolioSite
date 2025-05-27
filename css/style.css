@@ -69,7 +69,7 @@ body * {
 }
 
 [data-theme="light"] {
-    --background-color: rgb(238, 239, 240);
+    --background-color: rgb(255, 255, 255);
     --text-color: rgb(0, 0, 0);
     --nav-link-color: rgb(0, 0, 0);
     --nav-link-hover-color: rgba(0, 0, 0, 0.5);
@@ -396,6 +396,8 @@ nav {
     width: auto;
 }
 
+
+
 nav a {
     color: var(--nav-link-color);
     text-decoration: none;
@@ -451,105 +453,91 @@ h1 {
 #home #media-carousel .media-frame{
     z-index: 2;
 }/* Media Carousel */
+/* Ensure the parent container has a solid black background in dark mode */
+/* Ensure the parent container has a solid black background in dark mode */
+/* Ensure the parent container has a solid black background in dark mode */
 #media-carousel {
     width: 100%;
-    max-width: 600px; /* Increased to provide more horizontal space */
+    max-width: 600px;
     margin: 0 auto;
-    padding: 20px; /* Increased padding for better spacing */
+    padding: 20px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    border-radius: 0; /* Remove border-radius to prevent container clipping */
+    border-radius: 0;
     align-items: center;
+    background: var(--background-color);
 }
 
 .media-frame {
-    width: 100%;
-    max-width: 500px; /* Slightly smaller than parent to ensure centering */
-    height: auto;
-    max-height: 300px; /* Increased to give more vertical space */
-    overflow: visible !important; /* Prevent clipping of circular image and gradient */
     position: relative;
-    margin: 0 auto; /* Center the frame */
-    padding: 20px; /* Increased padding for gradient space */
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    max-height: 300px;
+    overflow: visible !important;
+    margin: 0 auto;
+    padding: 0; /* Removed padding to prevent shifting */
+    background: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .media-frame .media-gif {
     width: 100%;
     height: auto;
-    max-height: 300px; /* Match parent max-height */
-    object-fit: cover; /* Changed to cover for better circular filling */
-    border-radius: 100% !important; /* Ensure circular shape */
+    max-height: 500px;
+    object-fit: contain;
+    border-radius: 50% !important;
     transition: opacity 0.5s ease-in-out;
     opacity: 1;
-    /* Removed zoom: 1.2 to prevent overflow */
+    z-index: 1;
+    mask-image: radial-gradient(
+        ellipse at center,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    -webkit-mask-image: radial-gradient(
+        ellipse at center,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    background: transparent;
 }
 
-.media-title {
+/* Apply clip-path to both GIFs */
+.media-gif {
+    /*clip-path: inset(50px 50px 50px 50px);*/
+    margin: 0 auto; /* Ensures centering */
+}
+
+/* High specificity for theme-based display */
+body[data-theme="light"] #media-carousel .media-frame .light-gif {
+    display: block !important;
+}
+
+body[data-theme="light"] #media-carousel .media-frame .dark-gif {
+    display: none !important;
+}
+
+body[data-theme="dark"] #media-carousel .media-frame .light-gif {
+    display: none !important;
+}
+
+body[data-theme="dark"] #media-carousel .media-frame .dark-gif {
+    display: block !important;
+}
+
+/* Gradient overlay */
+.media-frame::after {
+    content: '';
     position: absolute;
-    top: 50%; /* Adjusted to center with transform */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: rgba(255, 255, 255, 0.65);
-    font-size: 1rem;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    pointer-events: none;
-    z-index: 5;
-}
-
-.media-frame:hover .media-title {
-    opacity: 1;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    #media-carousel {
-        width: 90%; /* Use a higher percentage for better fit on mobile */
-        max-width: 400px; /* Keep a reasonable max-width */
-        margin: 0 auto; /* Center horizontally */
-        padding: 10px;
-        gap: 0.75rem;
-    }
-
-    .media-frame {
-        max-height: 200px; /* Adjusted for mobile */
-        padding: 15px;
-    }
-
-    .media-frame .media-gif {
-        max-height: 200px;
-    }
-
-    .media-title {
-        font-size: 0.75rem;
-    }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-    #media-carousel {
-        width: 100%;
-        max-width: 500px;
-        margin: 1.5rem auto;
-        margin-top: 6rem;
-        padding: 15px;
-        gap: 0.75rem;
-        align-self: center;
-    }
-
-    .media-frame {
-        max-height: 250px;
-    }
-
-    .media-frame .media-gif {
-        max-height: 250px;
-    }
-
-    .media-title {
-        font-size: 1.4rem;
-    }
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 /* Introduction */
 .intro {
@@ -740,7 +728,7 @@ h1 {
 }
 
 .contactcontent {
-    margin-top: 11rem;
+    margin-top: 55vh;
     display: flex;
     flex-direction: row;
     width: 70;
@@ -853,19 +841,20 @@ h1 {
     color: var(--text-color);
 }
 
+/*first close button*/
 .close {
     position: absolute;
     top: 20px;
     right: 20px;
-    font-size: 2rem;
+    font-size: 1.75rem;
     color: var(--close-btn-color);
     cursor: pointer;
     transition: color 0.3s ease;
-    padding: 5px;
+    padding: 10px;
     background-color: rgba(12, 12, 12, 0.8);
     border-radius: 25%;
-    width: 30px;
-    height: 30px;
+    width: 10px;
+    height: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1095,8 +1084,8 @@ footer {
     }
 
     #media-carousel {
-        margin-left:0;
-        width: 70%;
+        margin-left:26vw;
+        width: 40%;
         margin-top: 0rem;
         padding: 8px;
         gap: 0.75rem;
@@ -1107,7 +1096,7 @@ footer {
     }
 
     .media-frame .media-gif {
-        max-height: 20vh;
+        max-height: 300px;
     }
 
     .media-title {
@@ -1267,11 +1256,8 @@ footer {
 
     /* Modals */
     .close {
-        top: 10px;
-        right: 10px;
-        font-size: 3rem;
-        width: 50px;
-        height: 50px;
+        top: 20px;
+        right: 20px;
     }
 
     #resume-modal .modal-content {
@@ -1286,7 +1272,7 @@ footer {
 @media (min-width: 769px) and (max-width: 1024px) {
     #media-carousel {
         margin-left:0;
-        width: 80%;
+        width: 30%;
         margin: 1.5rem auto;
         margin-top: 6rem;
         padding: 8px;
@@ -1294,11 +1280,11 @@ footer {
     }
 
     .media-frame {
-        max-height: 45vh;
+        max-height: 350px;
     }
 
     .media-frame .media-gif {
-        max-height: 45vh;
+        max-height: 300px;
     }
 
     .media-title {
@@ -1343,7 +1329,7 @@ footer {
     }
 }
 
-/* Desktops (1025px and up) */
+/* Desktops (1025px and up) 
 @media (min-width: 1025px) {
     .close {
         font-size: 4rem;
@@ -1359,7 +1345,7 @@ footer {
     #resume-image {
         max-height: 80vh;
     }
-}
+}*/
 
 /*Interstice Page Styling*/
 /* Define theme-based custom properties for modal colors */
@@ -1369,12 +1355,67 @@ footer {
     --dark-bg: #1a1a1a;
     --light-text: #000000;
     --dark-text: #ffffff;
-    --light-border: #ccc;
+    --light-border: #f3f3f3;
     --dark-border: #444;
     --light-gradient: radial-gradient(circle, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 0) 100%);
     --dark-gradient: radial-gradient(circle, rgba(26, 26, 26, 1) 40%, rgba(26, 26, 26, 0) 100%);
 }
 
+/* Style for the journal cover image */
+.journal-cover {
+    display: block;
+    margin: 20px auto; /* Centers the image and adds vertical spacing */
+    max-width: 800px; /* Matches the modal max-width for consistency */
+    width: 80%; /* Responsive width */
+    border-radius: 0px; /* Optional: soft edges */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: box-shadow 0.3s ease; /* Smooth shadow transition */
+}
+
+/* Dark mode adjustment for the journal cover shadow */
+[data-theme="dark"] .journal-cover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow in dark mode */
+}
+
+#interstice{
+    padding-bottom:20rem;
+}
+/* Ensure the blog-header maintains its centered layout */
+.blog-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10vh; /* Keeps it down the page as per previous styling */
+    text-align: center;
+    width: 100%;
+}
+
+/* Adjust h1 and mission-statement spacing if needed */
+.blog-header h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--light-text);
+    margin: 0;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+[data-theme="dark"] .blog-header h1 {
+    color: var(--dark-text);
+}
+
+.blog-header .mission-statement {
+    max-width: 800px;
+    padding: 0rem;
+    font-size: 1.1rem;
+    color: var(--light-text);
+    text-align: center;
+}
+
+[data-theme="dark"] .blog-header .mission-statement {
+    color: var(--dark-text);
+}
 
 .blog-content{
     display: flex;
@@ -1387,8 +1428,7 @@ footer {
         display: flex;
         flex-direction:column;
         width:100%;
-        scale:.7;
-        justify-content: left;
+        justify-content:center;
     }
 }
 
@@ -1412,6 +1452,10 @@ footer {
     color: var(--light-text); /* Theme-aware text color */
     line-height: 1.2; /* Adjust line height for readability */
     text-transform: uppercase; /* Match the all-caps style */
+}
+
+.blog-header img{
+    margin-top:4rem;
 }
 
 /* Dark mode adjustment for the header text */
@@ -1601,3 +1645,4 @@ footer {
     width: 300px;
     height: 300px;
 }
+

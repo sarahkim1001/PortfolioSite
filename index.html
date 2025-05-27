@@ -43,19 +43,16 @@
 <section id="home">
     <div id="media-carousel">
         <div class="media-frame">
-            <img class="media-gif" src="./gif/space.gif" alt="Animated GIF frame 1">
-            <div class="media-title">INTERSTICE, 2025</div>
+            <img class="media-gif light-gif" src="./gif/particleFlower.gif" alt="Animated GIF frame for light mode">
+            <img class="media-gif dark-gif" src="./gif/space.gif" alt="Animated GIF frame for dark mode">
         </div>
-        <!-- <div class="media-frame">
-            <img class="media-gif" src="" alt="Animated GIF frame 2">
-        </div>-->
     </div>
 </section>
 
 <section id="current"> 
     <div class="intro">
         <h3>
-            Sarah Seiyeun Kim is an interdisciplinary artist and creative technologist who creates sensory experiences, shaping human-machine interaction, to explore consciousness and raise ecological awareness. As a recent graduate with a Bachelor of Science from the Integrated Design and Media program at NYU Tandon School of Engineering and holding a minor in Media, Culture, and Communication from Steinhardt School of Culture, Education, and Human Development, Sarah applies her cultural analytical perspective to create experiences that diverge from and question habituated modes of existence to influence new ideas, identities, connections, and collectivities. Drawing from dark ecology, she creates liminal spaces that challenge anthropocentric norms, foster collective healing, and inspire new ways of coexisting with our planet’s complex systems.
+            Sarah Seiyeun Kim is an interdisciplinary artist and creative technologist who creates sensory experiences to shape human-machine interaction, explore consciousness and raise ecological awareness. As a recent graduate with a Bachelor of Science from the Integrated Design and Media program at NYU Tandon School of Engineering and holding a minor in Media, Culture, and Communication from Steinhardt School of Culture, Education, and Human Development, Sarah applies her cultural analytical perspective to create experiences that diverge from and question habituated modes of existence to influence new ideas, identities, connections, and collectivities. Drawing from dark ecology, she creates liminal spaces that challenge anthropocentric norms, foster collective healing, and inspire new ways of coexisting with our planet’s complex systems.
          </h3>
     </div>
     <div class="current-content">
@@ -66,7 +63,7 @@
 
               <div class="projectitem" onclick="showProjectModal('IssueBlog')">
                 <div class="workImg">
-                    <img src="./gif/space.gif"> 
+                    <img src="./gif/hand.gif"> 
                 </div>
                 <div class="workDescription">
                     <h3>Interstice</h3>
@@ -283,6 +280,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js"></script>
 <script>
+
+
     function generateRandomLines() {
     const container = document.getElementById('random-lines');
     const numLines = 15;
@@ -447,6 +446,10 @@ document.addEventListener('DOMContentLoaded', () => {
 }); 
 
 document.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('theme') || 'dark'; // Change default to 'light'
+    body.setAttribute('data-theme', savedTheme);
+    updateToggleButton(savedTheme);
+
     generateRandomLines();
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
     gsap.set("nav", { duration: 1, opacity: 0 });
@@ -456,7 +459,7 @@ document.addEventListener('DOMContentLoaded', function() {
 const projects = {
     IssueBlog: {
     title: "Interstice, 2025",
-    media: '<img src="./gif/space.gif" alt="Personal Blog Digital Image Cover">',
+    media: '<img src="./gif/hand.gif" alt="Personal Blog Digital Image Cover">',
     description: `
         <p><a href="./Interstice.index.html">Interstice Digital Journal</a></p>
         <p>INTERSTICE IS A DIGITAL JOURNAL DEDICATED TO EXPLORING CRITICAL SOCIAL ISSUES, AMPLIFYING MARGINALIZED VOICES, AND FOSTERING INCLUSIVE DIALOGUE. WE AIM TO CHALLENGE SYSTEMIC INEQUALITIES AND INSPIRE ACTION THROUGH THOUGHTFUL WRITING ON CAPITALISM, COLONIAL LEGACIES, ENVIRONMENTAL DEGRADATION, CULTURE, TECHNOLOGY, AND SOCIETY. WE INVITE ALL INDIVIDUALS CONCERNED WITH JUSTICE AND SYSTEMIC CHANGE, INTERSTICE SEEKS TO CREATE A VIBRANT SPACE FOR REFLECTION, DISCUSSION, AND ADVOCACY, BRIDGING IDEAS AND ACTION FOR A MORE EQUITABLE SHARED EXISTENCE. </p>
@@ -952,8 +955,11 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.key === 'ArrowRight') changeZineSlide(1);
         }
         if (e.key === 'Escape') closeProjectModal();
-    });
+    });    
 });
+
+
+
 </script>
 </body>
 </html>
