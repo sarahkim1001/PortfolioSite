@@ -51,8 +51,8 @@ body * {
 :root {
     --background-color: black;
     --text-color: rgb(231, 231, 231);
-    --nav-link-color: rgb(196, 196, 196);
-    --nav-link-hover-color: rgba(128, 128, 128, 0.293);
+    --nav-link-color: rgb(232, 232, 232);
+    --nav-link-hover-color: rgba(141, 141, 141, 0.293);
     --section-heading-color:  rgb(231, 231, 231);
     --modal-bg-color: #0c0c0c;
     --modal-text-color: rgb(231, 231, 231);
@@ -111,7 +111,7 @@ body * {
 .aboutpic img,
 .zine-carousel img,
 .post-media img {
-    border-radius: 100% !important; /* Ensure circular shape */
+    border-radius: 0 !important; /* Ensure circular shape */
     object-fit: cover; /* Fill circular frame */
     max-width: 100%; /* Responsive scaling */
     display: block;
@@ -208,7 +208,7 @@ body, html {
     padding: 0;
     overflow-y: scroll;
     overflow-x: hidden;
-    font-family: 'PPNeueMontrealBook','Cutive Mono', monospace, 'Times New Roman', Times, serif;
+    font-family: 'Syne Mono', monospace, 'Cutive Mono', monospace, 'PPNeueMontrealBook', monospace, 'Times New Roman', Times, serif;
     font-size: 0.9rem;
     scroll-behavior: smooth;
     text-transform: capitalize;
@@ -242,7 +242,7 @@ img {
     left: 6%;
     z-index: 1000;
     font-size: 1.5rem;
-    font-family: 'PPNeueMontrealMedium', 'Cutive Mono', monospace, 'Times New Roman', Times, serif;
+    font-family: 'Syne Mono', monospace, 'Cutive Mono', monospace,'PPNeueMontrealMedium', 'Times New Roman', Times, serif;
     font-weight: bold;
     color: var(--text-color);
     transition: color 1s ease;
@@ -430,6 +430,7 @@ section {
     padding: 20px;
     box-sizing: border-box;
     text-align: left;
+   
 }
 
 h1 {
@@ -554,6 +555,7 @@ body[data-theme="dark"] #media-carousel .media-frame .dark-gif {
     color: var(--text-color);
     padding: 20px;
     margin-bottom:8rem;
+    text-align: justify;
 }
 
 /* Work Section */
@@ -691,6 +693,7 @@ body[data-theme="dark"] #media-carousel .media-frame .dark-gif {
     border-radius: 50px;
     font-size: 1rem;
     flex: 1;
+    text-align: justify;
 }
 
 .personalGallery {
@@ -1269,7 +1272,7 @@ footer {
 }
 
 /* Tablets (769px to 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1204px) {
     #media-carousel {
         margin-left:0;
         width: 30%;
