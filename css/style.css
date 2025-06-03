@@ -28,7 +28,7 @@
 }
 
 body * {
-    text-transform: uppercase;
+   /* text-transform: uppercase;*/
 }
 
 /* Font Classes */
@@ -171,36 +171,13 @@ body * {
     background: var(--dark-gradient);
 }
 
-/* Modal and carousel adjustments */
-.modal-content,
-.zine-carousel {
-    background: transparent !important;
-    overflow: visible !important;
-}
-
-/* Specific adjustments for zine carousel */
-.zine-carousel img {
-    width: 300px; /* Larger for zine images */
-    height: 300px;
-}
-
-/* Optional: Adjust container padding to accommodate gradient */
-.workImg,
-.media-frame,
-.project-media,
-.aboutpic,
-.post-media {
-    padding: 15px; /* Space for gradient fade */
-    overflow: visible; /* Ensure gradient is not clipped */
-}
-
 
 
 /* ==========================================================================
    Global Elements
    ========================================================================== */
 
-body, html {
+   body, html {
     background-color: var(--background-color);
     color: var(--text-color);
     height: 100%;
@@ -208,10 +185,10 @@ body, html {
     padding: 0;
     overflow-y: scroll;
     overflow-x: hidden;
-    font-family: 'Syne Mono', monospace, 'Cutive Mono', monospace, 'PPNeueMontrealBook', monospace, 'Times New Roman', Times, serif;
-    font-size: 0.9rem;
+    font-family: 'PPNeueMontrealMedium','Syne Mono', monospace, 'Cutive Mono', monospace, 'PPNeueMontrealBook', monospace, 'Times New Roman', Times, serif;
+    font-size: 1rem;
     scroll-behavior: smooth;
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
 }
 
 p {
@@ -232,6 +209,7 @@ img {
     border-radius: 200px;
 }
 
+
 /* ==========================================================================
    Header Elements
    ========================================================================== */
@@ -241,8 +219,8 @@ img {
     top: 50px;
     left: 6%;
     z-index: 1000;
-    font-size: 1.5rem;
-    font-family: 'Syne Mono', monospace, 'Cutive Mono', monospace,'PPNeueMontrealMedium', 'Times New Roman', Times, serif;
+    font-size:2rem;
+    font-family: 'PPNeueMontrealBook','Syne Mono', monospace, 'Cutive Mono', monospace,'PPNeueMontrealMedium', 'Times New Roman', Times, serif;
     font-weight: bold;
     color: var(--text-color);
     transition: color 1s ease;
@@ -358,7 +336,7 @@ img {
     top: 0;
     left: 0;
     width: 100%;
-    height: 30px;
+    height: 40px;
     background: linear-gradient(
         to bottom,
         var(--top-band-bg) 0%,
@@ -415,6 +393,20 @@ nav a.active {
     text-decoration: 0.75px underline;
     background-color: transparent;
 }
+
+
+
+
+/* Optional: Adjust container padding to accommodate gradient */
+.workImg,
+.media-frame,
+.project-media,
+.aboutpic,
+.post-media {
+    padding: 15px; /* Space for gradient fade */
+    overflow: visible; /* Ensure gradient is not clipped */
+}
+
 
 /* ==========================================================================
    Sections
@@ -591,11 +583,11 @@ body[data-theme="dark"] #media-carousel .media-frame .dark-gif {
 .projectTypeOG {
     font-size: 1.5rem;
     color: var(--text-color);
-    text-align: center;
+    text-align: right;
     width: 100%;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    font-weight: bold;
+    /*font-weight: bold;*/
 }
 
 .projectitem {
@@ -650,6 +642,44 @@ body[data-theme="dark"] #media-carousel .media-frame .dark-gif {
 .workDescription h3:hover {
     text-decoration: 0.75px underline;
 }
+
+
+/*COOL PROJECT STYLING -- CAROSELS*/
+
+
+
+/* Modal and carousel adjustments */
+.modal-content,
+.zine-carousel {
+    background: transparent !important;
+    overflow: visible !important;
+}
+
+/* Specific adjustments for zine carousel */
+.zine-carousel img {
+    width: 300px; /* Larger for zine images */
+    height: 300px;
+}
+
+
+/*
+
+.passage-carousel {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    margin: 40px auto 20px;
+    border-radius: 10px;
+    border: 2px solid yellow; 
+    background-color: #000; /
+    overflow: hidden;
+}
+
+.carousel-image {
+    display: block !important;
+}
+
+
 
 /* About Section */
 .aboutcontent {
@@ -1002,7 +1032,7 @@ footer {
     #name {
         left: 2vw;
         top: 5px;
-        font-size: 1rem;
+        font-size: 1.5rem;
         font-weight: bold;
         color: var(--text-color);
         z-index: 3000;
@@ -1149,7 +1179,7 @@ footer {
          width: 100%;
         margin-top: 2rem;
         margin-bottom: 4rem;
-        font-weight: bold;
+       /* font-weight: bold;*/
 }
 
     .projectitem {
@@ -1398,26 +1428,30 @@ footer {
 .blog-header h1 {
     font-size: 4rem;
     font-weight: 700;
-    color: var(--light-text);
+   /* color: var(--light-text);*/
     margin: 0;
     line-height: 1.2;
-    text-transform: uppercase;
+   /* text-transform: uppercase;*/
+}
+
+#interstice {
+    color:rgb(102, 0, 0);
 }
 
 [data-theme="dark"] .blog-header h1 {
-    color: var(--dark-text);
+   /* color: var(--dark-text);*/
 }
 
 .blog-header .mission-statement {
     max-width: 800px;
     padding: 0rem;
     font-size: 1.1rem;
-    color: var(--light-text);
+   /* color: var(--light-text);*/
     text-align: center;
 }
 
 [data-theme="dark"] .blog-header .mission-statement {
-    color: var(--dark-text);
+    /*color: var(--dark-text);*/
 }
 
 .blog-content{
@@ -1452,9 +1486,9 @@ footer {
     margin-top:5rem;
     font-size: 4rem; /* Larger text size */
     font-weight: 700; /* Bold for emphasis */
-    color: var(--light-text); /* Theme-aware text color */
+/*    color: var(--light-text); /* Theme-aware text color */
     line-height: 1.2; /* Adjust line height for readability */
-    text-transform: uppercase; /* Match the all-caps style */
+   /* text-transform: uppercase; /* Match the all-caps style */
 }
 
 .blog-header img{
@@ -1463,7 +1497,7 @@ footer {
 
 /* Dark mode adjustment for the header text */
 [data-theme="dark"] .blog-header h1 {
-    color: var(--dark-text);
+  /*  color: var(--dark-text);*/
 }
 
 /* Style for the mission statement (optional adjustment) */
@@ -1471,7 +1505,7 @@ footer {
     max-width: 800px; /* Limit width for readability */
     padding: 1rem;
     font-size: 1.1rem;
-    color: var(--light-text);
+  /* color: var(--light-text);*/
     text-align: left;
 }
 
@@ -1512,7 +1546,7 @@ footer {
 .post-item h5 {
     margin: 0.5rem 0;
     font-size: 1rem;
-    color: #666;
+   /* color: #666;*/
     line-height: 1.2;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1536,14 +1570,14 @@ footer {
 #post-title {
     font-size: 1.2rem; 
     margin-bottom: 0.5rem;
-    color: inherit;
+  /*  color: inherit;*/
 }
 
 #post-content p {
     margin: 0 0 1rem;
     line-height: 1.5;
     white-space: normal;
-    color: inherit;
+   /* color: inherit;*/
 }
 
 .post-media {

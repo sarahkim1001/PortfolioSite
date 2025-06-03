@@ -10,7 +10,7 @@
 
     <div id="lens" class="lens"></div>
     <div id="random-lines"></div>
-    <a id="name" href="#home">SARAH S. KIM</a>
+    <a id="name" href="#home">Sarah S. Kim</a>
     <button class="theme-toggle" aria-label="Switch to light mode">
         <img class="theme-icon" src="./img/bright-sun.png" alt="Toggle theme icon">
     </button>
@@ -34,10 +34,10 @@
 <div class="bottom-band"></div>
 
 <nav>
-    <a href="#current" class="nav-link">CURRENT</a>
-    <a href="#work" class="nav-link">ARCHIVE</a>
-    <a href="#about" class="nav-link">ABOUT</a>
-    <a href="#contact" class="nav-link">CONTACT</a>
+    <a href="#current" class="nav-link">Current</a>
+    <a href="#work" class="nav-link">Archive</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#contact" class="nav-link">Contact</a>
 </nav>
 
 <section id="home">
@@ -52,12 +52,12 @@
 <section id="current"> 
     <div class="intro">
         <h3>
-            Sarah Seiyeun Kim is an interdisciplinary artist and creative technologist who creates sensory experiences to shape human-machine interaction, explore consciousness and raise ecological awareness. As a recent graduate with a Bachelor of Science from the Integrated Design and Media program at NYU Tandon School of Engineering and holding a minor in Media, Culture, and Communication from Steinhardt School of Culture, Education, and Human Development, Sarah applies her cultural analytical perspective to create experiences that diverge from and question habituated modes of existence to influence new ideas, identities, connections, and collectivities. Drawing from dark ecology, she creates liminal spaces that challenge anthropocentric norms, foster collective healing, and inspire new ways of coexisting with our planet’s complex systems.
+            Sarah Seiyeun Kim is an interdisciplinary artist and creative technologist who creates sensory experiences shaping human-machine interaction, exploring consciousness and raising ecological awareness. As a recent graduate with a Bachelor of Science from the Integrated Design and Media program at NYU Tandon School of Engineering and holding a minor in Media, Culture, and Communication from Steinhardt School of Culture, Education, and Human Development, Sarah applies a cultural analytical lens in crafting experiences that diverge from and question habituated cultural behaviors and rituals to influence new ideas, identities, connections, and collectivities. Drawing from dark ecology, she creates liminal spaces that challenge anthropocentric norms, foster collective healing, and inspire new ways of coexisting with our planet’s complex systems.
          </h3>
     </div>
     <div class="current-content">
         <div class="projectgallery">
-            <h2 class="projectTypeOG">ONGOING PROJECTS</h2>
+            <h2 class="projectTypeOG">Current Projects</h2>
           
               <!-- Project Issues Blog -->
 
@@ -92,7 +92,7 @@
 <section id="work">
     <div class="workcontent">
         <div class="projectgallery1">
-            <h2 class="projectType">PAST PROJECTS</h2>
+            <h2 class="projectType">Past Projects</h2>
 
             <div class="projectitem" onclick="showProjectModal('livePerformance')">
                 <div class="workImg">
@@ -181,10 +181,6 @@
                     <h5>March 19th, 2023</h5>
                 </div>
             </div>
-        </div>
-
-        <div class="projectgallery2">
-            <h2 class="projectType">SERIES</h2>
 
             <div class="projectitem" onclick="showProjectModal('Passage')">
                 <div class="workImg">
@@ -195,6 +191,25 @@
                     <p>Photographic</p>
                 </div>
             </div>
+
+
+
+        </div>
+
+        <!--
+        <div class="projectgallery2">
+            <h2 class="projectType">Series</h2>
+
+            <div class="projectitem" onclick="showProjectModal('Passage')">
+                <div class="workImg">
+                    <img src="./img/unknown.png"> 
+                </div>
+                <div class="workDescription">
+                    <h3>Passage</h3>
+                    <p>Photographic</p>
+                </div>
+            </div>
+        -->
 
             <!--<div class="projectitem" onclick="showProjectModal('Selfie')">
                 <div class="workImg">
@@ -273,7 +288,7 @@
 </div>
 
 <footer>
-    <p>© 2025 SARAH SEIYEUN KIM</p>
+    <p>© 2025 Sarah Seiyeun Kim</p>
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
@@ -281,6 +296,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js"></script>
 <script>
 
+    
 
     function generateRandomLines() {
     const container = document.getElementById('random-lines');
@@ -371,6 +387,7 @@
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+
     
     const toggleButton = document.querySelector('.theme-toggle');
     const themeIcon = document.querySelector('.theme-icon');
@@ -446,6 +463,79 @@ document.addEventListener('DOMContentLoaded', () => {
 }); 
 
 document.addEventListener('DOMContentLoaded', function() {
+
+
+    function startImageCarousel() {
+    const carousel = document.querySelector('.passage-carousel');
+    if (!carousel) {
+        console.error('Passage carousel not found');
+        return;
+    }
+
+    const images = carousel.querySelectorAll('.carousel-image');
+    if (images.length === 0) {
+        console.error('No images found in passage carousel. DOM content:', carousel.innerHTML);
+        return;
+    }
+
+    console.log(`Found ${images.length} images in passage carousel. First image src: ${images[0] ? images[0].src : 'None'}`);
+
+    // Initialize all images
+    images.forEach((img, index) => {
+        img.style.opacity = '0';
+        img.style.transition = 'opacity 1s ease-in-out';
+        console.log(`Initialized image at index ${index}, src: ${img.src}`);
+    });
+
+    // Force first image visible immediately
+    let currentIndex = 0;
+    if (images.length > 0) {
+        images[currentIndex].style.opacity = '1';
+        images[currentIndex].classList.add('active');
+        console.log(`Forced first image to be visible, index: ${currentIndex}, src: ${images[currentIndex].src}`);
+    }
+
+    // Cycling function
+    function cycleImages() {
+        console.log('Starting to cycle images');
+        // Hide current image
+        images[currentIndex].style.opacity = '0';
+        images[currentIndex].classList.remove('active');
+        console.log(`Hid image at index ${currentIndex}, src: ${images[currentIndex].src}`);
+
+        // Move to next image
+        currentIndex = (currentIndex + 1) % images.length;
+        images[currentIndex].style.opacity = '1';
+        images[currentIndex].classList.add('active');
+        console.log(`Showed image at index ${currentIndex}, src: ${images[currentIndex].src}`);
+    }
+
+    // Start interval
+    const intervalId = setInterval(cycleImages, 3000);
+    console.log('Carousel interval started with ID:', intervalId);
+
+    // Stop on modal close
+    const modal = document.getElementById('project-modal');
+    const closeBtn = document.getElementById('modal-close');
+    const stopCarousel = () => {
+        if (intervalId) {
+            clearInterval(intervalId);
+            console.log('Carousel stopped');
+        }
+    };
+
+    modal.addEventListener('click', (event) => {
+        if (event.target === modal || event.target === closeBtn) {
+            stopCarousel();
+        }
+    });
+
+    document.getElementById('prev-project-btn')?.addEventListener('click', stopCarousel);
+    document.getElementById('next-project-btn')?.addEventListener('click', stopCarousel);
+}
+
+
+
     const savedTheme = localStorage.getItem('theme') || 'dark'; // Change default to 'light'
     body.setAttribute('data-theme', savedTheme);
     updateToggleButton(savedTheme);
@@ -565,14 +655,16 @@ const projects = {
         `
     },
     Passage: {
-        title: "Passage",
-        media: '<img src="./img/webbed.png" alt="Passage">, <img src="./img/webbed.png" alt="Passage">, <img src="./img/webbed.png" alt="Passage">, <img src="./img/webbed.png" alt="Passage">', 
-        description: `
-            <p>At every threshold lies a gateway—a portal to the infinite, inviting us to peer into the deep unknown. This enigmatic frontier is entwined with all else, whispering secrets to those who dare to listen. Beyond it, the rabbit hole beckons—a passage of curiosity and wonder, a chasm filled with questions that echo our deepest uncertainties. Do we choose to descend, or does the abyss choose us? Here, control becomes an illusion, a fleeting notion lost within the labyrinth of our own minds. As you stand at the brink, ready to unravel the mysteries that lie beyond, remember: the journey through these passages is as much about the discovery of the unknown as it is about the revelation of self. </p>
-        `
-
-        
-    }/*,
+    title: "Passage",
+    media: `
+        <div class="passage-carousel">
+            <img src="./img/unknown.png" alt="Passage Fade Sequence" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </div>
+    `,
+    description: `
+        <p>At every threshold lies a gateway—a portal to the infinite, inviting us to peer into the deep unknown. This enigmatic frontier is entwined with all else, whispering secrets to those who dare to listen. Beyond it, the rabbit hole beckons—a passage of curiosity and wonder, a chasm filled with questions that echo our deepest uncertainties. Do we choose to descend, or does the abyss choose us? Here, control becomes an illusion, a fleeting notion lost within the labyrinth of our own minds. As you stand at the brink, ready to unravel the mysteries that lie beyond, remember: the journey through these passages is as much about the discovery of the unknown as it is about the revelation of self.</p>
+    `
+}/*,
     Selfie: {
         title: "Self Portrait",
         media: '<img src="./img/collage.jpg" alt="Self Portraiture">',
@@ -586,7 +678,6 @@ const projectKeys = Object.keys(projects);
 let currentProjectIndex = 0;
 
 
-
 function showProjectModal(projectId) {
     const modal = document.getElementById('project-modal');
     const titleDiv = document.getElementById('project-title');
@@ -598,34 +689,31 @@ function showProjectModal(projectId) {
     const project = projects[projectId];
 
     if (project) {
+        // Clear previous content
+        titleDiv.innerHTML = '';
+        mediaDiv.innerHTML = '';
+        contentDiv.innerHTML = '';
+
+        // Set new content
         titleDiv.innerHTML = `<h2>${project.title}</h2>`;
         mediaDiv.innerHTML = project.media;
         contentDiv.innerHTML = project.description;
+        console.log('Media HTML set to:', mediaDiv.innerHTML);
         modal.style.display = 'block';
 
-        // Show/hide navigation buttons based on project index
+        // Navigation buttons
         prevBtn.style.display = currentProjectIndex === 0 ? 'none' : 'block';
         nextBtn.style.display = currentProjectIndex === projectKeys.length - 1 ? 'none' : 'block';
 
-        // Ensure video playback
+        // Handle video if present (though we'll use GIF now)
         const video = mediaDiv.querySelector('video');
         if (video) {
             video.load();
-            video.play().catch(error => {
-                console.error(`Error playing modal video (${projectId}):`, error);
-            });
-            video.addEventListener('error', () => {
-                console.error(`Failed to load modal video: ${video.src}`);
-            }, { once: true });
-            video.addEventListener('loadeddata', () => {
-                console.log(`Modal video loaded: ${video.src}`);
-            }, { once: true });
+            video.play().catch(error => console.error(`Error playing video: ${error}`));
         }
 
-        gsap.fromTo(modal, 
-            { opacity: 0 }, 
-            { opacity: 1, duration: 1, ease: "power2.out" }
-        );
+        // Fade in modal
+        gsap.fromTo(modal, { opacity: 0 }, { opacity: 1, duration: 1, ease: "power2.out" });
         document.getElementById('modal-body').scrollTop = 0;
     }
 }
@@ -955,7 +1043,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.key === 'ArrowRight') changeZineSlide(1);
         }
         if (e.key === 'Escape') closeProjectModal();
-    });    
+    });   
+    
 });
 
 
