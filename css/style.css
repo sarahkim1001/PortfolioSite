@@ -573,6 +573,7 @@ body[data-theme="dark"] #media-carousel .media-frame .dark-gif {
     border-radius: 50px;
     padding: 20px;
     padding-bottom: 10px;
+    margin-bottom:4rem;
 }
 
 .projectgallery {
@@ -591,8 +592,8 @@ body[data-theme="dark"] #media-carousel .media-frame .dark-gif {
 }
 
 .projectitem {
-    flex: 1 1 250px;
-    max-width: 250px;
+    flex: 1 1 400px;
+    max-width: 400px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -1269,7 +1270,6 @@ footer {
         flex-direction: column;
         align-items: flex-start;
         width: 100%;
-        font-size: 1.25rem;
     }
 
     #contact {
@@ -1426,7 +1426,7 @@ footer {
 
 /* Adjust h1 and mission-statement spacing if needed */
 .blog-header h1 {
-    font-size: 4rem;
+    font-size: 2rem;
     font-weight: 700;
    /* color: var(--light-text);*/
     margin: 0;
@@ -1434,9 +1434,7 @@ footer {
    /* text-transform: uppercase;*/
 }
 
-#interstice {
-    color:rgb(102, 0, 0);
-}
+
 
 [data-theme="dark"] .blog-header h1 {
    /* color: var(--dark-text);*/
@@ -1476,7 +1474,7 @@ footer {
     align-items: center;
     justify-content: center;
     padding-top: 15vh; /* Moves it down the page */
-    text-align: left;
+    text-align: right;
     width: 100%;
 }
 
