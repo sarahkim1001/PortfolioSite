@@ -134,7 +134,7 @@ body * {
     justify-content: center;
     align-items: center;
 }
-
+ 
 .workImg img::after,
 .media-gif::after,
 .project-media img::after,
@@ -150,7 +150,7 @@ body * {
     border-radius: 100%;
     z-index: 2;
 }
-
+ 
 /* Gradient for light theme */
 [data-theme="light"] .workImg img::after,
 [data-theme="light"] .media-gif::after,
