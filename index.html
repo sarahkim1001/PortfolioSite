@@ -638,12 +638,24 @@ To strengthen its impact, the project will include personal stories from affecte
     },
     inBetween: {
     title: "In Between, 2025",
-    media: '<video src="./gif/branch.gif" controls autoplay muted loop playsinline poster="./img/fallback.jpg">' +
-           '<img src="./vid/willow.MOV" alt="Fallback for In Between video"></video>',
+    media: `
+        <iframe 
+            width="100%" 
+            height="400" 
+            src="https://www.youtube.com/embed/Rm5sBeZrRes" 
+            frameborder="0" 
+            allow="autoplay; encrypted-media" 
+            allowfullscreen
+            title="In Between Documentary"
+            onload="console.log('YouTube iframe loaded for In Between')"
+            onerror="console.error('Error loading YouTube iframe')"
+        ></iframe>
+    `,
     description: `
-        <p>In Between is an experimental short documentary film situated at the threshold of the known and unknown. Taking segments of New York City's streets and cityways through vehicles of transportation, the film captures the fleetingness of truth and understanding, a sensation of losing what we once held as certain. Kim renders the perpetual death and rebirth of living experience: shedding preconceived notions to weave new ones, only to be swallowed again by the vast unknown where connections form and dissolve.</p>
-        <p>The film questions the malleability of self. If identity emerges from environment and others’ perceptions, what remains true when all we’ve known fractures? Through a first-person lens, In Between suspends viewers at the crossroads of dreaming and waking, stitching together moments Kim documented across New York City. In transit—alienated yet entwined with the world—she observes reality’s uncertainty unfold, perception bending through senses, bodies, and emotions.</p>
-        <p>When did you realize all you knew was but a shard of truth? This work surrenders to that question, embracing the ambiguity—a paradoxical dance of comfort and unsettlement. How does one move forward, purposeful, in perpetual flux? In Between offers no answers, only the space to linger in the unfathomed.</p>
+        <p>In Between, 2024,  is an experimental short documentary film situated at the threshold of the known and unknown. Taking segments of New York City's streets and cityways through vehicles of transportation, the film captures the fleetingness of truth and understanding, a sensation of losing what we once held as certain. Kim renders the perpetual death and rebirth of the living experience: shedding preconceived notions to weave new ones, only to be swallowed again by the vast unknown where connections form and dissolve.</p>
+        <p>The film questions the malleability of self. If identity emerges from environment and others’ perceptions, how can we understand truth. Through a first-person lens, In Between suspends viewers at the crossroads of dreaming and waking, stitching together moments Kim documented across New York City.
+</p>
+        <p>When did you realize all you knew was but a flicker of truth? This work surrenders to this question, embracing the ambiguity—a paradox between anxiety and anesthesia. How does one move forward, purposeful, in perpetual flux? In Between offers no answers, only the space to linger in the abyss.</p>
     `
 },
     stillLife: {
