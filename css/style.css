@@ -833,7 +833,6 @@ body[data-theme="dark"] #media-carousel .media-frame .dark-gif {
 .modal-body a {
     color: var(--modal-text-color);
     text-decoration: underline;
-    font-family: 'Cutive Mono', monospace;
     font-size: 1.25rem;
     transition: all 0.3s ease;
     padding: 2px 4px;
@@ -1681,3 +1680,14 @@ footer {
     height: 300px;
 }
 
+
+
+/*PM STYLES*/
+
+.underConstruction{
+    width:60%;
+    display:flex;
+    flex-direction: column;
+    top:40vh;
+    align-items: center;
+}

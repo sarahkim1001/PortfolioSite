@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Interactive Pollutant Globe</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+    <style>
+      body { margin: 0; background: #000; font-family: Arial; overflow: hidden; }
+      #sidebar { position: absolute; left: 10px; top: 10px; background: rgba(0, 0, 0, 0.7); color: #fff; padding: 10px; border-radius: 5px; }
+      #sidebar label { display: block; margin: 5px 0; }
+      #canvas-container { text-align: center; margin-top: 20px; }
+      h1 { color: #fff; text-align: center; margin-top: 0; }
+    </style>
+  </head>
+  <body>
+    <h1>Pollutant Disparities Globe</h1>
+    <div id="sidebar">
+      <label><input type="checkbox" id="pm25" checked> PM2.5</label>
+      <label><input type="checkbox" id="pm10"> PM10</label>
+      <label><input type="checkbox" id="no2"> NO2</label>
+      <label><input type="checkbox" id="so2"> SO2</label>
+      <label><input type="checkbox" id="co"> CO</label>
+      <label><input type="checkbox" id="o3"> O3</label>
+    </div>
+    <div id="canvas-container"></div>
+    <script src="sketch.js"></script>
+  </body>
+</html> 
