@@ -134,7 +134,8 @@ body * {
     justify-content: center;
     align-items: center;
 }
- 
+
+
 .workImg img::after,
 .media-gif::after,
 .project-media img::after,
@@ -539,6 +540,7 @@ body[data-theme="dark"] #media-carousel .media-frame .dark-gif {
     margin-left:6rem;
     line-height: 1.75rem;
     border-radius: 50px;
+    font-family: 'Georgia';
 }
 
 .intro h3 {
@@ -625,6 +627,7 @@ body[data-theme="dark"] #media-carousel .media-frame .dark-gif {
     padding: 0;
     line-height: 18px;
     margin-bottom: 2rem;
+    font-family: 'Georgia', 'Times New Roman', Times, serif;
 }
 
 .workDescription h3,
@@ -725,6 +728,7 @@ body[data-theme="dark"] #media-carousel .media-frame .dark-gif {
     font-size: 1rem;
     flex: 1;
     text-align: justify;
+    font-family: 'Georgia';
 }
 
 .personalGallery {
@@ -781,6 +785,7 @@ body[data-theme="dark"] #media-carousel .media-frame .dark-gif {
     text-decoration: none;
     padding: 0 50px;
     font-size: 1rem;
+    font-family: 'Georgia';
 }
 
 
@@ -824,6 +829,7 @@ body[data-theme="dark"] #media-carousel .media-frame .dark-gif {
     padding: 10px;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    font-family: 'Georgia';
 }
 
 .modal-body::-webkit-scrollbar {
@@ -903,6 +909,7 @@ body[data-theme="dark"] #media-carousel .media-frame .dark-gif {
     margin: 40px auto 60px;
     overflow: hidden;
     border-radius: 10px;
+    
 }
 
 .project-media video,
@@ -1411,6 +1418,7 @@ footer {
 
 #interstice{
     padding-bottom:20rem;
+    font-family: 'Georgia';
 }
 /* Ensure the blog-header maintains its centered layout */
 .blog-header {
