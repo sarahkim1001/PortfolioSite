@@ -28,7 +28,12 @@
     
         <div class="blog-content">
             <div class="post-list">
-                <div class="post-item" onclick="showPostModal('post1')">
+                <div class="post-item" onclick="showPostModal('post4')">
+                    <h3>Biophilic Design and Global Systems</h3>
+                    <h5>June 15, 2025</h5>
+                    <p>Examining biophilic design’s effects, rooted in colonial commodification of nature...</p>
+                </div>
+                <div class="post-item" onclick="showPostModal('post3')">
                     <h3>The Commodification of Nature, Time, and Being</h3>
                     <h5>June 6, 2025</h5>
                     <p>Tracing the culture of commodification of nature, time, and being to colonialism...</p>
@@ -38,7 +43,7 @@
                     <h5>May 24, 2025</h5>
                     <p>Exploring the role of insurrectionary spaces and colonial legacies of control...</p>
                 </div>
-              <div class="post-item" onclick="showPostModal('post3')">
+              <div class="post-item" onclick="showPostModal('post1')">
                     <h3>Forgotten Spaces, Unforgotten Histories</h3>
                     <h5>March 16, 2025</h5>
                     <p>Following the Historical Site of the Plantation to the Modern Day Prison System... </p>
@@ -186,98 +191,170 @@
         // Blog Post Modal Logic
        // Blog Post Modal Logic
 const posts = {
-    post1: {
+    post4: {
+        title: "Biophilic Design and Global Systems, 2025",
+        media: '<img src="./img/strungedLife.jpg" alt="Capitalism Blog Post Image">',
+        description: `
+
+
+<h2>Introduction</h2>
+<p>Biophilic design, rooted in the human affinity for nature (biophilia, as described by Erich Fromm and Edward O. Wilson), seeks to integrate natural elements into urban environments to enhance human well-being, creativity, and cognition. Studies demonstrate that exposure to plants and natural systems reduces cortisol levels, improves mood, and fosters cognitive clarity. However, this practice exists within a broader global order marked by neoliberalism, colonial legacies, and socio-economic stratification, raising critical questions about its implications, ethics, and potential for transformative change. This discourse explores the major themes, interconnections, and conflicts surrounding biophilic design, questioning how it can evolve to respect the autonomy of non-human life and foster a holistic, equitable coexistence with Earth’s systems.</p>
+
+<h2>Major Themes</h2>
+
+<h2>Biophilic Design and Human Well-Being</h2>
+<ul>
+    <li><strong>Scientific Evidence</strong>: Research shows that biophilic environments—spaces incorporating plants, natural light, and organic materials—reduce stress, enhance mood, and improve cognitive function. For instance, cortisol levels decrease in settings with living organisms, reflecting an evolutionary connection to nature (Wilson’s biophilia hypothesis).</li>
+    <li><strong>Urban Alienation</strong>: Modern urban environments, characterized by concrete, segregation, and individualism, often alienate humans from nature, necessitating biophilic interventions to restore psychological and physiological balance.</li>
+    <li><strong>User-Centered Design</strong>: Biophilic design often prioritizes human welfare, framing individuals as "users" whose productivity and efficiency are enhanced through nature’s integration. This approach risks commodifying nature for human-centric goals.</li>
+</ul>
+
+<h2>Colonial Legacies and Neoliberal Global Order</h2>
+<ul>
+    <li><strong>Commodification of Nature</strong>: The colonial mindset, which underpins much of the current geopolitical and economic order, views natural resources—biological and mineral—as commodities for exploitation. This perspective, rooted in European expansionism, justified violence, genocide, and cultural erasure under the guise of divine right and progress.</li>
+    <li><strong>Socio-Economic Stratification</strong>: Neoliberalism, with its shift from public to private power, perpetuates global inequalities, often along ethnic and geographic lines. Biophilic design, while beneficial, often serves privileged communities, relying on extractive practices that exploit marginalized regions and peoples.</li>
+    <li><strong>Erasure of Indigenous Wisdom</strong>: Colonial conquest severed Indigenous connections to land, language, and history, replacing holistic, reciprocal relationships with nature with objectification and commodification. Indigenous knowledge systems, emphasizing coexistence and collectivism, offer critical insights for reimagining human-nature relations.</li>
+</ul>
+
+<h2>Digital Systems and Media Manipulation</h2>
+<ul>
+    <li><strong>Control and Surveillance</strong>: Digital technologies, including algorithms and media ecosystems, shape public perception and restrict agency through cybernetic feedback loops. Bots and disinformation campaigns, often tied to state or corporate interests, manipulate narratives while limiting genuine resistance.</li>
+    <li><strong>Amplification of Separation</strong>: Social media and user interfaces reinforce individualism, undermining collective identities and communal bonds. This exacerbates the alienation inherent in urban environments, contrasting with humans’ evolutionary need for community and connection to nature.</li>
+</ul>
+
+<h2>Interconnections and Ironies</h2>
+<ul>
+    <li><strong>Microcosm of Global Issues</strong>: Biophilic design reflects a broader irony: it seeks to enhance well-being within a global order that restricts autonomy and perpetuates exploitation. Urban environments, built on colonial and neoliberal foundations, create the very alienation biophilic design aims to address.</li>
+    <li><strong>Extractive Practices</strong>: The materials and labor supporting biophilic projects often stem from exploitative systems, raising questions about who benefits and at what cost. Wealthy urban centers may enjoy biophilic spaces, while marginalized communities and ecosystems bear the burden of extraction and waste.</li>
+    <li><strong>Coexistence vs. Commodification</strong>: While biophilic design fosters empathy for nature, its human-centric focus often neglects the autonomy of non-human life. Plants and organisms are integrated as aesthetic or functional tools, not as cohabitants with intrinsic value.</li>
+</ul>
+
+<h2>Conflicts and Counterarguments</h2>
+
+<h2>Conflicts</h2>
+<ul>
+    <li><strong>Human-Centric Focus</strong>: Biophilic design, as currently practiced, prioritizes human well-being (e.g., productivity, mood) over the autonomy of natural systems. This mirrors the colonial and neoliberal tendency to objectify life for human gain.</li>
+    <li><strong>Global Inequities</strong>: The benefits of biophilic design are unevenly distributed, often accessible to affluent communities while relying on extractive processes that harm marginalized regions. This perpetuates a racial and socio-economic hierarchy rooted in colonial expansion.</li>
+    <li><strong>Loss of Indigenous Wisdom</strong>: The erasure of Indigenous knowledge through colonial violence limits our ability to learn from harmonious, reciprocal relationships with nature. Modern systems replace collectivism with individualism, undermining sustainable coexistence.</li>
+</ul>
+
+<h2>Counterarguments</h2>
+<ul>
+    <li><strong>Potential for Empathy</strong>: Biophilic design can foster a deeper connection to nature, potentially inspiring respect and care for non-human life. Thoughtful integration—e.g., in educational settings—could cultivate awareness and ethical engagement with ecosystems.</li>
+    <li><strong>Context Matters</strong>: The intent and execution of biophilic design influence its impact. Designs that prioritize aesthetics or profit differ from those fostering genuine coexistence, suggesting a need for ethical frameworks that respect nature’s autonomy.</li>
+    <li><strong>Small Steps Toward Change</strong>: Incremental changes, such as integrating plants in urban spaces, can shift attitudes toward sustainability and collective well-being, provided they are paired with broader systemic reforms.</li>
+</ul>
+
+<h2>Moving Forward: Reimagining Biophilic Design for Coexistence</h2>
+
+<h2>Key Questions</h2>
+<ul>
+    <li><strong>How can biophilic design respect the autonomy of non-human life?</strong> Instead of viewing plants and organisms as tools for human benefit, designs should recognize their intrinsic intelligence and agency, fostering mutual coexistence.</li>
+    <li><strong>Who benefits from biophilic design, and who bears the cost?</strong> Addressing the extractive foundations of biophilic projects requires transparency about production processes and equitable distribution of benefits.</li>
+    <li><strong>How can Indigenous wisdom inform sustainable design?</strong> Learning from Indigenous practices of collectivism, holism, and reciprocity can guide biophilic design toward harmonious integration with Earth’s systems.</li>
+    <li><strong>How can we make global systems visible and accountable?</strong> Exposing the hidden infrastructure of extraction, production, and consumption can inspire changes in habits and challenge manipulative media ecosystems.</li>
+</ul>
+
+<h2>Strategies for Change</h2>
+<ol>
+    <li><strong>Ethical Biophilic Design</strong>:
+        <ul>
+            <li>Prioritize designs that treat nature as a cohabitant, not a commodity. For example, incorporate native plants that support local ecosystems rather than ornamental species.</li>
+            <li>Engage communities in design processes, ensuring inclusivity and cultural sensitivity, particularly for marginalized and Indigenous groups.</li>
+        </ul>
+    </li>
+    <li><strong>Relearning Indigenous Wisdom</strong>:
+        <ul>
+            <li>Study and amplify Indigenous knowledge systems that emphasize coexistence, such as spiritual and holistic approaches to land stewardship.</li>
+            <li>Support efforts to restore Indigenous connections to land, language, and culture, countering the effects of colonial erasure.</li>
+        </ul>
+    </li>
+    <li><strong>Transparency in Infrastructure</strong>:
+        <ul>
+            <li>Develop educational campaigns and visualizations to reveal the full lifecycle of biophilic materials—from extraction to disposal—highlighting their social and environmental impacts.</li>
+            <li>Use digital platforms to foster awareness of global power dynamics, countering media manipulation with community-driven narratives.</li>
+        </ul>
+    </li>
+    <li><strong>Shifting Cultural Attitudes</strong>:
+        <ul>
+            <li>Promote communal and collective identities over individualism, drawing on humans’ evolutionary need for connection and community.</li>
+            <li>Encourage sustainable consumption habits by highlighting the interconnectedness of human and non-human systems, inspired by environmental studies and Indigenous worldviews.</li>
+        </ul>
+    </li>
+    <li><strong>Holistic Worldview</strong>:
+        <ul>
+            <li>Adopt a planetary perspective that views humans as cohabitants within Earth’s complex systems, not as dominant forces. This aligns with the interconnectedness of marine, terrestrial, and atmospheric systems, as shown in environmental studies.</li>
+            <li>Recognize the Anthropocene as an opportunity to reframe human activity as a collaborative force, shaping and being shaped by natural systems.</li>
+        </ul>
+    </li>
+</ol>
+
+<h2>Conclusion</h2>
+<p>Biophilic design offers a pathway to reconnect humans with nature, but its current practice often perpetuates the commodification and exploitation inherent in the neoliberal global order. By addressing its colonial roots, prioritizing non-human autonomy, and learning from Indigenous wisdom, biophilic design can evolve into a tool for equitable coexistence. Small, intentional changes—paired with systemic transparency and cultural shifts—can foster a holistic worldview that respects all life as interconnected within Earth’s complex systems. This requires not only reimagining design but also confronting the socio-economic and digital structures that shape our relationship with the planet.</p>
+
+<h2>References</h2>
+<ul>
+            <li>Beatley, T. (2011). <i>Biophilic cities: Integrating nature into urban design and planning</i>. Island Press.</li>
+            <li>Kellert, S. R. (2005). <i>Building for life: Designing and understanding the human-nature connection</i>. Island Press.</li>
+            <li>Kellert, S. R., Heerwagen, J. H., & Mador, M. L. (Eds.). (2008). <i>Biophilic design: The theory, science, and practice of bringing buildings to life</i>. John Wiley & Sons.</li>
+            <li>Kellert, S. R., & Wilson, E. O. (Eds.). (1993). <i>The biophilia hypothesis</i>. Island Press.</li>
+            <li>McHarg, I. L. (1969). <i>Design with nature</i>. John Wiley & Sons.</li>
+            <li>Salingaros, N. A. (2015). <i>Biophilia and healing environments: Healthy principles for designing the built world</i>. Terrapin Bright Green.</li>
+            <li>Söderlund, J., & Newman, P. (2022). How the biophilic design social movement informs planning, policy and professional practice. <i>Sustainable Earth Reviews, 5</i>(1), 1-15.</li>
+            <li>Xue, F., Gou, Z., & Lau, S. S. Y. (2019). Bridging biophilic design and environmentally sustainable design: A critical review. <i>Journal of Cleaner Production, 237</i>, 117-128.</li>
+            <li>Zhong, W., Schröder, T., & Bekkering, J. (2022). Biophilic design in architecture and its contributions to health, well-being, and sustainability: A critical review. <i>Frontiers of Architectural Research, 11</i>(1), 114-141.</li>
+        </ul>
+</div> `
+
+    },
+
+    post3: {
         title: "The Commodification of Nature, Time, and Being, 2025",
         media: '<img src="./img/darkEco.jpg" alt="Environmental Blog Post Image">',
         description: `
         <h2> </h2>
-        <p> </p>
-            <h2>Introduction: The Legacy of Colonial Commodification </h2>
-            <p>In contemporary Western society, the relentless march of schedules, clocks, and calendars shapes a life detached from the present moment. Simultaneously, nature is reduced to a commodity—land, water, and ecosystems quantified for profit. This essay argues that the commodification of time, nature, and ultimately everything shares a common root in a colonial mindset, characterized by abstraction, extraction, and domination. Drawing on philosophical, sociological, and decolonial perspectives, I explore how these processes alienate us from presence, ecology, and intrinsic meaning, perpetuating a legacy of colonial control. The essay concludes by delving into decolonial approaches to time and ecology as pathways to resist commodification and reclaim a grounded existence. <p/>
-            <h2>The Commodification of Time and Detachment from the Present </h2>
-            <p> The transformation of time into a commodity is a hallmark of modern Western society, rooted in the industrial revolution. Historian E.P. Thompson, in his seminal essay Time, Work-Discipline, and Industrial Capitalism (1967), describes how the shift from task-based rhythms to clock time disciplined workers to align with factory schedules (Thompson, 1967, p. 80). Time became a measurable unit, equated with money—“time is money”—detaching individuals from the qualitative experience of the present moment. This commodification fosters a future-oriented mindset, where life is structured around productivity and deadlines, not lived experience.</p>
-            <p> Philosopher Henri Bergson further illuminates this detachment through his concept of duration, defined as a qualitative, flowing temporality distinct from the mechanical segmentation of clock time (Bergson, 1910, Time and Free Will). Bergson argues that clock time abstracts human experience, reducing it to quantifiable units that alienate us from the organic “now.” Similarly, Martin Heidegger’s Being and Time (1927) critiques the inauthentic existence fostered by societal pressures to prioritize future goals over present awareness, a state he contrasts with authentic Dasein (being-there) (Heidegger, 1962, p. 163). In contemporary contexts, this detachment is exacerbated by digital tools—calendars, productivity apps, and notifications—that fragment attention and tether us to future tasks, as Sherry Turkle notes in Alone Together (2011), describing how constant connectivity erodes presence (Turkle, 2011, p. 152).</p>
-            <h2>Nature as Commodity: A Colonial Extraction </h2>
-        <p>Parallel to the commodification of time, nature in Western society is reduced to a resource for exploitation, a process deeply tied to colonial histories. During the colonial era, land and ecosystems were viewed as “empty” or “wild,” ripe for extraction and profit. As environmental historian Carolyn Merchant argues in The Death of Nature (1980), the Enlightenment’s mechanistic worldview stripped nature of its sacred or communal value, framing it as a commodity to be controlled (Merchant, 1980, p. 192). This is evident in practices like the enclosure movement in Europe or colonial land grabs, which displaced Indigenous communities and quantified land into parcels for private gain. </p>
-       <p> Today, this colonial legacy persists in global capitalism’s treatment of nature as a “natural resource.” Forests are valued for timber, oceans for fish stocks, and land for real estate or agriculture, often ignoring ecological balance. For instance, the rise of carbon credits exemplifies how even climate solutions commodify nature, reducing ecosystems to tradable units (Böhm & Dabhi, 2009, p. 17). This mirrors the abstraction of time: both are stripped of their qualitative essence—seasonal rhythms or ecological interdependence—and reduced to economic metrics, detaching us from lived connections to the environment.</p>
-        <h2>Total Commodification: The Capitalist Extension </h2>
-        <p>The commodification of time and nature extends to a broader capitalist tendency to treat all aspects of life as commodities. Philosopher Byung-Chul Han, in The Burnout Society (2015), describes the “achievement society,” where individuals internalize time discipline, becoming self-exploiting entrepreneurs of their own lives (Han, 2015, p. 8). Relationships, health, and even attention are quantified—think of social media followers, fitness tracker data, or the attention economy—turning intrinsic experiences into transactional ones. This universal commodification alienates us from authentic connections, much like schedules detach us from the present and industrial practices alienate us from nature.</p>
-        <p>This process reflects what sociologist Hartmut Rosa calls social acceleration, where the accelerating pace of technological, social, and economic change outstrips our ability to live in the present (Rosa, 2013, p. 71). The pressure to optimize—whether through productivity apps or resource extraction—creates a “frenetic standstill,” where we are perpetually planning or catching up, never fully present. This mirrors the colonial mindset’s drive to dominate and extract value from all “resources,” whether human, temporal, or natural. </p>
-        <h2>The Colonial Mindset: A Unifying Thread </h2>
-        <p>The commodification of time, nature, and everything is unified by a colonial mindset, defined by abstraction, extraction, and domination. Colonialism imposed Western temporal frameworks, such as Greenwich Mean Time, on colonized populations to enforce labor efficiency, as seen in plantation schedules (Smith, 1997, p. 45). This parallels the imposition of property regimes that commodified land, ignoring Indigenous practices that viewed nature as a living entity, not a resource (Cronon, 1983, p. 65). Both processes abstracted local, present-focused ways of being—cyclical time, communal land stewardship—into universal, quantifiable systems for profit. </p>
-        <p> This colonial logic persists in modern capitalism. Global supply chains treat labor time and natural resources as interchangeable units, detached from local contexts. For example, fast fashion exploits both workers’ time (through sweatshop schedules) and nature (through resource-intensive production), perpetuating a colonial legacy of extraction (Fletcher, 2010, p. 259). The abstraction of time and nature into commodities erases their intrinsic value, fostering alienation and reinforcing power structures that prioritize profit over presence or sustainability.</p>
-        <h2>Decolonial Time, Ecology, and Resisting Commodification </h2>
-        <p>Decolonial perspectives offer pathways to resist this commodification and reclaim presence in both time and ecology. Decolonial time challenges the linear, commodified temporality of Western schedules, drawing on Indigenous philosophies that emphasize cyclical or event-based time. For instance, many Indigenous cultures, such as the Anishinaabe, view time as tied to natural rhythms—seasons, migrations, or ceremonies—rather than clocks (Simpson, 2017, p. 72). This temporal framework fosters presence, as activities align with the immediate environment, not abstract deadlines. Scholars like Linda Tuhiwai Smith argue that reclaiming such temporalities is a form of decolonial resistance, disrupting the colonial imposition of universal time (Smith, 1999, p. 34). </p>
-        <p> Similarly, decolonial ecology rejects the commodification of nature, advocating for relationships with land as kin, not property. Indigenous scholars like Robin Wall Kimmerer emphasize reciprocity with nature—giving back as much as is taken—contrasting with capitalist extraction (Kimmerer, 2013, p. 183). For example, Indigenous-led land management practices, such as controlled burns by Native American tribes, prioritize ecological balance over short-term profit, grounding human activity in the present needs of the ecosystem (Anderson, 2005, p. 128). These practices challenge the colonial view of nature as a commodity, offering models for sustainable, present-focused living.</p>
-        <p> Movements like degrowth and eco-socialism also draw on decolonial principles, advocating for economies that prioritize well-being and ecological health over endless growth. Jason Hickel’s Less is More (2020) critiques the commodification of nature and calls for policies like shorter workweeks to reduce time pressure and environmental harm (Hickel, 2020, p. 145). Similarly, the Slow Movement, inspired by non-Western temporalities, rejects commodified time and nature by valuing unhurried presence and local, seasonal practices (Honoré, 2004, p. 12). These movements echo decolonial calls to dismantle the colonial mindset’s legacy of abstraction and exploitation.</p>
-        <h2>Conclusion </h2>
-        <p>The commodification of time, nature, and everything in Western society is a colonial legacy, rooted in a mindset that abstracts lived experience into quantifiable units for profit. By detaching us from the present, commodified time alienates us from authentic existence, just as commodified nature severs our connection to ecological rhythms. Both processes reflect a colonial logic of domination and extraction, perpetuated by modern capitalism. Decolonial approaches to time and ecology—rooted in Indigenous philosophies and practices—offer resistance by prioritizing presence, reciprocity, and intrinsic value over commodification. Reclaiming these perspectives requires both personal acts (e.g., mindfulness, slow living) and systemic change (e.g., degrowth, Indigenous-led policies). By challenging the colonial mindset, we can begin to live in the “now,” in harmony with both time and nature. </p>
+        <p></p>
+        <h2>Introduction: The Legacy of Colonial Commodification</h2>
+        <p>Western society commodifies time and nature, reducing both to measurable units for profit, a process rooted in colonialism’s logic of extraction and domination. This essay examines how colonial practices abstracted time and nature, alienating humans from lived experience and ecological connection, using sources like Thompson (1967), Merchant (1980), and Kimmerer (2013). It concludes with decolonial approaches to resist commodification, drawing on Indigenous perspectives to reclaim presence and reciprocity.</p>
+        <p></p>
+        <h2>The Commodification of Time</h2>
+        <p>Colonialism and industrial capitalism transformed time into a commodity. Thompson (1967) explains that the shift from task-based to clock time during the industrial revolution disciplined workers for factory efficiency, equating time with money (p. 80). This abstraction detached people from the present, prioritizing productivity over experience. Bergson (1910) contrasts this with “duration,” a qualitative temporality, arguing clock time alienates us from the “now” (<i>Time and Free Will</i>, p. 100). Heidegger (1962) similarly critiques inauthentic living driven by future-oriented schedules, contrasting it with present-focused <i>Dasein</i> (<i>Being and Time</i>, p. 163). Turkle (2011) notes digital tools like productivity apps exacerbate this, fragmenting attention and eroding presence (<i>Alone Together</i>, p. 152).</p>
+        <p></p>
+        <h2>Nature as Commodity</h2>
+        <p>Colonialism framed nature as a resource for exploitation. Merchant (1980) argues the Enlightenment’s mechanistic view stripped nature of sacred value, turning it into a commodity for profit (<i>The Death of Nature</i>, p. 192). Cronon (1983) details how colonial land grabs in New England commodified ecosystems, displacing Indigenous communities who viewed land as communal (<i>Changes in the Land</i>, p. 65). Today, global capitalism continues this legacy; Böhm and Dabhi (2009) highlight carbon markets reducing ecosystems to tradable units (<i>Upsetting the Offset</i>, p. 17). This mirrors time’s commodification, abstracting nature’s rhythms into economic metrics, severing ecological connections.</p>
+        <p></p>
+        <h2>Commodification of Everything</h2>
+        <p>Capitalism extends commodification to all life. Han (2015) describes the “achievement society,” where individuals self-exploit, quantifying relationships and health via social media metrics or fitness trackers (<i>The Burnout Society</i>, p. 8). Rosa (2013) terms this “social acceleration,” where rapid economic and technological changes prioritize efficiency over presence (<i>Social Acceleration</i>, p. 71). Fletcher (2010) shows fast fashion’s exploitation of labor and nature, reflecting colonial extraction (<i>Fashion Practice</i>, p. 259). This universal commodification alienates humans from authentic connections, rooted in colonialism’s abstraction of time and nature.</p>
+        <p></p>
+        <h2>The Colonial Mindset</h2>
+        <p>A colonial mindset unifies these processes. Smith (1997) notes colonial plantation schedules imposed Western time to control labor, abstracting local rhythms (<i>Mastered by the Clock</i>, p. 45). Cronon (1983) describes land commodification ignoring Indigenous stewardship (<i>Changes in the Land</i>, p. 65). This logic persists in global supply chains, where time and resources are quantified for profit, as Fletcher (2010) illustrates with fast fashion’s exploitative practices (p. 259). This abstraction erases intrinsic value, perpetuating alienation and colonial power structures.</p>
+        <p></p>
+        <h2>Decolonial Resistance</h2>
+        <p>Decolonial approaches resist commodification. Simpson (2017) highlights Indigenous cyclical time, tied to natural rhythms, fostering presence over schedules (<i>As We Have Always Done</i>, p. 72). Kimmerer (2013) advocates reciprocity with nature, treating it as kin, not property (<i>Braiding Sweetgrass</i>, p. 183). Anderson (2005) describes Indigenous land management, like controlled burns, prioritizing ecological balance (<i>Tending the Wild</i>, p. 128). Smith (1999) sees reclaiming such temporalities as resistance (<i>Decolonizing Methodologies</i>, p. 34). Hickel (2020) and Honoré (2004) propose degrowth and slow living to reduce time and environmental exploitation, echoing Indigenous principles (<i>Less is More</i>, p. 145; <i>In Praise of Slowness</i>, p. 12).</p>
+        <p></p>
+        <h2>Conclusion</h2>
+        <p>Colonialism’s commodification of time and nature, rooted in abstraction and extraction, alienates humans from presence and ecology. Sources like Thompson (1967), Merchant (1980), and Han (2015) trace this to industrial and capitalist systems, while Simpson (2017) and Kimmerer (2013) offer decolonial resistance through Indigenous practices of cyclical time and reciprocity. Reclaiming presence requires personal acts (slow living) and systemic change (degrowth, Indigenous-led policies) to dismantle colonial legacies and foster harmony with time and nature.</p>
+        <p></p>
         <h2>References </h2>
-        <p> Anderson, M. K. (2005). Tending the Wild: Native American Knowledge and the Management of California’s Natural Resources. University of California Press.
-
-
-
-Bergson, H. (1910). Time and Free Will: An Essay on the Immediate Data of Consciousness. Swan Sonnenschein.
-
-
-
-Böhm, S., & Dabhi, S. (Eds.). (2009). Upsetting the Offset: The Political Economy of Carbon Markets. Mayfly Books.
-
-
-
-Cronon, W. (1983). Changes in the Land: Indians, Colonists, and the Ecology of New England. Hill and Wang.
-
-
-
-Fletcher, K. (2010). “Slow Fashion: An Invitation for Systems Change.” Fashion Practice, 2(2), 259–265.
-
-
-
-Han, B.-C. (2015). The Burnout Society. Stanford University Press.
-
-
-
-Heidegger, M. (1962). Being and Time (J. Macquarrie & E. Robinson, Trans.). Harper & Row.
-
-
-
-Hickel, J. (2020). Less is More: How Degrowth Will Save the World. Windmill Books.
-
-
-
-Honoré, C. (2004). In Praise of Slowness: Challenging the Cult of Speed. HarperOne.
-
-
-
-Kimmerer, R. W. (2013). Braiding Sweetgrass: Indigenous Wisdom, Scientific Knowledge, and the Teachings of Plants. Milkweed Editions.
-
-
-
-Merchant, C. (1980). The Death of Nature: Women, Ecology, and the Scientific Revolution. Harper & Row.
-
-
-
-Rosa, H. (2013). Social Acceleration: A New Theory of Modernity. Columbia University Press.
-
-
-
-Simpson, L. B. (2017). As We Have Always Done: Indigenous Freedom Through Radical Resistance. University of Minnesota Press.
-
-
-
-Smith, L. T. (1999). Decolonizing Methodologies: Research and Indigenous Peoples. Zed Books.
-
-
-
-Smith, M. M. (1997). Mastered by the Clock: Time, Slavery, and Freedom in the American South. University of North Carolina Press.
-
-
-
-Thompson, E. P. (1967). “Time, Work-Discipline, and Industrial Capitalism.” Past & Present, 38, 56–97.
-
-
-
-Turkle, S. (2011). Alone Together: Why We Expect More from Technology and Less from Each Other. Basic Books.</p>
+         <ul>
+            <li>Anderson, M. K. (2005). <i>Tending the Wild: Native American Knowledge and the Management of California’s Natural Resources</i>. University of California Press.</li>
+            <li>Bergson, H. (1910). <i>Time and Free Will: An Essay on the Immediate Data of Consciousness</i>. Swan Sonnenschein.</li>
+            <li>Böhm, S., & Dabhi, S. (Eds.). (2009). <i>Upsetting the Offset: The Political Economy of Carbon Markets</i>. Mayfly Books.</li>
+            <li>Cronon, W. (1983). <i>Changes in the Land: Indians, Colonists, and the Ecology of New England</i>. Hill and Wang.</li>
+            <li>Fletcher, K. (2010). Slow Fashion: An Invitation for Systems Change. <i>Fashion Practice, 2</i>(2), 259–265.</li>
+            <li>Han, B.-C. (2015). <i>The Burnout Society</i>. Stanford University Press.</li>
+            <li>Heidegger, M. (1962). <i>Being and Time</i> (J. Macquarrie & E. Robinson, Trans.). Harper & Row.</li>
+            <li>Hickel, J. (2020). <i>Less is More: How Degrowth Will Save the World</i>. Windmill Books.</li>
+            <li>Honoré, C. (2004). <i>In Praise of Slowness: Challenging the Cult of Speed</i>. HarperOne.</li>
+            <li>Kimmerer, R. W. (2013). <i>Braiding Sweetgrass: Indigenous Wisdom, Scientific Knowledge, and the Teachings of Plants</i>. Milkweed Editions.</li>
+            <li>Merchant, C. (1980). <i>The Death of Nature: Women, Ecology, and the Scientific Revolution</i>. Harper & Row.</li>
+            <li>Rosa, H. (2013). <i>Social Acceleration: A New Theory of Modernity</i>. Columbia University Press.</li>
+            <li>Simpson, L. B. (2017). <i>As We Have Always Done: Indigenous Freedom Through Radical Resistance</i>. University of Minnesota Press.</li>
+            <li>Smith, L. T. (1999). <i>Decolonizing Methodologies: Research and Indigenous Peoples</i>. Zed Books.</li>
+            <li>Smith, M. M. (1997). <i>Mastered by the Clock: Time, Slavery, and Freedom in the American South</i>. University of North Carolina Press.</li>
+            <li>Thompson, E. P. (1967). Time, Work-Discipline, and Industrial Capitalism. <i>Past & Present, 38</i>, 56–97.</li>
+            <li>Turkle, S. (2011). <i>Alone Together: Why We Expect More from Technology and Less from Each Other</i>. Basic Books.</li>
+        </ul>
 
         `
     },
@@ -314,7 +391,7 @@ Turkle, S. (2011). Alone Together: Why We Expect More from Technology and Less f
 <h2>Conclusion</h2>
 <p>Acts of unity and resistance reveal insurrectionary spaces’ potential to contest colonial legacies by redefining spaces of exclusion into empowerment. These movements embody Arendt’s idea that power emerges in collectivity. In the global struggle for justice, insurrectionary spaces confront historical grievances, transforming social and physical spaces. They remind us that collective action can reinterpret and reshape reality, dismantling entrenched oppressive systems.</p>
 
-<h2>Sources</h2>
+<h2>References</h2>
 <ul>
     <li>Burton, Orisanmi. <em>Tip of the Spear: Revolutionary Insurgency in the Long Attica Revolt</em>.</li>
     <li>Bauman, Zygmunt. <em>The Making and Unmaking of Strangers</em>.</li>
@@ -330,7 +407,7 @@ Turkle, S. (2011). Alone Together: Why We Expect More from Technology and Less f
 </ul>
         `
     },
-    post3: {
+    post1: {
         title: "Forgotten Spaces, Unforgotten Histories: A Continuum from Plantation to Prison, 2025",
         media: '<img src="./img/chained.jpg" alt="Colonial Legacies Blog Post Image">',
         description: `
@@ -372,7 +449,7 @@ Turkle, S. (2011). Alone Together: Why We Expect More from Technology and Less f
 <h2>Conclusion</h2>
 <p>In tracing the continuum from historical plantations to modern-day mass incarceration, this analysis reveals how deeply embedded systems of racial and economic oppression persist in the shaping of society. Katherine McKittrick’s <em>Plantation Futures</em> and Ava DuVernay’s <em>13th</em> highlight the integration of racial hierarchies through legal, cultural, and economic dynamics and systems and reflect on a legacy of white-dominated control in the United States of America that calls forth critical examination. Recognizing these intertwined histories compels us to seek alternative perspectives and reforms to dismantle systemic injustices and racial struggles to recast a more equitable future for the marginalized communities.</p>
 
-<h2>Citations</h2>
+<h2>References</h2>
 <p>McKittrick, Katherine. <em>Plantation Futures</em>. <em>Small Axe</em>, November 2013, pp. 1-15.</p>
 <p>DuVernay, Ava, director. <em>13th</em>. Netflix, 2016.</p>
         `
