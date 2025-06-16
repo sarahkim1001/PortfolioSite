@@ -56,12 +56,16 @@
                 Sarah Seiyeun Kim is a communication scientist with a design and art practice. She is a recent graduate from New York University’s Integrated Design and Media program (B.S) at the Tandon School of Engineering with a minor in Media, Culture, and Communication from Steinhardt School of Culture, Education, and Human Development (May 2025). 
         </p>
         <p>
-            Sarah is driven with the fascination of how organisms interact with their environments. Her perspective interconnects a variety of ecosystems often perceived as disparate, from social, cultural, political and environmental ecologies. She is currently researching how nature-inspired design affects human emotion, communication, and engagement combining data visceralization, statistical analysis, and her background in media theory and practice. 
+            Sarah is driven with the fascination of how organisms interact with their environments. Her perspective interconnects a variety of ecosystems often perceived as disparate, from social, cultural, political and environmental ecologies. She is currently exploring noise and its potential in therapy, summoning her sound-focused experimental research practice to carve new ways of existing in the energetic realm.  
         </p>
         <p>
             As a critical multimedia artist, she has used computation, language, interaction, image, sound, and video to create experiences that urge attention towards today’s global sociocultural rifts. 
             She is also experienced in working on collaborative projects as the creative lead, spatialized sound, installation, and projection designer. Through her work, Sarah hopes to reimagine humankind’s relationship with Earth’s complex systems and inspire collective healing through the conscious approach of deep listening. 
         </p>
+        <p>
+            Among other things, Sarah is an impressionist artist, experimental classically-trained cellist, writer, humanist, environmentalist, lover, fighter, and dreamer. 
+        </p>
+
 
          </h3>
     </div>
@@ -71,9 +75,21 @@
           
               <!-- Project Issues Blog -->
 
+              <div class="projectitem" onclick="showProjectModal('NoiseTherapy')">
+                <div class="workImg">
+                    <img src="./gif/ball.gif"> 
+                </div>
+                <div class="workDescription">
+                    <h3>Noise Therapy </h3>
+                    <p>Experimental Trauma Sound Studies </p>
+                    <h5>June 2025 - Present</h5>
+                </div>
+            </div>
+
+            <!--
               <div class="projectitem" onclick="showProjectModal('PM')">
                 <div class="workImg">
-                    <img src="./gif/particle.gif"> 
+                    <img src="./gif/ball.gif"> 
                 </div>
                 <div class="workDescription">
                     <h3>Particulate Matters </h3>
@@ -81,7 +97,7 @@
                     <h5>June 2025 - Present</h5>
                 </div>
             </div>
-
+-->
 <!--
               <div class="projectitem" onclick="showProjectModal('maps')">
                 <div class="workImg">
@@ -131,7 +147,7 @@
 
             <div class="projectitem" onclick="showProjectModal('livePerformance')">
                 <div class="workImg">
-                    <img src="./gif/meta.gif"> 
+                    <img src="./gif/waving.gif"> 
                 </div>
                 <div class="workDescription">
                     <h3>Metamorphosis</h3>
@@ -293,11 +309,11 @@
         </div>
         <div class="aboutwords">
             <p> 
-                Sarah Seiyuen Kim is a communication scientist, interdisciplinary designer, and critical multimedia artist whose studies the interplay of social, cultural, political, and environmental ecosystems. In May 2025, she graduated from NYU’s Integrated Design and Media program (B.S.) at the Tandon School of Engineering, with a minor in Media, Culture, and Communication from the Steinhardt School of Culture, Education, and Human Development. 
+                Sarah Seiyuen Kim is a communication scientist, interdisciplinary designer, and critical multimedia artist who studies the interplay of social, cultural, political, and environmental ecosystems. In May 2025, she graduated from NYU’s Integrated Design and Media program (B.S.) at the Tandon School of Engineering, with a minor in Media, Culture, and Communication from the Steinhardt School of Culture, Education, and Human Development. 
             </p>
             <p>Driven by a fascination with how organisms interact with their environments, Sarah’s practice challenges anthropocentric perspectives, revealing the interconnectedness of human, nonhuman, and technological systems. Her research and creative projects address sociocultural dilemmas, using computation, language, interaction, video, image, and sound to craft immersive experiences that inspire collective healing and sustainable futures. Her work Echoes of the Ouroboros uses generative soundscapes in MAX/MSP, projection mapping, and physical fabrication to create a liminal space that explores memory, identity, and ecological entanglement, fostering emotional and physiological resonance. </p>
             <p>
-                As a creative lead and collaborator, Sarah is experienced in multichannel sound, installation, and projection design and mapping, blending critical theory, natural observation, and emerging technologies. Her multidisciplinary skill set spans creative coding (Java, JavaScript, Python, HTML), sound design (DAWs, MAX/MSP, analog synthesis), film production, photography, and interactive installations. Through these mediums, she critiques rigid frameworks and reimagines human-environment relationships balancing play and seriousness. 
+                As a creative lead and collaborator, Sarah is experienced in multichannel sound, installation, and projection design and mapping, blending critical theory, natural observation, and emerging technologies. Her multidisciplinary skill set spans creative coding (Java, JavaScript, Python, HTML), sound design (DAWs, MAX/MSP, analog synthesis), film production, photography, and interactive installations. Through these mediums, she critiques rigid frameworks and reimagines human-environment relationships balancing play, seriousness, and sentimentality. 
                 </p>
             <p> An impressionist artist, experimental cellist, writer, and composer, Sarah draws inspiration from natural patterns, cultural memory, and phantasmagoria. She is curious about semantics, cybernetics, and human-nonhuman relationships. Her projects, showcased in academic and artistic settings, spark dialogue on social and environmental transformation. Through her work, she amplifies marginalized voices and drives cultural shifts toward equity and sustainability, grounded in the continual act of deep listening.</p>
         </div>
@@ -584,9 +600,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
 const projects = {
 
+    NoiseTherapy: {
+    title: "Project Noise Therapy: Speculative Research for Ethical Urban Sonic Futures, 2025",
+    media: '<img src="./gif/ball.gif" alt="Noise Therapy Cover">',
+    description: `
+    <p><a href="./NT/NT.index.html">Project Noise Therapy</a></p>
+        <p>
+            Urban noise pollution, a byproduct of relentless urbanization, generates anxiety, disconnection, and “tremors” (emotional and physiological distress) in cities like New York, where sound levels often exceed 70 decibels. Project Noise Therapy is a speculative research experiment that rejects headphone culture’s isolation and harnesses urban noise tremors to inspire ethical sonic engagement. By fostering active listening and imagining alternative urban soundscapes, it explores paths to mediate urbanization’s harms, critique its excesses, and envision innovative sonic futures. Grounded in sound ecology, acoustemology, and experimental sound practices, this framework balances immediate interventions with long-term visions for a more sensitive urban world.
+ </p>
+    `
+}, 
+/*
     PM: {
     title: "PM, 2025",
-    media: '<img src="./gif/particle.gif" alt="Particulate Matters Cover">',
+    media: '<img src="./gif/ball.gif" alt="Particulate Matters Cover">',
     description: `
     <p><a href="./PM/PM.index.html">Particulate Matters</a></p>
         <p>Particulate Matters is an ongoing infographic storytelling project that examines climate apartheid through the pollutant Particulate Matter 2.5 (PM 2.5). It traces the sources of PM 2.5—resource extraction, wildfires, and natural and human-driven processes—and their effects on human health, mental well-being, and societies at large. The project highlights how PM 2.5 disproportionately impacts colonized and formerly colonized regions, where resource extraction for Western consumer goods degrades environments and communities.
@@ -595,7 +622,7 @@ To strengthen its impact, the project will include personal stories from affecte
  </p>
     `
 }, 
-/*
+
     maps: {
     title: "Maps, 2025",
     media: '<img src="./gif/earth.gif" alt="Personal Blog Digital Image Cover">',
@@ -625,12 +652,11 @@ To strengthen its impact, the project will include personal stories from affecte
             allow="autoplay; encrypted-media" 
             allowfullscreen
             title="In Between Documentary"
-            onload="console.log('YouTube iframe loaded for In Between')"
+            onload="console.log('YouTube iframe loaded for Ouroboros')"
             onerror="console.error('Error loading YouTube iframe')"
         ></iframe>
     `,
     description: `
-        <p>[Project Documentation Video Coming Soon]</p>
         <p><a href="./Ouro.index.html">Project Process Posts</a></p>
         <p>Ouroboros is an immersive installation inviting participants to pause, reflect, and face the complexities of memory, dreams, and mediated realities. As participants crawl into a play tunnel lined with artificial grass and bubble wrap, they enter a private burrow separated from the surrounding physical space through sound, projection, and architecture.</p>
         <p>Given bluetooth headphones, participants are enveloped in a shifting soundscape that transcends the immediate environment. This auditory design, featuring a blend of weather sounds, urban textures, digital glitches, noises and echos anchored by distortions of Claude Debussy’s Clair de Lune, acts as a gateway to introspection. Sound shapes consciousness, altering states of mind and positioning participants in a space of saturated awareness, challenging them to navigate their internal landscapes amidst external stimuli. Inspired by Pauline Oliveros’ sonic meditations, the audio design confronts participants: what thoughts arise and pass? Where is one's place within their psyche?</p>
@@ -639,16 +665,21 @@ To strengthen its impact, the project will include personal stories from affecte
         <p>As participants linger in Ouroboros, they are empowered to resurface suppressed noise, nostalgia, and forgotten dreams. It encourages self-discovery amidst unpredictability, finding the constant sky beyond passing chaos, and reclaiming inner peace in a world where reality and representation blur. By offering a space to pause, play, and find stillness, Ouroboros challenges the very essence of control and authenticity, restoring the power of introspection to the people.</p>
     `
 }, 
-    livePerformance: {
-        title: "Live Performance Group Project, 2025",
-        media: '<img src="./gif/meta.gif" alt="Live Performance">',
-        description: `
-        <p>Metamorphosis is a reflective multimedia performance that traces the life cycle of a butterfly, intertwining live dance, video projection, and poetic storytelling. By following the butterfly's journey from birth to death and beyond, the performance explores life's transformative cycles and challenges conventional notions of beginnings and endings. Key themes include change, evolution, and growth, emphasizing how diverse environments shape development.</p>
-<p>The visual experience blends footage of nature with generative graphics created in TouchDesigner, sequenced in Isadora to enable real-time interaction and manipulation. The dancer embodies the butterfly through carefully designed projection and costume, employing silk chiffon techniques inspired by Isadora Duncan and Loïe Fuller to evoke the essence of flight.</p>
-<p>The soundscape establishes the emotional and environmental tone for the narrative, complemented by a spoken word poem that provides metaphorical insight into the butterfly’s life cycle.</p>
-<p>In this collaborative project, Sarah Kim’s role centers on sound design. She creates a generative soundscape using MAX/MSP and performs a live poem that narrates the choreography and video projections. Sarah’s soundscape aligns with the five scenes of the Isadora project, each featuring a distinct ambience. She collaborates with scriptwriter Adeline Ferolo to craft a narrative poem that integrates seamlessly with the story. During the performance, Sarah reads the poem on stage, with her voice woven into the sound environment through MAX/MSP.</p>
-        `
-    },
+livePerformance: {
+    title: "Metamorphosis, 2025",
+    media: `
+        <audio controls>
+            <source src="./audio/METAFINAL.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    `,
+    description: `
+        <p>In the live performance Metamorphosis, Sarah Kim collaborates as the creative lead and narrative sound designer with screenwriter and performer Adeline Ferolo and projection designer and mapper August Graham. Together, they craft and perform a living story, weaving powerful visuals processed in TouchDesigner, environmental and narrative sound produced in the digital audio workstation REAPER, and choreography to encapsulate an embodied narrative of transformation. Metamorphosis uses the life cycle of a butterfly as a metaphor and structure to convey the cyclical processes of life, death, and rebirth inherent to the human experience—physically, spiritually, and psychologically. Intentionally unrecorded, the performance exists only in the moment of its live presentation, emphasizing its transient, living essence and mirroring the fleeting nature of transformation itself. </p>
+        <p>Sarah crafts a narrative soundscape that serves as both the foundation and thematic driver of the performance. She employs recordings of her voice, environmental sounds, and foley work, processing them in REAPER to create an immersive auditory experience. Inspired by the concept of the Earth as the origin of all life, Sarah begins the piece with a deep rumble representing the Earth’s core, evoking primordial forces. This evolves through elemental sounds—fire, thunder, wind, rain—and into the gentle, nurturing ambience of a caterpillar’s egg, symbolizing the womb of creation. Her soundscape blends natural and electrical sounds, noise, and rhythms, layering textures of contemporary living to resonate with the complexities of modern existence. This fusion reflects what sound studies scholar Jonathan Sterne describes as the “sonic imagination,” where auditory environments mediate cultural and ecological relationships, bridging the natural and technological (Sterne, 2012).</p>
+        <p>The performance is structured around the five stages of the butterfly’s life cycle—prebirth egg, caterpillar, cocoon, butterfly, and death. Through these stages, Sarah guides the audience on a sonic and sensory journey, capturing the dramatic transformations of the living experience. Her ideation and development of the story draw deeply from the concept of cyclical life, challenging the illusion of discrete beginnings and endings and emphasizing wholeness in continuity. This perspective aligns with indigenous wisdoms across various cultures, which view death as a transitional phase within a larger, ongoing cycle. For instance, in many Native American traditions, such as those of the Lakota, life and death are seen as interconnected moments in a sacred hoop, where transformation is a constant process of renewal (Deloria, 2003). Similarly, Aboriginal Australian philosophies emphasize the “Dreamtime,” a cyclical temporality where past, present, and future coexist, and all life forms are part of an eternal continuum (Rose, 2000). Sarah’s work echoes these principles, using sound to dissolve linear narratives and evoke a sense of eternal return.</p>
+        <p>By integrating these cultural and philosophical insights, Metamorphosis becomes a multidimensional exploration of transformation. Sarah’s soundscape not only grounds the performance but also amplifies its universal resonance, inviting audiences to reflect on their own cycles of growth, loss, and rebirth within the broader tapestry of existence.</p>
+    `
+},
     inBetween: {
     title: "In Between, 2025",
     media: `
@@ -683,7 +714,7 @@ To strengthen its impact, the project will include personal stories from affecte
         title: "The Veil, 2024",
         media: '<img src="./gif/veil.gif">',
         description: `
-            <p>The Veil reinterprets the Sumerian myth Descent of Inanna, probing dichotomies—descent/ascent, death/rebirth—and their cyclical patterns in shaping perception. This generative multimedia installation uses selections of footage taken from documentary In Between to investigate how fragments of memory are complexly woven together in forming understanding through the living experience. The idea of déjà vu grounds the piece in its use of repetitive yet ever-shifting juxtapositions. Its audio, crafted in MAX/MSP, manipulates a heartbeat from clear to obscured, embodying sensemaking and mythic transition. The distortion lens is edited in Premiere Pro to layer in the sense of ambiguity of subjective experience. A veiled figure at the center symbolizes the undefined and uncommunicable, shifting focus to anonymity and mystery. Together, these components forge a space that questions identity, communication, and sense-making.</p>
+            <p>The Veil reinterprets the Sumerian myth Descent of Inanna, probing dichotomies—descent/ascent, death/rebirth—and their cyclical patterns in shaping perception. This generative multimedia installation uses selections of footage taken from documentary In Between to investigate how fragments of memory are complexly woven together in forming understanding through the living experience. The idea of déjà vu grounds the piece in its use of repetitive yet ever-shifting juxtapositions. Its audio, crafted in MAX/MSP, manipulates a heartbeat from clear to obscured, embodying sensemaking and mythic transition. The distortion lens is edited in Premiere Pro to layer in the sense of ambiguity of subjective experience. A veiled figure, Sarah fully concealed in a black cloak, at the center symbolizes the undefined and uncommunicable, shifting focus to anonymity and mystery. Together, these components forge a space that questions identity, communication, and sense-making.</p>
         `
     },
     omnipresentHeart: {
@@ -776,8 +807,8 @@ function showProjectModal(projectId) {
         mediaDiv.innerHTML = '';
         contentDiv.innerHTML = '';
 
-        // Set new content
-        titleDiv.innerHTML = `<h2>${project.title}</h2>`;
+        // Set new content with project-title class
+        titleDiv.innerHTML = `<h2 class="project-title">${project.title}</h2>`;
         mediaDiv.innerHTML = project.media;
         contentDiv.innerHTML = project.description;
         console.log('Media HTML set to:', mediaDiv.innerHTML);
@@ -787,7 +818,7 @@ function showProjectModal(projectId) {
         prevBtn.style.display = currentProjectIndex === 0 ? 'none' : 'block';
         nextBtn.style.display = currentProjectIndex === projectKeys.length - 1 ? 'none' : 'block';
 
-        // Handle video if present (though we'll use GIF now)
+        // Handle video if present
         const video = mediaDiv.querySelector('video');
         if (video) {
             video.load();
@@ -799,7 +830,6 @@ function showProjectModal(projectId) {
         document.getElementById('modal-body').scrollTop = 0;
     }
 }
-
 function showPreviousProject() {
     currentProjectIndex = (currentProjectIndex - 1 + projectKeys.length) % projectKeys.length;
     const prevProjectId = projectKeys[currentProjectIndex];
@@ -817,7 +847,7 @@ function showPreviousProject() {
             duration: 0.5,
             ease: "power2.in",
             onComplete: () => {
-                titleDiv.innerHTML = `<h2>${prevProject.title}</h2>`;
+                titleDiv.innerHTML = `<h2 class="project-title">${prevProject.title}</h2>`;
                 mediaDiv.innerHTML = prevProject.media;
                 contentDiv.innerHTML = prevProject.description;
                 modalBody.scrollTop = 0;
@@ -867,7 +897,7 @@ function showNextProject() {
             duration: 0.5,
             ease: "power2.in",
             onComplete: () => {
-                titleDiv.innerHTML = `<h2>${nextProject.title}</h2>`;
+                titleDiv.innerHTML = `<h2 class="project-title">${nextProject.title}</h2>`;
                 mediaDiv.innerHTML = nextProject.media;
                 contentDiv.innerHTML = nextProject.description;
                 modalBody.scrollTop = 0;
@@ -899,7 +929,6 @@ function showNextProject() {
         });
     }
 }
-
 // Add event listeners for navigation buttons
 document.getElementById('prev-project-btn').addEventListener('click', function() {
     showPreviousProject();
